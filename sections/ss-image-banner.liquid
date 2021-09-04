@@ -1,4 +1,4 @@
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'ss-section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- if section.settings.adapt_height_first_image and section.settings.image != blank -%}
   {%- style -%}
@@ -105,7 +105,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.image-banner.name",
+  "name": "SS Image Banner",
   "tag": "section",
   "class": "spaced-section spaced-section--full-width",
   "settings": [
@@ -216,7 +216,7 @@
         {
           "type": "text",
           "id": "heading",
-          "default": "Image banner",
+          "default": "SS Image banner",
           "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
         },
         {

@@ -331,7 +331,10 @@
               alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
             >
           {%- else -%}
+            {% comment %}
             <span class="h2">{{ shop.name }}</span>
+            {% endcomment %}
+            <span class="h2">SKYSCAPES</span>
           {%- endif -%}
         </a>
     {%- if request.page_type == 'index' -%}
