@@ -1,11 +1,42 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "163078684770a063b6": {
+      "type": "ss-image-banner",
+      "blocks": {
+        "1630786847141afa3c-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "SKYSCAPES",
+            "heading_size": "large"
+          }
+        },
+        "1630786847141afa3c-1": {
+          "type": "text",
+          "settings": {
+            "text": "PHOTO TOURS"
+          }
+        },
+        "1630786847141afa3c-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "FIND A TOUR",
+            "button_link_1": "",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "1630786847141afa3c-0",
+        "1630786847141afa3c-1",
+        "1630786847141afa3c-2"
+      ],
       "settings": {
         "image": "shopify:\/\/shop_images\/image.jpg",
         "adapt_height_first_image": false,
-        "desktop_text_box_position": "flex-end",
+        "desktop_text_box_position": "center",
         "show_text_box": true,
         "image_overlay_opacity": 0,
         "color_scheme": "background-1",
@@ -63,56 +94,11 @@
         "show_vendor": false,
         "show_rating": false
       }
-    },
-    "163078684770a063b6": {
-      "type": "ss-image-banner",
-      "blocks": {
-        "1630786847141afa3c-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "SS Image banner",
-            "heading_size": "medium"
-          }
-        },
-        "1630786847141afa3c-1": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template."
-          }
-        },
-        "1630786847141afa3c-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "1630786847141afa3c-0",
-        "1630786847141afa3c-1",
-        "1630786847141afa3c-2"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/image.jpg",
-        "adapt_height_first_image": false,
-        "desktop_text_box_position": "center",
-        "show_text_box": true,
-        "image_overlay_opacity": 0,
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
     }
   },
   "order": [
-    "image_banner",
+    "163078684770a063b6",
     "rich_text",
-    "featured_products",
-    "163078684770a063b6"
+    "featured_products"
   ]
 }

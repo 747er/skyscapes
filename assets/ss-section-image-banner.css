@@ -171,16 +171,6 @@
   }
 }
 
-.banner::after {
-  content: "";
-  position: absolute;
-  background: #000000;
-  opacity: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-}
-
 .banner__box > .banner__buttons {
   display: flex;
   align-items: baseline;
