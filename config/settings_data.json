@@ -7,8 +7,10 @@
     "colors_outline_button_labels": "#ffffff",
     "colors_background_1": "#000814",
     "colors_background_2": "#c1bcae",
-    "type_header_font": "futura_n4",
+    "type_header_font": "helvetica_n4",
     "type_body_font": "sans-serif",
+    "predictive_search_enabled": false,
+    "predictive_search_show_price": false,
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
