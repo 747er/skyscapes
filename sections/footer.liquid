@@ -74,6 +74,7 @@
         </div>
       {%- endif -%}
 
+      {% comment %}
       <div class="footer-block--newsletter">
         {%- if section.settings.newsletter_enable -%}
           <div class="footer-block__newsletter">
@@ -199,6 +200,7 @@
           </ul>
         {%- endif -%}
       </div>
+      {% endcomment %}
     </div>
   {%- endif -%}
 
@@ -303,10 +305,12 @@
             </ul>
           </div>
         {%- endif -%}
+        {% comment %}
         <div class="footer__copyright caption">
           <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
           <small class="copyright__content">{{ powered_by_link }}</small>
         </div>
+        {% endcomment %}
       </div>
     </div>
   </div>
