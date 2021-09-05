@@ -171,6 +171,10 @@ html.no-js .no-js-hidden {
   display: none !important;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
