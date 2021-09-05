@@ -53,15 +53,25 @@
           },
           "footer-1": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "heading": "Heading",
               "subtext": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
+            }
+          },
+          "36910d82-5b66-447c-91bd-597eb87b4f77": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/image.jpg",
+              "image_width": 100,
+              "alignment": "center"
             }
           }
         },
         "block_order": [
           "footer-0",
-          "footer-1"
+          "footer-1",
+          "36910d82-5b66-447c-91bd-597eb87b4f77"
         ],
         "settings": {
           "color_scheme": "background-1",
