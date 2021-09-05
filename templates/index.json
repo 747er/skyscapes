@@ -50,22 +50,22 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "THE GREATEST SHOW ON EARTH",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>During spring and summer along the plains of Tornado Alley, thunderstorms dominate the afternoon skies, presenting unique opportunities to witness these behemoths as they rumble across the prairies creating incredible storms to chase and document.<\/p><p>Have you envisioned yourself chasing these incredible epic, severe storms across the Great Plains in Tornado Alley and coming away with spectacular photography and memories of these unique events while being tutored by knowledgeable artists behind the lens? Then you have come to the right place to fulfill those dreams.<\/p>"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "Will Remove This",
             "button_link": "",
-            "button_style_secondary": false
+            "button_style_secondary": true
           }
         }
       },
@@ -79,14 +79,49 @@
         "full_width": true
       }
     },
+    "16307996127209fa21": {
+      "type": "image-with-text",
+      "blocks": {
+        "1630799612f370d258-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Interesting Title"
+          }
+        },
+        "1630799612f370d258-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Say something about getting close to the action but being safe.<\/p>"
+          }
+        },
+        "1630799612f370d258-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Sign Up Now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1630799612f370d258-0",
+        "1630799612f370d258-1",
+        "1630799612f370d258-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/unnamed4.jpg",
+        "height": "adapt",
+        "color_scheme": "background-1",
+        "layout": "image_first"
+      }
+    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "collection": "all",
+        "title": "Booking 2022 Now",
+        "collection": "frontpage",
         "products_to_show": 4,
         "show_view_all": true,
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "image_ratio": "square",
         "show_secondary_image": false,
         "add_image_padding": false,
@@ -99,6 +134,7 @@
   "order": [
     "163078684770a063b6",
     "rich_text",
+    "16307996127209fa21",
     "featured_products"
   ]
 }
