@@ -1788,11 +1788,13 @@ input[type="checkbox"] {
 
 /* section-header */
 #shopify-section-header {
+  position: fixed;
+  width: 100%;
   z-index: 3;
+  transition: transform 0.15s ease-out;
 }
 
 .shopify-section-header-sticky {
-  position: sticky;
   top: 0;
 }
 
@@ -1808,7 +1810,7 @@ input[type="checkbox"] {
 .header-wrapper {
   display: block;
   position: relative;
-  background-color: rgb(var(--color-background));
+  /* background-color: rgb(var(--color-background)); */
 }
 
 .header-wrapper--border-bottom {
