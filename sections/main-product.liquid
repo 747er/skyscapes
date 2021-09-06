@@ -11,19 +11,22 @@
 
 <style>
   .product__banner-image {
-    height: 60vh;
+    height: 70vh;
     width: 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;    
   }
 </style>
 
 <section class="full-width">
   <div class="product flex">
-    <div class="flex__item product__media-wrapper">
+    <div class="flex__item">
       <div class="product__banner-image" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}');">
           <div>{{ product.title | escape }}</div>
       </div>
     </div>
-    <div class="ss__product__info-wrapper flex__item">
+    <div class="ss__product__info-wrapper flex__item  page-width">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 

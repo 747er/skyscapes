@@ -1925,6 +1925,12 @@ input[type="checkbox"] {
   justify-self: end;
 }
 
+.header__icons-inline {
+  display: inline-flex;
+  grid-area: icons;
+  justify-self: end;
+}
+
 .header__icon:not(.header__icon--summary),
 .header__icon span {
   display: flex;
@@ -2116,7 +2122,6 @@ details[open] > .header__icon--menu .icon-hamburger {
 
 /* Header menu */
 .header__inline-menu {
-  margin-left: -1.2rem;
   grid-area: navigation;
   display: none;
 }
@@ -2128,7 +2133,9 @@ details[open] > .header__icon--menu .icon-hamburger {
 
 @media screen and (min-width: 990px) {
   .header__inline-menu {
-    display: block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .header--top-center .header__inline-menu {
