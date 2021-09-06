@@ -27,50 +27,6 @@
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
-
-  .ss_banner__box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .ss_banner__container {
-    text-align: center;
-    color: white;
-    top: 50%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-
-  .ss_banner__heading {
-    line-height: initial;
-    font-size: 75px;
-    margin-top: 0px;
-    margin-bottom: 0;
-  }
-
-  .banner__text {
-    color: #eab97f;
-    font-size: 30px;
-    margin-top: -30px;
-    font-weight: bold;
-    padding-left: 40px;
-    white-space: nowrap;
-    letter-spacing: 36px;
-  }
-
-  @media screen and (min-width: 990px) {
-    .ss_banner__heading {
-      font-size: 150px;
-    }
-
-    .banner__text {
-      font-size: 60px
-    }
-  }
-
 }
 {%- endstyle -%}
 

@@ -1788,15 +1788,16 @@ input[type="checkbox"] {
 
 /* section-header */
 #shopify-section-header {
-  top: 30px;
   position: fixed;
   width: 100%;
   z-index: 3;
   transition: transform 0.15s ease-out;
+  padding: 10px 0px;
 }
 
 .shopify-section-header-sticky {
   top: 0;
+  background-color: rgb(var(--color-background));
 }
 
 .shopify-section-header-hidden {
@@ -1882,7 +1883,6 @@ input[type="checkbox"] {
 
 .header__heading-link {
   display: inline-block;
-  padding: 0.75rem;
   text-decoration: none;
   word-break: break-word;
 }
@@ -2275,5 +2275,9 @@ details-disclosure > details {
 }
 
 #admin-bar-iframe {
+  display: none;
+}
+
+#preview-bar-iframe {
   display: none;
 }
