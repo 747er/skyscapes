@@ -1788,6 +1788,7 @@ input[type="checkbox"] {
 
 /* section-header */
 #shopify-section-header {
+  top: 30px;
   position: fixed;
   width: 100%;
   z-index: 3;
@@ -1799,11 +1800,7 @@ input[type="checkbox"] {
 }
 
 .shopify-section-header-hidden {
-  transform: translateY(-100%);
-}
-
-#shopify-section-header.animate {
-  transition: transform 0.15s ease-out;
+  transform: translateY(-200%);
 }
 
 /* Main Header Layout */
@@ -2126,6 +2123,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 .header__inline-menu {
   grid-area: navigation;
   display: none;
+  text-transform: uppercase;
 }
 
 .header--top-center .header__inline-menu,

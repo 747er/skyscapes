@@ -19,9 +19,9 @@
         "1630786847141afa3c-2": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "FIND A TOUR",
-            "button_link_1": "",
-            "button_style_secondary_1": true,
+            "button_label_1": "",
+            "button_link_1": "shopify:\/\/collections\/frontpage",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
