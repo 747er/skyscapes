@@ -409,6 +409,12 @@
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
 {%- endif -%}
 
+<script>
+  {%- if product.metafields.example_metafield.guides.value != blank -%}
+    console.log('product.metafields.example_metafield.guides.value: ', "{{product.metafields.example_metafield.guides.value}}")
+  {%- endif -%}
+</script>
+
 <script type="application/ld+json">
   {
     "@context": "http://schema.org/",
