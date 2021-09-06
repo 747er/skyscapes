@@ -234,14 +234,17 @@
                     {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                     >
                         {%- if product.selected_or_first_available_variant.available -%}
-                          {{ 'products.product.add_to_cart' | t }}
+                          Book Now
                         {%- else -%}
-                          {{ 'products.product.sold_out' | t }}
+                          Sold Out!
                         {%- endif -%}
                     </button>
-                    {%- if block.settings.show_dynamic_checkout -%}
-                      {{ form | payment_button }}
-                    {%- endif -%}
+                    {% comment %}
+                      {%- if block.settings.show_dynamic_checkout -%}
+                        {{ form | payment_button }}
+                      {%- endif -%}
+                    {% endcomment %}
+
                   </div>
                 {%- endform -%}
               </product-form>
@@ -410,9 +413,20 @@
 {%- endif -%}
 
 <script>
-  {%- if product.metafields.example_metafield.guides.value != blank -%}
-    console.log('product.metafields.example_metafield.guides.value: ', "{{product.metafields.example_metafield.guides.value}}")
+  const productInfo = {};
+  {%- if product.metafields.tour_info.start_date.value != blank -%}
+    console.log('product.metafields.tour_info.start_date.value: ', "{{product.metafields.tour_info.start_date.value}}");
+    productInfo.start_date = "{{product.metafields.tour_info.start_date.value}}";
   {%- endif -%}
+  {%- if product.metafields.tour_info.end_date.value != blank -%}
+    console.log('product.metafields.tour_info.end_date: ', "{{product.metafields.tour_info.end_date.value}}");
+    productInfo.end_date = "{{product.metafields.tour_info.end_date.value}}";
+  {%- endif -%}
+  {%- if product.metafields.tour_info.guides.value != blank -%}
+    console.log('product.metafields.tour_info.guides.value: ', "{{product.metafields.tour_info.guides.value}}");
+    productInfo.guides = "{{product.metafields.tour_info.guides.value}}";
+  {%- endif -%}
+  console.log('productInfo: ', productInfo);
 </script>
 
 <script type="application/ld+json">
@@ -493,6 +507,24 @@
         }
       ]
     },
+
+
+
+    {
+      "type": "guides",
+      "name": "Guides",
+      "settings": [
+        {
+          "type": "text",
+          "id": "guides",
+          "default": "Text block",
+          "label": "comma separated list of guides"
+        }
+      ]
+    },
+
+
+
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
