@@ -149,6 +149,10 @@
   --color-icon: rgb(var(--color-base-outline-button-labels));
 }
 
+.bg-dark-gray {
+  background: #333333;
+}
+
 /* base */
 
 .no-js:not(html) {
@@ -1801,6 +1805,7 @@ input[type="checkbox"] {
 }
 
 .shopify-section-header-hidden {
+  background-color: transparent;
   transform: translateY(-200%);
 }
 
