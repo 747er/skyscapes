@@ -5,3 +5,5 @@ config.yml
 node_modules
 src/js/vendor/*
 dump.rdb
+dist
+package-lock.json
