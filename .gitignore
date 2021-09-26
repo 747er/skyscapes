@@ -5,5 +5,9 @@ config.yml
 node_modules
 src/js/vendor/*
 dump.rdb
-dist
 package-lock.json
+
+# WEBPACK OUT
+dist
+*.bundle.js
+*.bundle.map.js
