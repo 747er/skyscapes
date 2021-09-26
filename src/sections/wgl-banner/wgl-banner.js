@@ -250,6 +250,7 @@ export default class Sketch {
 
 function loadImage(url, callback) {
   var image = new Image();
+  image.setAttribute("crossorigin", "anonymous");
   image.src = url;
   image.onload = callback;
   return image;

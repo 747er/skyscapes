@@ -18,14 +18,22 @@ body {
 }
 
 .frame__content {
+  top: 30%;
+  position: sticky;
   margin-bottom: 30vh;
-  line-height: 0.8;
+  line-height: 0.55;
   pointer-events: none;
-  font-size: 200px;
-  /* mix-blend-mode: soft-light; */
+  font-size: 150px;
   font-weight: normal;
   text-align: center;
   color: #fff;
+  /* mix-blend-mode: overlay; */
+}
+
+.frame__sub-content {
+  font-size: 75px;
+  letter-spacing: 20px;
+  color: #bcad75;
 }
 
 #gl {
@@ -47,22 +55,6 @@ body {
 
 canvas {
   display: block;
-}
-
-.frame__content {
-  position: sticky;
-  top: 30%;
-  line-height: 0.5;
-  font-size: 200px;
-  mix-blend-mode: initial;
-  font-weight: normal;
-  text-align: center;
-  color: #fff;
-}
-.frame__sub-content {
-  font-size: 100px;
-  letter-spacing: 30px;
-  color: #bcad75;
 }
 
 #main-scroll-indicator {
