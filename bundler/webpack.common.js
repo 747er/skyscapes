@@ -8,24 +8,13 @@ module.exports = {
     "wgl-banner": path.resolve(__dirname, "../src/sections/wgl-banner.js"),
   },
   output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "../assets/"),
+    filename: "[name].bundle.js",
   },
   devtool: "source-map",
-  plugins: [
-    new CopyWebpackPlugin({
-      patterns: [{ from: path.resolve(__dirname, "../static") }],
-    }),
-    new MiniCSSExtractPlugin(),
-  ],
+  plugins: [new MiniCSSExtractPlugin()],
   module: {
     rules: [
-      // HTML
-      {
-        test: /\.(html)$/,
-        use: ["html-loader"],
-      },
-
       // JS
       {
         test: /\.js$/,
