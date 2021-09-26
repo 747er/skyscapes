@@ -11,3 +11,4 @@ package-lock.json
 dist
 *.bundle.js
 *.bundle.js.map
+*.css.map
