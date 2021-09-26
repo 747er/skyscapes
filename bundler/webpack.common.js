@@ -5,14 +5,16 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    "wgl-banner": path.resolve(__dirname, "../src/sections/wgl-banner.js"),
+    "wgl-banner": path.resolve(
+      __dirname,
+      "../src/sections/wgl-banner/wgl-banner.js"
+    ),
   },
   output: {
     path: path.resolve(__dirname, "../assets/"),
     filename: "[name].bundle.js",
   },
   devtool: "source-map",
-  plugins: [new MiniCSSExtractPlugin()],
   module: {
     rules: [
       // JS
@@ -24,8 +26,11 @@ module.exports = {
 
       // CSS
       {
-        test: /\.css$/,
-        use: [MiniCSSExtractPlugin.loader, "css-loader"],
+        test: /\.css$/i,
+        use: [
+          { loader: "style-loader", options: { injectType: "styleTag" } },
+          "css-loader",
+        ],
       },
 
       // Images
