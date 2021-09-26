@@ -10,4 +10,4 @@ package-lock.json
 # WEBPACK OUT
 dist
 *.bundle.js
-*.bundle.map.js
+*.bundle.js.map
