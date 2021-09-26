@@ -1,5 +1,6 @@
 // Add again if webpack
-// import GyroNorm from "./lib/gyronorm.js";
+import GyroNorm from "../../../static/lib/gyronorm.js";
+import "./styles.css";
 
 const fragment = `
 #ifdef GL_ES
@@ -38,7 +39,7 @@ void main() {
 }
 `;
 
-const gn = new GyroNorm();
+const gn = new GyroNorm.GyroNorm();
 
 export default class Sketch {
   constructor() {
