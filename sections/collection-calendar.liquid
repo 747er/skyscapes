@@ -1,0 +1,41 @@
+<div class="shopify-section spaced-section">
+    <div class="page-width">
+        <div class="info-block-container">
+            <div class="info-block">
+                <div class="info-header">Our Promise</div>
+                <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+            </div>
+        </div>
+        <div class="info-block-container">
+            <div class="info-block">
+                <div class="info-header">Something Else</div>
+                <div class="info-content">Our trips are filling fast so please contact us if you have any questions so we can make you feel comfortable with your choice.</div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Calendar",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-banner.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_map",
+      "label": "t:sections.image-banner.settings.image_map.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Calendar"
+    }
+  ]
+}
+{% endschema %}
