@@ -1794,7 +1794,7 @@ input[type="checkbox"] {
 #shopify-section-header {
   position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 1000;
   transition: transform 0.15s ease-out;
   padding: 10px 0px;
 }
