@@ -19,14 +19,13 @@ body {
 
 .frame__content {
   top: 30%;
+  color: #fff;
   position: sticky;
-  margin-bottom: 30vh;
-  line-height: 0.55;
-  pointer-events: none;
   font-size: 150px;
+  line-height: 0.55;
   font-weight: normal;
   text-align: center;
-  color: #fff;
+  margin-bottom: 30vh;
   /* mix-blend-mode: overlay; */
 }
 
@@ -34,6 +33,7 @@ body {
   font-size: 75px;
   letter-spacing: 20px;
   color: #eab97f;
+  font-weight: normal;
 }
 
 #gl {
