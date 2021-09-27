@@ -2454,3 +2454,23 @@ details-disclosure > details {
   color: #151617;
   cursor: pointer;
 }
+
+.cal-image-heading {
+  top: 40%;
+  left: 50%;
+  line-height: 1;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 2vh black;
+}
+
+.cal-headline {
+  font-size: 40px;
+}
+
+.cal-heading {
+  font-size: 75px;
+  font-weight: bold;
+  color: var(--gold);
+}
