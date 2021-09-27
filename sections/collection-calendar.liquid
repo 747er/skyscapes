@@ -28,7 +28,6 @@
               <div class="cal-dates">Dates</div>
               <div class="cal-guide">Guides</div>
               <div class="cal-price">Price</div>
-              <div class="cal-button"></div>
             </div>
             <div class="product-grid">
               {%- for product in collection.products -%}
@@ -40,13 +39,6 @@
                   </div>
                   <div class="cal-guide">-{{ product.metafields.tour_info.guides }}</div>
                   <div class="cal-price">-{% render 'simple-price', product: product %}</div>
-                  <div class="cal-button">
-                    <div class="register-button">
-                      <a href="#">
-                        <p><span class="bg"></span><span class="base"></span><span class="text">REGISTER</span></p>
-                      </a>
-                    </div>
-                  </div>
                 </div>
               {%- endfor -%}
             </div>
