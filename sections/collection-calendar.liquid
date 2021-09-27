@@ -7,29 +7,49 @@
             <div class="highlight"></div>
           </div>
         </div>
-        <div class="info-block-container">
+        <!-- <div class="info-block-container">
             <div class="info-block accent">
                 <div class="info-header color-text-accent-1">Our Promise</div>
                 <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
             </div>
-        </div>
+        </div> -->
         <div class="info-block-container">
             <div class="info-block">
-                <div class="info-header color-text-accent-1">Something Else</div>
-                <div class="info-content">Our trips are filling fast so please contact us if you have any questions so we can make you feel comfortable with your choice.</div>
+                <div class="info-header color-text-accent-1">Trip Information</div>
+                <div class="info-content">Select your preferred trip and departure date below. For more information about our tours, please review our tour page highlighting more details about every trip.</div>
             </div>
         </div>
         
-        <div>Select a Tour</div>
+        <div class="cal-cta-heading">Select a Tour</div>
 
         <div class="calendar-container">
-          {%- for product in collection.products -%}
-            <div class="product-row">
-              <div class="cal-title"><a href="{{ product.url }}">{{product.title}}</a></div>
-              <div class="cal-price">{% render 'price', product: product %}</div>
-              <div class="cal-guide">{{ product.metafields.tour_info.guides }}</div>
+            <div class="product-row product-row-header">
+              <div class="cal-title">Tour</div>
+              <div class="cal-dates">Dates</div>
+              <div class="cal-guide">Guides</div>
+              <div class="cal-price">Price</div>
+              <div class="cal-button"></div>
             </div>
-          {%- endfor -%}
+            <div class="product-grid">
+              {%- for product in collection.products -%}
+                <div class="product-row">
+                  <div class="cal-title"><a href="{{ product.url }}">{{product.title}}</a></div>
+                  <div class="cal-dates">
+                    {{ product.metafields.tour_info.start_date }} -<br>
+                    {{ product.metafields.tour_info.end_date }}
+                  </div>
+                  <div class="cal-guide">-{{ product.metafields.tour_info.guides }}</div>
+                  <div class="cal-price">-{% render 'simple-price', product: product %}</div>
+                  <div class="cal-button">
+                    <div class="register-button">
+                      <a href="#">
+                        <p><span class="bg"></span><span class="base"></span><span class="text">REGISTER</span></p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
         </div>
     </div>
 </div>
