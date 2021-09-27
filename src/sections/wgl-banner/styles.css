@@ -61,7 +61,7 @@ canvas {
   position: absolute;
   color: white;
   left: 30px;
-  bottom: 75px;
+  bottom: 30px;
   margin-bottom: 30px;
   will-change: opacity;
   pointer-events: none;

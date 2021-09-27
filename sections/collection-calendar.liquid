@@ -20,10 +20,16 @@
             </div>
         </div>
         
-        <div class="calendar-container">
-          <div>
+        <div>Select a Tour</div>
 
-          </div>
+        <div class="calendar-container">
+          {%- for product in collection.products -%}
+            <div class="product-row">
+              <div class="cal-title"><a href="{{ product.url }}">{{product.title}}</a></div>
+              <div class="cal-price">{% render 'price', product: product %}</div>
+              <div class="cal-guide">{{ product.metafields.tour_info.guides }}</div>
+            </div>
+          {%- endfor -%}
         </div>
     </div>
 </div>
