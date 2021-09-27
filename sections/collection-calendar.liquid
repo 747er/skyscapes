@@ -52,15 +52,16 @@
             </div>
             <div class="product-grid">
               {%- for product in collection.products -%}
-                <div class="product-row">
-                  <div class="cal-title"><a href="{{ product.url }}">{{product.title}}</a></div>
-                  <div class="cal-dates">
-                    {{ product.metafields.tour_info.start_date }} -<br>
-                    {{ product.metafields.tour_info.end_date }}
+                <a class="product-row-link" href="{{ product.url }}">
+                  <div class="product-row">
+                    <div class="cal-title">{{product.title}}</div>
+                    <div class="cal-dates">
+                      {{ product.metafields.tour_info.start_date }} - {{ product.metafields.tour_info.end_date }}
+                    </div>
+                    <div class="cal-guide">{{ product.metafields.tour_info.guides }}</div>
+                    <div class="cal-price">{% render 'simple-price', product: product %}</div>
                   </div>
-                  <div class="cal-guide">-{{ product.metafields.tour_info.guides }}</div>
-                  <div class="cal-price">-{% render 'simple-price', product: product %}</div>
-                </div>
+                </a>
               {%- endfor -%}
             </div>
         </div>

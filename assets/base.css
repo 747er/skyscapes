@@ -2377,8 +2377,9 @@ details-disclosure > details {
 }
 
 .cal-cta-heading {
-  position: relative;
+  color: white;
   font-size: 30px;
+  position: relative;
   padding: 60px 0px 30px;
 }
 
@@ -2394,17 +2395,17 @@ details-disclosure > details {
 }
 
 .calendar-container {
-  color: white;
+  color: #c4c4c5;
 }
 
 .calendar-container .product-grid {
-  background-color: #606c75;
-  border: 1px solid #3a454e;
   font-size: 20px;
+  border: 1px solid #414244;
 }
 
 .product-row-header {
   font-size: 24px;
+  color: var(--gold);
 }
 
 .product-row {
@@ -2412,8 +2413,14 @@ details-disclosure > details {
   padding: 5px 10px;
 }
 
-.product-row:nth-child(even) {
-  background: #3a454e;
+.product-row-link {
+  display: block;
+  text-decoration: none;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.product-row-link:nth-child(even) .product-row {
+  background: #414244;
 }
 
 .cal-title {
@@ -2422,7 +2429,7 @@ details-disclosure > details {
 }
 
 .cal-title a {
-  color: white;
+  color: #c4c4c5;
   text-decoration: none;
 }
 
@@ -2435,7 +2442,7 @@ details-disclosure > details {
 }
 
 .cal-dates {
-  width: 20%;
+  width: 30%;
 }
 
 .cal-button {
