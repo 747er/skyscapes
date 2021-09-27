@@ -18,6 +18,10 @@
   --gradient-background: rgb(var(--color-base-text));
 }
 
+.color-text-accent-1 {
+  color: var(--gradient-base-accent-1);
+}
+
 .color-accent-1 {
   --color-foreground: var(--color-base-solid-button-labels);
   --color-background: var(--color-base-accent-1);
@@ -1796,12 +1800,17 @@ input[type="checkbox"] {
   width: 100%;
   z-index: 1000;
   transition: transform 0.15s ease-out;
-  padding: 10px 0px;
+  padding: 20px 0px;
 }
 
 .shopify-section-header-sticky {
   top: 0;
+
   background-color: rgb(var(--color-background));
+}
+
+#shopify-section-header.shopify-section-header-sticky {
+  padding: 10px 0px;
 }
 
 .shopify-section-header-hidden {
@@ -1908,7 +1917,7 @@ input[type="checkbox"] {
 
 @media screen and (min-width: 990px) {
   .header__heading-link {
-    margin-left: -0.75rem;
+    /* margin-left: -0.75rem; */
   }
 
   .header__heading,
@@ -1933,6 +1942,7 @@ input[type="checkbox"] {
   display: inline-flex;
   grid-area: icons;
   justify-self: end;
+  display: none;
 }
 
 .header__icon:not(.header__icon--summary),
@@ -2161,7 +2171,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 }
 
 .header__menu-item {
-  padding: 1.2rem;
+  padding: 1.2rem 0 1.2rem 2.4rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
 }
@@ -2285,4 +2295,53 @@ details-disclosure > details {
 
 #preview-bar-iframe {
   display: none;
+}
+
+/* COLLECTION CALENDAR */
+#calendar-section {
+  margin-top: 8rem;
+}
+.info-block-container {
+  display: block;
+  margin: 60px 0px;
+}
+.info-block {
+  display: flex;
+  flex-direction: column;
+}
+.info-block .info-header {
+  width: 100%;
+  padding-bottom: 20px;
+}
+.info-block .info-content {
+  width: 100%;
+}
+@media screen and (min-width: 750px) {
+  .info-block {
+    flex-direction: row;
+  }
+  .info-block .info-header {
+    width: 30%;
+  }
+  .info-block .info-content {
+    width: 70%;
+  }
+}
+
+.image-block {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  margin-bottom: 60px;
+  background-color: #3a454e;
+}
+
+.highlights-bar {
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  background-color: #12181f;
 }

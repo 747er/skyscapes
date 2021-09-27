@@ -67,12 +67,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.5rem;
+    /* padding: 0 1.5rem; */
   }
 
   @media screen and (min-width: 750px) {
     #ss-header {
-      padding: 0px 60px;
+      /* padding: 0px 60px; */
     }
   }
   
@@ -84,7 +84,7 @@
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
-<{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper {% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} class="header-wrapper page-width{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   <header id="ss-header" class="{% if section.settings.menu != blank %} header--has-menu{% endif %}">
 
 
