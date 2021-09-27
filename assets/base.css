@@ -2331,12 +2331,15 @@ details-disclosure > details {
   }
 }
 
-.image-block {
+.cal-image-block {
   width: 100%;
   height: 60vh;
   position: relative;
   margin-bottom: 60px;
   background-color: #3a454e;
+  background-size: cover;
+  background-position: center 75%;
+  background-repeat: no-repeat;
 }
 
 .highlights-bar {
@@ -2376,7 +2379,7 @@ details-disclosure > details {
 .cal-cta-heading {
   position: relative;
   font-size: 30px;
-  padding: 20px 0px;
+  padding: 60px 0px 30px;
 }
 
 .cal-cta-heading::after {
@@ -2391,7 +2394,6 @@ details-disclosure > details {
 }
 
 .calendar-container {
-  margin-top: 60px;
   color: white;
 }
 
