@@ -1,6 +1,11 @@
 /* Color custom properties */
 :root {
-  --gold: #bcad75;
+  /* --gold: #bcad75; */
+  --gold: #ffe584;
+}
+
+.font-gold {
+  color: var(--gold);
 }
 
 :root,
@@ -26,7 +31,8 @@
 }
 
 .color-text-accent-1 {
-  color: var(--gradient-base-accent-1);
+  /* color: var(--gradient-base-accent-1); */
+  color: var(--gold);
 }
 
 .color-accent-1 {
@@ -2487,4 +2493,18 @@ details-disclosure > details {
   font-size: 75px;
   font-weight: bold;
   color: var(--gold);
+}
+
+/* BANNER IMAGE */
+.banner-container {
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.banner-h1 {
+  margin: 0;
+  font-size: 100px;
 }
