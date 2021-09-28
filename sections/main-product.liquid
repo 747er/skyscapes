@@ -28,6 +28,50 @@
     </div>
     <div class="ss__product__info-wrapper flex__item  page-width">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
+
+        <div class="info-block-container">
+          <div class="info-block accent">
+              <div class="info-header color-text-accent-1">EXPEDITION OVERVIEW</div>
+              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>
+        <div class="info-block-container">
+          <div class="info-block accent">
+              <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
+              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>
+        <div class="info-block-container">
+          <div class="info-block accent">
+              <div class="info-header color-text-accent-1">ITINERARY</div>
+              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>
+        <div class="info-block-container">
+          <div class="info-block accent">
+              <div class="info-header color-text-accent-1">WHAT TO EXPECT</div>
+              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>
+        <div class="info-block-container">
+          <div class="info-block accent">
+              <div class="info-header color-text-accent-1">ACCOMMODATIONS</div>
+              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>
+        <div class="info-block-container">
+          <div class="info-block accent">
+              <div class="info-header color-text-accent-1">PEACE OF MIND</div>
+              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>
+        <div class="info-block-container">
+          <div class="info-block accent">
+              <div class="info-header color-text-accent-1">WHAT'S INCLUDED</div>
+              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>
+
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
         {%- for block in section.blocks -%}
@@ -329,12 +373,6 @@
     </div>
   </product-modal>
 
-  <div class="info-block-container">
-    <div class="info-block accent">
-        <div class="info-header color-text-accent-1">Our Promise</div>
-        <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
-    </div>
-  </div>
 
   {% assign popups = section.blocks | where: "type", "popup" %}
   {%- for block in popups -%}
