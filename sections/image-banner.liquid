@@ -77,7 +77,7 @@
     </div>
   {%- endif -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_text_box_position }} page-width">
-    <div class="banner__box color-{{ section.settings.color_scheme }}">
+    <div class="banner__box color-{{ section.settings.color_scheme }}-half">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
