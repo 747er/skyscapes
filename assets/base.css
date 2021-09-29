@@ -1,7 +1,13 @@
 /* Color custom properties */
 :root {
+  /* Jesuit Gold */
   /* --gold: #bcad75; */
+  /* BRIGHT GOLD */
   --gold: #ffe584;
+  /* MEDIUM GOLD */
+  --muted-gold: #d4bf71;
+  /* GOLD FROM NOTES */
+  --burnt-gold: #8a764a;
 }
 
 .font-gold {
@@ -2386,7 +2392,7 @@ details-disclosure > details {
 }
 
 .highlights-bar .highlight .highlight-title {
-  color: var(--gold);
+  color: var(--muted-gold);
 }
 
 .cal-cta-heading {
@@ -2418,7 +2424,7 @@ details-disclosure > details {
 
 .product-row-header {
   font-size: 24px;
-  color: var(--gold);
+  color: var(--muted-gold);
 }
 
 .product-row {
@@ -2470,7 +2476,7 @@ details-disclosure > details {
 }
 
 .calendar-container .product-grid .product-row:hover {
-  background-color: var(--gold);
+  background-color: var(--burnt-gold);
   color: #151617;
   cursor: pointer;
 }
