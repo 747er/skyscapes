@@ -2,15 +2,38 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false
+      }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "collapse_on_larger_devices": false
+      }
+    },
+    "1632705320eff360f8": {
+      "type": "collection-calendar",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/15.jpg"
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "1632705320eff360f8"
   ]
 }

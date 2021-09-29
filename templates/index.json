@@ -1,47 +1,10 @@
 {
   "sections": {
-    "163078684770a063b6": {
-      "type": "ss-image-banner",
-      "blocks": {
-        "1630786847141afa3c-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "SKYSCAPE",
-            "heading_size": "large"
-          }
-        },
-        "1630786847141afa3c-1": {
-          "type": "text",
-          "settings": {
-            "text": "PHOTO TOURS"
-          }
-        },
-        "1630786847141afa3c-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "",
-            "button_link_1": "shopify:\/\/collections\/frontpage",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "1630786847141afa3c-0",
-        "1630786847141afa3c-1",
-        "1630786847141afa3c-2"
-      ],
+    "1632611843c4d35cb8": {
+      "type": "wgl-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/image.jpg",
-        "adapt_height_first_image": false,
-        "desktop_text_box_position": "center",
-        "show_text_box": true,
-        "image_overlay_opacity": 0,
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "image": "shopify:\/\/shop_images\/mount.jpg",
+        "image_map": "shopify:\/\/shop_images\/milesMap-try.jpg"
       }
     },
     "rich_text": {
@@ -85,20 +48,20 @@
         "1630799612f370d258-0": {
           "type": "heading",
           "settings": {
-            "heading": "Interesting Title"
+            "heading": "Redefining the Plains"
           }
         },
         "1630799612f370d258-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Say something about getting close to the action but being safe.<\/p>"
+            "text": "<p>Our mission statement is to safely position you in front and near these gargantuan mesocyclones and weather phenomenon of nature and to help you capture compelling photographs and multimedia of all the action, structure, light and color.<br\/><\/p>"
           }
         },
         "1630799612f370d258-2": {
           "type": "button",
           "settings": {
-            "button_label": "Sign Up Now",
-            "button_link": ""
+            "button_label": "Find a Tour",
+            "button_link": "shopify:\/\/collections\/2022"
           }
         }
       },
@@ -132,7 +95,7 @@
     }
   },
   "order": [
-    "163078684770a063b6",
+    "1632611843c4d35cb8",
     "rich_text",
     "16307996127209fa21",
     "featured_products"
