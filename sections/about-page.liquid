@@ -1,4 +1,12 @@
+{% comment %}
 <script src="{{ 'about.bundle.js' | asset_url }}" async="async"></script>
-
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
+{% endcomment %}
+
+<div class="page-width">
+    <h1>About</h1>
+    {% assign guide = 'Ryan' %}
+    {% render 'guide', guide: guide %}
+</div>
+
