@@ -1,0 +1,52 @@
+.guides-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-container {
+  display: flex;
+  position: relative;
+  min-height: 50vh;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+/* .guide-container.abbreviated .guide-bio, */
+.guide-container.abbreviated .guide-socials {
+  display: none;
+}
+
+.guide-socials {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+.guide-banner {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+}
+
+.guide-heading {
+  letter-spacing: 10px;
+}
+
+.guide-header {
+  margin: 0.4em 0;
+  color: var(--muted-gold);
+}
+
+.guide-pic {
+  width: 40%;
+  background-color: black;
+}
+
+.guide-content {
+  width: 60%;
+}
+
+.guide-bio {
+  margin-top: 30%;
+  padding: 0 20px 45px 60px;
+}

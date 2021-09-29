@@ -2338,6 +2338,17 @@ details-disclosure > details {
 .info-block .info-content {
   width: 100%;
 }
+
+.info-block.force-column {
+  flex-direction: column;
+}
+.info-block.force-column .info-header {
+  width: 100%;
+}
+.info-block.force-column .info-content {
+  width: 100%;
+}
+
 @media screen and (min-width: 750px) {
   .info-block {
     flex-direction: row;

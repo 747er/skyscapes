@@ -5,6 +5,7 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{{ 'guide.css' | asset_url | stylesheet_tag }}
 
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
@@ -50,7 +51,7 @@
           </div>
         </div>
         <div class="info-block-container">
-          <div class="info-block accent">
+          <div class="info-block force-column accent">
               <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
               <div class="info-content">
                 

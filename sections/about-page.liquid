@@ -1,12 +1,22 @@
+{{ 'about.css' | asset_url | stylesheet_tag }}
+{{ 'guide.css' | asset_url | stylesheet_tag }}
+
 {% comment %}
 <script src="{{ 'about.bundle.js' | asset_url }}" async="async"></script>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
 {% endcomment %}
 
-<div class="page-width">
-    <h1>About</h1>
-    {% assign guide = 'Ryan' %}
-    {% render 'guide', guide: guide %}
+<div class="page-width about-content">
+    <h1>About Us</h1>
+    <p>Have lots to say about the team here.</p>
+    <h1>Meet the Team</h1>
+    <div class="guides-container">
+        {% assign guides = 'Steve,Bruce,Ryan,Miles' %}
+        {% assign guide_arr = guides | split: ',' %}
+        {% for guide in guide_arr %}
+            {% render 'guide', guide: guide %}
+        {% endfor %}    
+    </div>
 </div>
 
