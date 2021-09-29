@@ -1,40 +1,55 @@
 {% case guide %}
     {% when 'Ryan' %}
-        <h1>Ryan</h1>
-        {% unless abbreviated  %}
+        {%- capture guide_name -%}Ryan Dyar{%- endcapture -%}
+        {%- capture instagram_handle -%}ryandyar{%- endcapture -%}
+        {%- capture title -%}Workshop Leader{%- endcapture -%}
+        {%- capture bio -%}
             Seattle-based special guest workshop leader Ryan Dyar brings a visionary and celebrated body of work to your storm chase workshop. His unique and incredible light capturing style has captivated the art world for many years. Hailing from the Pacific Northwest, Dyar's playground of landscapes, seascapes and light has given him an amazing opportunity to refine his art to the highest levels of photography.
             As a chase tour leader, he will be bringing a considerable amount of skills to help you chase mesocyclones along the Great Plains and teach you how to create impactful moments in the field and refine your photo to maximize your vision with your captures. 
             @ryandyar on IG
             https://www.facebook.com/ryandyar
             www.500px.com/ryandyar
             www.flickr.com/ryandyar
-        {% endunless %}
+        {%- endcapture -%}
     {% when 'Steve' %}
-        <h1>Steve</h1>
-        {% unless abbreviated  %}
+        {%- capture guide_name -%}Steve Saviano{%- endcapture -%}
+        {%- capture instagram_handle -%}skyscapetours{%- endcapture -%}
+        {%- capture bio -%}
             Educated in Meteorology, Chase Tour lead forecaster and co-founder Steve Saviano has taken his talent and education in weather and forecasting studies to become a dependable and keynote storm chaser with over a decade of storm chasing experience, documenting many historic and signature storms. His ability to place clients and himself in strategic positioning to maximize storm potential is meticulous and celebrated.
             Naturally gifted as a musician with a cerebral and passionate mind for natural weather, Mr. Saviano has earned his reputation by being accessible and a great teacher and ambassador to the meteorological world. His familiarity with the mechanics of storm movement will educate and astound you as he brings science and understanding to your storm chase experience.
             Mr. Saviano's versatility extends to his photography skills and the ability to assist you capture an amazing storm documentation for our journey through the beauty of spring and summer along the great wide open of the Great Plains.
             @skyscape2020 on IG
-        {% endunless %}
+        {%- endcapture -%}
     {% when 'Miles' %}
-        <h1>Miles</h1>
-        {% unless abbreviated  %}
+        {%- capture guide_name -%}Miles Morgan{%- endcapture -%}
+        {%- capture instagram_handle -%}ryandyar{%- endcapture -%}
+        {%- capture title -%}Workshop Leader{%- endcapture -%}
+        {%- capture bio -%}
             Portland-based special guest workshop leader Miles Morgan is a chocolate-cookie aficionado, airline pilot and amazing photographer. His ability to find amazing light and compositions on the fly (pun intended) is an amazing asset to your storm chase workshop. With a unique understanding of the weather above (and below) his vision of clouds and compositions will be amazing to help you during your chase.
             As a chase tour leader, his highly approachable personality and accessibility will help you as we chase mesocyclones along the Great Plains and teach you how to create impactful moments in the field and refine your photo to maximize your vision with your captures. 
             @milesmorganphotography on IG
             www.500px.com/milesmorganphotography
-        {% endunless %}
+        {%- endcapture -%}
     {% when 'Bruce' %}
-        <h1>Bruce</h1>
-        {% unless abbreviated  %}
-            Guest chase leader Bruce Omori, master of extreme exposure photography has created incredible documentation of Pele's eruptions on the Big Island of Hawai'i. Many of which have been featured and celebrated worldwide in media. His artistic vision has even been honored with an incredible display at the prestigious Smithsonian Museum.
-            Through these images brudduh Bruce has captured, his desire is to share with you, the beauty he sees and the talent and knowledge he brings to our expeditions. His talent and vision is an asset for your chase tour. E hui pu i kealapono.
-            @bruceomori on IG
-            https://www.facebook.com/extremeexposurefineartgallery
-            https://www.extremeexposure.com/
-            https://500px.com/p/bruceomori
-        {% endunless %}
+        {%- capture guide_name -%}Miles Morgan{%- endcapture -%}
+        {%- capture instagram_handle -%}ryandyar{%- endcapture -%}
+        {%- capture title -%}Workshop Leader{%- endcapture -%}
+        {%- capture bio -%}
+        Guest chase leader Bruce Omori, master of extreme exposure photography has created incredible documentation of Pele's eruptions on the Big Island of Hawai'i. Many of which have been featured and celebrated worldwide in media. His artistic vision has even been honored with an incredible display at the prestigious Smithsonian Museum.
+        Through these images brudduh Bruce has captured, his desire is to share with you, the beauty he sees and the talent and knowledge he brings to our expeditions. His talent and vision is an asset for your chase tour. E hui pu i kealapono.
+        @bruceomori on IG
+        https://www.facebook.com/extremeexposurefineartgallery
+        https://www.extremeexposure.com/
+        https://500px.com/p/bruceomori
+        {%- endcapture -%}
     {% else %}
     <h1>Do nothing</h1>
 {% endcase %}
+
+
+<h1>{{guide_name}}</h1>
+{{instagram_handle}}
+
+{% unless abbreviated  %}
+{{bio}}
+{% endunless %}
