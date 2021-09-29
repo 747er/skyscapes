@@ -57,7 +57,7 @@
                 {% assign guide_arr = product.metafields.tour_info.guides.value | split: ',' %}
                   
                 {% for guide in guide_arr %}
-                  {% render 'guide', guide: guide %}
+                  {% render 'guide', guide: guide, abbreviated: true %}
                 {% endfor %}
                 
 
