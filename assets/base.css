@@ -38,7 +38,7 @@
 
 .color-text-accent-1 {
   /* color: var(--gradient-base-accent-1); */
-  color: var(--gold);
+  color: var(--muted-gold);
 }
 
 .color-accent-1 {
@@ -2498,7 +2498,7 @@ details-disclosure > details {
 .cal-heading {
   font-size: 75px;
   font-weight: bold;
-  color: var(--gold);
+  color: var(--muted-gold);
 }
 
 /* BANNER IMAGE */
