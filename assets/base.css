@@ -2413,7 +2413,7 @@ details-disclosure > details {
   padding: 60px 0px 30px;
 }
 
-.cal-cta-heading::after {
+/* .cal-cta-heading::after {
   background: #e6e6e6;
   top: 0;
   left: 0;
@@ -2422,7 +2422,7 @@ details-disclosure > details {
   overflow: hidden;
   position: absolute;
   width: 100%;
-}
+} */
 
 .calendar-container {
   color: #c4c4c5;
