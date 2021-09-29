@@ -9,6 +9,7 @@ module.exports = {
       __dirname,
       "../src/sections/wgl-banner/wgl-banner.js"
     ),
+    about: path.resolve(__dirname, "../src/sections/about/about.js"),
   },
   output: {
     path: path.resolve(__dirname, "../assets/"),
@@ -19,9 +20,14 @@ module.exports = {
     rules: [
       // JS
       {
-        test: /\.js$/,
+        test: /\.?js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
       },
 
       // CSS
