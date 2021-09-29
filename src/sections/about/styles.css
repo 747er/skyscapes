@@ -1,0 +1,10 @@
+@import "../../../node_modules/modern-normalize/modern-normalize.css";
+@import "../../snippets/local-reset.css";
+
+.test {
+  color: white;
+}
+
+.about-head {
+  color: tomato;
+}
