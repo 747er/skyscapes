@@ -2525,3 +2525,33 @@ details-disclosure > details {
   margin: 0;
   font-size: 100px;
 }
+
+/* BODY */
+body {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.06rem;
+  line-height: 1.8;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+}
+
+body.fixed-height {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: url("./background.jpg");
+  background-size: cover;
+  margin-top: 0;
+}
+
+body.fixed-height #MainContent {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
