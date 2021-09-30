@@ -1,8 +1,18 @@
+#calendar-section {
+  width: 100vw;
+  height: 100vh;
+  background: url("./background.jpg");
+  background-size: cover;
+  overflow: auto;
+  margin-top: 0;
+  padding-top: 8rem;
+}
+
 /* 
 HEAVY REWRITE NEEDED BELOW
 */
 
-.experienceShow-sectionTitle.mod-destination {
+.cal-card-sectionTitle.mod-destination {
   font-size: 36px;
   line-height: 43px;
   color: #fff;
@@ -10,7 +20,7 @@ HEAVY REWRITE NEEDED BELOW
   text-align: left;
 }
 
-.experienceShow-sectionTitle {
+.cal-card-sectionTitle {
   margin-bottom: 45px;
   margin-top: 0;
 }
@@ -18,11 +28,6 @@ HEAVY REWRITE NEEDED BELOW
 .h-title3 {
   font-size: 24px;
   font-weight: 400;
-}
-
-.experienceShowsList {
-  margin: auto;
-  width: 100%;
 }
 
 .workshop-flex {
@@ -36,26 +41,34 @@ HEAVY REWRITE NEEDED BELOW
   display: table;
 }
 
-.experienceShow {
+.cal-card {
   margin: 0 auto 73px;
   max-width: 381px;
   position: relative;
+  border-radius: 18px;
+  background: #1d1d1d;
+  box-shadow: 5px 5px 15px rgb(0 0 0 / 90%);
+}
+
+.cal-card:hover {
+  box-shadow: 5px 5px 15px #dbbc8f66;
 }
 
 .col-md-8 {
   width: 33.3333333333%;
 }
 
-.experienceShowsList @media {
+.cal-cardsList @media {
   float: left;
 }
 
-.experienceShow {
+.cal-card {
+  cursor: pointer;
   min-height: 566px;
   margin-bottom: 60px;
 }
 
-.experienceShow-pictureContainer {
+.cal-card-pictureContainer {
   width: 100%;
   height: 300px;
   position: relative;
@@ -64,11 +77,12 @@ HEAVY REWRITE NEEDED BELOW
 .calendar-pic {
   height: 100%;
   width: 100%;
+  border-radius: 18px 18px 0px 0px;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.experienceShow-title {
+.cal-card-title {
   border-left: 1px solid #dbbc8f;
   color: #fff;
   font-size: 22px;
@@ -76,33 +90,18 @@ HEAVY REWRITE NEEDED BELOW
   padding-left: 35px;
   text-align: left;
 }
-.experienceShow-description {
+.cal-card-description {
   color: #f7f5f2;
   padding-left: 35px;
   text-align: left;
 }
 
-.experienceShow-pictureContainer::after {
+.cal-card-pictureContainer::after {
   bottom: -40px;
   color: #fff;
-  font-size: 26px;
+  font-size: 40px;
   position: absolute;
   right: 25px;
-}
-
-.workshop-button {
-  display: block;
-  background-color: #dbbc8f;
-  padding: 10px 10px;
-  color: #202020;
-  font-size: 20px;
-  width: 200px;
-  cursor: pointer;
-  margin-top: 15px;
-  font-weight: bold;
-  border: none;
-  margin: 20px auto;
-  text-decoration: none;
 }
 
 @media screen and (max-width: 960px) {
@@ -117,9 +116,11 @@ HEAVY REWRITE NEEDED BELOW
 .calendar-button {
   position: absolute;
   left: 50%;
+  margin-top: 20px;
   transform: translateX(-50%);
 }
 
-.experienceShow-pictureContainer::after {
+.cal-card-pictureContainer::after {
+  color: #dbbc8f;
   content: attr(data-date);
 }

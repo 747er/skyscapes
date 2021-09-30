@@ -32,20 +32,19 @@
         <div id="experiences">
           <div class="section">
             <div class="section-container mod-highIndex">
-              <h3 class="h-title3 experienceShow-sectionTitle mod-destination">Now Booking 2022:</h3>
-              <div class="row experienceShowsList">
-                <div class="workshop-flex">
 
+                <div class="workshop-flex">
                   {%- for product in collection.products -%}
                     {% capture comingdate %}{{product.metafields.tour_info.start_date}}{% endcapture %}
                     {% assign today_date = 'now' | date: '%s' %}
                     {% assign pre_date = comingdate | date: '%s' %}
-                    <div class="col-sm-12 col-md-8 experienceShow">
-                        <div class="experienceShow-pictureContainer" data-date="{{ pre_date | date: "%b %d" }}">
-                          <div class="calendar-pic" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')"> </div>
+                    <div class="col-sm-12 col-md-8 cal-card">
+                        <div class="cal-card-pictureContainer" data-date="{{ pre_date | date: "%b %d" }}">
+                          
+                          <div class="calendar-pic" style="background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url('{{ product.images[0] | img_url: '2048x' }}'), no-repeat, center center; background-size: cover;"> </div>
                         </div>
-                      <p class="experienceShow-title">{{ product.title }}</p>
-                      <p class="experienceShow-description">
+                      <p class="cal-card-title">{{ product.title }}</p>
+                      <p class="cal-card-description">
                         Each tour will have its own description which will go here.
                         {{product.description}}
                       </p>
@@ -58,7 +57,7 @@
 
 
                 </div>
-              </div>
+
             </div>
           </div>
         </div>
