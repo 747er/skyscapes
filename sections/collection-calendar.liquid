@@ -1,5 +1,8 @@
+{{ 'calendar.css' | asset_url | stylesheet_tag }}
+
 <div class="shopify-section spaced-section" id="calendar-section">
     <div class="page-width">
+        {% comment %}
         <div class="cal-cta-heading">Select a Tour</div>
 
         <div class="calendar-container">
@@ -24,6 +27,36 @@
               {%- endfor -%}
             </div>
         </div>
+        {% endcomment %}
+
+        <div id="experiences">
+          <div class="section">
+            <div class="section-container mod-highIndex">
+              <h3 class="h-title3 experienceShow-sectionTitle mod-destination">Now Booking 2022:</h3>
+              <div class="row experienceShowsList">
+                <div class="workshop-flex">
+                    <div class="col-sm-12 col-md-8 experienceShow">
+                          <div class="calendar-pic" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')"> </div>
+                        </div>
+                      <p class="experienceShow-title">{{ product.title }}</p>
+                      <p class="experienceShow-description">
+                        Each tour will have its own description which will go here.
+                        {{product.description}}
+                      </p>
+                      <a href="{{ product.url }}" class="button button--primary calendar-button">
+                        MORE INFO
+                      </a>
+                    </div>
+                  {%- endfor -%}
+      
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </div>
 </div>
 
