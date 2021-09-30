@@ -2555,3 +2555,23 @@ body.fixed-height #MainContent {
   overflow: auto;
   position: relative;
 }
+
+.bold-heading-container {
+  margin: 60px auto;
+  text-align: center;
+  font-size: 60px;
+  padding-top: 5rem;
+  color: #dbbc8f;
+  text-shadow: 5px 5px 2vh black;
+  letter-spacing: 10px;
+  margin-bottom: 100px;
+}
+
+.bold-heading-container-description {
+  font-size: 26px;
+  color: white;
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  letter-spacing: 4px;
+}
