@@ -7,26 +7,28 @@
 <div id="root"></div>
 {% endcomment %}
 
-<div class="page-width about-content">
-    <div class="bold-heading-container">
-        <div>ABOUT US</div>
-        <div class="bold-heading-container-description">United with the common goal of photographing the best possible skies in the world, Skyscapes has joined industry professionals in two complimentary disciplines to blah blah blah.</div>
-      </div>
-    
-    
-    <div class="about-content-block">
-        <h1>About Us</h1>
-        <p>Have lots to say about the team here.</p>
+<div class="about-content">
+    <div class="bold-heading-container bg-dark-gray">
+        <div class="bold-heading">ABOUT US</div>
+        <div class="bold-description">
+            <p>United with the common goal of photographing the best possible skies in the world, Skyscapes has joined industry professionals in two complimentary disciplines to blah blah blah.</p>
+        </div>
     </div>
     
-    <div class="about-content-block">
-        <h1>Meet the Team</h1>
-        <div class="guides-container">
-            {% assign guides = 'Steve,Bruce,Ryan,Miles' %}
-            {% assign guide_arr = guides | split: ',' %}
-            {% for guide in guide_arr %}
-                {% render 'guide', guide: guide %}
-            {% endfor %}    
+    <div class="page-width">
+        <div class="about-content-block">
+            <h1>About Us</h1>
+            <p>Have lots to say about the team here.</p>
+        </div>
+        <div class="about-content-block">
+            <h1>Meet the Team</h1>
+            <div class="guides-container">
+                {% assign guides = 'Steve,Bruce,Ryan,Miles' %}
+                {% assign guide_arr = guides | split: ',' %}
+                {% for guide in guide_arr %}
+                    {% render 'guide', guide: guide %}
+                {% endfor %}    
+            </div>
         </div>
     </div>
 </div>
