@@ -2352,7 +2352,7 @@ details-disclosure > details {
   width: 100%;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 990px) {
   .info-block {
     flex-direction: row;
   }
@@ -2381,7 +2381,7 @@ details-disclosure > details {
   bottom: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   background-color: #0e0c07;
@@ -2506,13 +2506,13 @@ details-disclosure > details {
 }
 
 .cal-headline {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .cal-heading {
   font-size: 75px;
   font-weight: bold;
-  color: var(--muted-gold);
+  color: #fff;
 }
 
 /* BANNER IMAGE */

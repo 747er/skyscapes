@@ -47,29 +47,21 @@
 
     <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
       <div class="cal-image-heading">
-        <div class="cal-headline"><span id="start-date"></span> - <span id="end-date"></div>
+        <div class="cal-headline">SKYSCAPE SIGNATURE</div>
         <div class="cal-heading">{{ product.title | escape }}</div>
       </div>
       <div class="highlights-bar">
         <div class="highlight">
-          <div class="highlight-title">Max Guests</div>
-          <div class="highlight-value">16</div>
+          <div class="highlight-title">Activity Level</div>
+          <div class="highlight-value">Cakewalk</div>
         </div>
         <div class="highlight">
-          <div class="highlight-title">Max Guests</div>
-          <div class="highlight-value">16</div>
-        </div>
+          <div class="highlight-title">Dates</div>
+          <div class="highlight-value"><span id="start-date"></span> - <span id="end-date"></span></div>
+        </div>        
         <div class="highlight">
           <div class="highlight-title">Max Guests</div>
-          <div class="highlight-value">16</div>
-        </div>
-        <div class="highlight">
-          <div class="highlight-title">Max Guests</div>
-          <div class="highlight-value">16</div>
-        </div>
-        <div class="highlight">
-          <div class="highlight-title">Max Guests</div>
-          <div class="highlight-value">16</div>
+          <div class="highlight-value">12</div>
         </div>
       </div>
     </div>
@@ -524,15 +516,21 @@
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
 {%- endif -%}
 
+{% capture comingdate %}{{product.metafields.tour_info.start_date}}{% endcapture %}
+{% capture comingenddate %}{{product.metafields.tour_info.end_date}}{% endcapture %}
+{% assign today_date = 'now' | date: '%s' %}
+{% assign pre_date = comingdate | date: '%s' %}
+{% assign end_date = comingenddate | date: '%s' %}
+
 <script>
   const productInfo = {};
-  {%- if product.metafields.tour_info.start_date.value != blank -%}
-    console.log('product.metafields.tour_info.start_date.value: ', "{{product.metafields.tour_info.start_date.value}}");
-    productInfo.start_date = "{{product.metafields.tour_info.start_date.value}}";
+  {%- if pre_date != blank -%}
+    console.log('pre_date: ', "{{pre_date | date: "%b %d"}}");
+    productInfo.start_date = "{{pre_date | date: "%b %d"}}";
   {%- endif -%}
-  {%- if product.metafields.tour_info.end_date.value != blank -%}
-    console.log('product.metafields.tour_info.end_date: ', "{{product.metafields.tour_info.end_date.value}}");
-    productInfo.end_date = "{{product.metafields.tour_info.end_date.value}}";
+  {%- if end_date != blank -%}
+    console.log('product.metafields.tour_info.end_date: ', "{{end_date | date: "%b %d"}}");
+    productInfo.end_date = "{{end_date | date: "%b %d"}}";
   {%- endif -%}
   {%- if product.metafields.tour_info.guides.value != blank -%}
     console.log('product.metafields.tour_info.guides.value: ', "{{product.metafields.tour_info.guides.value}}");

@@ -32,10 +32,10 @@ HEAVY REWRITE NEEDED BELOW
 }
 
 .cal-card {
-  margin: 0 auto 73px;
+  margin: 0 auto 40px;
   position: relative;
   background: #1d1d1d;
-  box-shadow: 5px 5px 15px rgb(0 0 0 / 90%);
+  /* box-shadow: 5px 5px 15px rgb(0 0 0 / 90%); */
 }
 
 .cal-card:hover {
@@ -43,7 +43,7 @@ HEAVY REWRITE NEEDED BELOW
 }
 
 .col-md-8 {
-  width: 40%;
+  width: calc(50% - 80px);
 }
 
 .cal-cardsList @media {
