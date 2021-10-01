@@ -5,7 +5,9 @@
   /* BRIGHT GOLD */
   --gold: #ffe584;
   /* MEDIUM GOLD */
-  --muted-gold: #d4bf71;
+  --muted-gold: #dbbc8f;
+  /* MEDIUM GOLD TWO */
+  /* --muted-gold-two: #dbbc8f; */
   /* GOLD FROM NOTES */
   --burnt-gold: #8a764a;
 }
@@ -174,7 +176,8 @@
 
 .bg-dark-gray {
   /* background: #333333; */
-  background: #080808;
+  /* background: #080808; */
+  background: #121212;
 }
 
 /* base */
@@ -2541,7 +2544,7 @@ body {
   font-weight: var(--font-body-weight);
 }
 
-body.fixed-height {
+/* body.fixed-height {
   display: block;
   width: 100vw;
   height: 100vh;
@@ -2554,7 +2557,7 @@ body.fixed-height #MainContent {
   height: 100%;
   overflow: auto;
   position: relative;
-}
+} */
 
 .bold-heading-container {
   margin: 0px auto;
@@ -2564,7 +2567,7 @@ body.fixed-height #MainContent {
   padding-top: 10rem;
   margin-bottom: 100px;
   position: relative;
-  border-bottom: 1px solid #dbbc8f;
+  /* border-bottom: 1px solid #dbbc8f; */
 }
 
 .bold-heading {
