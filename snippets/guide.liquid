@@ -3,6 +3,7 @@
         {%- capture guide_name -%}Ryan Dyar{%- endcapture -%}
         {%- capture instagram_handle -%}ryandyar{%- endcapture -%}
         {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
+        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
         {%- capture bio -%}
             Seattle-based special guest workshop leader Ryan Dyar brings a visionary and celebrated body of work to your storm chase workshop. His unique and incredible light capturing style has captivated the art world for many years. Hailing from the Pacific Northwest, Dyar's playground of landscapes, seascapes and light has given him an amazing opportunity to refine his art to the highest levels of photography.
             As a chase tour leader, he will be bringing a considerable amount of skills to help you chase mesocyclones along the Great Plains and teach you how to create impactful moments in the field and refine your photo to maximize your vision with your captures. 
@@ -15,6 +16,7 @@
         {%- capture guide_name -%}Steve Saviano{%- endcapture -%}
         {%- capture instagram_handle -%}skyscapetours{%- endcapture -%}
         {%- capture guide_title -%}Lead Forecaster{%- endcapture -%}
+        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
         {%- capture bio -%}
             Educated in Meteorology, Chase Tour lead forecaster and co-founder Steve Saviano has taken his talent and education in weather and forecasting studies to become a dependable and keynote storm chaser with over a decade of storm chasing experience, documenting many historic and signature storms. His ability to place clients and himself in strategic positioning to maximize storm potential is meticulous and celebrated.
             Naturally gifted as a musician with a cerebral and passionate mind for natural weather, Mr. Saviano has earned his reputation by being accessible and a great teacher and ambassador to the meteorological world. His familiarity with the mechanics of storm movement will educate and astound you as he brings science and understanding to your storm chase experience.
@@ -25,6 +27,7 @@
         {%- capture guide_name -%}Miles Morgan{%- endcapture -%}
         {%- capture instagram_handle -%}ryandyar{%- endcapture -%}
         {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
+        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
         {%- capture bio -%}
             Portland-based special guest workshop leader Miles Morgan is a chocolate-cookie aficionado, airline pilot and amazing photographer. His ability to find amazing light and compositions on the fly (pun intended) is an amazing asset to your storm chase workshop. With a unique understanding of the weather above (and below) his vision of clouds and compositions will be amazing to help you during your chase.
             As a chase tour leader, his highly approachable personality and accessibility will help you as we chase mesocyclones along the Great Plains and teach you how to create impactful moments in the field and refine your photo to maximize your vision with your captures. 
@@ -35,6 +38,7 @@
         {%- capture guide_name -%}Bruce Omori{%- endcapture -%}
         {%- capture instagram_handle -%}ryandyar{%- endcapture -%}
         {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
+        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
         {%- capture bio -%}
         Guest chase leader Bruce Omori, master of extreme exposure photography has created incredible documentation of Pele's eruptions on the Big Island of Hawai'i. Many of which have been featured and celebrated worldwide in media. His artistic vision has even been honored with an incredible display at the prestigious Smithsonian Museum.
         Through these images brudduh Bruce has captured, his desire is to share with you, the beauty he sees and the talent and knowledge he brings to our expeditions. His talent and vision is an asset for your chase tour. E hui pu i kealapono.
@@ -56,11 +60,9 @@
         <h1 class="guide-header">{{guide_name}}</h1>
     </div>
     {% comment %}end absolute elements{% endcomment %}
-    <div class="guide-pic"> </div>
+        
+    <div class="guide-pic {{guide}}" style="background-image: url('{{ guide_pic | asset_url }}'); background-size: cover; background-repeat: no-repeat;"> </div>
     <div class="guide-content">
         <p class="guide-bio">{{bio}}</p>
     </div>
 </div>
-
-
-

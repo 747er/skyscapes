@@ -33,6 +33,7 @@ body {
   font-size: 75px;
   letter-spacing: 20px;
   color: #eab97f;
+  padding-left: 2vw;
   font-weight: normal;
 }
 
@@ -105,8 +106,14 @@ canvas {
     transform: translate3d(0, 100%, 0);
   }
 }
-@media (max-width: 1280px) {
-  #main-scroll-indicator {
-    display: none;
+
+@media (max-width: 750px) {
+  .frame__content {
+    font-size: 16vw;
+    line-height: 0.7;
+  }
+  .frame__sub-content {
+    font-size: 10vw;
+    letter-spacing: 2px;
   }
 }
