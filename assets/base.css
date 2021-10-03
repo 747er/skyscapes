@@ -2555,7 +2555,7 @@ body {
   display: block;
   /* background: url("./background.jpg"); */
   background-size: cover;
-  padding-top: 100px;
+  padding-top: 5rem;
   background-position: center;
 }
 
@@ -2593,5 +2593,21 @@ body {
 @media screen and (max-width: 750px) {
   .highlights-bar .highlight {
     width: 30%;
+  }
+
+  .bold-heading-container {
+    padding: 0 1.5rem;
+    text-align: left;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+  }
+
+  .bold-description {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .wall-bg {
+    padding-top: 30px;
   }
 }
