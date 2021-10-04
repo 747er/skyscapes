@@ -82,26 +82,20 @@
           </div>
         </div>
         <div class="info-block-container">
-          <div class="info-block force-column accent">
-              <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
-              <div class="info-content">
-                
-                {% assign guide_arr = product.metafields.tour_info.guides.value | split: ',' %}
-                  
-                {% for guide in guide_arr %}
-                  {% render 'guide', guide: guide, abbreviated: true %}
-                {% endfor %}
-                
-
-                  
-
-              </div>
-          </div>
-        </div>
-        <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">ITINERARY</div>
               <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+          </div>
+        </div>        
+        <div class="info-block-container">
+          <div class="info-block force-column accent">
+              <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
+              <div class="info-content">
+                {% assign guide_arr = product.metafields.tour_info.guides.value | split: ',' %}
+                {% for guide in guide_arr %}
+                  {% render 'guide', guide: guide, abbreviated: true %}
+                {% endfor %}
+              </div>
           </div>
         </div>
         <div class="info-block-container">

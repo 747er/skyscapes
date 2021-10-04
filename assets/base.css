@@ -241,6 +241,10 @@ html.no-js .no-js-hidden {
     max-width: var(--page-width);
     padding: 0 5rem;
   }
+
+  .bold-description {
+    letter-spacing: 0px;
+  }
 }
 
 .element-margin {
@@ -2587,7 +2591,7 @@ body {
   padding: 0 20px;
   font-size: 18px;
   max-width: 800px;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
 }
 
 .page-top-padding {
@@ -2596,7 +2600,7 @@ body {
 
 @media screen and (max-width: 750px) {
   .highlights-bar .highlight {
-    width: 30%;
+    width: 33.33%;
   }
 
   .bold-heading-container {
@@ -2614,5 +2618,9 @@ body {
 
   .wall-bg {
     padding-top: 30px;
+  }
+
+  .highlights-bar .highlight:not(:first-child)::after {
+    display: none;
   }
 }

@@ -8,10 +8,6 @@
         {%- capture bio -%}
             Seattle-based special guest workshop leader Ryan Dyar brings a visionary and celebrated body of work to your storm chase workshop. His unique and incredible light capturing style has captivated the art world for many years. Hailing from the Pacific Northwest, Dyar's playground of landscapes, seascapes and light has given him an amazing opportunity to refine his art to the highest levels of photography.
             As a chase tour leader, he will be bringing a considerable amount of skills to help you chase mesocyclones along the Great Plains and teach you how to create impactful moments in the field and refine your photo to maximize your vision with your captures. 
-            @ryandyar on IG
-            https://www.facebook.com/ryandyar
-            www.500px.com/ryandyar
-            www.flickr.com/ryandyar
         {%- endcapture -%}
     {% when 'Steve' %}
         {%- capture guide_name -%}Steve Saviano{%- endcapture -%}
@@ -51,6 +47,7 @@
 
 
 <div class="guide-container {% if abbreviated  %}abbreviated{% endif %}">
+    {% comment %}<div class="guide-pic {{guide}}" style="background-image: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url('{{ guide_pic | asset_url }}'); background-size: cover; background-repeat: no-repeat;"> </div>{% endcomment %}
     <div class="guide-pic {{guide}}" style="background-image: url('{{ guide_pic | asset_url }}'); background-size: cover; background-repeat: no-repeat;"> </div>
     <div class="guide-content">
         <div class="guide-socials">

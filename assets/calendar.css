@@ -96,10 +96,7 @@ HEAVY REWRITE NEEDED BELOW
     flex-direction: column;
   }
   .col-md-8 {
-    width: 80%;
-  }
-  .bold-description {
-    letter-spacing: 2px;
+    width: 95%;
   }
 }
 
