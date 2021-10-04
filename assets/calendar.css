@@ -98,6 +98,9 @@ HEAVY REWRITE NEEDED BELOW
   .col-md-8 {
     width: 80%;
   }
+  .bold-description {
+    letter-spacing: 2px;
+  }
 }
 
 .calendar-button {

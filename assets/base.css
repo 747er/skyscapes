@@ -2590,6 +2590,10 @@ body {
   letter-spacing: 4px;
 }
 
+.page-top-padding {
+  padding-top: 10rem;
+}
+
 @media screen and (max-width: 750px) {
   .highlights-bar .highlight {
     width: 30%;
@@ -2604,6 +2608,7 @@ body {
 
   .bold-description {
     font-size: 16px;
+    letter-spacing: 0;
     padding: 0;
   }
 

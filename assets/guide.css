@@ -23,9 +23,12 @@
   text-align: right;
 }
 .guide-banner {
-  position: absolute;
-  left: 30%;
-  top: 20%;
+  /* position: absolute; */
+  /* left: 30%; */
+  /* top: 20%; */
+  margin-left: -200px;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .guide-heading {
@@ -45,11 +48,16 @@
 
 .guide-content {
   width: 60%;
+  padding: 0 20px 45px 60px;
 }
 
 .guide-bio {
-  margin-top: 30%;
-  padding: 0 20px 45px 60px;
+  /* margin-top: 30%; */
+}
+
+.guide-ig {
+  height: 24px;
+  width: 24px;
 }
 
 .guide-pic.Miles {
@@ -62,4 +70,26 @@
 
 .guide-pic.Bruce {
   background-position: center 25%;
+}
+
+@media screen and (max-width: 750px) {
+  .guide-container {
+    flex-direction: column;
+  }
+  .guide-pic {
+    height: 250px;
+    width: 100%;
+  }
+  .guide-content {
+    width: 100%;
+  }
+  .guide-bio {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .bold-description {
+    letter-spacing: 2px;
+  }
 }
