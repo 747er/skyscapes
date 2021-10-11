@@ -6,7 +6,7 @@
 .guide-container {
   display: flex;
   position: relative;
-  min-height: 50vh;
+  min-height: 60vh;
   width: 100%;
   margin-bottom: 60px;
 }
@@ -108,4 +108,18 @@
   .bold-heading {
     letter-spacing: 0px;
   }
+}
+
+.guide-container:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.guide-container:nth-child(even) .guide-banner {
+  text-align: right;
+  margin-right: -100px;
+}
+
+.guide-container:nth-child(even) .guide-socials {
+  right: initial;
+  left: 0;
 }
