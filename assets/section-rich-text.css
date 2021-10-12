@@ -28,8 +28,8 @@
 
 .rich-text:not(.rich-text--full-width),
 .rich-text--full-width.color-background-1 {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 
 .rich-text:not(.color-background-1) {
