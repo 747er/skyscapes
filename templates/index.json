@@ -22,20 +22,11 @@
           "settings": {
             "text": "<p>During spring and summer along the plains of Tornado Alley, thunderstorms dominate the afternoon skies, presenting unique opportunities to witness these behemoths as they rumble across the prairies creating incredible storms to chase and document.<\/p><p>Have you envisioned yourself chasing these incredible epic, severe storms across the Great Plains in Tornado Alley and coming away with spectacular photography and memories of these unique events while being tutored by knowledgeable artists behind the lens? Then you have come to the right place to fulfill those dreams.<\/p>"
           }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Will Remove This",
-            "button_link": "",
-            "button_style_secondary": true
-          }
         }
       },
       "block_order": [
         "heading",
-        "text",
-        "button"
+        "text"
       ],
       "settings": {
         "color_scheme": "background-1",
@@ -79,6 +70,7 @@
     },
     "featured_products": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Booking 2022 Now",
         "collection": "frontpage",
@@ -92,12 +84,43 @@
         "show_vendor": false,
         "show_rating": false
       }
+    },
+    "1633286507e0eb1984": {
+      "type": "collage",
+      "blocks": {
+        "2144c73b-0d53-42d7-afa1-0d4bc09a9a9a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/unnamed14.jpg",
+            "image_padding": false,
+            "color_scheme": "background-1"
+          }
+        },
+        "cea62c9c-b47c-4fdb-8e32-946ccbacb74c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/tripod_reverse.jpg",
+            "image_padding": false,
+            "color_scheme": "background-1"
+          }
+        }
+      },
+      "block_order": [
+        "2144c73b-0d53-42d7-afa1-0d4bc09a9a9a",
+        "cea62c9c-b47c-4fdb-8e32-946ccbacb74c"
+      ],
+      "settings": {
+        "heading": "",
+        "desktop_layout": "left",
+        "mobile_layout": "collage"
+      }
     }
   },
   "order": [
     "1632611843c4d35cb8",
     "rich_text",
     "16307996127209fa21",
-    "featured_products"
+    "featured_products",
+    "1633286507e0eb1984"
   ]
 }
