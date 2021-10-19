@@ -13,6 +13,7 @@
         },
         "title": {
           "type": "title",
+          "disabled": true,
           "settings": {}
         },
         "subtitle": {
@@ -120,13 +121,14 @@
         "49f3c032-0e65-46be-a636-cc8392ce9132"
       ],
       "settings": {
-        "heading": "Multimedia collage",
+        "heading": "Expedition Images",
         "desktop_layout": "left",
         "mobile_layout": "collage"
       }
     },
     "1632802843d461a1cc": {
       "type": "image-banner",
+      "disabled": true,
       "blocks": {
         "1632802843d461a1cc-0": {
           "type": "heading",
