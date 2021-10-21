@@ -2370,7 +2370,7 @@ details-disclosure > details {
 
 .cal-image-block {
   width: 100%;
-  height: 60vh;
+  height: 80vh;
   position: relative;
   margin-bottom: 60px;
   background-color: #3a454e;
@@ -2623,4 +2623,29 @@ body {
   .highlights-bar .highlight:not(:first-child)::after {
     display: none;
   }
+}
+
+#product-signup-container {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+#product-signup-container .product-form__buttons {
+  max-width: 200px;
+}
+
+.break-container {
+  position: relative;
+  background-color: black;
+  width: 200%;
+  margin-left: -50%;
+  padding: 60px 20px;
+}
+
+.constrain-x {
+  overflow-x: hidden;
+}
+
+.constrain-y {
+  overflow-y: hidden;
 }
