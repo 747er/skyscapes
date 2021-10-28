@@ -51,7 +51,6 @@ HEAVY REWRITE NEEDED BELOW
 }
 
 .cal-card {
-  cursor: pointer;
   min-height: 566px;
   margin-bottom: 60px;
 }
@@ -105,6 +104,8 @@ HEAVY REWRITE NEEDED BELOW
   width: 160px;
   margin: 30px auto;
   background: #dbbc8f;
+  line-height: initial;
+  padding: 1rem 3rem;
 }
 
 .cal-card-pictureContainer::after {

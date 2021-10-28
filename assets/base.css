@@ -2649,3 +2649,8 @@ body {
 .constrain-y {
   overflow-y: hidden;
 }
+
+.product-signup-cta {
+  color: #fff;
+  font-size: 40px;
+}
