@@ -34,12 +34,6 @@ HEAVY REWRITE NEEDED BELOW
 .cal-card {
   margin: 0 auto 40px;
   position: relative;
-  background: #1d1d1d;
-  /* box-shadow: 5px 5px 15px rgb(0 0 0 / 90%); */
-}
-
-.cal-card:hover {
-  /* box-shadow: 5px 5px 15px #dbbc8f66; */
 }
 
 .col-md-8 {

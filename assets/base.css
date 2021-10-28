@@ -2635,11 +2635,12 @@ body {
 }
 
 .break-container {
-  position: relative;
-  background-color: black;
   width: 200%;
+  color: #444;
   margin-left: -50%;
   padding: 60px 20px;
+  position: relative;
+  background-color: var(--muted-gold);
 }
 
 .constrain-x {
@@ -2651,6 +2652,5 @@ body {
 }
 
 .product-signup-cta {
-  color: #fff;
   font-size: 40px;
 }
