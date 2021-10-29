@@ -10,22 +10,26 @@
   <div id="experiences" class="page-width">
     <div class="workshop-flex">
       {%- for product in collection.products -%}
-        {% capture comingdate %}{{product.metafields.tour_info.start_date}}{% endcapture %}
+        {% capture coming_start %}{{product.metafields.tour_info.start_date}}{% endcapture %}
+        {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
         {% assign today_date = 'now' | date: '%s' %}
-        {% assign pre_date = comingdate | date: '%s' %}
+        {% assign pre_start = coming_start | date: '%s' %}
+        {% assign pre_end = coming_end | date: '%s' %}
         <div class="col-sm-12 col-md-8 cal-card">
-            <div class="cal-card-pictureContainer" data-date="{{ pre_date | date: "%b %d" }}">
-              
-              <div class="calendar-pic" style="background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url('{{ product.images[0] | img_url: '2048x' }}'), no-repeat, center center; background-size: cover;"> </div>
+            <div class="cal-card-pictureContainer" style="background: url('{{ product.images[0] | img_url: '2048x' }}'); background-position: center; background-repeat: no-repeat; background-size: contain;">
             </div>
-          <p class="cal-card-title">{{ product.title }}</p>
-          <p class="cal-card-description">
-            Each tour will have its own description which will go here. Each tour will have its own description which will go here. Each tour will have its own description which will go here.
-            {{product.description}}
-          </p>
-          <a href="{{ product.url }}" class="button button--primary calendar-button">
-            MORE INFO
-          </a>
+            <div class="cal-description">
+              <div class="cal-card-title-heading">Tour {{ forloop.index }}</div>
+              <div class="cal-card-title">{{ product.title }}</div>
+              <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d" }}</div>
+              <p class="cal-card-description">
+                Each tour will have its own description which will go here. Each tour will have its own description which will go here. Each tour will have its own description which will go here.
+                {{product.description}}
+              </p>
+              <a href="{{ product.url }}" class="button button--primary calendar-button">
+                Book Now
+              </a>
+            </div>
         </div>
       {%- endfor -%}
     </div>

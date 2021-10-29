@@ -9,14 +9,14 @@
 }
 
 .banner {
-  top: 30%;
+  top: 25%;
   color: #fff;
+  line-height: 1;
   position: sticky;
   font-size: 150px;
-  line-height: 1;
-  font-weight: normal;
   text-align: center;
-  margin-bottom: 30vh;
+  font-weight: normal;
+  margin-bottom: 15vh;
   display: inline-block;
 }
 
@@ -28,4 +28,59 @@
 .banner-title {
   font-size: 150px;
   color: #fff;
+}
+
+.workshop-flex {
+  padding-top: 50px;
+}
+
+.cal-card {
+  display: flex;
+  padding: 50px 0;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cal-card:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.cal-description {
+  width: 40%;
+  position: relative;
+}
+
+.cal-description::after {
+  top: -70px;
+  left: -50px;
+  z-index: -1;
+  content: "01";
+  font-size: 80px;
+  color: #595959;
+  position: absolute;
+}
+
+.cal-card-pictureContainer {
+  min-height: 375px;
+  width: 60%;
+}
+
+.cal-card-title-heading {
+  position: relative;
+  padding-left: 60px;
+  color: var(--muted-gold);
+}
+
+.cal-card-title-heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(50% - 2px);
+  height: 2px;
+  width: 50px;
+  background: var(--muted-gold);
+}
+
+.cal-card-title {
+  font-size: 24px;
 }
