@@ -1,108 +1,31 @@
-/* 
-HEAVY REWRITE NEEDED BELOW
-*/
-
-.cal-card-sectionTitle.mod-destination {
-  font-size: 36px;
-  line-height: 43px;
-  color: #fff;
-  padding-left: 15px;
-  text-align: left;
-}
-
-.cal-card-sectionTitle {
-  margin-bottom: 45px;
-  margin-top: 0;
-}
-
-.h-title3 {
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.workshop-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.row:before,
-.row:after {
-  content: " ";
-  display: table;
-}
-
-.cal-card {
-  margin: 0 auto 40px;
-  position: relative;
-}
-
-.col-md-8 {
-  width: calc(50% - 80px);
-}
-
-.cal-cardsList @media {
-  float: left;
-}
-
-.cal-card {
-  min-height: 566px;
-  margin-bottom: 60px;
-}
-
-.cal-card-pictureContainer {
+.landing-section {
   width: 100%;
-  height: 500px;
-  position: relative;
-}
-
-.calendar-pic {
-  height: 100%;
-  width: 100%;
+  height: 80vh;
+  text-align: center;
+  background: url(https://cdn.shopify.com/s/files/1/0590/7863/9796/files/15.jpg?v=1632770806);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center 40%;
 }
 
-.cal-card-title {
-  border-left: 1px solid #dbbc8f;
-  color: #dbbc8f;
-  font-size: 26px;
-  margin-bottom: 20px;
-  padding-left: 35px;
-  text-align: left;
-}
-.cal-card-description {
-  color: #f7f5f2;
-  padding-left: 35px;
-  text-align: left;
-}
-
-.cal-card-pictureContainer::after {
-  bottom: -40px;
+.banner {
+  top: 30%;
   color: #fff;
-  font-size: 50px;
-  position: absolute;
-  right: 25px;
+  position: sticky;
+  font-size: 150px;
+  line-height: 1;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 30vh;
+  display: inline-block;
 }
 
-@media screen and (max-width: 960px) {
-  .workshop-flex {
-    flex-direction: column;
-  }
-  .col-md-8 {
-    width: 95%;
-  }
+.banner-subheading {
+  font-size: 52px;
+  color: var(--muted-gold);
 }
 
-.calendar-button {
-  display: block;
-  width: 160px;
-  margin: 30px auto;
-  background: #dbbc8f;
-  line-height: initial;
-  padding: 1rem 3rem;
-}
-
-.cal-card-pictureContainer::after {
+.banner-title {
+  font-size: 150px;
   color: #fff;
-  content: attr(data-date);
 }

@@ -1,43 +1,35 @@
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
 <div class="shopify-section spaced-section" id="calendar-section">
-    <div>
-        <div class="bold-heading-container bg-dark-gray">
-          <div class="bold-heading">2022 CALENDAR</div>
-          <div class="bold-description">
-            <p>Each one of our eight tours in 2022 will have one common goal: to get the best possible photographs of extreme weather in the Great Plains. Choose the date that works best for you and leave the rest to us.</p>
-          </div>
-        </div>
-
-        <div class="wall-bg">
-          <div id="experiences" class="page-width">
-              <div class="workshop-flex">
-                {%- for product in collection.products -%}
-                  {% capture comingdate %}{{product.metafields.tour_info.start_date}}{% endcapture %}
-                  {% assign today_date = 'now' | date: '%s' %}
-                  {% assign pre_date = comingdate | date: '%s' %}
-                  <div class="col-sm-12 col-md-8 cal-card">
-                      <div class="cal-card-pictureContainer" data-date="{{ pre_date | date: "%b %d" }}">
-                        
-                        <div class="calendar-pic" style="background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url('{{ product.images[0] | img_url: '2048x' }}'), no-repeat, center center; background-size: cover;"> </div>
-                      </div>
-                    <p class="cal-card-title">{{ product.title }}</p>
-                    <p class="cal-card-description">
-                      Each tour will have its own description which will go here. Each tour will have its own description which will go here. Each tour will have its own description which will go here.
-                      {{product.description}}
-                    </p>
-                    <a href="{{ product.url }}" class="button button--primary calendar-button">
-                      MORE INFO
-                    </a>
-                  </div>
-                {%- endfor -%}
-    
-
-
-              </div>
-          </div>
-        </div>
+  <div class="landing-section">
+    <div class="banner">
+      <div class="banner-subheading">Now Booking</div>
+      <div class="banner-title">2022</div>
     </div>
+  </div>
+  <div id="experiences" class="page-width">
+    <div class="workshop-flex">
+      {%- for product in collection.products -%}
+        {% capture comingdate %}{{product.metafields.tour_info.start_date}}{% endcapture %}
+        {% assign today_date = 'now' | date: '%s' %}
+        {% assign pre_date = comingdate | date: '%s' %}
+        <div class="col-sm-12 col-md-8 cal-card">
+            <div class="cal-card-pictureContainer" data-date="{{ pre_date | date: "%b %d" }}">
+              
+              <div class="calendar-pic" style="background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%), url('{{ product.images[0] | img_url: '2048x' }}'), no-repeat, center center; background-size: cover;"> </div>
+            </div>
+          <p class="cal-card-title">{{ product.title }}</p>
+          <p class="cal-card-description">
+            Each tour will have its own description which will go here. Each tour will have its own description which will go here. Each tour will have its own description which will go here.
+            {{product.description}}
+          </p>
+          <a href="{{ product.url }}" class="button button--primary calendar-button">
+            MORE INFO
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
 </div>
 
 {% schema %}
