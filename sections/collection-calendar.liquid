@@ -18,7 +18,7 @@
         <div class="col-sm-12 col-md-8 cal-card">
             <div class="cal-card-pictureContainer" style="background: url('{{ product.images[0] | img_url: '2048x' }}'); background-position: center; background-repeat: no-repeat; background-size: contain;">
             </div>
-            <div class="cal-description">
+            <div class="cal-description" data-index="0{{ forloop.index }}">
               <div class="cal-card-title-heading">Tour {{ forloop.index }}</div>
               <div class="cal-card-title">{{ product.title }}</div>
               <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d" }}</div>

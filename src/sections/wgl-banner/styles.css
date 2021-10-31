@@ -20,11 +20,11 @@ body {
 .frame__content {
   top: 30%;
   color: #fff;
+  line-height: 0;
   position: sticky;
   font-size: 150px;
-  line-height: 0.55;
-  font-weight: normal;
   text-align: center;
+  font-weight: normal;
   margin-bottom: 30vh;
   display: inline-block;
 }
@@ -38,32 +38,35 @@ body {
   letter-spacing: 20px;
   line-height: 1;
   margin: 10px 0px;
+  padding-bottom: 10px;
 }
 
-/* .frame__sub-content::after {
+.frame__sub-content::after {
   left: 0;
   bottom: 0;
   width: 100%;
   content: "";
-  height: 1px;
+  height: 2px;
   display: block;
   position: absolute;
-  background-color: gold;
-} */
+  background-color: #eab97f;
+}
 
 .brand-title {
   line-height: 0.75;
 }
 
 .primary-cta {
-  font-size: 2.2vw;
+  line-height: 1;
+  font-size: 1.5vw;
+  margin-top: 20px;
   display: inline-block;
 }
 
 .primary-cta-text {
-  background-color: black;
-  padding: 20px 20px;
   margin: 0 auto;
+  padding: 20px 20px;
+  background-color: #eab97f;
 }
 
 #gl {
