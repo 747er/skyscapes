@@ -116,3 +116,28 @@
 .cal-card-title {
   font-size: 24px;
 }
+
+@media screen and (max-width: 960px) {
+  .cal-card {
+    flex-direction: column;
+  }
+
+  .cal-card:nth-child(odd) {
+    text-align: right;
+    flex-direction: column;
+  }
+
+  .cal-description {
+    width: 80%;
+  }
+
+  .cal-card-pictureContainer {
+    width: 90%;
+    z-index: -1;
+    margin-bottom: -110px;
+  }
+
+  .cal-card .cal-description::after {
+    display: none;
+  }
+}
