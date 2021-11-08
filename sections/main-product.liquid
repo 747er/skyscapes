@@ -78,13 +78,13 @@
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">EXPEDITION OVERVIEW</div>
-              <div class="info-content">Our specialty is getting clients to a position where the storm is most photogenic. Most of the time that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.</div>
+              <div class="info-content">{{product.description}}</div>
           </div>
         </div>
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">ITINERARY</div>
-              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+              <div class="info-content">Our specialty is getting clients to a position where the storm is most photogenic. Most of the time that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.</div>
           </div>
         </div>        
         <div class="info-block-container">
@@ -113,7 +113,7 @@
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">PEACE OF MIND</div>
-              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+              <div class="info-content">We have experts in two disciplines to fully optimize your experience. Our lead forecaster will track and intercept the storm at the best possible location so that our team of professional photographers can guide you in making the most of the conditions.</div>
           </div>
         </div>
         <div class="info-block-container">
@@ -154,12 +154,14 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+                {% comment %}
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte">
                     {{ product.description }}
                   </div>
                 {%- endif -%}
+                {% endcomment %}
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
