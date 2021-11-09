@@ -2380,15 +2380,15 @@ details-disclosure > details {
 }
 
 .highlights-bar {
-  height: 100px;
-  position: absolute;
-  bottom: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  bottom: 0;
   width: 100%;
-  background-color: #0e0c07;
+  height: 100px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(14 12 7 / 55%);
 }
 
 .highlights-bar .highlight {

@@ -23,8 +23,7 @@
               <div class="cal-card-title">{{ product.title }}</div>
               <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d" }}</div>
               <p class="cal-card-description">
-                Each tour will have its own description which will go here. Each tour will have its own description which will go here. Each tour will have its own description which will go here.
-                {{product.description}}
+                {{ product.description }}
               </p>
               <a href="{{ product.url }}" class="button button--primary calendar-button">
                 Book Now
