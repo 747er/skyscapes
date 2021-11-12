@@ -2425,6 +2425,11 @@ details-disclosure > details {
   padding: 60px 0px 30px;
 }
 
+#cta-link {
+  color: #fff;
+  text-decoration: none;
+}
+
 /* .cal-cta-heading::after {
   background: #e6e6e6;
   top: 0;

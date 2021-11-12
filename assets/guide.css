@@ -96,6 +96,21 @@
   left: 0;
 }
 
+.guide-social-icon {
+  display: block;
+}
+
+.guide-socials:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1px;
+  top: 75px;
+  left: 11px;
+  height: 250px;
+  background-color: var(--muted-gold);
+}
+
 @media screen and (max-width: 750px) {
   .guide-container,
   .guide-container:nth-child(even) {
