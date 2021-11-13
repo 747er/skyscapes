@@ -29,6 +29,8 @@
   }
 </style>
 
+{% assign splitTitle = product.title | split: ":" %}
+
 <section class="full-width">
   <div class="product flex constrain-y">
     {% comment %}
@@ -47,8 +49,8 @@
 
     <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
       <div class="cal-image-heading">
-        <div class="cal-headline">SKYSCAPE SIGNATURE</div>
-        <div class="cal-heading">{{ product.title | escape }}</div>
+        <div class="cal-headline">{{ splitTitle[0] | escape }}:</div>
+        <div class="cal-heading">{{ splitTitle[1] | escape }}</div>
       </div>
       <div class="highlights-bar">
         <div class="highlight">
@@ -84,15 +86,17 @@
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">ITINERARY</div>
-              <div class="info-content">Our specialty is getting clients to a position where the storm is most photogenic. Most of the time that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.</div>
+              <div class="info-content">
+                Our specialty is getting clients to a position where the storm is most photogenic. Most of the time that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.
+              </div>
           </div>
         </div>        
         <div class="info-block-container">
           <div class="info-block force-column accent">
               <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
               <div class="info-content">
-                {% assign guide_arr = product.metafields.tour_info.guides.value | split: ',' %}
-                {% for guide in guide_arr %}
+                {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
+                {% for guide in guide_list %}
                   {% render 'guide', guide: guide, abbreviated: true %}
                 {% endfor %}
               </div>
