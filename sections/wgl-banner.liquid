@@ -19,7 +19,7 @@
             <div class="brand-title">SKYSCAPE</div>
             <div class="frame__sub-content">PHOTO TOURS</div>
             <div class="primary primary-cta btn">
-              <div class="primary-cta-text">Find a Tour</div>
+              <div class="primary-cta-text"><a id="cta-link" href="{{section.settings.button_link}}">{{section.settings.button_label}}</a></div>
             </div>
         </div>
     </div>
@@ -41,6 +41,18 @@
       "type": "image_picker",
       "id": "image_map",
       "label": "t:sections.image-banner.settings.image_map.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "Button Label",
+      "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
     }
   ],
   "presets": [
