@@ -105,7 +105,7 @@
                   </div>
                   <div class="collage-content__info card-information card-information__wrapper">
                     <h3 class="card-information__text h4">{{ block.settings.product.title | escape }}</h3>
-                    <span class="price">{% render 'price', product: block.settings.product %}</span>
+                    {% comment %}<span class="price">{% render 'price', product: block.settings.product %}</span>{% endcomment %}
                   </div>
                 {%- else -%}
                   <div class="collage-card__no-image card-colored color-background-1 card__text-spacing center">
