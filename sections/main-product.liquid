@@ -45,8 +45,6 @@
       </div>
     </div>
     {% endcomment %}
-
-
     <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
       <div class="cal-image-heading">
         <div class="cal-headline">{{ splitTitle[0] | escape }}:</div>
@@ -87,7 +85,7 @@
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">ITINERARY</div>
               <div class="info-content">
-                Our specialty is getting clients to a position where the storm is most photogenic. Most of the time that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.
+                Each day of the tour will have the same goal: get to the best possible location to photograph incredible supercells over the great plains. We will start each day with a weather discussion led by our forecaster. We will explain the weather patterns present and how we plan to intercept the storm at the perfect moment.
               </div>
           </div>
         </div>        
@@ -105,7 +103,7 @@
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">WHAT TO EXPECT</div>
-              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+              <div class="info-content">Expect to spend a lot of time in the car driving to the best location to photograph the supercells. After the chase has concluded for the day, we will find a nearby hotel for the evening. Because of the highly variable nature of storms, we are not able to accurately predict the exact route of our chase. We have relationships at dozens of hotels along the plains and will find a single occupancy room for you every night. Our specialty is getting clients to a position where the storm is most photogenic. Most of the time that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.</div>
           </div>
         </div>
         <div class="info-block-container">
@@ -120,10 +118,21 @@
               <div class="info-content">We have experts in two disciplines to fully optimize your experience. Our lead forecaster will track and intercept the storm at the best possible location so that our team of professional photographers can guide you in making the most of the conditions.</div>
           </div>
         </div>
+
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">WHAT'S INCLUDED</div>
-              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+              <div class="info-content">
+                {%- liquid
+                  assign money_price = product.metafields.my_fields.total_price.value | money
+                  if settings.currency_code_enabled
+                    assign money_price = product.metafields.my_fields.total_price.value | money_with_currency
+                  endif
+                -%}
+                <span class="price-item price-item--regular">
+                  {{ money_price }}
+                </span>
+              </div>
           </div>
         </div>
 
