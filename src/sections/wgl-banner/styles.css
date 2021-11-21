@@ -41,32 +41,29 @@ body {
   padding-bottom: 10px;
 }
 
-.frame__sub-content::after {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  content: "";
-  height: 2px;
-  display: block;
-  position: absolute;
-  background-color: #eab97f;
-}
-
 .brand-title {
   line-height: 0.75;
 }
 
 .primary-cta {
   line-height: 1;
-  font-size: 1.5vw;
+  font-size: 30px;
   margin-top: 20px;
   display: inline-block;
 }
 
 .primary-cta-text {
+  color: #fff;
   margin: 0 auto;
-  padding: 20px 20px;
-  background-color: #eab97f;
+  padding: 20px 40px;
+  transition: all 0.3s ease-in-out;
+  border: 3px solid #eab97f;
+  border-radius: 50px;
+}
+
+.primary-cta-text:hover {
+  background-color: rgba(255, 255, 255, 1);
+  color: #444;
 }
 
 #gl {
