@@ -2645,7 +2645,7 @@ body {
 
 .break-container {
   width: 200%;
-  color: #444;
+  color: #151617;
   margin-left: -50%;
   padding: 60px 20px;
   position: relative;
@@ -2662,4 +2662,39 @@ body {
 
 .product-signup-cta {
   font-size: 40px;
+}
+
+.price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.price-container .product .price {
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.margin-center {
+  margin: 0 auto;
+}
+
+.tour-button {
+  color: #151617;
+  border: 1px solid #151617;
+  box-shadow: initial;
+}
+
+.tour-button:focus,
+.tour-button:not([disabled]):hover,
+.tour-button:focus:not(:focus-visible) {
+  box-shadow: 0 0 0.2rem black;
+  outline: none;
+}
+
+.collage-section {
+  margin-bottom: 50px;
 }
