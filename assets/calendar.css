@@ -149,4 +149,12 @@
   .cal-card-title-heading {
     display: none;
   }
+
+  .banner-subheading {
+    font-size: 32px;
+  }
+
+  .banner-title {
+    font-size: 90px;
+  }
 }
