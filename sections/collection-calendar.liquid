@@ -16,7 +16,7 @@
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
         <div class="col-sm-12 col-md-8 cal-card">
-            <div class="cal-card-pictureContainer" style="background: url('{{ product.images[0] | img_url: '2048x' }}'); background-position: center; background-repeat: no-repeat; background-size: contain;">
+            <div id="tour-{{ forloop.index }}" class="cal-card-pictureContainer">
             </div>
             <div class="cal-description" data-index="0{{ forloop.index }}">
               <div class="cal-card-title-heading">Tour {{ forloop.index }}</div>
@@ -29,6 +29,19 @@
                 Book Now
               </a>
             </div>
+            <style>
+              #tour-{{ forloop.index }} {
+                background: url('{{ product.images[0] | img_url: '2048x' }}');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+              }
+    
+              @media screen and (max-width: 960px) {
+                #tour-{{ forloop.index }} {
+                  background-size: cover;
+                }
+            </style>            
         </div>
       {%- endfor -%}
     </div>

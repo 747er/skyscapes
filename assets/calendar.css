@@ -122,22 +122,30 @@
     flex-direction: column;
   }
 
+  .cal-card-pictureContainer {
+    background-size: cover;
+  }
+
   .cal-card:nth-child(odd) {
-    text-align: right;
+    text-align: left;
     flex-direction: column;
   }
 
   .cal-description {
-    width: 80%;
+    padding-top: 10px;
+    width: 90%;
   }
 
   .cal-card-pictureContainer {
     width: 90%;
     z-index: -1;
-    margin-bottom: -110px;
   }
 
   .cal-card .cal-description::after {
+    display: none;
+  }
+
+  .cal-card-title-heading {
     display: none;
   }
 }
