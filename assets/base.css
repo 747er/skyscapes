@@ -1969,7 +1969,6 @@ input[type="checkbox"] {
   display: inline-flex;
   grid-area: icons;
   justify-self: end;
-  display: none;
 }
 
 .header__icon:not(.header__icon--summary),
@@ -2001,8 +2000,8 @@ input[type="checkbox"] {
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 .header__icon--cart {
@@ -2171,6 +2170,10 @@ details[open] > .header__icon--menu .icon-hamburger {
 .header--top-center .header__inline-menu,
 .header--top-center .header__heading-link {
   margin-left: 0;
+}
+
+.list-menu--inline {
+  padding-right: 15px;
 }
 
 @media screen and (min-width: 990px) {
