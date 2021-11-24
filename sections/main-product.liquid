@@ -31,8 +31,8 @@
 
 {% assign splitTitle = product.title | split: ":" %}
 
-<section class="full-width">
-  <div class="product flex constrain-y">
+<section class="full-width constrain-x">
+  <div class="product flex">
     {% comment %}
     <div class="flex__item">
       <div class="product__banner-image" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}');">
@@ -134,17 +134,7 @@
           </div>
         </div>
 
-        {%- liquid
-          assign money_price = product.metafields.my_fields.total_price.value | money
-          if settings.currency_code_enabled
-            assign money_price = product.metafields.my_fields.total_price.value | money_with_currency
-          endif
-        -%}
-        <span class="price-item price-item--regular">
-          {{ money_price }}
-        </span>
-
-        <div class="info-block-container break-container">
+        <div class="info-block-container break-container price-container">
           <div id="product-signup-container">
             <div class="product-signup-cta">
               Book Now!
@@ -166,8 +156,18 @@
                   {{ product.title | escape }}
                 </h1>
               {%- when 'price' -%}
+                
+                {%- liquid
+                  assign money_price = product.metafields.my_fields.total_price.value | money | remove: '.00'
+                  if settings.currency_code_enabled
+                    assign money_price = product.metafields.my_fields.total_price.value | money_with_currency | remove: '.00'
+                  endif
+                -%}
+                <span class="price-item price-item--regular">
+                  Total Price: {{ money_price }}
+                </span>
                 <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
-                  {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+                  Deposit Due Today: {%- render 'simple-price', product: product -%}
                 </div>
                 <div {{ block.shopify_attributes }}>
                   {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
@@ -351,11 +351,11 @@
                   <product-form class="product-form">
                     {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                      <div class="product-form__buttons">
+                      <div class="product-form__buttons margin-center">
                         <button
                           type="submit"
                           name="add"
-                          class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+                          class="product-form__submit tour-button button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                         {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                         >
                             {%- if product.selected_or_first_available_variant.available -%}
