@@ -33,10 +33,11 @@ module.exports = {
       // CSS
       {
         test: /\.css$/i,
-        use: [
-          { loader: "style-loader", options: { injectType: "styleTag" } },
-          "css-loader",
-        ],
+        // use: [
+        //   { loader: "style-loader", options: { injectType: "styleTag" } },
+        //   "css-loader",
+        // ],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
 
       // Images
