@@ -9,11 +9,12 @@
 }
 
 .banner {
-  top: 25%;
+  top: 0;
   color: #fff;
   line-height: 1;
   position: sticky;
   font-size: 150px;
+  padding-top: 25vh;
   text-align: center;
   font-weight: normal;
   margin-bottom: 15vh;
