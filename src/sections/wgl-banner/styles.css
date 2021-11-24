@@ -145,4 +145,13 @@ canvas {
     font-size: 10vw;
     letter-spacing: 2px;
   }
+
+  .primary-cta-text {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #eab97f;
+  }
+  .primary-cta {
+    margin-top: 0;
+  }
 }
