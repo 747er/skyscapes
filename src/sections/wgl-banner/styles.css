@@ -18,7 +18,8 @@ body {
 }
 
 .frame__content {
-  top: 30%;
+  top: 0;
+  padding-top: 25vh;
   color: #fff;
   line-height: 0;
   position: sticky;
