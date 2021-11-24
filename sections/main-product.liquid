@@ -103,19 +103,25 @@
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">WHAT TO EXPECT</div>
-              <div class="info-content">Expect to spend a lot of time in the car driving to the best location to photograph the supercells. After the chase has concluded for the day, we will find a nearby hotel for the evening. Because of the highly variable nature of storms, we are not able to accurately predict the exact route of our chase. We have relationships at dozens of hotels along the plains and will find a single occupancy room for you every night. Our specialty is getting clients to a position where the storm is most photogenic. Most of the time that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.</div>
+              <div class="info-content">
+                We have experts in two disciplines to fully optimize your experience. Our lead forecaster will track and intercept the storm at the best possible location so that our team of professional photographers can guide you in making the most of the conditions.
+              </div>
           </div>
         </div>
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">ACCOMMODATIONS</div>
-              <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
+              <div class="info-content">
+                Expect to spend a lot of time in the car driving to the best location to photograph the supercells. After the chase has concluded for the day, we will find a nearby hotel for the evening. Because of the highly variable nature of storms, we are not able to accurately predict the exact route of our chase. We have relationships at dozens of hotels along the plains and will find a single occupancy room for you every night.
+              </div>
           </div>
         </div>
         <div class="info-block-container">
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">PEACE OF MIND</div>
-              <div class="info-content">We have experts in two disciplines to fully optimize your experience. Our lead forecaster will track and intercept the storm at the best possible location so that our team of professional photographers can guide you in making the most of the conditions.</div>
+              <div class="info-content">
+                Above all else, we value safety. Our specialty is getting clients to a position where the storm is most photogenic. Most of the time, that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.
+              </div>
           </div>
         </div>
 
@@ -123,18 +129,20 @@
           <div class="info-block accent">
               <div class="info-header color-text-accent-1">WHAT'S INCLUDED</div>
               <div class="info-content">
-                {%- liquid
-                  assign money_price = product.metafields.my_fields.total_price.value | money
-                  if settings.currency_code_enabled
-                    assign money_price = product.metafields.my_fields.total_price.value | money_with_currency
-                  endif
-                -%}
-                <span class="price-item price-item--regular">
-                  {{ money_price }}
-                </span>
+                Transportation, lodging and educations are included in the price. We will be coordinating no-host meals as the storms allow and stopping for snacks and beverages several times during the day.
               </div>
           </div>
         </div>
+
+        {%- liquid
+          assign money_price = product.metafields.my_fields.total_price.value | money
+          if settings.currency_code_enabled
+            assign money_price = product.metafields.my_fields.total_price.value | money_with_currency
+          endif
+        -%}
+        <span class="price-item price-item--regular">
+          {{ money_price }}
+        </span>
 
         <div class="info-block-container break-container">
           <div id="product-signup-container">
@@ -389,28 +397,6 @@
                 </div>
     
                 <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
-              {%- when 'rating' -%}
-                {%- if product.metafields.reviews.rating.value != blank -%}
-                  {% liquid
-                  assign rating_decimal = 0
-                  assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
-                  if decimal >= 0.3 and decimal <= 0.7
-                    assign rating_decimal = 0.5
-                  elsif decimal > 0.7
-                    assign rating_decimal = 1
-                  endif
-                  %}
-                  <div class="rating" role="img" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}">
-                    <span aria-hidden="true" class="rating-star color-icon-{{ settings.accent_icons }}" style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"></span>
-                  </div>
-                  <p class="rating-text caption">
-                    <span aria-hidden="true">{{ product.metafields.reviews.rating.value }} / {{ product.metafields.reviews.rating.value.scale_max }}</span>
-                  </p>
-                  <p class="rating-count caption">
-                    <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
-                    <span class="visually-hidden">{{ product.metafields.reviews.rating_count }} {{ "accessibility.total_reviews" | t }}</span>
-                  </p>
-                {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
 
