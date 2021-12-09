@@ -70,6 +70,10 @@
   background-position: center 20%;
 }
 
+.guide-pic.David {
+  background-position: center;
+}
+
 .guide-pic.Miles {
   background-position: center 35%;
 }
@@ -141,4 +145,8 @@
   .bold-heading {
     letter-spacing: 0px;
   }
+}
+
+#product-form-installment {
+  display: none;
 }

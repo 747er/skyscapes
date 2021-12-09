@@ -6,16 +6,16 @@
         {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
         {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
         {%- capture bio -%}
-            Ryan is a professional nature photographer hailing from the Pacific Northwest. In his 15 years of photography, his passion has been photography unique weather and light over beautiful landscapes across the world. Specializing in teaching photography, he helps tour guests with not only in-depth field technique, but also in creative and distinctive post processing.
+            Ryan is a professional nature photographer hailing from the Pacific Northwest. In his 15 years of photography, his passion has been photographing unique weather and light over beautiful landscapes across the world. Specializing in teaching photography, he helps tour guests with not only in-depth field technique, but also in creative and distinctive post processing.
         {%- endcapture -%}
     {% when 'Steve' %}
         {%- capture guide_name -%}Steve Saviano{%- endcapture -%}
         {%- capture instagram_handle -%}skyscape2020{%- endcapture -%}
-        {%- capture five00px_handle -%}ryandyar{%- endcapture -%}
+        {% assign five00px_handle = false %}
         {%- capture guide_title -%}Lead Forecaster{%- endcapture -%}
         {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
         {%- capture bio -%}
-        Steve Saviano is the lead forecaster and founder of skyscape photo tours. He is educated in meteorology and has had a life long interest in thunderstorms and their associated phenomena. With over 20 years of storm chasing experience, Steve has developed the ability to consistently place his tour guests in prime position to photograph the spectacular storms that occur across the great plains.
+        Steve Saviano is the lead forecaster and founder of Skyscape Photo Tours. He is educated in meteorology and has had a life long interest in thunderstorms and their associated phenomena. With over 20 years of storm chasing experience, Steve has developed the ability to consistently place his tour guests in prime position to photograph the spectacular storms that occur across the great plains.
         {%- endcapture -%}
     {% when 'Miles' %}
         {%- capture guide_name -%}Miles Morgan{%- endcapture -%}
@@ -33,10 +33,19 @@
         {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
         {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
         {%- capture bio -%}
-        Bruce is an international award-winning photographer and photojournalist based in Hilo, Hawai‘i, renowned for capturing the terrifying yet beautiful nature of lava.  His images have been featured in the Smithsonian National Museum of Natural History in Washington DC, and the Natural History Museum in London, and have also been published in just about every major newspaper and magazine across the globe.  What began as a healthy fear of volcanoes as a kid, because of being asthmatic and allergic to sulfur, turned into a lifelong obsession!  After learning how to mitigate the elements of risk, documenting this fiery force of nature has become his life’s work.  And now, in addition to shooting eruptive activity, Bruce has become obsessed with the convective… STORMS!  Learn how to document and communicate effectively through your photography!
+        Bruce is a photographer based in Hilo, Hawai‘i, specializing in capturing the terrifying yet aesthetic nature of lava.  Documenting volcanic eruptions and witnessing how it can create its own weather, fueled his fascination with storms on the grander scale, where dynamic atmospheric forces create powerful and destructive yet beautiful events.  Bruce assists tour guests in seeing this beauty and capturing story-telling imagery of the experience.
+        {%- endcapture -%}
+    {% when 'David' %}
+        {%- capture guide_name -%}David Thompson{%- endcapture -%}
+        {%- capture instagram_handle -%}davidthompsonphotography{%- endcapture -%}
+        {%- capture five00px_handle -%}d-breezy{%- endcapture -%}
+        {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
+        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
+        {%- capture bio -%}
+        David is a landscape/nature photographer based out of the Southwest. His imagery is diverse, and captures the landscape in many different environments and weather conditions, as his goal as a photographer is to tell a visual story and allow the viewer’s mind to journey the world’s natural beauty through his eyes and camera. 
         {%- endcapture -%}
     {% else %}
-    <h1>Do nothing</h1>
+    <h1>Mystery Guest Guide!</h1>
 {% endcase %}
 
 
@@ -46,7 +55,7 @@
     <div class="guide-content">
         <div class="guide-socials">
             {% render 'guide-instagram', instagram_handle: instagram_handle %}
-            {% render 'guide-500', five00px_handle: five00px_handle %}
+            {% if five00px_handle %}{% render 'guide-500', five00px_handle: five00px_handle %}{% endif %}
         </div>
         <div class="guide-banner">
             <div class="guide-heading">{{guide_title}}</div>

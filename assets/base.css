@@ -2698,3 +2698,7 @@ body {
 .collage-section {
   margin-bottom: 50px;
 }
+
+.shopify-installments {
+  display: none;
+}
