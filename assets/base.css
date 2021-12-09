@@ -2400,6 +2400,7 @@ details-disclosure > details {
   flex-direction: column;
   width: 25%;
   text-align: center;
+  font-size: 1.2em;
 }
 
 .highlights-bar .highlight:not(:first-child)::after {
@@ -2697,6 +2698,7 @@ body {
 
 .collage-section {
   margin-bottom: 50px;
+  margin-top: 30px;
 }
 
 .shopify-installments {
