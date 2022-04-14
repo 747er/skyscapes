@@ -86,6 +86,10 @@
   background-position: center 25%;
 }
 
+.guide-pic.Justin {
+  background-position: 85% center;
+}
+
 .guide-container:nth-child(even) {
   flex-direction: row-reverse;
 }
