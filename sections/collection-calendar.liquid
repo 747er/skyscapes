@@ -4,7 +4,7 @@
   <div class="landing-section">
     <div class="banner">
       <div class="banner-subheading">Now Booking</div>
-      <div class="banner-title">2022</div>
+      <div class="banner-title">2023</div>
     </div>
   </div>
   <div id="experiences" class="page-width">
@@ -16,10 +16,11 @@
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
         <div class="col-sm-12 col-md-8 cal-card">
-            <div id="tour-{{ forloop.index }}" class="cal-card-pictureContainer">
+            <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
             </div>
-            <div class="cal-description" data-index="0{{ forloop.index }}">
-              <div class="cal-card-title-heading">Tour {{ forloop.index }}</div>
+            <div class="cal-description">
+            {% comment %}<div class="cal-description" data-index="0{{ forloop.index | plus: 1 }}">
+              <div class="cal-card-title-heading">Tour {{ forloop.index | plus: 1 }}</div>{% endcomment %}
               <div class="cal-card-title">{{ product.title }}</div>
               <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d" }}</div>
               <p class="cal-card-description">
@@ -30,7 +31,7 @@
               </a>
             </div>
             <style>
-              #tour-{{ forloop.index }} {
+              #tour-{{ forloop.index | plus: 1 }} {
                 background: url('{{ product.images[0] | img_url: '2048x' }}');
                 background-size: contain;
                 background-position: center;
@@ -38,7 +39,7 @@
               }
     
               @media screen and (max-width: 960px) {
-                #tour-{{ forloop.index }} {
+                #tour-{{ forloop.index | plus: 1 }} {
                   background-size: cover;
                 }
             </style>            
