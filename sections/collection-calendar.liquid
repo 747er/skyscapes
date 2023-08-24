@@ -16,11 +16,10 @@
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
         <div class="col-sm-12 col-md-8 cal-card">
-            <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
-            </div>
+            <a href="{{ product.url }}" class="button button--primary calendar-button">
+            <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer"></div>
+            </a>
             <div class="cal-description">
-            {% comment %}<div class="cal-description" data-index="0{{ forloop.index | plus: 1 }}">
-              <div class="cal-card-title-heading">Tour {{ forloop.index | plus: 1 }}</div>{% endcomment %}
               <div class="cal-card-title">{{ product.title }}</div>
               <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d" }}</div>
               <p class="cal-card-description">
