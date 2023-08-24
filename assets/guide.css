@@ -95,8 +95,9 @@
 }
 
 .guide-container:nth-child(even) .guide-banner {
-  text-align: right;
   margin-right: -100px;
+  position: relative;
+  text-align: right;
 }
 
 .guide-container:nth-child(even) .guide-socials {
