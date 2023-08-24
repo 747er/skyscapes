@@ -33,23 +33,17 @@
 
 <section class="full-width constrain-x">
   <div class="product flex">
-    {% comment %}
-    <div class="flex__item">
-      <div class="product__banner-image" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}');">
-        <div class="banner-container">
-          <div class='banner-headline color-text-accent-1'>SKYSCAPE SIGNATURE</div>
-          <h1 class='banner-h1'>{{ product.title | escape }}</h1>          
-          <div class='banner-sub color-text-accent-1'><span id="start-date"></span> - <span id="end-date"></span></div>
-        </div>
-        <!-- <div class="product__banner-image-gradient"></div> -->
-      </div>
-    </div>
-    {% endcomment %}
     <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
       <div class="cal-image-heading">
-        <div class="cal-headline">{{ splitTitle[0] | escape }}:</div>
-        <div class="cal-heading">{{ splitTitle[1] | escape }}</div>
+        {% if splitTitle.size == 1 %}
+          <div class="cal-headline"></div>
+          <div class="cal-heading">{{ splitTitle[0] | escape }}</div>
+        {% else %}
+          <div class="cal-headline">{{ splitTitle[0] | escape }}:</div>
+          <div class="cal-heading">{{ splitTitle[1] | escape }}</div>
+        {% endif %}
       </div>
+
       <div class="highlights-bar">
         <div class="highlight">
           <div class="highlight-title">Activity Level</div>
