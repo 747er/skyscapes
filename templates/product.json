@@ -93,7 +93,7 @@
         "e427c4a9-2b15-4015-b2db-6e2bae431864": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_1.jpg",
+            "image": "shopify://shop_images/image_1.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }
@@ -101,7 +101,7 @@
         "00b7d332-fe15-4f9d-a29b-e7c127f993df": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/unnamed4.jpg",
+            "image": "shopify://shop_images/unnamed4.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }
@@ -109,7 +109,7 @@
         "49f3c032-0e65-46be-a636-cc8392ce9132": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/unnamed1.jpg",
+            "image": "shopify://shop_images/unnamed1.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }
@@ -161,7 +161,7 @@
         "1632802843d461a1cc-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/unnamed1.jpg",
+        "image": "shopify://shop_images/unnamed1.jpg",
         "adapt_height_first_image": false,
         "desktop_text_box_position": "center",
         "show_text_box": true,
@@ -170,12 +170,43 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "16377383210ee873af": {
+      "type": "collage",
+      "blocks": {
+        "1262a2cb-8de0-470d-853f-01c19530c366": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/118rz.jpg",
+            "image_padding": false,
+            "color_scheme": "background-1"
+          }
+        },
+        "ced77dba-45ef-4239-991d-5c9891e26ca3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_3455.jpg",
+            "image_padding": false,
+            "color_scheme": "background-1"
+          }
+        }
+      },
+      "block_order": [
+        "1262a2cb-8de0-470d-853f-01c19530c366",
+        "ced77dba-45ef-4239-991d-5c9891e26ca3"
+      ],
+      "settings": {
+        "heading": "",
+        "desktop_layout": "right",
+        "mobile_layout": "collage"
+      }
     }
   },
   "order": [
     "main",
     "product-recommendations",
     "16309945047f4fb37a",
-    "1632802843d461a1cc"
+    "1632802843d461a1cc",
+    "16377383210ee873af"
   ]
 }
