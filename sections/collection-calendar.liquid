@@ -3,8 +3,8 @@
 <div class="shopify-section spaced-section" id="calendar-section">
   <div class="landing-section">
     <div class="banner">
-      <div class="banner-subheading">Now Booking</div>
-      <div class="banner-title">2024</div>
+      <div class="banner-subheading">EXPERIENCE THE</div>
+      <div class="banner-title">CHASE</div>
     </div>
   </div>
   <div id="experiences" class="page-width">
@@ -16,11 +16,14 @@
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
         <div class="col-sm-12 col-md-8 cal-card">
-            <a href="{{ product.url }}" class="button button--primary calendar-button">
-            <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer"></div>
-            </a>
+            <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
+            </div>
             <div class="cal-description">
-              <div class="cal-card-title">{{ product.title }}</div>
+        {% comment %}<div class="cal-description" data-index="0{{ forloop.index | plus: 1 }}">
+              <div class="cal-card-title-heading">2024</div>{% endcomment %}
+              <a href="{{ product.url }}">
+                <div class="cal-card-title">{{ product.title }}</div>
+              </a>
               <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d" }}</div>
               <p class="cal-card-description">
                 {{ product.description }}
