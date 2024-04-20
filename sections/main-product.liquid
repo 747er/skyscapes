@@ -59,13 +59,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="info-block-container">
-        <div class="info-block accent">
-            <div class="info-header color-text-accent-1">Our Promise</div>
-            <div class="info-content">Lots of things to say here in a big paragraph about how we keep people safe and deliver unforgettable experiences in the best possible conditions. The tours are designed to maximize our chances seeing storms.</div>
-        </div>
-    </div> -->
-
 
     <div class="ss__product__info-wrapper flex__item  page-width">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
@@ -530,7 +523,7 @@
   {%- endif -%}
   {%- if end_date != blank -%}
     console.log('product.metafields.tour_info.end_date: ', "{{end_date | date: "%b %d"}}");
-    productInfo.end_date = "{{end_date | date: "%b %d"}}";
+    productInfo.end_date = "{{end_date | date: "%b %d, %Y"}}";
   {%- endif -%}
   {%- if product.metafields.tour_info.guides.value != blank -%}
     console.log('product.metafields.tour_info.guides.value: ', "{{product.metafields.tour_info.guides.value}}");
