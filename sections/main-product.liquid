@@ -7,6 +7,9 @@
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 {{ 'guide.css' | asset_url | stylesheet_tag }}
 
+{% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
+{% assign pre_end = coming_end | date: '%s' %}
+
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
@@ -29,19 +32,12 @@
   }
 </style>
 
-{% assign splitTitle = product.title | split: ":" %}
-
 <section class="full-width constrain-x">
   <div class="product flex">
     <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
       <div class="cal-image-heading">
-        {% if splitTitle.size == 1 %}
-          <div class="cal-headline"></div>
-          <div class="cal-heading">{{ splitTitle[0] | escape }}</div>
-        {% else %}
-          <div class="cal-headline">{{ splitTitle[0] | escape }}:</div>
-          <div class="cal-heading">{{ splitTitle[1] | escape }}</div>
-        {% endif %}
+          <div class="cal-headline">{{ pre_end | date: "%Y" }}</div>
+          <div class="cal-heading">{{ product.title }}</div>
       </div>
 
       <div class="highlights-bar">
@@ -523,7 +519,7 @@
   {%- endif -%}
   {%- if end_date != blank -%}
     console.log('product.metafields.tour_info.end_date: ', "{{end_date | date: "%b %d"}}");
-    productInfo.end_date = "{{end_date | date: "%b %d, %Y"}}";
+    productInfo.end_date = "{{end_date | date: "%b %d"}}";
   {%- endif -%}
   {%- if product.metafields.tour_info.guides.value != blank -%}
     console.log('product.metafields.tour_info.guides.value: ', "{{product.metafields.tour_info.guides.value}}");
