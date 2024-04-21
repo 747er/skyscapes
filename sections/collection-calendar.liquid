@@ -17,6 +17,7 @@
         {% assign pre_end = coming_end | date: '%s' %}
         <div class="col-sm-12 col-md-8 cal-card">
             <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
+              <a href="{{ product.url }}" class="image-overlay-link"> </a> 
             </div>
             <div class="cal-description">
         {% comment %}<div class="cal-description" data-index="0{{ forloop.index | plus: 1 }}">

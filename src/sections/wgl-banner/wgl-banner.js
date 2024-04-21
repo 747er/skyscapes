@@ -115,7 +115,7 @@ export default class Sketch {
   }
 
   createScene() {
-    console.log("count");
+    // console.log("count");
     this.program = this.gl.createProgram();
 
     this.addShader(vertex, this.gl.VERTEX_SHADER);
@@ -217,7 +217,7 @@ export default class Sketch {
         });
       })
       .catch(function (e) {
-        console.log("not supported");
+        // console.log("not supported");
       });
   }
 

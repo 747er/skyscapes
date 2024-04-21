@@ -88,6 +88,10 @@
   flex: 1;
   min-height: 375px;
   width: 60%;
+  transition: transform 1.0s ease-out;
+}
+.cal-card-pictureContainer:hover {
+  transform: scale(1.05);
 }
 
 .cal-card-title-heading {
@@ -181,4 +185,16 @@ a:hover {
   .banner-title {
     font-size: 90px;
   }
+}
+
+.image-overlay-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50; /* Make sure it's above other content but below text/buttons if any */
+  display: block;
+  background: rgba(255, 255, 255, 0); /* Transparent background */
+  cursor: pointer;
 }
