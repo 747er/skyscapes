@@ -24,7 +24,7 @@
               <a href="{{ product.url }}">
                 <div class="cal-card-title">{{ product.title }}</div>
               </a>
-              <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d" }}</div>
+              <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}</div>
               <p class="cal-card-description">
                 {{ product.description }}
               </p>
@@ -38,12 +38,30 @@
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
+                position: relative;
               }
+
+              {% comment %}
+              #tour-{{ forloop.index | plus: 1 }}::before {
+                  box-shadow: 0 5px 10px 2px rgba(0,0,0,.3);
+                  font-size: 14px;
+                  position: absolute;
+                  left: 0;
+                  top:0;
+                  transform: rotate(-45deg);
+                  height: 30px;
+                  background: var(--muted-gold);
+                  color: white;
+                  content: "{{product.variants.first.inventory_quantity}} Spots Left";
+                  z-index: 5;
+                }       
+              {% endcomment %}       
     
               @media screen and (max-width: 960px) {
                 #tour-{{ forloop.index | plus: 1 }} {
                   background-size: cover;
                 }
+              }
             </style>            
         </div>
       {%- endfor -%}
