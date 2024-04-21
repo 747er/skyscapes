@@ -10,6 +10,8 @@
 {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
 {% assign pre_end = coming_end | date: '%s' %}
 
+{% capture variantId %}{{product.selected_or_first_available_variant.id}}{% endcapture %}
+
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
@@ -32,12 +34,25 @@
   }
 </style>
 
+{% assign splitTitle = product.title | split: ":" %}
+
 <section class="full-width constrain-x">
   <div class="product flex">
     <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
       <div class="cal-image-heading">
-          <div class="cal-headline">{{ pre_end | date: "%Y" }}</div>
-          <div class="cal-heading">{{ product.title }}</div>
+          
+
+          {% if splitTitle.size == 1 %}
+            <div class="cal-heading">{{ product.title }}</div>
+          {% else %}
+            <div class="cal-headline">{{ splitTitle[1] | escape }}</div>
+            <div class="cal-heading">{{ splitTitle[0] | escape }}</div>
+          {% endif %}
+
+          <button class="primary primary-cta btn buynow-btn">
+            <div class="primary-cta-text">Book Now!</div>
+          </button>
+
       </div>
 
       <div class="highlights-bar">
@@ -514,18 +529,14 @@
 <script>
   const productInfo = {};
   {%- if pre_date != blank -%}
-    console.log('pre_date: ', "{{pre_date | date: "%b %d"}}");
     productInfo.start_date = "{{pre_date | date: "%b %d"}}";
   {%- endif -%}
   {%- if end_date != blank -%}
-    console.log('product.metafields.tour_info.end_date: ', "{{end_date | date: "%b %d"}}");
     productInfo.end_date = "{{end_date | date: "%b %d"}}";
   {%- endif -%}
   {%- if product.metafields.tour_info.guides.value != blank -%}
-    console.log('product.metafields.tour_info.guides.value: ', "{{product.metafields.tour_info.guides.value}}");
     productInfo.guides = "{{product.metafields.tour_info.guides.value}}";
   {%- endif -%}
-  console.log('productInfo: ', productInfo);
 
   document.getElementById("start-date").innerHTML = productInfo.start_date;
   document.getElementById("end-date").innerHTML = productInfo.end_date;
@@ -568,6 +579,44 @@
       {%- endfor -%}
     ]
   }
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      if (e.target.matches('.buynow-btn, .buynow-btn *')) {
+        e.preventDefault();
+        const btn = e.target.closest('.buynow-btn');
+        var variant_id = {{ product.selected_or_first_available_variant.id | json }};
+        var quantity = 1;
+        var btnText = btn.querySelector('span');
+        var btnLoading = btn.querySelector('.loading-overlay__spinner');
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'id': variant_id,
+            'quantity': quantity
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+          window.location.href = '/checkout';
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
+      }
+    });
+  });
 </script>
 
 {% schema %}
