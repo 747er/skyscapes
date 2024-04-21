@@ -41,7 +41,7 @@
   display: flex;
   padding: 50px 0;
   text-align: left;
-  align-items: center;
+  align-items: stretch;
   flex-direction: row;
   /* box-shadow: 0 0 2vh #0000008f; */
 }
@@ -67,6 +67,12 @@
   position: relative;
 }
 
+.cal-date {
+  color: #afafaf;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
 .cal-description::after {
   top: -70px;
   left: -50px;
@@ -78,6 +84,8 @@
 }
 
 .cal-card-pictureContainer {
+  /* height: 100%; */
+  flex: 1;
   min-height: 375px;
   width: 60%;
 }
@@ -117,7 +125,7 @@
 }
 
 .cal-card-title {
-  font-size: 28px;
+  font-size: 3.2rem;
 }
 
 a {
@@ -135,6 +143,7 @@ a:hover {
 
 @media screen and (max-width: 960px) {
   .cal-card {
+    align-items: center;
     flex-direction: column;
   }
 
