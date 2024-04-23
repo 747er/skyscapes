@@ -41,17 +41,16 @@
     <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
       <div class="cal-image-heading">
           
-
           {% if splitTitle.size == 1 %}
-            <div class="cal-heading">{{ product.title }}</div>
+            <div class="cal-heading dark-text-shadow">{{ product.title }}</div>
           {% else %}
-            <div class="cal-headline">{{ splitTitle[1] | escape }}</div>
-            <div class="cal-heading">{{ splitTitle[0] | escape }}</div>
+            <div class="cal-headline dark-text-shadow">{{ splitTitle[1] | escape }}</div>
+            <div class="cal-heading dark-text-shadow">{{ splitTitle[0] | escape }}</div>
           {% endif %}
 
-          <button class="primary primary-cta btn buynow-btn">
+          <div class="primary primary-cta btn buynow-btn">
             <div class="primary-cta-text">Book Now!</div>
-          </button>
+          </div>
 
       </div>
 
