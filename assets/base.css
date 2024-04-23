@@ -2521,6 +2521,13 @@ details-disclosure > details {
   position: absolute;
   text-align: center;
   transform: translate(-50%, -50%);
+}
+
+.product .cal-image-heading {
+  top: 48%;
+}
+
+.dark-text-shadow {
   text-shadow: 0 0 2vh black;
 }
 
