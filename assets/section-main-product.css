@@ -777,7 +777,7 @@ a.product__text {
   aspect-ratio: 3 / 2;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 989px) {
   .gallery-item {
     margin: 0 0.5rem 1rem;
     width: calc(50% - 1rem);
