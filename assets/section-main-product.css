@@ -783,3 +783,36 @@ a.product__text {
     width: calc(50% - 1rem);
   }
 }
+
+
+
+
+/* Button styles */
+.primary-cta {
+  cursor: pointer;
+  line-height: 1;
+  font-size: 24px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.primary-cta-text {
+  text-transform: capitalize;
+  color: #fff;
+  margin: 0 auto;
+  padding: 20px 30px;
+  transition: all 0.3s ease-in-out;
+  border: 3px solid #eab97f;
+}
+
+.primary-cta-text:hover {
+  background-color: rgba(255, 255, 255, 1);
+  color: #444;
+}
+
+@media screen and (max-width: 989px) {
+  .product .cal-heading {
+    font-size: 40px;
+    white-space: nowrap;
+  }
+}
