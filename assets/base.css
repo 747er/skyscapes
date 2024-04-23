@@ -2638,8 +2638,14 @@ body {
     padding-top: 30px;
   }
 
+  .highlights-bar,
   .highlights-bar .highlight:not(:first-child)::after {
     display: none;
+  }
+
+  .cal-image-block {
+    height: 45vh;
+    margin-bottom: 24px;
   }
 }
 
