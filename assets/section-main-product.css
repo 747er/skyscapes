@@ -805,14 +805,15 @@ a.product__text {
   display: inline-block;
 }
 
-.primary-cta-text {
+.product .primary-cta-text {
   text-transform: capitalize;
   color: #fff;
   margin: 0 auto;
-  padding: 20px 30px;
+  padding: 10px;
   transition: all 0.3s ease-in-out;
   border: 3px solid #eab97f;
   white-space: nowrap;
+  background: #151617;
 }
 
 .primary-cta-text:hover {
