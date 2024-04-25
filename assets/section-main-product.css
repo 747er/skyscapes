@@ -803,6 +803,7 @@ a.product__text {
   padding: 20px 30px;
   transition: all 0.3s ease-in-out;
   border: 3px solid #eab97f;
+  white-space: nowrap;
 }
 
 .primary-cta-text:hover {
