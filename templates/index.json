@@ -3,10 +3,10 @@
     "1632611843c4d35cb8": {
       "type": "wgl-banner",
       "settings": {
-        "image": "shopify://shop_images/mount.jpg",
-        "image_map": "shopify://shop_images/milesMap-try.jpg",
+        "image": "shopify:\/\/shop_images\/mount.jpg",
+        "image_map": "shopify:\/\/shop_images\/milesMap-try.jpg",
         "button_label": "Find a Tour",
-        "button_link": "shopify://collections/tours"
+        "button_link": "shopify:\/\/collections\/tours"
       }
     },
     "rich_text": {
@@ -22,7 +22,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Our team consists of accomplished storm chasers and world renowned photographers. Working together, we are able to put you in position to experience and photograph the incredible meteorological phenomena that occur across the Great Plains. Join us as we intercept and document some of the most powerful and photogenic thunderstorms on earth!</p>"
+            "text": "<p>Our team consists of accomplished storm chasers and world renowned photographers. Working together, we are able to put you in position to experience and photograph the incredible meteorological phenomena that occur across the Great Plains. Join us as we intercept and document some of the most powerful and photogenic thunderstorms on earth!<\/p>"
           }
         }
       },
@@ -47,14 +47,14 @@
         "1630799612f370d258-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Our mission is to safely position you in front of and near these gargantuan mesocyclones and weather phenomenon while helping you capture unforgettable memories.</p>"
+            "text": "<p>Our mission is to safely position you in front of and near these gargantuan mesocyclones and weather phenomenon while helping you capture unforgettable memories.<\/p>"
           }
         },
         "1630799612f370d258-2": {
           "type": "button",
           "settings": {
             "button_label": "Find a Tour",
-            "button_link": "shopify://collections/2022"
+            "button_link": "shopify:\/\/collections\/2022"
           }
         }
       },
@@ -64,7 +64,7 @@
         "1630799612f370d258-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/field_1.png",
+        "image": "shopify:\/\/shop_images\/field_1.png",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "image_first"
@@ -93,7 +93,7 @@
         "2144c73b-0d53-42d7-afa1-0d4bc09a9a9a": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/unnamed14.jpg",
+            "image": "shopify:\/\/shop_images\/unnamed14.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }
@@ -101,7 +101,7 @@
         "cea62c9c-b47c-4fdb-8e32-946ccbacb74c": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/tripod_reverse.jpg",
+            "image": "shopify:\/\/shop_images\/tripod_reverse.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }

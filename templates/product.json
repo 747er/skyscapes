@@ -93,7 +93,7 @@
         "e427c4a9-2b15-4015-b2db-6e2bae431864": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_1.jpg",
+            "image": "shopify:\/\/shop_images\/image_1.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }
@@ -101,7 +101,7 @@
         "00b7d332-fe15-4f9d-a29b-e7c127f993df": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/unnamed4.jpg",
+            "image": "shopify:\/\/shop_images\/unnamed4.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }
@@ -109,7 +109,7 @@
         "49f3c032-0e65-46be-a636-cc8392ce9132": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/unnamed1.jpg",
+            "image": "shopify:\/\/shop_images\/unnamed1.jpg",
             "image_padding": false,
             "color_scheme": "background-1"
           }
@@ -160,8 +160,9 @@
         "1632802843d461a1cc-1",
         "1632802843d461a1cc-2"
       ],
+      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/unnamed1.jpg",
+        "image": "shopify:\/\/shop_images\/unnamed1.jpg",
         "adapt_height_first_image": false,
         "desktop_text_box_position": "center",
         "show_text_box": true,
@@ -177,7 +178,7 @@
         "column_KHB9WW": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/tripod.jpg",
+            "image": "shopify:\/\/shop_images\/tripod.jpg",
             "title": "",
             "text": ""
           }
@@ -185,7 +186,7 @@
         "column_yifdTx": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/4.jpg",
+            "image": "shopify:\/\/shop_images\/4.jpg",
             "title": "",
             "text": ""
           }
@@ -193,7 +194,7 @@
         "column_EHpeBq": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/field_2_exp.jpg",
+            "image": "shopify:\/\/shop_images\/field_2_exp.jpg",
             "title": "",
             "text": ""
           }

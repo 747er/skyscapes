@@ -9,7 +9,7 @@
     "colors_background_2": "#a3a8ac",
     "type_header_font": "poppins_n4",
     "type_body_font": "poppins_n4",
-    "social_instagram_link": "http://instagram.com/skyscapephototours",
+    "social_instagram_link": "http:\/\/instagram.com\/skyscapephototours",
     "predictive_search_enabled": false,
     "predictive_search_show_price": false,
     "sections": {
@@ -65,14 +65,14 @@
             "disabled": true,
             "settings": {
               "heading": "Heading",
-              "subtext": "<p>Share store details, promotions, or brand content with your customers.</p>"
+              "subtext": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
             }
           },
           "36910d82-5b66-447c-91bd-597eb87b4f77": {
             "type": "image",
             "disabled": true,
             "settings": {
-              "image": "shopify://shop_images/image.jpg",
+              "image": "shopify:\/\/shop_images\/image.jpg",
               "image_width": 100,
               "alignment": "center"
             }
@@ -97,7 +97,7 @@
             "type": "text",
             "settings": {
               "heading": "SKYSCAPE PHOTO TOURS",
-              "subtext": "<p>Available by email and instagram.</p><p>Call 303 995 7705 for immediate assistance.</p>"
+              "subtext": "<p>Available by email and instagram.<\/p><p>Call 303 995 7705 for immediate assistance.<\/p>"
             }
           }
         },
