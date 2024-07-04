@@ -830,3 +830,18 @@ a.product__text {
     padding: 10px;
   }
 }
+
+.sold-out-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sold-out-wrap .sold-out-text {
+  font-size: 24px;
+  color: #fff;
+  background: #151617;
+  padding: 10px 20px;
+  border: 3px solid #eab97f;
+  text-transform: capitalize;
+}

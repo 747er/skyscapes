@@ -23,7 +23,7 @@
         {% comment %}<div class="cal-description" data-index="0{{ forloop.index | plus: 1 }}">
               <div class="cal-card-title-heading">2024</div>{% endcomment %}
               <a href="{{ product.url }}">
-                <div class="cal-card-title">{{ product.title }}</div>
+                <div class="cal-card-title">{{ product.title }}{% unless product.available %} <span style="color: white;">(FULL!)</span>{% endunless %}</div>
               </a>
               <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}</div>
               <p class="cal-card-description">

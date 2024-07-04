@@ -73,6 +73,12 @@
   letter-spacing: 2px;
 }
 
+.cal-sold-out {
+  color: var(--muted-gold);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
 .cal-description::after {
   top: -70px;
   left: -50px;

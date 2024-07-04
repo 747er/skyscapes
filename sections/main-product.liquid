@@ -48,9 +48,15 @@
             <div class="cal-heading dark-text-shadow">{{ splitTitle[0] | escape }}</div>
           {% endif %}
 
-          <div class="primary primary-cta btn buynow-btn">
-            <div class="primary-cta-text">Book Now!</div>
-          </div>
+          {% if product.selected_or_first_available_variant.available %}
+            <div class="primary primary-cta btn buynow-btn">
+              <div class="primary-cta-text">Book Now!</div>
+            </div>
+          {% else  %}
+            <div class="sold-out-wrap">
+              <div class="sold-out-text">Sold Out!</div>
+            </div>
+          {% endif %}
 
       </div>
 
@@ -65,7 +71,7 @@
         </div>        
         <div class="highlight">
           <div class="highlight-title">Max Guests</div>
-          <div class="highlight-value">12</div>
+          <div class="highlight-value">5</div>
         </div>
       </div>
     </div>
