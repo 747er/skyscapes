@@ -87,91 +87,6 @@
         "show_rating": false
       }
     },
-    "16309945047f4fb37a": {
-      "type": "collage",
-      "blocks": {
-        "e427c4a9-2b15-4015-b2db-6e2bae431864": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/image_1.jpg",
-            "image_padding": false,
-            "color_scheme": "background-1"
-          }
-        },
-        "00b7d332-fe15-4f9d-a29b-e7c127f993df": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/unnamed4.jpg",
-            "image_padding": false,
-            "color_scheme": "background-1"
-          }
-        },
-        "49f3c032-0e65-46be-a636-cc8392ce9132": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/unnamed1.jpg",
-            "image_padding": false,
-            "color_scheme": "background-1"
-          }
-        }
-      },
-      "block_order": [
-        "e427c4a9-2b15-4015-b2db-6e2bae431864",
-        "00b7d332-fe15-4f9d-a29b-e7c127f993df",
-        "49f3c032-0e65-46be-a636-cc8392ce9132"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Expedition Images",
-        "desktop_layout": "left",
-        "mobile_layout": "collage"
-      }
-    },
-    "1632802843d461a1cc": {
-      "type": "image-banner",
-      "blocks": {
-        "1632802843d461a1cc-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Book Now",
-            "heading_size": "medium"
-          }
-        },
-        "1632802843d461a1cc-1": {
-          "type": "text",
-          "settings": {
-            "text": "Our trips are filing fast. Single and double occupancy rooms are available."
-          }
-        },
-        "1632802843d461a1cc-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Single",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Double",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "1632802843d461a1cc-0",
-        "1632802843d461a1cc-1",
-        "1632802843d461a1cc-2"
-      ],
-      "disabled": true,
-      "settings": {
-        "image": "shopify:\/\/shop_images\/unnamed1.jpg",
-        "adapt_height_first_image": false,
-        "desktop_text_box_position": "center",
-        "show_text_box": true,
-        "image_overlay_opacity": 0,
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
     "multicolumn_ABa7Yx": {
       "type": "multicolumn",
       "blocks": {
@@ -220,8 +135,6 @@
   "order": [
     "main",
     "product-recommendations",
-    "16309945047f4fb37a",
-    "1632802843d461a1cc",
     "multicolumn_ABa7Yx"
   ]
 }
