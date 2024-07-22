@@ -68,34 +68,6 @@
       {%- endfor -%}
     </div>
   </div>
-
-  {% comment %}
-  <div>
-    <div class="product-grid">
-      {%- for product in collection.products -%}
-      {%- liquid
-        assign money_price = product.metafields.my_fields.total_price.value | money
-        if settings.currency_code_enabled
-          assign money_price = product.metafields.my_fields.total_price.value | money_with_currency
-        endif
-      -%}
-            
-        <a class="product-row-link" href="{{ product.url }}">
-          <div class="product-row">
-            <div class="cal-title">{{product.title}}</div>
-            <div class="cal-dates">
-              {{ product.metafields.tour_info.start_date }} - {{ product.metafields.tour_info.end_date }}
-            </div>
-            <div class="cal-guide">{{ product.metafields.tour_info.guides }}</div>
-            <div class="cal-price">{{ money_price }}</div>
-          </div>
-        </a>
-      {%- endfor -%}
-    </div>
-  </div>
-  {% endcomment %}
-
-
 </div>
 
 {% schema %}

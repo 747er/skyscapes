@@ -38,43 +38,7 @@
 
 <section class="full-width constrain-x">
   <div class="product flex">
-    <div class="cal-image-block" style="background-image: url('{{ product.images[0] | img_url: '2048x' }}')">
-      <div class="cal-image-heading">
-          
-          {% if splitTitle.size == 1 %}
-            <div class="cal-heading dark-text-shadow">{{ product.title }}</div>
-          {% else %}
-            <div class="cal-headline dark-text-shadow">{{ splitTitle[1] | escape }}</div>
-            <div class="cal-heading dark-text-shadow">{{ splitTitle[0] | escape }}</div>
-          {% endif %}
 
-          {% if product.selected_or_first_available_variant.available %}
-            <div class="primary primary-cta btn buynow-btn">
-              <div class="primary-cta-text">Book Now!</div>
-            </div>
-          {% else  %}
-            <div class="sold-out-wrap">
-              <div class="sold-out-text">Sold Out!</div>
-            </div>
-          {% endif %}
-
-      </div>
-
-      <div class="highlights-bar">
-        <div class="highlight">
-          <div class="highlight-title">Activity Level</div>
-          <div class="highlight-value">Cakewalk</div>
-        </div>
-        <div class="highlight">
-          <div class="highlight-title">Dates</div>
-          <div class="highlight-value"><span id="start-date"></span> - <span id="end-date"></span></div>
-        </div>        
-        <div class="highlight">
-          <div class="highlight-title">Max Guests</div>
-          <div class="highlight-value">5</div>
-        </div>
-      </div>
-    </div>
 
     <div class="ss__product__info-wrapper flex__item  page-width">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
@@ -233,14 +197,6 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
-                {% comment %}
-              {%- when 'description' -%}
-                {%- if product.description != blank -%}
-                  <div class="product__description rte">
-                    {{ product.description }}
-                  </div>
-                {%- endif -%}
-                {% endcomment %}
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
