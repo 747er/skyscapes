@@ -1,0 +1,162 @@
+<div class="ss__product__info-wrapper flex__item  page-width">
+<div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
+  <div class="info-block-container">
+    <div class="info-block accent">
+        <div class="info-header color-text-accent-1">EXPEDITION OVERVIEW</div>
+        <div class="info-content">{{product.description}}</div>
+    </div>
+  </div>
+  <div class="info-block-container">
+    <div class="info-block accent">
+        <div class="info-header color-text-accent-1">ITINERARY</div>
+        <div class="info-content">
+          Each day of the tour will have the same goal: get to the best possible location to photograph incredible supercells over the great plains. We will start each day with a weather discussion led by our forecaster. Along the way, we will explain the weather patterns present and how we plan to intercept the storm at the perfect moment. Expect to learn more than you ever thought possible about weather and the conditions of the supercells. We will also conduct photography education sessions explaining in-the-field techniques and dedicated post-processing sessions.<br>
+          All of our tours start and end in Denver, Colorado. We will provide transportation and lodging for the duration of the tour. Additional information will be sent upon registration.
+        </div>
+    </div>
+  </div>
+
+
+  <div class="gallery-container">
+    <div class="gallery-item"
+      style="
+          background-image: url('{{ section.settings.image1 | img_url: '2048x' }}');
+          background-size: cover;    
+          background-repeat: no-repeat;
+          background-position: center bottom;
+      "
+    > </div>
+    <div class="gallery-item"
+      style="
+          background-image: url('{{ section.settings.image2 | img_url: '2048x' }}');
+          background-size: cover;    
+          background-repeat: no-repeat;
+          background-position: center bottom;
+      "
+    > </div>
+    <div class="gallery-item"
+      style="
+          background-image: url('{{ section.settings.image3 | img_url: '2048x' }}');
+          background-size: cover;    
+          background-repeat: no-repeat;
+          background-position: center bottom;
+      "
+    > </div>
+    <div class="gallery-item"
+      style="
+          background-image: url('{{ section.settings.image4 | img_url: '2048x' }}');
+          background-size: cover;    
+          background-repeat: no-repeat;
+          background-position: center bottom;
+      "
+    > </div>
+    <div class="gallery-item"
+      style="
+          background-image: url('{{ section.settings.image5 | img_url: '2048x' }}');
+          background-size: cover;    
+          background-repeat: no-repeat;
+          background-position: center bottom;
+      "
+    > </div>
+    <div class="gallery-item"
+      style="
+          background-image: url('{{ section.settings.image6 | img_url: '2048x' }}');
+          background-size: cover;    
+          background-repeat: no-repeat;
+          background-position: center bottom;
+      "
+    > </div>
+  </div>
+
+
+  <div class="info-block-container">
+    <div class="info-block force-column accent">
+        <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
+        <div class="info-content">
+          {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
+          {% for guide in guide_list %}
+            {% render 'guide', guide: guide, abbreviated: true %}
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+  <div class="info-block-container">
+    <div class="info-block accent">
+        <div class="info-header color-text-accent-1">WHAT TO EXPECT</div>
+        <div class="info-content">
+          We combined experts in two disciplines to fully optimize your experience. Our lead forecaster will track and intercept the storm at the best possible location so that our team of professional photographers can guide you in making the most of the conditions.
+        </div>
+    </div>
+  </div>
+  <div class="info-block-container">
+    <div class="info-block accent">
+        <div class="info-header color-text-accent-1">ACCOMMODATIONS</div>
+        <div class="info-content">
+          Expect to spend a lot of time in the car driving to the best location to photograph the supercells. After the chase has concluded for the day, we will find a nearby hotel for the evening. Because of the highly variable nature of storms, we are not able to accurately predict the exact route of our chase. We have relationships at dozens of hotels along the plains and will find a single occupancy room for you every night.
+        </div>
+    </div>
+  </div>
+  <div class="info-block-container">
+    <div class="info-block accent">
+        <div class="info-header color-text-accent-1">PEACE OF MIND</div>
+        <div class="info-content">
+          Above all else, we value safety. Our specialty is getting clients to a position where the storm is most photogenic. Most of the time, that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.
+        </div>
+    </div>
+  </div>
+
+  <div class="info-block-container">
+    <div class="info-block accent">
+        <div class="info-header color-text-accent-1">WHAT'S INCLUDED</div>
+        <div class="info-content">
+          Transportation, lodging and education are included in the price. We will be coordinating no-host meals as the storms allow and stopping for snacks and beverages several times during the day.
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Overview",
+  "class": "cal",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image4",
+      "label": "image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image5",
+      "label": "image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "image6",
+      "label": "image 6"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Product Overview"
+    }
+  ]
+}
+{% endschema %}
