@@ -1,29 +1,25 @@
 {
   "sections": {
+    "product_header_LLw4k3": {
+      "type": "product-header",
+      "settings": {
+        "title": "Product Header"
+      }
+    },
+    "product_overview_Fx8LWz": {
+      "type": "product-overview",
+      "settings": {
+        "image1": "shopify:\/\/shop_images\/1.jpg",
+        "image2": "shopify:\/\/shop_images\/3_8c386128-b0a0-4d43-b53f-5d236b205227.jpg",
+        "image3": "shopify:\/\/shop_images\/5.jpg",
+        "image4": "shopify:\/\/shop_images\/DSC_7557.jpg",
+        "image5": "shopify:\/\/shop_images\/15.jpg",
+        "image6": "shopify:\/\/shop_images\/2.jpg"
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ product.metafields.tour_info.guides.value }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
-          "disabled": true,
-          "settings": {}
-        },
-        "subtitle": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -58,9 +54,6 @@
         }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "subtitle",
         "price",
         "variant_picker",
         "quantity_selector",
@@ -90,6 +83,14 @@
     "multicolumn_ABa7Yx": {
       "type": "multicolumn",
       "blocks": {
+        "column_yifdTx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/118rz.jpg",
+            "title": "",
+            "text": ""
+          }
+        },
         "column_KHB9WW": {
           "type": "column",
           "settings": {
@@ -98,26 +99,18 @@
             "text": ""
           }
         },
-        "column_yifdTx": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/4.jpg",
-            "title": "",
-            "text": ""
-          }
-        },
         "column_EHpeBq": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/field_2_exp.jpg",
+            "image": "shopify:\/\/shop_images\/bolt.jpg",
             "title": "",
             "text": ""
           }
         }
       },
       "block_order": [
-        "column_KHB9WW",
         "column_yifdTx",
+        "column_KHB9WW",
         "column_EHpeBq"
       ],
       "settings": {
@@ -133,6 +126,8 @@
     }
   },
   "order": [
+    "product_header_LLw4k3",
+    "product_overview_Fx8LWz",
     "main",
     "product-recommendations",
     "multicolumn_ABa7Yx"
