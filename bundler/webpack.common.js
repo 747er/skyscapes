@@ -9,7 +9,8 @@ module.exports = {
       __dirname,
       "../src/sections/wgl-banner/wgl-banner.js"
     ),
-    about: path.resolve(__dirname, "../src/sections/about/about.js"),
+    gallery: path.resolve(__dirname, "../src/sections/gallery/gallery.js"),
+
   },
   output: {
     path: path.resolve(__dirname, "../assets/"),
@@ -33,10 +34,6 @@ module.exports = {
       // CSS
       {
         test: /\.css$/i,
-        // use: [
-        //   { loader: "style-loader", options: { injectType: "styleTag" } },
-        //   "css-loader",
-        // ],
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
 
