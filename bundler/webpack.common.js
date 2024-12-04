@@ -1,6 +1,3 @@
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -73,5 +70,6 @@ module.exports = {
   },
   resolve: {
     modules: ["node_modules"],
+    extensions: ['.js', '.json']
   },
 };
