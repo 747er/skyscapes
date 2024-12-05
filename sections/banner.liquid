@@ -1,0 +1,32 @@
+{{ 'calendar.css' | asset_url | stylesheet_tag }}
+
+<div class="landing-section gallery">
+  <div class="banner">
+    <div class="banner-subheading">{{ section.settings.subheading }}</div>
+    <div class="banner-title">{{ section.settings.title }}</div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Moments Captured on the Chase"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Gallery"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Banner"
+      }
+    ]
+  }
+{% endschema %}
