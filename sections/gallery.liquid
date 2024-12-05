@@ -17,26 +17,29 @@
 
 <div class="gallery-page page-width">
   <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
-    {% comment %} This hard coded div w/ image will be replaced with dynamic content chosen by the user from the schema below {% endcomment %}
-    {% comment %} <div>
-            <a
+
+    {% comment %} 
+      <div>
+          <a
               href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-2500.jpg"
               data-pswp-width="2500"
               data-pswp-height="1667"
               target="_blank">
               <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/6/img-200.jpg" alt="" />
-            </a>
-        </div> {% endcomment %}
+          </a>
+      </div>
+    {% endcomment %}
     <div class="gallery-page page-width">
       <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
         {% for block in section.blocks %}
+          {% assign image = block.settings.image %}
           <div>
             <a
-              href="{{ block.settings.large_image_url }}"
-              data-pswp-width="{{ block.settings.width }}"
-              data-pswp-height="{{ block.settings.height }}"
+              href="{{ image | img_url: '2048x2048' }}"
+              data-pswp-width="{{ image | img_url: 'master' | split: '_' | last | split: 'x' | first }}"
+              data-pswp-height="{{ image | img_url: 'master' | split: '_' | last | split: 'x' | last | split: '.' | first }}"
               target="_blank">
-              <img src="{{ block.settings.image }}" alt="{{ block.settings.alt_text | escape }}" />
+              <img src="{{ image | img_url: '200x200' }}" alt="{{ block.settings.alt_text | escape }}" />
             </a>
           </div>
         {% endfor %}
@@ -59,30 +62,12 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image",
-            "info": "Select an image to display in the gallery."
-          },
-          {
+            "info": "Upload an image for the gallery."
+          }, {
             "type": "text",
             "id": "alt_text",
             "label": "Alt Text",
             "info": "Describe the image for accessibility."
-          },
-          {
-            "type": "text",
-            "id": "large_image_url",
-            "label": "Large Image URL",
-            "info": "Provide the URL of the large image to open in the lightbox."
-          },
-          {
-            "type": "number",
-            "id": "width",
-            "label": "Width",
-            "default": 2500
-          }, {
-            "type": "number",
-            "id": "height",
-            "label": "Height",
-            "default": 1667
           }
         ]
       }
