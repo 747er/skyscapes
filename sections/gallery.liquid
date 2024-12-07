@@ -17,7 +17,6 @@
 
 <div class="gallery-page page-width">
   <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
-
     <div class="gallery-page page-width">
       <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
         {% for block in section.blocks %}
@@ -25,10 +24,10 @@
           <div>
             <a
               href="{{ image | img_url: '2048x2048' }}"
-              data-pswp-width="{{ image | img_url: 'master' | split: '_' | last | split: 'x' | first }}"
-              data-pswp-height="{{ image | img_url: 'master' | split: '_' | last | split: 'x' | last | split: '.' | first }}"
+              data-pswp-width="{{ image.width }}"
+              data-pswp-height="{{ image.height }}"
               target="_blank">
-              <img src="{{ image | img_url: '200x200' }}" alt="{{ block.settings.alt_text | escape }}" />
+              <img src="{{ image | img_url: '300x300' }}" alt="{{ block.settings.alt_text | escape }}" />
             </a>
           </div>
         {% endfor %}
