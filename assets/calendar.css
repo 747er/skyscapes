@@ -8,15 +8,10 @@
   background-position: center 65%;
 }
 
-.landing-section.gallery {
-  background: url(https://cdn.shopify.com/s/files/1/0590/7863/9796/files/15.jpg?v=1632770806);
-}
-
 .banner {
   top: 0;
   color: #fff;
   line-height: 1;
-  position: sticky;
   font-size: 150px;
   margin-top: 18vh;
   padding: 2vh;

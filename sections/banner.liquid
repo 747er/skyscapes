@@ -1,5 +1,16 @@
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
+
+<style>
+  .landing-section.gallery {
+    {% if section.settings.background_image %}
+      background-image: url('{{ section.settings.background_image | image_url }}');
+    {% else %}
+      background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/15.jpg?v=1632770806');
+    {% endif %}
+  }
+</style>
+
 <div class="landing-section gallery">
   <div class="banner">
     <div class="banner-subheading">{{ section.settings.subheading }}</div>
@@ -21,6 +32,10 @@
         "id": "title",
         "label": "Title",
         "default": "Gallery"
+      }, {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
       }
     ],
     "presets": [
