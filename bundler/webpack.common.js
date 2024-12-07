@@ -1,6 +1,3 @@
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
@@ -9,7 +6,8 @@ module.exports = {
       __dirname,
       "../src/sections/wgl-banner/wgl-banner.js"
     ),
-    about: path.resolve(__dirname, "../src/sections/about/about.js"),
+    gallery: path.resolve(__dirname, "../src/sections/gallery/gallery.js"),
+
   },
   output: {
     path: path.resolve(__dirname, "../assets/"),
@@ -33,10 +31,6 @@ module.exports = {
       // CSS
       {
         test: /\.css$/i,
-        // use: [
-        //   { loader: "style-loader", options: { injectType: "styleTag" } },
-        //   "css-loader",
-        // ],
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
 
@@ -76,5 +70,6 @@ module.exports = {
   },
   resolve: {
     modules: ["node_modules"],
+    extensions: ['.js', '.json']
   },
 };

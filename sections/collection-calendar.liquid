@@ -3,8 +3,8 @@
 <div class="shopify-section spaced-section" id="calendar-section">
   <div class="landing-section">
     <div class="banner">
-      <div class="banner-subheading">EXPERIENCE THE</div>
-      <div class="banner-title">CHASE</div>
+      <div class="banner-subheading">Capture Nature's Power</div>
+      <div class="banner-title">Photography Workshops in the Heart of the Plains</div>
     </div>
   </div>
   <div id="experiences" class="page-width">
@@ -12,16 +12,24 @@
       {%- for product in collection.products -%}
         {% capture coming_start %}{{product.metafields.tour_info.start_date}}{% endcapture %}
         {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
+          {%- if product.metafields.tour_info.guides.value != blank -%}
+          {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
+          {%- endif -%}
         {% assign today_date = 'now' | date: '%s' %}
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
+
+        
+        {% for guide in guide_list %}
+          <h2>{{ guide }}</h2>
+        {% endfor %}
+
+    
         <div class="col-sm-12 col-md-8 cal-card">
             <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
               <a href="{{ product.url }}" class="image-overlay-link"> </a> 
             </div>
             <div class="cal-description">
-        {% comment %}<div class="cal-description" data-index="0{{ forloop.index | plus: 1 }}">
-              <div class="cal-card-title-heading">2024</div>{% endcomment %}
               <a href="{{ product.url }}">
                 <div class="cal-card-title">{{ product.title }}{% unless product.available %} <span style="color: white;">(FULL!)</span>{% endunless %}</div>
               </a>
@@ -41,22 +49,7 @@
                 background-repeat: no-repeat;
                 position: relative;
               }
-
-              {% comment %}
-              #tour-{{ forloop.index | plus: 1 }}::before {
-                  box-shadow: 0 5px 10px 2px rgba(0,0,0,.3);
-                  font-size: 14px;
-                  position: absolute;
-                  left: 0;
-                  top:0;
-                  transform: rotate(-45deg);
-                  height: 30px;
-                  background: var(--muted-gold);
-                  color: white;
-                  content: "{{product.variants.first.inventory_quantity}} Spots Left";
-                  z-index: 5;
-                }       
-              {% endcomment %}       
+  
     
               @media screen and (max-width: 960px) {
                 #tour-{{ forloop.index | plus: 1 }} {
@@ -68,34 +61,6 @@
       {%- endfor -%}
     </div>
   </div>
-
-  {% comment %}
-  <div>
-    <div class="product-grid">
-      {%- for product in collection.products -%}
-      {%- liquid
-        assign money_price = product.metafields.my_fields.total_price.value | money
-        if settings.currency_code_enabled
-          assign money_price = product.metafields.my_fields.total_price.value | money_with_currency
-        endif
-      -%}
-            
-        <a class="product-row-link" href="{{ product.url }}">
-          <div class="product-row">
-            <div class="cal-title">{{product.title}}</div>
-            <div class="cal-dates">
-              {{ product.metafields.tour_info.start_date }} - {{ product.metafields.tour_info.end_date }}
-            </div>
-            <div class="cal-guide">{{ product.metafields.tour_info.guides }}</div>
-            <div class="cal-price">{{ money_price }}</div>
-          </div>
-        </a>
-      {%- endfor -%}
-    </div>
-  </div>
-  {% endcomment %}
-
-
 </div>
 
 {% schema %}

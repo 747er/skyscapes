@@ -1,0 +1,90 @@
+<script src="{{ 'gallery.bundle.js' | asset_url }}" async="async"></script>
+
+<style>
+  .gallery-page {
+    margin-top: 82px;
+  }
+
+  #gallery--photoswipe-gallery {
+    opacity: 0;
+  }
+
+  .pswp-grid {
+    position: relative;
+  }
+
+  .grid-sizer,
+  .grid-item {
+    width: calc(50% - 10px);
+    margin: 0 5px 10px;
+  }
+
+  @media screen and (min-width: 60em) {
+    .grid-sizer,
+    .grid-item {
+      width: calc((100% / 3) - 20px);
+      margin: 0 10px 20px;
+    }
+  }
+
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+
+<div class="gallery-page page-width">
+  <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
+    <div class="grid-sizer"></div>
+    {% for block in section.blocks %}
+      {% assign image = block.settings.image %}
+      <div class="grid-item">
+        <a
+          href="{{ image | img_url: '2048x2048' }}"
+          target="_blank"
+          data-pswp-width="{{ image.width }}"
+          data-pswp-height="{{ image.height }}">
+          <img
+            class="grid-img"
+            src="{{ image | img_url: '600x600' }}"
+            alt="{{ block.settings.alt_text | escape }}" />
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Gallery",
+    "tag": "section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Gallery Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Upload an image for the gallery."
+          }, {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text",
+            "info": "Describe the image for accessibility."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Gallery",
+        "category": "Gallery"
+      }
+    ]
+  }
+{% endschema %}

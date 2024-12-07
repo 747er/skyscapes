@@ -12,24 +12,30 @@
   top: 0;
   color: #fff;
   line-height: 1;
-  position: sticky;
   font-size: 150px;
-  padding-top: 18vh;
+  margin-top: 18vh;
+  padding: 2vh;
   text-align: center;
   font-weight: normal;
   margin-bottom: 15vh;
   display: inline-block;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .banner-subheading {
-  font-size: 60px;
+  font-size: 2.2vh;
   color: var(--muted-gold);
   z-index: 1;
+  padding-bottom: 1vh;
 }
 
 .banner-title {
-  font-size: 150px;
+  font-size: 2.5vh;
   color: #fff;
+}
+
+.gallery .banner-title {
+  font-size: 5vh;
 }
 
 .workshop-flex {
@@ -43,7 +49,6 @@
   text-align: left;
   align-items: stretch;
   flex-direction: row;
-  /* box-shadow: 0 0 2vh #0000008f; */
 }
 
 .cal-card:nth-child(odd) {

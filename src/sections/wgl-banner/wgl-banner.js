@@ -115,7 +115,6 @@ export default class Sketch {
   }
 
   createScene() {
-    // console.log("count");
     this.program = this.gl.createProgram();
 
     this.addShader(vertex, this.gl.VERTEX_SHADER);
