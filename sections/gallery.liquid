@@ -15,9 +15,16 @@
 
   .grid-sizer,
   .grid-item {
-    width: calc((100% / 3) - 20px);
-    margin: 0 10px 20px;
-    box-sizing: border-box;
+    width: calc(50% - 10px);
+    margin: 0 5px 10px;
+  }
+
+  @media screen and (min-width: 60em) {
+    .grid-sizer,
+    .grid-item {
+      width: calc((100% / 3) - 20px);
+      margin: 0 10px 20px;
+    }
   }
 
   .grid-item img {
