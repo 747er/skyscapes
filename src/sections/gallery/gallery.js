@@ -2,40 +2,68 @@ import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import PhotoSwipe from 'photoswipe';
 import "photoswipe/style.css";
 import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
+
+const GRID_SELECTOR = '#gallery--photoswipe-gallery';
+const ITEM_SELECTOR = '.grid-item';
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeGallery);
+  document.addEventListener('DOMContentLoaded', onDOMReady);
 } else {
-  initializeGallery();
+  onDOMReady();
 }
 
-const gridSelector = '#gallery--photoswipe-gallery';
+function onDOMReady() {
+  initializeGalleryWhenReady();
+}
 
-function initializeGallery() {
-  const galleryElements = document.querySelectorAll(`${gridSelector} a`);
+function initializeGalleryWhenReady() {
+  const grid = document.querySelector(GRID_SELECTOR);
 
-  if (galleryElements.length) {
-    var grid = document.querySelector(gridSelector);
-    var msnry = new Masonry( grid, {
-      itemSelector: '.grid-item',
-      columnWidth: 200
-    });    
+  // If we can't even find the main container, no point in observing
+  if (!grid) {
+    console.warn(`Cannot find grid container "${GRID_SELECTOR}".`);
+    return;
+  }
 
-    const items = Array.from(galleryElements).map(link => ({
-      src: link.getAttribute('href'),
-      w: parseInt(link.getAttribute('data-pswp-width')),
-      h: parseInt(link.getAttribute('data-pswp-height')),
-    }));
+  let galleryElements = getGalleryElements();
 
-    const lightbox = new PhotoSwipeLightbox({
-        gallery: gridSelector,
-        children: 'a',
-        pswpModule: PhotoSwipe
+  if (galleryElements.length > 0) {
+    // We have our elements, initialize immediately
+    initializeGallery(grid, ITEM_SELECTOR);
+  } else {
+    // Wait for elements to appear by observing DOM mutations
+    const observer = new MutationObserver(() => {
+      galleryElements = getGalleryElements();
+      if (galleryElements.length > 0) {
+        observer.disconnect();
+        initializeGallery(grid, ITEM_SELECTOR);
+      }
     });
 
-    lightbox.init();
-  } else {
-    console.log('No gallery elements found');
+    observer.observe(grid, { childList: true, subtree: true });
   }
 }
 
+function getGalleryElements() {
+  return document.querySelectorAll(`${GRID_SELECTOR} ${ITEM_SELECTOR}`);
+}
+
+function initializeGallery(grid, ITEM_SELECTOR) {
+  imagesLoaded(grid, () => {
+    const msnry = new Masonry(grid, {
+      itemSelector: ITEM_SELECTOR,
+      columnWidth: 200
+    });
+    msnry.layout();
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: GRID_SELECTOR,
+      children: ITEM_SELECTOR,
+      pswpModule: PhotoSwipe
+    });
+    lightbox.init();
+
+    console.log('Gallery and lightbox initialized.');
+  });
+}

@@ -15,6 +15,7 @@
     "gsap": "^3.7.1",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
+    "imagesloaded": "^5.0.0",
     "masonry-layout": "^4.2.2",
     "mini-css-extract-plugin": "^2.1.0",
     "normalize-wheel": "^1.0.1",
