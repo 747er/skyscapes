@@ -14,27 +14,20 @@
   }
 </style>
 
+
 <div class="gallery-page page-width">
   <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
-    <div class="gallery-page page-width">
-      <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
-        {% for block in section.blocks %}
-          {% assign image = block.settings.image %}
-          <div class="grid-item">
-            <a
-              href="{{ image | img_url: '2048x2048' }}"
-              data-pswp-width="{{ image.width }}"
-              data-pswp-height="{{ image.height }}"
-              target="_blank">
-              <img
-                class="grid-img"
-                src="{{ image | img_url: '600x600' }}"
-                alt="{{ block.settings.alt_text | escape }}" />
-            </a>
-          </div>
-        {% endfor %}
+    {% for block in section.blocks %}
+      {% assign image = block.settings.image %}
+      <div class="grid-item">
+        <a href="{{ image | img_url: '2048x2048' }}" target="_blank">
+          <img
+            class="grid-img"
+            src="{{ image | img_url: '600x600' }}"
+            alt="{{ block.settings.alt_text | escape }}" />
+        </a>
       </div>
-    </div>
+    {% endfor %}
   </div>
 </div>
 
