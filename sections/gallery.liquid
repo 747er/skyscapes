@@ -5,24 +5,36 @@
     margin-top: 82px;
   }
 
-  .pswp-grid div {
+  .pswp-grid {
+    position: relative;
+  }
+
+  .grid-sizer,
+  .grid-item {
     width: calc((100% / 3) - 20px);
     margin: 0 10px 20px;
+    box-sizing: border-box;
   }
-  .grid-img {
+
+  .grid-item img {
     width: 100%;
+    height: auto;
+    display: block;
   }
 </style>
 
 
 <div class="gallery-page page-width">
   <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
+    <div class="grid-sizer"></div>
     {% for block in section.blocks %}
       {% assign image = block.settings.image %}
       <div class="grid-item">
         <a href="{{ image | img_url: '2048x2048' }}" target="_blank">
           <img
             class="grid-img"
+            data-pswp-width="{{ image.width }}"
+            data-pswp-height="{{ image.height }}"
             src="{{ image | img_url: '600x600' }}"
             alt="{{ block.settings.alt_text | escape }}" />
         </a>
