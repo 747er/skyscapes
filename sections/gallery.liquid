@@ -5,13 +5,12 @@
     margin-top: 82px;
   }
 
-  .pswp-grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
   .pswp-grid div {
-    flex: 1;
-    width: 20%;
+    width: calc((100% / 3) - 20px);
+    margin: 0 10px 20px;
+  }
+  .grid-img {
+    width: 100%;
   }
 </style>
 
@@ -21,13 +20,16 @@
       <div class="pswp-gallery pswp-gallery--single-column pswp-grid" id="gallery--photoswipe-gallery">
         {% for block in section.blocks %}
           {% assign image = block.settings.image %}
-          <div>
+          <div class="grid-item">
             <a
               href="{{ image | img_url: '2048x2048' }}"
               data-pswp-width="{{ image.width }}"
               data-pswp-height="{{ image.height }}"
               target="_blank">
-              <img src="{{ image | img_url: '300x300' }}" alt="{{ block.settings.alt_text | escape }}" />
+              <img
+                class="grid-img"
+                src="{{ image | img_url: '600x600' }}"
+                alt="{{ block.settings.alt_text | escape }}" />
             </a>
           </div>
         {% endfor %}
