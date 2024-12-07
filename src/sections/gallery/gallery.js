@@ -1,20 +1,26 @@
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import PhotoSwipe from 'photoswipe';
 import "photoswipe/style.css";
+import Masonry from 'masonry-layout';
 
 if (document.readyState === 'loading') {
-    console.log('loading');
   document.addEventListener('DOMContentLoaded', initializeGallery);
 } else {
-  // DOM is already ready
-  console.log('already ready');
   initializeGallery();
 }
 
+const gridSelector = '#gallery--photoswipe-gallery';
+
 function initializeGallery() {
-  const galleryElements = document.querySelectorAll('#gallery--photoswipe-gallery a');
+  const galleryElements = document.querySelectorAll(`${gridSelector} a`);
 
   if (galleryElements.length) {
+    var grid = document.querySelector(gridSelector);
+    var msnry = new Masonry( grid, {
+      itemSelector: '.grid-item',
+      columnWidth: 200
+    });    
+
     const items = Array.from(galleryElements).map(link => ({
       src: link.getAttribute('href'),
       w: parseInt(link.getAttribute('data-pswp-width')),
@@ -22,7 +28,7 @@ function initializeGallery() {
     }));
 
     const lightbox = new PhotoSwipeLightbox({
-        gallery: '#gallery--photoswipe-gallery',
+        gallery: gridSelector,
         children: 'a',
         pswpModule: PhotoSwipe
     });
@@ -32,3 +38,4 @@ function initializeGallery() {
     console.log('No gallery elements found');
   }
 }
+
