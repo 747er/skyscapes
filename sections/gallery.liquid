@@ -30,11 +30,13 @@
     {% for block in section.blocks %}
       {% assign image = block.settings.image %}
       <div class="grid-item">
-        <a href="{{ image | img_url: '2048x2048' }}" target="_blank">
+        <a
+          href="{{ image | img_url: '2048x2048' }}"
+          target="_blank"
+          data-pswp-width="{{ image.width }}"
+          data-pswp-height="{{ image.height }}">
           <img
             class="grid-img"
-            data-pswp-width="{{ image.width }}"
-            data-pswp-height="{{ image.height }}"
             src="{{ image | img_url: '600x600' }}"
             alt="{{ block.settings.alt_text | escape }}" />
         </a>
