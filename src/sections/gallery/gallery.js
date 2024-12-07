@@ -46,6 +46,7 @@ function getGalleryElements() {
 
 function initializeGallery(grid) {
   imagesLoaded(grid, () => {
+    // Initialize Masonry
     const msnry = new Masonry(grid, {
       itemSelector: ITEM_SELECTOR,
       columnWidth: '.grid-sizer',
@@ -53,12 +54,16 @@ function initializeGallery(grid) {
     });
     msnry.layout();
 
+    // Initialize PhotoSwipe
     const lightbox = new PhotoSwipeLightbox({
       gallery: GRID_SELECTOR,
       children: ITEM_SELECTOR,
       pswpModule: PhotoSwipe
     });
     lightbox.init();
+
+    // Show the grid after initialization
+    grid.style.opacity = '1';
 
     console.log('Gallery and lightbox initialized.');
   });
