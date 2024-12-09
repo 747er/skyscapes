@@ -510,3 +510,62 @@ noscript .localization-selector.link {
 .footer .disclosure__link--active {
   text-decoration: underline;
 }
+
+/* Start Cody Work */
+.footer-flex {
+  display: flex;
+  width: 100%;
+  gap: 100px;
+  position: relative;
+}
+
+.footer-flex:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1px);
+  width: 1px;
+  background-color: var(--muted-gold);
+  height: 65%;
+}
+
+.footer-flex-column {
+  width: 50%;
+}
+
+.insta-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.insta-link {
+  display: flex;
+}
+
+.insta-border {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.insta-border__inner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 45%;
+  background-color: var(--muted-gold);
+}
+
+.insta-border__inner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: 1px;
+  width: 45%;
+  background-color: var(--muted-gold);
+}
