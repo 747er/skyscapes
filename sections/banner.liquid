@@ -4,17 +4,47 @@
 <style>
   .landing-section.gallery {
     {% if section.settings.background_image %}
-      background-image: url('{{ section.settings.background_image | image_url }}');
+      /* background-image: url('{{ section.settings.background_image | image_url }}'); */
     {% else %}
-      background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/15.jpg?v=1632770806');
-    {% endif %}
-  }
+    /* background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/15.jpg?v=1632770806'); */
+  {% endif %}
+
+  background-image: initial;
+  height: auto;
+}
+
+.landing-section.gallery .banner {
+  margin: 0;
+  background-color: initial;
+  font-size: 1em;
+}
+
+.banner-title {
+  text-transform: uppercase;
+}
+
+.gold-line {
+  background-color: var(--muted-gold);
+  height: 5px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.gallery-description {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1.2em;
+}
 </style>
 
 <div class="landing-section gallery">
   <div class="banner">
     <div class="banner-subheading">{{ section.settings.subheading }}</div>
     <div class="banner-title">{{ section.settings.title }}</div>
+    <div class="gold-line"></div>
+    <div class="gallery-description">{{ section.settings.description }}</div>
   </div>
 </div>
 
@@ -32,6 +62,11 @@
         "id": "title",
         "label": "Title",
         "default": "Gallery"
+      }, {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Some of our favorite dramatic captures from the plains. Featuring work from our team and participants."
       }, {
         "type": "image_picker",
         "id": "background_image",
