@@ -57,7 +57,7 @@ body {
   top: 135px;
   right: 24px;
   height: 2px;
-  background: linear-gradient(270deg, #e5b67d 60%, transparent);
+  background: linear-gradient(90deg, #e5b67d 60%, transparent);
   width: 40%;
 }
 
