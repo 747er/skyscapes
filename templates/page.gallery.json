@@ -1,15 +1,12 @@
 {
   "sections": {
     "banner": {
-      "type": "custom-banner",
+      "type": "banner",
       "settings": {
         "subheading": "Moments Captured on the Chase",
         "title": "Gallery"
       }
-    },
-    "main": {
-      "type": "gallery"
     }
   },
-  "order": ["banner", "main"]
+  "order": ["banner"]
 }
