@@ -5,7 +5,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/mount.jpg",
         "image_map": "shopify:\/\/shop_images\/milesMap-try.jpg",
-        "button_label": "Find a Tour",
+        "button_label": "VIEW ALL TRIPS",
         "button_link": "shopify:\/\/collections\/tours"
       }
     },
