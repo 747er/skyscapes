@@ -47,7 +47,7 @@ body {
   top: 135px;
   left: 24px;
   height: 2px;
-  background-color: #eab97f;
+  background: linear-gradient(270deg, #e5b67d 60%, transparent);
   width: 40%;
 }
 
@@ -57,7 +57,7 @@ body {
   top: 135px;
   right: 24px;
   height: 2px;
-  background-color: #eab97f;
+  background: linear-gradient(270deg, #e5b67d 60%, transparent);
   width: 40%;
 }
 
