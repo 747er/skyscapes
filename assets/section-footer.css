@@ -550,22 +550,13 @@ noscript .localization-selector.link {
   margin-bottom: 36px;
 }
 
-.insta-border__inner::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 1px;
-  width: 45%;
-  background-color: var(--muted-gold);
+.insta-gold-line {
+  flex: 1;
+  border-bottom: 1px solid var(--muted-gold);
 }
 
-.insta-border__inner::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 0;
-  height: 1px;
-  width: 45%;
-  background-color: var(--muted-gold);
+.insta-border__inner {
+  width: 100px;
+  display: flex;
+  justify-content: center;
 }
