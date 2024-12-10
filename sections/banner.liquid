@@ -23,6 +23,8 @@
 .landing-section.gallery .banner-subheading,
 .landing-section.gallery .banner-title {
   text-transform: uppercase;
+  font-size: 4em;
+  letter-spacing: 8px;
 }
 
 .gold-line {
@@ -34,11 +36,10 @@
 
 .landing-section.gallery .gallery-description {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 700px;
   padding: 20px 0;
   text-align: center;
   font-size: 1.2em;
-  font-weight: 300;
 }
 
 .landing-section.gallery .banner-subheading {
@@ -46,10 +47,6 @@
   font-size: 1.2em;
 }
 
-.landing-section.gallery .banner-title {
-  font-size: 3em;
-  letter-spacing: 2px;
-}
 </style>
 
 <div class="landing-section gallery">
@@ -57,7 +54,7 @@
     <div class="banner-subheading">{{ section.settings.subheading }}</div>
     <div class="banner-title">{{ section.settings.title }}</div>
     <div class="gold-line"></div>
-    <div class="gallery-description">{{ section.settings.description }}</div>
+    <div class="gallery-description poppins-extralight">{{ section.settings.description }}</div>
   </div>
 </div>
 
