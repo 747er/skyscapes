@@ -63,10 +63,29 @@
         "image_wWncN9"
       ],
       "settings": {}
+    },
+    "tours_cta_cyQFTn": {
+      "type": "tours-cta",
+      "blocks": {
+        "image_exXY8e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3.jpg",
+            "heading": "This is the Heading",
+            "description": "This is the description. This is the description. This is the description. This is the description. This is the description. This is the description. This is the description. This is the description. This is the description.",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_exXY8e"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "banner",
-    "gallery_iGkHRm"
+    "gallery_iGkHRm",
+    "tours_cta_cyQFTn"
   ]
 }
