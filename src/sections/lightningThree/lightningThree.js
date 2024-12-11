@@ -191,11 +191,13 @@ for (let p = 0; p < 25; p++) {
 //     }, 150);
 // }
 
-function triggerFlash() {
-  // Randomize position for variety:
-  // For example, center around x=0 by subtracting half the range:
-  const xPos = Math.random() * 800 - 400; // from -400 to 400
-  const yPos = 300 + Math.random() * 200; // from 300 to 500
+function triggerFlash(xPos, yPos) {
+  // If we didn't receive coords, default to random
+  if (typeof xPos === "undefined" || typeof yPos === "undefined") {
+    xPos = Math.random() * 800 - 400;
+    yPos = 300 + Math.random() * 200;
+  }
+
   const zPos = 100;
   flash.position.set(xPos, yPos, zPos);
 
@@ -215,8 +217,31 @@ function triggerFlash() {
 }
 
 // Listen for mouse events on the container
-container.addEventListener("mouseenter", triggerFlash);
-container.addEventListener("mouseleave", triggerFlash);
+// Listen for mouse events on the container
+container.addEventListener("mouseenter", (e) => {
+  const rect = container.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left; // mouse X relative to container
+  const mouseY = e.clientY - rect.top; // mouse Y relative to container
+
+  // Map mouseX from [0, rect.width] to [-400, 400]
+  const xPos = (mouseX / rect.width) * 800 - 400;
+
+  // Map mouseY from [0, rect.height] to [300, 500]
+  const yPos = 300 + (mouseY / rect.height) * 200;
+
+  triggerFlash(xPos, yPos);
+});
+
+container.addEventListener("mouseleave", (e) => {
+  const rect = container.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  const xPos = (mouseX / rect.width) * 800 - 400;
+  const yPos = 300 + (mouseY / rect.height) * 200;
+
+  triggerFlash(xPos, yPos);
+});
 
 /***************************************************** Render */
 
