@@ -1,0 +1,80 @@
+<script src="{{ 'lightningThree.bundle.js' | asset_url }}" async="async"></script>
+
+<style>
+  .tours-cta {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  #lightning-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: red;
+  }
+
+  .cta-content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    max-width: 40%;
+    color: #fff;
+  }
+</style>
+
+<div class="tours-cta">
+  <!-- Three.js scene -->
+  <div id="lightning-scene"></div>
+
+  <div class="cta-container page-width">
+    <div class="cta-content">
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.description }}</p>
+      <a class="tour-cta-link" href="{{ '/collections/tours' | url }}">
+        <div class="primary primary-cta btn">
+          <div class="primary-cta-text">View Tours</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Three CTA",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "info": "Main Heading Text"
+      }, {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "info": "Description"
+      }, {
+        "type": "text",
+        "id": "alt_text",
+        "label": "Alt Text",
+        "info": "Describe the image for accessibility."
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "Three CTA",
+        "category": "Three CTA"
+      }
+    ]
+  }
+{% endschema %}

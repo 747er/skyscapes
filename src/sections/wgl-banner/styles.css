@@ -41,6 +41,26 @@ body {
   padding-bottom: 10px;
 }
 
+.frame__sub-content::before {
+  content: "";
+  position: absolute;
+  top: 135px;
+  left: 24px;
+  height: 2px;
+  background: linear-gradient(270deg, #e5b67d 60%, transparent);
+  width: 40%;
+}
+
+.frame__sub-content::after {
+  content: "";
+  position: absolute;
+  top: 135px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, #e5b67d 60%, transparent);
+  width: 40%;
+}
+
 .brand-title {
   line-height: 0.75;
 }
@@ -48,22 +68,24 @@ body {
 .primary-cta {
   line-height: 1;
   font-size: 30px;
-  margin-top: 20px;
   display: inline-block;
 }
 
 .primary-cta-text {
   text-transform: capitalize;
-  color: #fff;
+  color: #141516;
   margin: 0 auto;
-  padding: 20px 40px;
+  padding: 10px 20px;
   transition: all 0.3s ease-in-out;
   border: 3px solid #eab97f;
+  background: #fff;
+  border-radius: 40px;
+  position: relative;
 }
 
 .primary-cta-text:hover {
-  background-color: rgba(255, 255, 255, 1);
-  color: #444;
+  background-color: #e4b57c;
+  color: #fff;
 }
 
 #gl {

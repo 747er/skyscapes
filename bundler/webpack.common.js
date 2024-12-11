@@ -7,6 +7,7 @@ module.exports = {
       "../src/sections/wgl-banner/wgl-banner.js"
     ),
     gallery: path.resolve(__dirname, "../src/sections/gallery/gallery.js"),
+    'lightningThree': path.resolve(__dirname, "../src/sections/lightningThree/lightningThree.js"),
 
   },
   output: {
@@ -37,14 +38,7 @@ module.exports = {
       // Images
       {
         test: /\.(jpg|png|gif|svg)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "assets/images/",
-            },
-          },
-        ],
+        type: 'asset/inline'
       },
 
       // Fonts
