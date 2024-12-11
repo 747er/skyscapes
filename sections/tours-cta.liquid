@@ -21,27 +21,30 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.2) 66%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(60deg, rgba(0,0,0,1) 55%, rgba(0,0,0,0.1) 66%, rgba(0,0,0,0) 100%);
+    /* gold accent */
+    /* background: linear-gradient(57deg, rgba(0,0,0,1) 55%, rgba(219, 188, 143,0.43323266806722693) 56%, rgba(0,0,0,0.06068364845938379) 57%, rgba(0,0,0,0) 100%); */
     background-repeat: no-repeat;
     z-index: 2;
   }
 
   .cta-content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 600px;
     position: relative;
     z-index: 3;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
   }
 </style>
 
 <div class="tours-cta">
   <div class="cta-container page-width">
     <div class="cta-content">
-    <h1>Tour CTA</h1>
-    <div>
+      <h1>Tour CTA</h1>
+      <p>{{ section.settings.description }}</p>
+    </div>
   </div>
 </div>
 
@@ -50,36 +53,30 @@
   {
     "name": "Tours CTA",
     "tag": "section",
-    "settings": [],
-    "blocks": [
+    "settings": [
       {
-        "type": "image",
-        "name": "BG Image",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image",
-            "info": "Upload an image for the gallery."
-          }, {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading",
-            "info": "Main Heading Text"
-          }, {
-            "type": "text",
-            "id": "description",
-            "label": "Description",
-            "info": "Description"
-          }, {
-            "type": "text",
-            "id": "alt_text",
-            "label": "Alt Text",
-            "info": "Describe the image for accessibility."
-          }
-        ]
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image",
+        "info": "Upload an image for the background."
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "info": "Main Heading Text"
+      }, {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "info": "Description"
+      }, {
+        "type": "text",
+        "id": "alt_text",
+        "label": "Alt Text",
+        "info": "Describe the image for accessibility."
       }
     ],
+    "blocks": [],
     "presets": [
       {
         "name": "Tours CTA",
