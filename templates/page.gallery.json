@@ -3,10 +3,70 @@
     "banner": {
       "type": "banner",
       "settings": {
-        "subheading": "Featured Moments",
-        "title": "Gallery"
+        "subheading": "FEATURED MOMENTS",
+        "title": "Gallery",
+        "description": "Some of our favorite dramatic captures from the plains. Featuring work from our team and participants."
       }
+    },
+    "gallery_iGkHRm": {
+      "type": "gallery",
+      "blocks": {
+        "image_XBmxej": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_249b75b5-b790-4d62-b3b1-aaad8875dae0.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_pNdcrY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/16_b9b13c60-5bb2-4b08-9c3e-6d289a82c984.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_BzHdQM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_F99B6J": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/unnamed14.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_nNxgcG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1.jpg",
+            "alt_text": ""
+          }
+        },
+        "image_wWncN9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12.jpg",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_XBmxej",
+        "image_pNdcrY",
+        "image_BzHdQM",
+        "image_F99B6J",
+        "image_nNxgcG",
+        "image_wWncN9"
+      ],
+      "settings": {}
     }
   },
-  "order": ["banner"]
+  "order": [
+    "banner",
+    "gallery_iGkHRm"
+  ]
 }
