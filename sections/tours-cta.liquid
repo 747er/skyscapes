@@ -1,33 +1,47 @@
 <script src="{{ 'gallery.bundle.js' | asset_url }}" async="async"></script>
 
 <style>
-  .cta-container {
-    width: 100%;
-    background-image: url('{{ section.settings.image | img_url: '1024x1024' }}');
+  .tours-cta {
+    position: relative;
   }
-  .cta-container::after {
+  .tours-cta {
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/15.jpg?v=1632770806');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 65%;
+    /* background-image: url('{{ section.settings.image | image_url }}'); */
+  }
+  .tours-cta::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 50%;
-    /* The gradient overlay only covers half of the container */
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.2) 66%, rgba(0,0,0,0) 100%);
+    background-repeat: no-repeat;
     z-index: 2;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 3;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
   }
 </style>
 
-<div class="gallery-page page-width">
-  <div class="cta-container">
+<div class="tours-cta">
+  <div class="cta-container page-width">
+    <div class="cta-content">
     <h1>Tour CTA</h1>
-    <h1>Tour CTA</h1>
-    <h1>Tour CTA</h1>
-    <h1>Tour CTA</h1>
-    <h1>Tour CTA</h1>
-    <h1>Tour CTA</h1>
-    <h1>Tour CTA</h1>
-    <h1>Tour CTA</h1>
+    <div>
   </div>
 </div>
 
