@@ -21,7 +21,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(60deg, rgba(0,0,0,1) 55%, rgba(0,0,0,0.1) 66%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(60deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.1) 66%, rgba(0,0,0,0) 100%);
     /* gold accent */
     /* background: linear-gradient(57deg, rgba(0,0,0,1) 55%, rgba(219, 188, 143,0.43323266806722693) 56%, rgba(0,0,0,0.06068364845938379) 57%, rgba(0,0,0,0) 100%); */
     background-repeat: no-repeat;
@@ -36,6 +36,7 @@
     min-height: 600px;
     position: relative;
     z-index: 3;
+    max-width: 40%;
   }
 </style>
 
@@ -44,6 +45,11 @@
     <div class="cta-content">
       <h1>Tour CTA</h1>
       <p>{{ section.settings.description }}</p>
+      <a class="tour-cta-link" href="{{ '/collections/tours' | url }}">
+        <div class="primary primary-cta btn">
+          <div class="primary-cta-text">View Tours</div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
