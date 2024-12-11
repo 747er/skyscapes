@@ -1,0 +1,84 @@
+<script src="{{ 'gallery.bundle.js' | asset_url }}" async="async"></script>
+
+<style>
+  .gallery-page {
+    margin: 50px auto;
+  }
+
+  #gallery--photoswipe-gallery {
+    opacity: 0;
+  }
+
+  .pswp-grid {
+    position: relative;
+  }
+
+  .grid-sizer,
+  .grid-item {
+    width: calc(50% - 10px);
+    margin: 0 5px 10px;
+  }
+
+  @media screen and (min-width: 60em) {
+    .grid-sizer,
+    .grid-item {
+      width: calc((100% / 3) - 20px);
+      margin: 0 10px 20px;
+    }
+  }
+
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+
+<div class="gallery-page page-width">
+  <h1>Tours CTA</h1>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Tours CTA",
+    "tag": "section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "BG Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Upload an image for the gallery."
+          }, {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "info": "Main Heading Text"
+          }, {
+            "type": "text",
+            "id": "description",
+            "label": "Description",
+            "info": "Description"
+          }, {
+            "type": "text",
+            "id": "alt_text",
+            "label": "Alt Text",
+            "info": "Describe the image for accessibility."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Tours CTA",
+        "category": "Tours CTA"
+      }
+    ]
+  }
+{% endschema %}
