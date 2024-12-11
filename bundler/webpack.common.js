@@ -7,6 +7,7 @@ module.exports = {
       "../src/sections/wgl-banner/wgl-banner.js"
     ),
     gallery: path.resolve(__dirname, "../src/sections/gallery/gallery.js"),
+    'lightningThree': path.resolve(__dirname, "../src/sections/lightningThree/lightningThree.js"),
 
   },
   output: {
