@@ -38,14 +38,7 @@ module.exports = {
       // Images
       {
         test: /\.(jpg|png|gif|svg)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "assets/images/",
-            },
-          },
-        ],
+        type: 'asset/inline'
       },
 
       // Fonts

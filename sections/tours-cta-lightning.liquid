@@ -3,27 +3,19 @@
 <style>
   .tours-cta {
     position: relative;
-  }
-  .tours-cta {
     width: 100%;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 65%;
+    height: 600px;
+    overflow: hidden;
   }
-  .tours-cta::after {
-    content: '';
+
+  #lightning-scene {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
     width: 100%;
-    background: linear-gradient(60deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.1) 66%, rgba(0,0,0,0) 100%);
-    /* gold accent */
-    /* background: linear-gradient(57deg, rgba(0,0,0,1) 55%, rgba(219, 188, 143,0.43323266806722693) 56%, rgba(0,0,0,0.06068364845938379) 57%, rgba(0,0,0,0) 100%); */
-    background-repeat: no-repeat;
-    z-index: 2;
+    height: 100%;
+    z-index: 1;
+    background-color: red;
   }
 
   .cta-content {
@@ -31,17 +23,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 600px;
     position: relative;
     z-index: 3;
     max-width: 40%;
+    color: #fff;
   }
 </style>
 
 <div class="tours-cta">
+  <!-- Three.js scene -->
+  <div id="lightning-scene"></div>
+
   <div class="cta-container page-width">
     <div class="cta-content">
-      <h1>Tour CTA</h1>
+      <h1>{{ section.settings.heading }}</h1>
       <p>{{ section.settings.description }}</p>
       <a class="tour-cta-link" href="{{ '/collections/tours' | url }}">
         <div class="primary primary-cta btn">
@@ -52,18 +47,12 @@
   </div>
 </div>
 
-
 {% schema %}
   {
-    "name": "Tours CTA",
+    "name": "Three CTA",
     "tag": "section",
     "settings": [
       {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Background Image",
-        "info": "Upload an image for the background."
-      }, {
         "type": "text",
         "id": "heading",
         "label": "Heading",
@@ -83,8 +72,8 @@
     "blocks": [],
     "presets": [
       {
-        "name": "Tours CTA",
-        "category": "Tours CTA"
+        "name": "Three CTA",
+        "category": "Three CTA"
       }
     ]
   }
