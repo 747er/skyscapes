@@ -13,7 +13,7 @@ scene.fog = new THREE.FogExp2(0x11111f, 0.002);
 
 // Define camera: .PerspectiveCamera(field of view in degree, aspect ratio = width / height, near, far)
 const camera = new THREE.PerspectiveCamera(
-  100, // fov = Field Of View
+  60, // fov = Field Of View
   window.innerWidth / window.innerHeight, // aspect ratio = width / height
   1, // near clipping plane
   1000 // far clipping plane
@@ -36,7 +36,18 @@ const container = document.getElementById("lightning-scene");
 container.appendChild(renderer.domElement);
 
 /***************************************************** Resizer */
+
+// Make canvas responsive
+// window.addEventListener('resize', () => {
+//   camera.aspect = window.innerWidth / window.innerHeight; // update aspect ratio
+//   camera.updateProjectionMatrix(); // apply changes
+
+//   renderer.setSize(window.innerWidth, window.innerHeight); // update size
+//   renderer.setPixelRatio(window.devicePixelRatio); // use to render at the native screen resolution
+// });
+
 window.addEventListener("resize", () => {
+  console.log("resize fire");
   const width = container.clientWidth;
   const height = container.clientHeight;
 
@@ -165,9 +176,11 @@ for (let p = 0; p < 25; p++) {
 
 /***************************************************** Events */
 function triggerFlash(xPos, yPos) {
-  if (yPos > 400) {
-    yPos = 250;
-  }
+//   console.log("trigger flash: ", { xPos, yPos });
+
+    if (yPos > 400) {
+        yPos = 250;
+    }
 
   // If we didn't receive coords, default to random
   if (typeof xPos === "undefined" || typeof yPos === "undefined") {
@@ -176,6 +189,9 @@ function triggerFlash(xPos, yPos) {
   }
 
   const zPos = 100;
+
+console.log('xPos: ', xPos);
+console.log('yPos: ', yPos);
 
   flash.position.set(xPos, yPos, zPos);
 
@@ -268,6 +284,8 @@ container.addEventListener("click", (e) => {
   const point = new THREE.Vector3();
   raycaster.ray.intersectPlane(plane, point);
 
+  console.log("Clicked in 3D space:", point);
+
   // Trigger the flash at this 3D point
   trigger3DFlash(point.x, point.y, 100);
 });
@@ -289,18 +307,18 @@ function render() {
     p.rotation.z -= 0.0003;
   });
 
-  //   Lightening Animation: Random the flash position and light intensity
-  // if (Math.random() > 0.93 || flash.power > 100) {
-  //   if (flash.power < 100) {
-  //     const flashX = Math.random() * 400;
-  //     const flashY = 300 + Math.random() * 200;
+//   Lightening Animation: Random the flash position and light intensity
+    // if (Math.random() > 0.93 || flash.power > 100) {
+    //   if (flash.power < 100) {
+    //     const flashX = Math.random() * 400;
+    //     const flashY = 300 + Math.random() * 200;
 
-  //     console.log(flashX, flashY);
+    //     console.log(flashX, flashY);
 
-  //     flash.position.set(flashX, flashY, 100);
-  //   }
-  //   flash.power = 50 + Math.random() * 500;
-  // }
+    //     flash.position.set(flashX, flashY, 100);
+    //   }
+    //   flash.power = 50 + Math.random() * 500;
+    // }
 
   // rerender every time the page refreshes (pause when on another tab)
   requestAnimationFrame(render);
