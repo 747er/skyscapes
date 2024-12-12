@@ -70,10 +70,19 @@
     },
     "tours_cta_lightning_Tj6j3t": {
       "type": "tours-cta-lightning",
+      "disabled": true,
       "settings": {
         "heading": "",
         "description": "",
         "alt_text": ""
+      }
+    },
+    "tours_cta_itwBE9": {
+      "type": "tours-cta",
+      "settings": {
+        "heading": "Feeling Inspired?",
+        "description": "",
+        "alt_text": "Lightning striking from a dramatic cloud in the plains."
       }
     }
   },
@@ -81,6 +90,7 @@
     "main",
     "banner_GL8AGf",
     "gallery_AajTPY",
-    "tours_cta_lightning_Tj6j3t"
+    "tours_cta_lightning_Tj6j3t",
+    "tours_cta_itwBE9"
   ]
 }
