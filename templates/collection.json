@@ -24,6 +24,14 @@
         "collapse_on_larger_devices": false
       }
     },
+    "banner_Q7DLTV": {
+      "type": "banner",
+      "settings": {
+        "subheading": "NOW BOOKING",
+        "title": "TOURS",
+        "description": "Photography Workshops in the Heart of the Plains."
+      }
+    },
     "1632705320eff360f8": {
       "type": "collection-calendar",
       "settings": {
@@ -34,6 +42,7 @@
   "order": [
     "banner",
     "product-grid",
+    "banner_Q7DLTV",
     "1632705320eff360f8"
   ]
 }
