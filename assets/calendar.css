@@ -49,14 +49,17 @@
   text-align: left;
   align-items: stretch;
   flex-direction: row;
+  background: #121212;
+  border: 1px solid #dcbc90;
+  margin-bottom: 32px;
 }
 
-.cal-card:nth-child(odd) {
+/* .cal-card:nth-child(odd) {
   text-align: right;
   flex-direction: row-reverse;
-}
+} */
 
-.cal-card:nth-child(odd) .cal-description::after {
+/* .cal-card:nth-child(odd) .cal-description::after {
   top: -70px;
   right: -50px;
   z-index: -1;
@@ -64,7 +67,7 @@
   font-size: 80px;
   color: #595959;
   position: absolute;
-}
+} */
 
 .cal-description {
   width: 40%;
@@ -122,7 +125,7 @@
   background: var(--muted-gold);
 }
 
-.cal-card:nth-child(odd) .cal-card-title-heading {
+/* .cal-card:nth-child(odd) .cal-card-title-heading {
   position: relative;
   padding-left: 0;
   padding-right: 60px;
@@ -132,7 +135,7 @@
 .cal-card:nth-child(odd) .cal-card-title-heading::before {
   right: 0;
   left: initial;
-}
+} */
 
 .cal-card-description {
   margin: 30px 0;

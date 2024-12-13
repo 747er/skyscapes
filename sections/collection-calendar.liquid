@@ -1,62 +1,71 @@
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
+{% comment %} <style>
+    #calendar-section {
+      background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/ss_bg.jpg?v=1734073638');
+    }
+</style> {% endcomment %}
+
 <div class="shopify-section spaced-section" id="calendar-section">
-  <div class="landing-section">
-    <div class="banner">
-      <div class="banner-subheading">Capture Nature's Power</div>
-      <div class="banner-title">Photography Workshops in the Heart of the Plains</div>
-    </div>
-  </div>
+  {% comment %} <div class="landing-section">
+                <div class="banner">
+                  <div class="banner-subheading">Capture Nature's Power</div>
+                  <div class="banner-title">Photography Workshops in the Heart of the Plains</div>
+                </div>
+        </div> {% endcomment %}
   <div id="experiences" class="page-width">
     <div class="workshop-flex">
       {%- for product in collection.products -%}
         {% capture coming_start %}{{product.metafields.tour_info.start_date}}{% endcapture %}
         {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
-          {%- if product.metafields.tour_info.guides.value != blank -%}
+        {%- if product.metafields.tour_info.guides.value != blank -%}
           {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
-          {%- endif -%}
+        {%- endif -%}
         {% assign today_date = 'now' | date: '%s' %}
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
 
-        
-        {% for guide in guide_list %}
-          <h2>{{ guide }}</h2>
-        {% endfor %}
 
-    
+        {% comment %} {% for guide in guide_list %}
+                              <h2>{{ guide }}</h2>
+                        {% endfor %} {% endcomment %}
+
+
         <div class="col-sm-12 col-md-8 cal-card">
-            <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
-              <a href="{{ product.url }}" class="image-overlay-link"> </a> 
-            </div>
-            <div class="cal-description">
-              <a href="{{ product.url }}">
-                <div class="cal-card-title">{{ product.title }}{% unless product.available %} <span style="color: white;">(FULL!)</span>{% endunless %}</div>
-              </a>
-              <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}</div>
-              <p class="cal-card-description">
-                {{ product.description }}
-              </p>
-              <a href="{{ product.url }}" class="button button--primary calendar-button">
-                More Info
-              </a>
-            </div>
-            <style>
+          <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
+            <a href="{{ product.url }}" class="image-overlay-link"></a>
+          </div>
+          <div class="cal-description">
+            <a href="{{ product.url }}">
+              <div class="cal-card-title">{{ product.title }}{% unless product.available %}
+                  <span style="color: white;">(FULL!)</span>
+                {% endunless %}
+              </div>
+            </a>
+            <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}</div>
+            <p class="cal-card-description">
+              {{ product.description }}
+            </p>
+            <a href="{{ product.url }}" class="button button--primary calendar-button">
+              More Info
+            </a>
+          </div>
+          <style>
+            #tour-{{ forloop.index | plus: 1 }} {
+              background: url('{{ product.images[0] | img_url: '2048x' }}');
+              background-size: contain;
+              background-position: center;
+              background-repeat: no-repeat;
+              position: relative;
+            }
+
+
+            @media screen and (max-width: 960px) {
               #tour-{{ forloop.index | plus: 1 }} {
-                background: url('{{ product.images[0] | img_url: '2048x' }}');
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-                position: relative;
+                background-size: cover;
               }
-  
-    
-              @media screen and (max-width: 960px) {
-                #tour-{{ forloop.index | plus: 1 }} {
-                  background-size: cover;
-                }
-              }
-            </style>            
+            }
+          </style>
         </div>
       {%- endfor -%}
     </div>
@@ -64,26 +73,25 @@
 </div>
 
 {% schema %}
-{
-  "name": "Collection Calendar",
-  "tag": "section",
-  "class": "spaced-section spaced-section--full-width",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "t:sections.image-banner.settings.image.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_map",
-      "label": "t:sections.image-banner.settings.image_map.label"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Collection Calendar"
-    }
-  ]
-}
+  {
+    "name": "Collection Calendar",
+    "tag": "section",
+    "class": "spaced-section spaced-section--full-width",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.image-banner.settings.image.label"
+      }, {
+        "type": "image_picker",
+        "id": "image_map",
+        "label": "t:sections.image-banner.settings.image_map.label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Calendar"
+      }
+    ]
+  }
 {% endschema %}
