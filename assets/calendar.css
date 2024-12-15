@@ -75,10 +75,22 @@
   position: relative;
 }
 
-.cal-date {
+.cal-kv-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.cal-key {
   color: #afafaf;
   font-weight: 500;
   letter-spacing: 2px;
+}
+
+.cal-value {
+  color: #fff;
+  font-weight: 400;
 }
 
 .cal-sold-out {
@@ -87,18 +99,7 @@
   letter-spacing: 2px;
 }
 
-.cal-description::after {
-  top: -70px;
-  left: -50px;
-  z-index: -1;
-  content: attr(data-index);
-  font-size: 80px;
-  color: #595959;
-  position: absolute;
-}
-
 .cal-card-pictureContainer {
-  /* height: 100%; */
   flex: 1;
   min-height: 375px;
   width: 60%;
@@ -145,6 +146,7 @@
 
 .cal-card-title {
   font-size: 3.2rem;
+  margin-bottom: 16px;
 }
 
 a {
@@ -238,3 +240,24 @@ a:hover {
   background: rgba(255, 255, 255, 0); /* Transparent background */
   cursor: pointer;
 }
+
+
+
+/* 12/24 */
+.guides-wrap {
+  display: flex;
+  gap: 16px;
+}
+
+.guide-image-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guide-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+}
+

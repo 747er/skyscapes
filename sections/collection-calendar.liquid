@@ -1,18 +1,18 @@
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
 {% comment %} <style>
-    #calendar-section {
-      background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/ss_bg.jpg?v=1734073638');
-    }
+                        #calendar-section {
+                          background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/ss_bg.jpg?v=1734073638');
+                        }
 </style> {% endcomment %}
 
 <div class="shopify-section spaced-section" id="calendar-section">
   {% comment %} <div class="landing-section">
-                <div class="banner">
-                  <div class="banner-subheading">Capture Nature's Power</div>
-                  <div class="banner-title">Photography Workshops in the Heart of the Plains</div>
-                </div>
-        </div> {% endcomment %}
+                                                        <div class="banner">
+                                                          <div class="banner-subheading">Capture Nature's Power</div>
+                                                          <div class="banner-title">Photography Workshops in the Heart of the Plains</div>
+                                                        </div>
+                            </div> {% endcomment %}
   <div id="experiences" class="page-width">
     <div class="workshop-flex">
       {%- for product in collection.products -%}
@@ -27,8 +27,8 @@
 
 
         {% comment %} {% for guide in guide_list %}
-                              <h2>{{ guide }}</h2>
-                        {% endfor %} {% endcomment %}
+                                                                                                                                  <h2>{{ guide }}</h2>
+                                                                                                        {% endfor %} {% endcomment %}
 
 
         <div class="col-sm-12 col-md-8 cal-card">
@@ -42,13 +42,49 @@
                 {% endunless %}
               </div>
             </a>
-            <div class="cal-date">{{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}</div>
-            <p class="cal-card-description">
-              {{ product.description }}
-            </p>
+
+            <div class="cal-kv-wrap">
+              <div class="cal-key">
+                Dates:
+              </div>
+              <div class="cal-value">
+                {{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}
+              </div>
+            </div>
+            <div class="cal-kv-wrap">
+              <div class="cal-key">
+                Price:
+              </div>
+              <div class="cal-value">
+                {{ product.price | money }}
+              </div>
+            </div>
+
+            <div class="cal-key">
+              Guides:
+            </div>
+            {%- if guide_list != blank -%}
+              <div class="guides-wrap">
+                {%- for guide in guide_list -%}
+                  {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
+                  <div class="guide-image-wrap">
+                    <img
+                      src="{{ guide_pic | asset_url }}"
+                      alt="{{ guide }} headshot"
+                      class="guide-image">
+                    <div>{{ guide }}</div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- else -%}
+              <div>Guides TBA</div>
+            {%- endif -%}
+
+
             <a href="{{ product.url }}" class="button button--primary calendar-button">
               More Info
             </a>
+
           </div>
           <style>
             #tour-{{ forloop.index | plus: 1 }} {
