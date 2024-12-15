@@ -105,9 +105,6 @@
   width: 60%;
   transition: transform 1.0s ease-out;
 }
-.cal-card-pictureContainer:hover {
-  transform: scale(1.05);
-}
 
 .cal-card-title-heading {
   font-weight: bold;

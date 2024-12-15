@@ -1,18 +1,7 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
-{% comment %} <style>
-                        #calendar-section {
-                          background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/ss_bg.jpg?v=1734073638');
-                        }
-</style> {% endcomment %}
-
 <div class="shopify-section spaced-section" id="calendar-section">
-  {% comment %} <div class="landing-section">
-                                                        <div class="banner">
-                                                          <div class="banner-subheading">Capture Nature's Power</div>
-                                                          <div class="banner-title">Photography Workshops in the Heart of the Plains</div>
-                                                        </div>
-                            </div> {% endcomment %}
   <div id="experiences" class="page-width">
     <div class="workshop-flex">
       {%- for product in collection.products -%}
@@ -24,14 +13,14 @@
         {% assign today_date = 'now' | date: '%s' %}
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
-
-
-        {% comment %} {% for guide in guide_list %}
-                                                                                                                                  <h2>{{ guide }}</h2>
-                                                                                                        {% endfor %} {% endcomment %}
-
-
         <div class="col-sm-12 col-md-8 cal-card">
+          <div class="cal-card-pictureContainer">
+            <img
+              src="{{ product.featured_image.src | img_url: '600x' }}"
+              alt="{{ product.title }}"
+              class="cal-card-picture"
+              style="z-index: -1;">
+          </div>
           <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
             <a href="{{ product.url }}" class="image-overlay-link"></a>
           </div>
@@ -86,22 +75,6 @@
             </a>
 
           </div>
-          <style>
-            #tour-{{ forloop.index | plus: 1 }} {
-              background: url('{{ product.images[0] | img_url: '2048x' }}');
-              background-size: contain;
-              background-position: center;
-              background-repeat: no-repeat;
-              position: relative;
-            }
-
-
-            @media screen and (max-width: 960px) {
-              #tour-{{ forloop.index | plus: 1 }} {
-                background-size: cover;
-              }
-            }
-          </style>
         </div>
       {%- endfor -%}
     </div>
@@ -131,3 +104,83 @@
     ]
   }
 {% endschema %}
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".cal-card-pictureContainer img");
+
+  images.forEach((img) => {
+    // Replace the image with a Three.js canvas
+    const container = img.parentElement;
+    const width = img.offsetWidth;
+    const height = img.offsetHeight;
+
+    // Hide the original image
+    // img.style.display = "none";
+
+    // Create the Three.js scene
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(
+      width / -2,
+      width / 2,
+      height / 2,
+      height / -2,
+      0.1,
+      10
+    );
+    camera.position.z = 1;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(width, height);
+    container.appendChild(renderer.domElement);
+
+    // Load the image as a texture
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load(img.src);
+
+    // Create the plane geometry with a subtle vertex shader
+    const geometry = new THREE.PlaneGeometry(width, height, 20, 20);
+
+    const material = new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uTexture: { value: texture },
+      },
+      vertexShader: `
+        uniform float uTime;
+        varying vec2 vUv;
+
+        void main() {
+          vUv = uv;
+          vec3 pos = position;
+          pos.y += sin(pos.x * 0.1 + uTime * 2.0) * 2.0; // Subtle wave distortion
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform sampler2D uTexture;
+        varying vec2 vUv;
+
+        void main() {
+          gl_FragColor = texture2D(uTexture, vUv);
+        }
+      `,
+      transparent: true,
+    });
+
+    const plane = new THREE.Mesh(geometry, material);
+    scene.add(plane);
+
+    // Animation loop
+    const clock = new THREE.Clock();
+
+    function animate() {
+      material.uniforms.uTime.value = clock.getElapsedTime();
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+  });
+  });
+</script>
