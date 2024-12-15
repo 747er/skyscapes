@@ -19,7 +19,8 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(60deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.1) 66%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(60deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 70%, rgba(0,0,0,0) 100%);
+    /* background: linear-gradient(60deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0.1) 66%, rgba(0,0,0,0) 100%); */
     /* gold accent */
     /* background: linear-gradient(57deg, rgba(0,0,0,1) 55%, rgba(219, 188, 143,0.43323266806722693) 56%, rgba(0,0,0,0.06068364845938379) 57%, rgba(0,0,0,0) 100%); */
     background-repeat: no-repeat;
@@ -53,10 +54,17 @@
       <h1>{{ section.settings.heading }}</h1> 
       <p>{{ section.settings.description }}</p>
       </p>
-      <a class="tour-cta-link" href="{{ '/collections/tours' | url }}">
+      {% comment %} <a class="tour-cta-link" href="{{ '/collections/tours' | url }}">
         <div class="primary primary-cta btn">
           <div class="primary-cta-text">View Tours</div>
         </div>
+      </a> {% endcomment %}
+      <a 
+        href="{{ '/collections/tours' | url }}" 
+        class="button button--primary"
+        style="transition: all 0.3s ease;"
+      >
+        Find a Tour
       </a>
     </div>
   </div>
