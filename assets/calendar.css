@@ -258,3 +258,6 @@ a:hover {
   border-radius: 100%;
 }
 
+.calendar-button {
+  margin-top: 16px;
+}

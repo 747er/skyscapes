@@ -13,16 +13,14 @@
         {% assign today_date = 'now' | date: '%s' %}
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
-        <div class="col-sm-12 col-md-8 cal-card">
+        <div class="col-sm-12 col-md-8 cal-card" id="tour-{{ forloop.index | plus: 1 }}">
           <div class="cal-card-pictureContainer">
             <img
               src="{{ product.featured_image.src | img_url: '600x' }}"
               alt="{{ product.title }}"
               class="cal-card-picture"
-              style="z-index: -1;">
-          </div>
-          <div id="tour-{{ forloop.index | plus: 1 }}" class="cal-card-pictureContainer">
-            <a href="{{ product.url }}" class="image-overlay-link"></a>
+              style="z-index: -1;"
+              data-tour="{{ forloop.index | plus: 1 }}">
           </div>
           <div class="cal-description">
             <a href="{{ product.url }}">
@@ -105,12 +103,10 @@
   }
 {% endschema %}
 
-
 <script>
-
   const [sizeW, sizeH, segW, segH] = [30, 20, 50, 50]; // Plane dimensions and segments
 
-  const initFlagEffect = (container, imageUrl, width, height) => {
+  const initFlagEffect = (container, imageUrl, width, height, tourId) => {
     // Create isolated scene, camera, and renderer for each canvas
     const scene = new THREE.Scene();
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -138,7 +134,7 @@
 
         console.log("Flag Added to Scene:", flag);
 
-        animateFlag(renderer, scene, camera, flag, container);
+        animateFlag(renderer, scene, camera, flag, tourId);
       },
       undefined, // onProgress
       (error) => {
@@ -147,22 +143,26 @@
     );
   };
 
-  const animateFlag = (renderer, scene, camera, flag, container) => {
+  const animateFlag = (renderer, scene, camera, flag, tourId) => {
     let h = 0.5; // Horizontal wave frequency
     let v = 0.0; // Vertical wave frequency
     let swing = 0.2; // Amplitude of the wave
     let speed = 0.2; // Speed of the wave
 
-    // Add hover effect to increase swing and speed
-    container.addEventListener("mouseenter", () => {
-      swing += 0.4;   // Increase amplitude
-      speed += 0.5;   // Increase speed
-    });
+    // Add hover effect to increase swing and speed for the associated cal-card
+    const calCard = document.getElementById(`tour-${tourId}`);
 
-    container.addEventListener("mouseleave", () => {
-      swing = 0.2;    // Reset amplitude
-      speed = 0.2;    // Reset speed
-    });
+    if (calCard) {
+      calCard.addEventListener("mouseenter", () => {
+        swing += 0.4;   // Increase amplitude
+        speed += 0.5;   // Increase speed
+      });
+
+      calCard.addEventListener("mouseleave", () => {
+        swing = 0.2;    // Reset amplitude
+        speed = 0.2;    // Reset speed
+      });
+    }
 
     const positionAttribute = flag.geometry.attributes.position;
     const vertexCount = positionAttribute.count;
@@ -197,6 +197,8 @@
     images.forEach((img) => {
       // Ensure image is fully loaded before replacing it
       const imageUrl = img.src;
+      const tourId = img.getAttribute("data-tour");
+
       img.onload = () => {
         const container = img.parentElement;
         const width = img.offsetWidth || 600; // Fallback width
@@ -209,7 +211,7 @@
         canvasContainer.style.position = "relative";
         container.appendChild(canvasContainer);
 
-        initFlagEffect(canvasContainer, imageUrl, width, height);
+        initFlagEffect(canvasContainer, imageUrl, width, height, tourId);
       };
 
       // If the image is already loaded
@@ -218,5 +220,4 @@
       }
     });
   });
-
 </script>
