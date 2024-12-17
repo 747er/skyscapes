@@ -116,6 +116,14 @@
         "desktop_layout": "left",
         "mobile_layout": "collage"
       }
+    },
+    "tours_cta_lightning_WbN9gD": {
+      "type": "tours-cta-lightning",
+      "settings": {
+        "heading": "Feeling Inspired?",
+        "description": "",
+        "alt_text": ""
+      }
     }
   },
   "order": [
@@ -123,6 +131,7 @@
     "rich_text",
     "16307996127209fa21",
     "featured_products",
-    "1633286507e0eb1984"
+    "1633286507e0eb1984",
+    "tours_cta_lightning_WbN9gD"
   ]
 }
