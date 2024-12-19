@@ -47,7 +47,6 @@ container.appendChild(renderer.domElement);
 // });
 
 window.addEventListener("resize", () => {
-  console.log("resize fire");
   const width = container.clientWidth;
   const height = container.clientHeight;
 
@@ -190,9 +189,6 @@ function triggerFlash(xPos, yPos) {
 
   const zPos = 100;
 
-console.log('xPos: ', xPos);
-console.log('yPos: ', yPos);
-
   flash.position.set(xPos, yPos, zPos);
 
   // Initial bright flash
@@ -284,11 +280,10 @@ container.addEventListener("click", (e) => {
   const point = new THREE.Vector3();
   raycaster.ray.intersectPlane(plane, point);
 
-  console.log("Clicked in 3D space:", point);
-
   // Trigger the flash at this 3D point
   trigger3DFlash(point.x, point.y, 100);
 });
+
 
 /***************************************************** Render */
 
