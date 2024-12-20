@@ -166,6 +166,22 @@ a:empty {
   color: var(--muted-gold);
 }
 
+.cal-kv-wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.cal-key {
+  color: #afafaf;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.cal-value {
+  color: #fff;
+  font-weight: 400;
+}
+
 /* OVERLAY */
 .overlay-link {
   position: absolute;
@@ -185,21 +201,32 @@ a:empty {
 
 
 /* Mobile */
-@media(max-width: 991.98px) {
+@media(max-width: 992px) {
   .cal-card {
       flex-direction:column
   }
 
-  .cal-card .content {
+  .cal-card .cal-content {
       background: linear-gradient(to bottom, #0f0e0b 0%, rgba(36, 34, 30, 0.85) 100%);
-      padding: 0;
+      padding: 8px;
       min-width: 0
   }
 
-  .cal-card .content:before {
+  .cal-card .cal-content:before {
       top: 0;
       left: 50%;
       right: auto;
       transform: translate(-50%, -38px) rotate(-135deg) scale(0.7)
   }
+}
+
+
+.bg-overlay {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
