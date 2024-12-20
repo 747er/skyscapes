@@ -66,6 +66,7 @@ a:empty {
   display: flex;
   padding: 4px;
   border: 1px solid var(--muted-gold);
+  max-height: 500px;
 }
 
 .cal-card .card-picture {
@@ -76,7 +77,7 @@ a:empty {
 }
 
 /* CARD HOVER */
-.cal-card:hover img {
+.cal-card:hover .cal-card-picture {
   transform: scale(1.05);
 }
 .cal-card:hover .cal-content:after {
@@ -88,7 +89,7 @@ a:empty {
   height: 100%;
   width: 100%;
 }
-.image-wrap img {
+.image-wrap .cal-card-picture {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -105,7 +106,7 @@ a:empty {
   min-width: 400px;
   border: 2px solid #443521;
   border-left: none;
-  padding-left: 20px;
+  padding: 40px 40px 40px 60px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
