@@ -15,7 +15,6 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: red;
   }
 
   .cta-content {
@@ -23,10 +22,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 600px;
     position: relative;
     z-index: 3;
-    max-width: 40%;
-    color: #fff;
+    width: 100%;
+    align-items: center;
+  }
+
+  .button--three {
+    font-size: 2rem;
   }
 </style>
 
@@ -38,11 +42,9 @@
     <div class="cta-content">
       <h1>{{ section.settings.heading }}</h1>
       <p>{{ section.settings.description }}</p>
-      <a class="tour-cta-link" href="{{ '/collections/tours' | url }}">
-        <div class="primary primary-cta btn">
-          <div class="primary-cta-text">View Tours</div>
-        </div>
-      </a>
+      <div class="link-wrap">
+        <a class="tour-cta-link button button--primary button--three" href="{{ '/collections/tours' | url }}">View Tours</a>
+      </div>
     </div>
   </div>
 </div>

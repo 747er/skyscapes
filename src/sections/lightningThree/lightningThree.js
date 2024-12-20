@@ -47,7 +47,6 @@ container.appendChild(renderer.domElement);
 // });
 
 window.addEventListener("resize", () => {
-  console.log("resize fire");
   const width = container.clientWidth;
   const height = container.clientHeight;
 
@@ -76,6 +75,7 @@ scene.add(directionalLight);
 
 // Define lightning flash: Setup a pointLight with blue color
 const flash = new THREE.PointLight(0x586aac, 50, 800, 2.5);
+flash.power = 0;
 // Set lightning flash position behind the cloud
 flash.position.set(200, 300, 100);
 scene.add(flash);
@@ -174,24 +174,13 @@ for (let p = 0; p < 25; p++) {
 }
 
 /***************************************************** Events */
-// Function to trigger the lightning flash
-// function triggerFlash() {
-//     // Initial bright flash
-//     const initialPower = 50 + Math.random() * 500;
-//     flash.power = initialPower;
-
-//     // Slightly dim it after 50ms
-//     setTimeout(() => {
-//       flash.power = initialPower * 0.5; // half brightness
-//     }, 50);
-
-//     // Then turn it off after another 100ms (total 150ms)
-//     setTimeout(() => {
-//       flash.power = 0;
-//     }, 150);
-// }
-
 function triggerFlash(xPos, yPos) {
+//   console.log("trigger flash: ", { xPos, yPos });
+
+    if (yPos > 400) {
+        yPos = 250;
+    }
+
   // If we didn't receive coords, default to random
   if (typeof xPos === "undefined" || typeof yPos === "undefined") {
     xPos = Math.random() * 800 - 400;
@@ -199,6 +188,7 @@ function triggerFlash(xPos, yPos) {
   }
 
   const zPos = 100;
+
   flash.position.set(xPos, yPos, zPos);
 
   // Initial bright flash
@@ -216,7 +206,34 @@ function triggerFlash(xPos, yPos) {
   }, 150);
 }
 
-// Listen for mouse events on the container
+// Updated triggerFlash to accept z as well
+function trigger3DFlash(xPos, yPos, zPos) {
+  // If we didn't receive coords, default to random (or fallback to your logic)
+  if (typeof xPos === "undefined" || typeof yPos === "undefined") {
+    xPos = Math.random() * 800 - 400;
+    yPos = 300 + Math.random() * 200;
+  }
+  if (typeof zPos === "undefined") {
+    zPos = 100; // default z if none provided
+  }
+
+  flash.position.set(xPos, yPos, zPos);
+
+  // Initial bright flash
+  const initialPower = 50 + Math.random() * 500;
+  flash.power = initialPower;
+
+  // Slightly dim after 50ms
+  setTimeout(() => {
+    flash.power = initialPower * 0.5;
+  }, 50);
+
+  // Turn it off after another 100ms (total ~150ms)
+  setTimeout(() => {
+    flash.power = 0;
+  }, 150);
+}
+
 // Listen for mouse events on the container
 container.addEventListener("mouseenter", (e) => {
   const rect = container.getBoundingClientRect();
@@ -243,6 +260,31 @@ container.addEventListener("mouseleave", (e) => {
   triggerFlash(xPos, yPos);
 });
 
+container.addEventListener("click", (e) => {
+  const rect = container.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  // Convert pixel coordinates to normalized device coordinates (NDC)
+  const ndcX = (mouseX / rect.width) * 2 - 1;
+  const ndcY = -(mouseY / rect.height) * 2 + 1;
+
+  // Create a Raycaster
+  const raycaster = new THREE.Raycaster();
+  raycaster.setFromCamera({ x: ndcX, y: ndcY }, camera);
+
+  // Intersect with a plane at z=0 (or any plane you want)
+  const planeZ = -100;
+  const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), -planeZ);
+
+  const point = new THREE.Vector3();
+  raycaster.ray.intersectPlane(plane, point);
+
+  // Trigger the flash at this 3D point
+  trigger3DFlash(point.x, point.y, 100);
+});
+
+
 /***************************************************** Render */
 
 // Render animation on every rendering phase
@@ -260,12 +302,18 @@ function render() {
     p.rotation.z -= 0.0003;
   });
 
-  // Lightening Animation: Random the flash position and light intensity
-  //   if (Math.random() > 0.93 || flash.power > 100) {
-  //     if (flash.power < 100)
-  //       flash.position.set(Math.random() * 400, 300 + Math.random() * 200, 100);
-  //     flash.power = 50 + Math.random() * 500;
-  //   }
+//   Lightening Animation: Random the flash position and light intensity
+    // if (Math.random() > 0.93 || flash.power > 100) {
+    //   if (flash.power < 100) {
+    //     const flashX = Math.random() * 400;
+    //     const flashY = 300 + Math.random() * 200;
+
+    //     console.log(flashX, flashY);
+
+    //     flash.position.set(flashX, flashY, 100);
+    //   }
+    //   flash.power = 50 + Math.random() * 500;
+    // }
 
   // rerender every time the page refreshes (pause when on another tab)
   requestAnimationFrame(render);

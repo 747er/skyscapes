@@ -4,106 +4,93 @@
       "type": "main-page",
       "settings": {}
     },
-    "banner_BWay7m": {
+    "banner_GL8AGf": {
       "type": "banner",
       "settings": {
         "subheading": "Featured Moments",
         "title": "Gallery",
-        "background_image": "shopify:\/\/shop_images\/1_258b4bdf-1ed6-497b-9d7b-52ce26c30316.jpg"
+        "description": "Some of our favorite dramatic captures from the plains. Featuring work from our team and participants."
       }
     },
-    "gallery_U4rEHj": {
+    "gallery_AajTPY": {
       "type": "gallery",
       "blocks": {
-        "image_eAdLk3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/mount.jpg",
-            "alt_text": ""
-          }
-        },
-        "image_36UenW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/3_249b75b5-b790-4d62-b3b1-aaad8875dae0.jpg",
-            "alt_text": ""
-          }
-        },
-        "image_kAdLpc": {
+        "image_j9i9nt": {
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/bolt.jpg",
             "alt_text": ""
           }
         },
-        "image_Qd78rG": {
+        "image_tw9xJe": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/wall6.jpg",
+            "image": "shopify:\/\/shop_images\/12.jpg",
             "alt_text": ""
           }
         },
-        "image_gtqFL4": {
+        "image_p9NPfh": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/unnamed14.jpg",
+            "image": "shopify:\/\/shop_images\/IMG_3042.jpg",
             "alt_text": ""
           }
         },
-        "image_FegXiD": {
+        "image_LVJiiK": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/field_2_exp.jpg",
+            "image": "shopify:\/\/shop_images\/13.jpg",
             "alt_text": ""
           }
         },
-        "image_cb6BRy": {
+        "image_NbcnHJ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IMG_3455.jpg",
+            "image": "shopify:\/\/shop_images\/6.jpg",
             "alt_text": ""
           }
         },
-        "image_4Dyzj7": {
+        "image_fxNwYK": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/3.jpg",
-            "alt_text": ""
-          }
-        },
-        "image_x8EPJj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/field_1.png",
-            "alt_text": ""
-          }
-        },
-        "image_bb4tgm": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DSC_7557.jpg",
+            "image": "shopify:\/\/shop_images\/mount.jpg",
             "alt_text": ""
           }
         }
       },
       "block_order": [
-        "image_eAdLk3",
-        "image_36UenW",
-        "image_kAdLpc",
-        "image_Qd78rG",
-        "image_gtqFL4",
-        "image_FegXiD",
-        "image_cb6BRy",
-        "image_4Dyzj7",
-        "image_x8EPJj",
-        "image_bb4tgm"
+        "image_j9i9nt",
+        "image_tw9xJe",
+        "image_p9NPfh",
+        "image_LVJiiK",
+        "image_NbcnHJ",
+        "image_fxNwYK"
       ],
       "settings": {}
+    },
+    "tours_cta_lightning_Tj6j3t": {
+      "type": "tours-cta-lightning",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "description": "",
+        "alt_text": ""
+      }
+    },
+    "tours_cta_itwBE9": {
+      "type": "tours-cta",
+      "settings": {
+        "heading": "Feeling Inspired?",
+        "description": "",
+        "alt_text": "Lightning striking from a dramatic cloud in the plains."
+      }
     }
   },
   "order": [
     "main",
-    "banner_BWay7m",
-    "gallery_U4rEHj"
+    "banner_GL8AGf",
+    "gallery_AajTPY",
+    "tours_cta_lightning_Tj6j3t",
+    "tours_cta_itwBE9"
   ]
 }

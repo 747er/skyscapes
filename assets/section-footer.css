@@ -533,11 +533,6 @@ noscript .localization-selector.link {
   width: 50%;
 }
 
-.insta-icon {
-  height: 30px;
-  width: 30px;
-}
-
 .insta-link {
   display: flex;
 }
@@ -559,4 +554,23 @@ noscript .localization-selector.link {
   width: 100px;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 750px) {
+  .footer-flex {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-flex:before {
+    display: none;
+  }
+
+  .footer-flex-column {
+    width: 100%;
+  }
+
+  .insta-border {
+    margin-bottom: 24px;
+  }
 }
