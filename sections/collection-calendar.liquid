@@ -3,79 +3,78 @@
 
 <div class="shopify-section spaced-section" id="calendar-section">
   <div id="experiences" class="page-width">
-    <div class="workshop-flex">
-      {%- for product in collection.products -%}
-        {% capture coming_start %}{{product.metafields.tour_info.start_date}}{% endcapture %}
-        {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
-        {%- if product.metafields.tour_info.guides.value != blank -%}
-          {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
-        {%- endif -%}
-        {% assign today_date = 'now' | date: '%s' %}
-        {% assign pre_start = coming_start | date: '%s' %}
-        {% assign pre_end = coming_end | date: '%s' %}
-        <div class="col-sm-12 col-md-8 cal-card" id="tour-{{ forloop.index | plus: 1 }}">
-          <div class="cal-card-pictureContainer">
-            <img
-              src="{{ product.featured_image.src | img_url: '600x' }}"
-              alt="{{ product.title }}"
-              class="cal-card-picture"
-              style="z-index: -1;"
-              data-tour="{{ forloop.index | plus: 1 }}">
-          </div>
-          <div class="cal-description">
-            <a href="{{ product.url }}">
-              <div class="cal-card-title">{{ product.title }}{% unless product.available %}
-                  <span style="color: white;">(FULL!)</span>
-                {% endunless %}
-              </div>
-            </a>
 
-            <div class="cal-kv-wrap">
-              <div class="cal-key">
-                Dates:
-              </div>
-              <div class="cal-value">
-                {{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}
-              </div>
-            </div>
-            <div class="cal-kv-wrap">
-              <div class="cal-key">
-                Price:
-              </div>
-              <div class="cal-value">
-                {{ product.price | money }}
-              </div>
-            </div>
-
-            <div class="cal-key">
-              Guides:
-            </div>
-            {%- if guide_list != blank -%}
-              <div class="guides-wrap">
-                {%- for guide in guide_list -%}
-                  {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
-                  <div class="guide-image-wrap">
-                    <img
-                      src="{{ guide_pic | asset_url }}"
-                      alt="{{ guide }} headshot"
-                      class="guide-image">
-                    <div>{{ guide }}</div>
-                  </div>
-                {%- endfor -%}
-              </div>
-            {%- else -%}
-              <div>Guides TBA</div>
-            {%- endif -%}
-
-
-            <a href="{{ product.url }}" class="button button--primary calendar-button">
-              More Info
-            </a>
-
-          </div>
+    {%- for product in collection.products -%}
+      {% capture coming_start %}{{product.metafields.tour_info.start_date}}{% endcapture %}
+      {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
+      {%- if product.metafields.tour_info.guides.value != blank -%}
+        {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
+      {%- endif -%}
+      {% assign today_date = 'now' | date: '%s' %}
+      {% assign pre_start = coming_start | date: '%s' %}
+      {% assign pre_end = coming_end | date: '%s' %}
+      <div class="col-sm-12 col-md-8 cal-card" id="tour-{{ forloop.index | plus: 1 }}">
+        <div class="cal-card-pictureContainer">
+          <img
+            src="{{ product.featured_image.src | img_url: '600x' }}"
+            alt="{{ product.title }}"
+            class="cal-card-picture"
+            data-tour="{{ forloop.index | plus: 1 }}">
         </div>
-      {%- endfor -%}
-    </div>
+        <div class="cal-description">
+          <a href="{{ product.url }}">
+            <div class="cal-card-title">{{ product.title }}{% unless product.available %}
+                <span style="color: white;">(FULL!)</span>
+              {% endunless %}
+            </div>
+          </a>
+
+          <div class="cal-kv-wrap">
+            <div class="cal-key">
+              Dates:
+            </div>
+            <div class="cal-value">
+              {{ pre_start | date: "%b %d" }} - {{ pre_end | date: "%b %d %Y" }}
+            </div>
+          </div>
+          <div class="cal-kv-wrap">
+            <div class="cal-key">
+              Price:
+            </div>
+            <div class="cal-value">
+              {{ product.price | money }}
+            </div>
+          </div>
+
+          <div class="cal-key">
+            Guides:
+          </div>
+          {%- if guide_list != blank -%}
+            <div class="guides-wrap">
+              {%- for guide in guide_list -%}
+                {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
+                <div class="guide-image-wrap">
+                  <img
+                    src="{{ guide_pic | asset_url }}"
+                    alt="{{ guide }} headshot"
+                    class="guide-image">
+                  <div>{{ guide }}</div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div>Guides TBA</div>
+          {%- endif -%}
+
+
+          <a href="{{ product.url }}" class="button button--primary calendar-button">
+            More Info
+          </a>
+
+        </div>
+      </div>
+    {%- endfor -%}
+
   </div>
 </div>
 
