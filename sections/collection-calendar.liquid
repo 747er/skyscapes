@@ -56,11 +56,7 @@
                   {%- for guide in guide_list -%}
                     {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
                     <div class="guide-image-wrap">
-                      <img
-                        style="width: 50px; height: 50px;"
-                        src="{{ guide_pic | asset_url }}"
-                        alt="{{ guide }} headshot"
-                        class="guide-image">
+                      <div class="guide-pic guide-image {{guide}}" style="background-image: url('{{ guide_pic | asset_url }}'); background-size: cover; background-repeat: no-repeat;"></div>
                       <div>{{ guide }}</div>
                     </div>
                   {%- endfor -%}

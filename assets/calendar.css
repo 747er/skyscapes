@@ -2,6 +2,13 @@
 a:empty {
   display: initial;
 }
+div:empty {
+  display: block;
+}
+
+#MainContent {
+  background: #23201d;
+}
 
 .landing-section {
   width: 100%;
@@ -195,28 +202,67 @@ a:empty {
 /* GUIDES */
 .guides-wrap {
   display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  height: 120px;
+  width: 100%;
 }
 
+.guide-image {
+  height: 100%;
+  /* aspect-ratio: 1; */
+}
 
+.guide-image-wrap {
+  flex: 1;
+}
 
+.guide-pic.Steve {
+  background-position: center 20%;
+}
+
+.guide-pic.David {
+  background-position: center;
+}
+
+.guide-pic.Miles {
+  background-position: center 35%;
+}
+
+.guide-pic.Ryan {
+  background-position: center 25%;
+}
+
+.guide-pic.Bruce {
+  background-position: center 25%;
+}
+
+.guide-pic.Justin {
+  background-position: 85% center;
+}
 
 /* Mobile */
 @media(max-width: 992px) {
   .cal-card {
-      flex-direction:column
+      flex-direction:column;
+      max-height: unset;
   }
 
   .cal-card .cal-content {
       background: linear-gradient(to bottom, #0f0e0b 0%, rgba(36, 34, 30, 0.85) 100%);
       padding: 8px;
-      min-width: 0
+      min-width: 0;
   }
 
   .cal-card .cal-content:before {
       top: 0;
       left: 50%;
       right: auto;
-      transform: translate(-50%, -38px) rotate(-135deg) scale(0.7)
+      transform: translate(-50%, -38px) rotate(-135deg) scale(0.7);
+  }
+  .chevrons {
+      display: none;
   }
 }
 
