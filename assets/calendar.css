@@ -1,3 +1,4 @@
+/* Overwrite a href empty display none */
 a:empty {
   display: initial;
 }
@@ -58,6 +59,8 @@ a:empty {
     gap: 40px;
     position: relative;
 }
+
+/* CARD */
 .cal-card {
   position: relative;
   display: flex;
@@ -71,6 +74,16 @@ a:empty {
   border-right: none;
   overflow: hidden;
 }
+
+/* CARD HOVER */
+.cal-card:hover img {
+  transform: scale(1.05);
+}
+.cal-card:hover .cal-content:after {
+  opacity: 1;
+}
+
+/* IMAGE */
 .image-wrap {
   height: 100%;
   width: 100%;
@@ -85,10 +98,7 @@ a:empty {
   transition: transform .6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.cal-card:hover img {
-  transform: scale(1.05);
-}
-
+/* CONTENT */
 .cal-content {
   position: relative;
   flex: 1 1 40%;
@@ -119,18 +129,43 @@ a:empty {
   opacity: 0;
   transition: opacity .5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.cal-card:hover .cal-content:after {
-  opacity: 1;
+
+/* Chevrons */
+.cal-content .chevrons {
+  position: absolute;
+  bottom: 20px;
+  right: 22px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid #f4cf8b;
+  border-right: 2px solid #f4cf8b;
+  transform: translate(0, -0.1em) rotate(45deg);
+  transition: transform .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: 2;
+}
+.cal-content .chevrons:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #f4cf8b;
+  border-right: 1px solid #f4cf8b;
+  transform: translate(4px, -4px);
 }
 
+
+/* CONTENT COPY */
 .cal-card-title {
-  font-size: clamp(1.38rem, 1.08vw + 0.71rem, 2rem);
-  color: #fff;
+  font-size: 3rem;
   margin-bottom: 8px;
   line-height: 1.1875;
   color: var(--muted-gold);
 }
 
+/* OVERLAY */
 .overlay-link {
   position: absolute;
     top: 0;
@@ -138,4 +173,9 @@ a:empty {
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+
+/* GUIDES */
+.guides-wrap {
+  display: flex;
 }
