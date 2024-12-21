@@ -6,9 +6,9 @@ div:empty {
   display: block;
 }
 
-#MainContent {
+/* #MainContent {
   background: #23201d;
-}
+} */
 
 .landing-section {
   width: 100%;
@@ -251,7 +251,7 @@ div:empty {
 
   .cal-card .cal-content {
       background: linear-gradient(to bottom, #0f0e0b 0%, rgba(36, 34, 30, 0.85) 100%);
-      padding: 8px;
+      padding: 25px 20px 25px 20px;
       min-width: 0;
   }
 
@@ -263,6 +263,13 @@ div:empty {
   }
   .chevrons {
       display: none;
+  }
+
+  .cal-card-title {
+    font-size: 18px;
+  }
+  .cal-kv-wrap {
+      font-size: 16px;
   }
 }
 
