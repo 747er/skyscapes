@@ -2513,7 +2513,7 @@ details-disclosure > details {
 }
 
 .cal-image-heading {
-  top: 40%;
+  top: 50%;
   left: 50%;
   line-height: 1;
   position: absolute;
@@ -2539,6 +2539,7 @@ details-disclosure > details {
   font-size: 75px;
   font-weight: bold;
   color: #fff;
+  white-space: nowrap;
 }
 
 /* BANNER IMAGE */
