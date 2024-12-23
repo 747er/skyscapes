@@ -41,7 +41,7 @@ body {
   padding-bottom: 10px;
 }
 
-.frame__sub-content::before {
+/* .frame__sub-content::before {
   content: "";
   position: absolute;
   top: 135px;
@@ -59,7 +59,7 @@ body {
   height: 2px;
   background: linear-gradient(90deg, #e5b67d 60%, transparent);
   width: 40%;
-}
+} */
 
 .brand-title {
   line-height: 0.75;
