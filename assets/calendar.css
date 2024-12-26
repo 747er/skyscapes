@@ -176,6 +176,7 @@ div:empty {
 .cal-kv-wrap {
   display: flex;
   gap: 8px;
+  font-size: 1.5rem;
 }
 
 .cal-key {
@@ -211,11 +212,15 @@ div:empty {
 
 .guide-image {
   height: 100%;
-  /* aspect-ratio: 1; */
 }
 
 .guide-image-wrap {
   flex: 1;
+  font-size: 1.5rem;
+}
+
+.guide-name {
+  text-align: center;
 }
 
 .guide-pic.Steve {
