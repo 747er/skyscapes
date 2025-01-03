@@ -517,7 +517,6 @@ noscript .localization-selector.link {
   width: 100%;
   gap: 100px;
   position: relative;
-  flex-direction: row-reverse;
 }
 
 .footer-flex:before {
