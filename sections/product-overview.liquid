@@ -73,10 +73,19 @@
     <div class="info-block force-column accent">
         <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
         <div class="info-content">
-          {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
+          {% comment %} {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
           {% for guide in guide_list %}
             {% render 'guide', guide: guide, abbreviated: true %}
-          {% endfor %}
+          {% endfor %} {% endcomment %}
+
+          {% if product.metafields.custom.guides2 != blank %}
+            {% for guide_ref in product.metafields.custom.guides2.value %}
+              {% assign guide = guide_ref %}
+              {% render 'guide', guide: guide, abbreviated: true %}
+            {% endfor %}
+          {% endif %}
+
+
         </div>
     </div>
   </div>
