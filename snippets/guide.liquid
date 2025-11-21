@@ -1,74 +1,31 @@
-{% case guide %}
-    {% when 'Ryan' %}
-        {%- capture guide_name -%}Ryan Dyar{%- endcapture -%}
-        {%- capture instagram_handle -%}ryandyar{%- endcapture -%}
-        {%- capture five00px_handle -%}ryandyar{%- endcapture -%}
-        {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
-        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
-        {%- capture bio -%}
-            Ryan is a professional nature photographer hailing from the Pacific Northwest. In his 15 years of photography, his passion has been photographing unique weather and light over beautiful landscapes across the world. Specializing in teaching photography, he helps tour guests with not only in-depth field technique, but also in creative and distinctive post processing.
-        {%- endcapture -%}
-    {% when 'Steve' %}
-        {%- capture guide_name -%}Steve Saviano{%- endcapture -%}
-        {%- capture instagram_handle -%}skyscape2020{%- endcapture -%}
-        {% assign five00px_handle = false %}
-        {%- capture guide_title -%}Lead Forecaster{%- endcapture -%}
-        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
-        {%- capture bio -%}
-        Steve Saviano is the lead forecaster and founder of Skyscape Photo Tours. He is educated in meteorology and has had a life long interest in thunderstorms and their associated phenomena. With over 20 years of storm chasing experience, Steve has developed the ability to consistently place his tour guests in prime position to photograph the spectacular storms that occur across the great plains.
-        {%- endcapture -%}
-    {% when 'Miles' %}
-        {%- capture guide_name -%}Miles Morgan{%- endcapture -%}
-        {%- capture instagram_handle -%}milesmorganphotography{%- endcapture -%}
-        {%- capture five00px_handle -%}milesmorganphotography{%- endcapture -%}
-        {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
-        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
-        {%- capture bio -%}
-            As an airline pilot, Miles has developed a strong understanding of all types of weather. That knowledge directly translates into creating some of the most unique looking imagery in world of nature photography filled with gorgeous light and fascinating weather. His charismatic personality keeps our trips light hearted and fun, but his talent behind a camera helps tour guests ensure they are making the best images possible.
-        {%- endcapture -%}
-    {% when 'Bruce' %}
-        {%- capture guide_name -%}Bruce Omori{%- endcapture -%}
-        {%- capture instagram_handle -%}bruceomori{%- endcapture -%}
-        {%- capture five00px_handle -%}bruceomori{%- endcapture -%}
-        {%- capture guide_title -%}Workshop Leader{%- endcapture -%}
-        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
-        {%- capture bio -%}
-        Bruce is a photographer based in Hilo, Hawai‘i, specializing in capturing the terrifying yet aesthetic nature of lava.  Documenting volcanic eruptions and witnessing how it can create its own weather, fueled his fascination with storms on the grander scale, where dynamic atmospheric forces create powerful and destructive yet beautiful events.  Bruce assists tour guests in seeing this beauty and capturing story-telling imagery of the experience.
-        {%- endcapture -%}
-    {% when 'Justin' %}
-        {%- capture guide_name -%}Justin Snead{%- endcapture -%}
-        {%- capture instagram_handle -%}bruceomori{%- endcapture -%}
-        {%- capture five00px_handle -%}bruceomori{%- endcapture -%}
-        {%- capture guide_title -%}Guest Leader{%- endcapture -%}
-        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
-        {%- capture bio -%}
-        Justin is an established storm chaser and photographer who comes from the southeast. As a traveling healthcare provider, his time in the operating room has taught him the patience required when it comes to forecasting and chasing severe weather. His unique and signature moody editing style is easily distinguishable in his photography.
-        {%- endcapture -%}
-    {% when 'David' %}
-        {%- capture guide_name -%}David Thompson{%- endcapture -%}
-        {%- capture instagram_handle -%}davidthompsonphotography{%- endcapture -%}
-        {%- capture five00px_handle -%}d-breezy{%- endcapture -%}
-        {%- capture guide_title -%}Guest Leader{%- endcapture -%}
-        {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
-        {%- capture bio -%}
-        David is a landscape/nature photographer based out of the Southwest. His imagery is diverse, and captures the landscape in many different environments and weather conditions, as his goal as a photographer is to tell a visual story and allow the viewer’s mind to journey the world’s natural beauty through his eyes and camera. 
-        {%- endcapture -%}
-    {% else %}
-    <h1>Mystery Guest Guide!</h1>
-{% endcase %}
+{%- assign guide_name = guide.name -%}
+{%- assign instagram_handle = guide.instagram_handle -%}
+{%- assign five00px_handle = guide.five00px_handle -%}
+{%- assign guide_title = guide.title -%}
+{%- assign guide_pic = guide.photo | image_url: width: 800 -%}
+{%- assign bio = guide.bio -%}
 
+<div class="guide-container {% if abbreviated %}abbreviated{% endif %}">
+  <div
+    class="guide-pic"
+    style="background-image: url('{{ guide_pic }}'); background-size: cover; background-repeat: no-repeat;">
+  </div>
 
-<div class="guide-container {% if abbreviated  %}abbreviated{% endif %}">
-    <div class="guide-pic {{guide}}" style="background-image: url('{{ guide_pic | asset_url }}'); background-size: cover; background-repeat: no-repeat;"> </div>
-    <div class="guide-content">
-        <div class="guide-socials">
-            {% render 'guide-instagram', instagram_handle: instagram_handle %}
-            {% if five00px_handle %}{% render 'guide-500', five00px_handle: five00px_handle %}{% endif %}
-        </div>
-        <div class="guide-banner">
-            <div class="guide-heading">{{guide_title}}</div>
-            <h1 class="guide-header">{{guide_name}}</h1>
-        </div>        
-        <p class="guide-bio">{{bio}}</p>
+  <div class="guide-content">
+    <div class="guide-socials">
+      {% if instagram_handle %}
+        {% render 'guide-instagram', instagram_handle: instagram_handle %}
+      {% endif %}
+      {% if five00px_handle %}
+        {% render 'guide-500', five00px_handle: five00px_handle %}
+      {% endif %}
     </div>
+
+    <div class="guide-banner">
+      <div class="guide-heading">{{ guide_title }}</div>
+      <h1 class="guide-header">{{ guide_name }}</h1>
+    </div>
+
+    <p class="guide-bio">{{ bio }}</p>
+  </div>
 </div>
