@@ -7,9 +7,6 @@
       {%- for product in collection.products -%}
         {% capture coming_start %}{{product.metafields.tour_info.start_date}}{% endcapture %}
         {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
-        {%- if product.metafields.tour_info.guides.value != blank -%}
-          {% assign guide_list = product.metafields.tour_info.guides.value | split: ',' %}
-        {%- endif -%}
         {% assign today_date = 'now' | date: '%s' %}
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
@@ -47,64 +44,19 @@
                   {{ product.price | money }}
                 </div>
               </div>
-
-              {%- if guide_list != blank -%}
+              {% if product.metafields.custom.guides2 != blank %}
                 <div class="guides-wrap">
-                  {%- for guide in guide_list -%}
-                    {%- capture guide_pic -%}{{guide | downcase }}.jpg{%- endcapture -%}
+                  {% for guide in product.metafields.custom.guides2.value %}
+                    {% assign guide_pic = guide.photo %}
                     <div class="guide-image-wrap">
-                      <div class="guide-pic guide-image {{guide}}" style="background-image: url('{{ guide_pic | asset_url }}'); background-size: cover; background-repeat: no-repeat;"></div>
-                      <div class="guide-name">{{ guide }}</div>
+                      <div class="guide-pic guide-image {{guide.slug}}" style="background-image: url('{{ guide_pic }}'); background-size: cover; background-repeat: no-repeat;"></div>
+                      <div class="guide-name">{{ guide.name }}</div>
                     </div>
-                  {%- endfor -%}
+                  {% endfor %}
                 </div>
-              {%- else -%}
+              {% else %}
                 <div>Guides TBA</div>
-              {%- endif -%}
-
-
-              {% comment %} <button class="cal-button" type="button">
-
-                                                                <!-- ?xml version="1.0" encoding="UTF-8"? -->
-                                                                <svg
-                                                                  width="260px"
-                                                                  height="50px"
-                                                                  viewBox="0 0 260 46"
-                                                                  version="1.1"
-                                                                  xmlns="http://www.w3.org/2000/svg"
-                                                                  xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                                  <defs>
-                                                                    <path
-                                                                      id="submit_newsletter"
-                                                                      d="M 30 28 L 230 28"
-                                                                      stroke="#000"></path>
-                                                                  </defs>
-
-                                                                  <polygon
-                                                                    class="background"
-                                                                    stroke-width="1.5"
-                                                                    points="220 0 244 22 220 46 40 46 15 22 40 0"></polygon>
-                                                                  <polyline
-                                                                    class="arrow left"
-                                                                    stroke-width="1.5"
-                                                                    fill="none"
-                                                                    fill-rule="evenodd"
-                                                                    points="20 4 1 22 20 41"></polyline>
-                                                                  <polyline
-                                                                    class="arrow right"
-                                                                    stroke-width="1.5"
-                                                                    fill="none"
-                                                                    fill-rule="evenodd"
-                                                                    points="239 4 258 22 239 41"></polyline>
-
-                                                                  <text>
-                                                                    <textPath class="text-path" startOffset="50%">
-                                                                      More Info
-                                                                    </textPath>
-                                                                  </text>
-
-                                                                </svg>
-                                                        </button> {% endcomment %}
+              {% endif %}
 
               <span class="chevrons"></span>
 
