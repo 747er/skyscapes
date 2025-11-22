@@ -78,8 +78,8 @@
             {% render 'guide', guide: guide, abbreviated: true %}
           {% endfor %} {% endcomment %}
 
-          {% if product.metafields.custom.guides2 != blank %}
-            {% for guide_ref in product.metafields.custom.guides2.value %}
+          {% if product.metafields.custom.guides != blank %}
+            {% for guide_ref in product.metafields.custom.guides.value %}
               {% assign guide = guide_ref %}
               {% render 'guide', guide: guide, abbreviated: true %}
             {% endfor %}
