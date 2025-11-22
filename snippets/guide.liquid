@@ -6,18 +6,17 @@
 {%- assign bio = guide.bio -%}
 
 <div class="guide-container {% if abbreviated %}abbreviated{% endif %}">
-  <div
-    class="guide-pic"
-    style="background-image: url('{{ guide_pic }}'); background-size: cover; background-repeat: no-repeat;">
-  </div>
+  <div class="guide-pic {{guide.slug}}" style="background-image: url('{{ guide_pic }}'); background-size: cover; background-repeat: no-repeat;"></div>
 
   <div class="guide-content">
     <div class="guide-socials">
       {% if instagram_handle %}
-        {% render 'guide-instagram', instagram_handle: instagram_handle %}
+        {% render 'guide-instagram'
+          , instagram_handle: instagram_handle %}
       {% endif %}
       {% if five00px_handle %}
-        {% render 'guide-500', five00px_handle: five00px_handle %}
+        {% render 'guide-500'
+          , five00px_handle: five00px_handle %}
       {% endif %}
     </div>
 
