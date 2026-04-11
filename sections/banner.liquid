@@ -1,20 +1,17 @@
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
 {%- comment -%} HERO {%- endcomment -%}
-<div class="tours-hero">
+<div class="tours-hero" id="tours-hero">
+  {%- comment -%} Interactive light layer {%- endcomment -%}
+  <div class="tours-hero__light" id="hero-light"></div>
+  <div class="tours-hero__light tours-hero__light--secondary" id="hero-light-2"></div>
+  <div class="tours-hero__grain"></div>
+
   <div class="tours-hero__inner page-width">
     <span class="tours-hero__eyebrow">{{ section.settings.subheading }}</span>
     <h1 class="tours-hero__title">{{ section.settings.title }}</h1>
     <div class="tours-hero__rule"></div>
     <p class="tours-hero__subtitle poppins-extralight">{{ section.settings.description }}</p>
-    {% if section.settings.cta_text != blank %}
-      <a href="#experiences" class="tours-hero__cta">
-        {{ section.settings.cta_text }}
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    {% endif %}
   </div>
 </div>
 
@@ -56,6 +53,72 @@
   </div>
 </div>
 
+<script>
+(function() {
+  var hero = document.getElementById('tours-hero');
+  var light = document.getElementById('hero-light');
+  var light2 = document.getElementById('hero-light-2');
+  if (!hero || !light) return;
+
+  /* Positions in pixels relative to hero */
+  var w = hero.offsetWidth, h = hero.offsetHeight;
+  var mx = w * 0.5, my = h * 0.5;   /* target */
+  var cx = w * 0.5, cy = h * 0.5;   /* primary current */
+  var c2x = w * 0.3, c2y = h * 0.6; /* secondary current */
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function tick() {
+    /* Primary — follows cursor with smooth drag */
+    cx = lerp(cx, mx, 0.05);
+    cy = lerp(cy, my, 0.05);
+    light.style.transform = 'translate(' + cx + 'px, ' + cy + 'px)';
+
+    /* Secondary — drifts much slower, creates depth */
+    c2x = lerp(c2x, mx, 0.012);
+    c2y = lerp(c2y, my, 0.015);
+    light2.style.transform = 'translate(' + c2x + 'px, ' + c2y + 'px)';
+
+    requestAnimationFrame(tick);
+  }
+
+  /* Always visible — start the loop immediately */
+  hero.classList.add('tours-hero--active');
+
+  hero.addEventListener('mousemove', function(e) {
+    var rect = hero.getBoundingClientRect();
+    mx = e.clientX - rect.left;
+    my = e.clientY - rect.top;
+  });
+
+  /* On leave: drift to where the cursor exited, not center — keeps it natural */
+  hero.addEventListener('mouseleave', function(e) {
+    var rect = hero.getBoundingClientRect();
+    /* Clamp target to just inside the edges so it stays visible */
+    mx = Math.max(w * 0.15, Math.min(w * 0.85, e.clientX - rect.left));
+    my = Math.max(h * 0.2, Math.min(h * 0.8, e.clientY - rect.top));
+  });
+
+  /* Update dimensions on resize */
+  window.addEventListener('resize', function() {
+    w = hero.offsetWidth;
+    h = hero.offsetHeight;
+  });
+
+  /* Mobile: gentle autonomous drift */
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    var t = 0;
+    setInterval(function() {
+      t += 0.003;
+      mx = (w * 0.5) + Math.sin(t) * (w * 0.25);
+      my = (h * 0.5) + Math.cos(t * 0.7) * (h * 0.15);
+    }, 30);
+  }
+
+  requestAnimationFrame(tick);
+})();
+</script>
+
 {% schema %}
   {
     "name": "Tours Hero",
@@ -81,12 +144,6 @@
         "id": "description",
         "label": "Subheadline",
         "default": "Multi-day guided photo expeditions into the most dramatic skies on the Great Plains."
-      },
-      {
-        "type": "text",
-        "id": "cta_text",
-        "label": "CTA button text",
-        "default": "Explore Tours"
       },
       {
         "type": "header",
