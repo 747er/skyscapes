@@ -37,7 +37,7 @@ div:empty { display: block; }
 }
 
 .tours-hero__inner {
-  max-width: 860px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
@@ -59,6 +59,7 @@ div:empty { display: block; }
   color: #fff;
   margin: 0;
   line-height: 1.05;
+  white-space: nowrap;
 }
 
 .tours-hero__rule {
