@@ -1,56 +1,11 @@
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
-
-<style>
-  .landing-section.gallery {
-    background-image: initial;
-    height: auto;
-    background: #0e0e0e
-  }
-
-  .landing-section.gallery .banner {
-    margin: 0;
-    background-color: initial;
-    font-size: 1em;
-    padding: 10rem 20px 3rem;
-  }
-
-  .landing-section.gallery .banner-subheading,
-  .landing-section.gallery .banner-title {
-    text-transform: uppercase;
-    font-size: 4em;
-    letter-spacing: 8px;
-  }
-
-  .gold-line {
-    background-color: var(--muted-gold);
-    height: 2px;
-    width: 100px;
-    margin: 24px auto 32px;
-  }
-
-  .landing-section.gallery .gallery-description {
-    margin: 0 auto;
-    max-width: 700px;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 1.2em;
-    line-height: 1.4;
-  }
-
-  .landing-section.gallery .banner-subheading {
-    padding-bottom: 4px;
-    font-size: 1.2em;
-  }
-
-</style>
-
-<div class="landing-section gallery bg-dark-gray">
-  <div class="banner">
-    <div class="banner-subheading">{{ section.settings.subheading }}</div>
-    <div class="banner-title">{{ section.settings.title }}</div>
-    <div class="gold-line"></div>
-    <div class="gallery-description poppins-extralight">{{ section.settings.description }}</div>
+<div class="tours-hero">
+  <div class="tours-hero__inner">
+    <span class="tours-hero__label">{{ section.settings.subheading }}</span>
+    <h1 class="tours-hero__title">{{ section.settings.title }}</h1>
+    <div class="tours-hero__rule"></div>
+    <p class="tours-hero__subtitle poppins-extralight">{{ section.settings.description }}</p>
   </div>
 </div>
 
