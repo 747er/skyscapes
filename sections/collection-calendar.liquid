@@ -1,19 +1,31 @@
 {{ 'calendar.css' | asset_url | stylesheet_tag }}
 
-<div class="shopify-section" id="calendar-section">
+<div id="calendar-section">
   <div id="experiences" class="page-width">
     <div class="tour-list">
       {%- for product in collection.products -%}
         {% capture coming_start %}{{product.metafields.tour_info.start_date}}{% endcapture %}
         {% capture coming_end %}{{product.metafields.tour_info.end_date}}{% endcapture %}
-        {% assign today_date = 'now' | date: '%s' %}
         {% assign pre_start = coming_start | date: '%s' %}
         {% assign pre_end = coming_end | date: '%s' %}
 
-        <a href="{{ product.url }}" class="tour-card{% unless product.available %} tour-card--sold-out{% endunless %}" id="tour-{{ forloop.index | plus: 1 }}">
+        {%- comment -%} Spots remaining logic {%- endcomment -%}
+        {% assign spots_remaining = 0 %}
+        {% assign show_scarcity = false %}
+        {% if product.available %}
+          {% for variant in product.variants %}
+            {% if variant.inventory_management != blank and variant.inventory_quantity > 0 %}
+              {% assign spots_remaining = spots_remaining | plus: variant.inventory_quantity %}
+            {% endif %}
+          {% endfor %}
+          {% if spots_remaining > 0 and spots_remaining <= 6 %}
+            {% assign show_scarcity = true %}
+          {% endif %}
+        {% endif %}
 
-          <span class="tour-card__index" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <a href="{{ product.url }}" class="tour-card{% unless product.available %} tour-card--sold-out{% endunless %}" id="tour-{{ forloop.index }}">
 
+          {%- comment -%} Image {%- endcomment -%}
           <div class="tour-card__image">
             <img
               src="{{ product.featured_image.src | img_url: '900x' }}"
@@ -21,22 +33,35 @@
               loading="lazy">
           </div>
 
+          {%- comment -%} Content {%- endcomment -%}
           <div class="tour-card__content">
 
-            <div class="tour-card__status">
+            {%- comment -%} Status + Scarcity {%- endcomment -%}
+            <div class="tour-card__status-row">
               {% if product.available %}
-                <span class="tour-card__status-dot tour-card__status-dot--open"></span>
-                <span class="tour-card__status-text tour-card__status-text--open">Spots Available</span>
+                <div class="tour-card__status tour-card__status--open">
+                  <span class="tour-card__status-dot"></span>
+                  <span>{% if show_scarcity %}Only {{ spots_remaining }} Spot{{ spots_remaining | pluralize: '', 's' }} Left{% else %}Spots Available{% endif %}</span>
+                </div>
               {% else %}
-                <span class="tour-card__status-dot tour-card__status-dot--full"></span>
-                <span class="tour-card__status-text tour-card__status-text--full">Sold Out</span>
+                <div class="tour-card__status tour-card__status--full">
+                  <span class="tour-card__status-dot"></span>
+                  <span>Sold Out</span>
+                </div>
               {% endif %}
             </div>
 
+            {%- comment -%} Title {%- endcomment -%}
             <h2 class="tour-card__title">{{ product.title }}</h2>
+
+            {%- comment -%} Description {%- endcomment -%}
+            {% if product.description != blank %}
+              <p class="tour-card__desc">{{ product.description | strip_html | truncatewords: 25 }}</p>
+            {% endif %}
 
             <div class="tour-card__divider"></div>
 
+            {%- comment -%} Details row {%- endcomment -%}
             <div class="tour-card__meta">
               <div class="tour-card__detail">
                 <span class="tour-card__label">Dates</span>
@@ -48,14 +73,14 @@
               </div>
             </div>
 
+            {%- comment -%} Guides {%- endcomment -%}
             {% if product.metafields.custom.guides2 != blank %}
               <div class="tour-card__guides">
                 <span class="tour-card__label">Your Guides</span>
                 <div class="tour-card__guide-list">
                   {% for guide in product.metafields.custom.guides2.value %}
-                    {% assign guide_pic = guide.photo %}
                     <div class="tour-card__guide">
-                      <div class="tour-card__guide-photo {{ guide.slug }}" style="background-image: url('{{ guide_pic }}');"></div>
+                      <div class="tour-card__guide-photo {{ guide.slug }}" style="background-image: url('{{ guide.photo }}');"></div>
                       <span class="tour-card__guide-name">{{ guide.name }}</span>
                     </div>
                   {% endfor %}
@@ -68,6 +93,7 @@
               </div>
             {% endif %}
 
+            {%- comment -%} CTA {%- endcomment -%}
             <div class="tour-card__cta">
               <span class="tour-card__cta-btn">
                 {% if product.available %}Reserve Your Spot{% else %}View Details{% endif %}
