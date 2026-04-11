@@ -56,7 +56,7 @@
 
             {%- comment -%} Description {%- endcomment -%}
             {% if product.description != blank %}
-              <p class="tour-card__desc">{{ product.description | strip_html | truncatewords: 25 }}</p>
+              <p class="tour-card__desc">{{ product.description | strip_html | truncatewords: 45 }}</p>
             {% endif %}
 
             <div class="tour-card__divider"></div>
