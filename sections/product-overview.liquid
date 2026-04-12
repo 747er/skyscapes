@@ -1,124 +1,253 @@
-<div class="ss__product__info-wrapper flex__item  page-width">
-<div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
-  <div class="info-block-container">
-    <div class="info-block accent">
-        <div class="info-header color-text-accent-1">EXPEDITION OVERVIEW</div>
-        <div class="info-content">{{product.description}}</div>
-    </div>
-  </div>
-  <div class="info-block-container">
-    <div class="info-block accent">
-        <div class="info-header color-text-accent-1">ITINERARY</div>
-        <div class="info-content">
-          Each day of the tour will have the same goal: get to the best possible location to photograph incredible supercells over the great plains. We will start each day with a weather discussion led by our forecaster. Along the way, we will explain the weather patterns present and how we plan to intercept the storm at the perfect moment. Expect to learn more than you ever thought possible about weather and the conditions of the supercells. We will also conduct photography education sessions explaining in-the-field techniques and dedicated post-processing sessions.<br>
-          All of our tours start and end in Denver, Colorado. We will provide transportation and lodging for the duration of the tour. Additional information will be sent upon registration.
+{% capture coming_start %}{{ product.metafields.tour_info.start_date }}{% endcapture %}
+{% capture coming_end %}{{ product.metafields.tour_info.end_date }}{% endcapture %}
+{% assign coming_start = coming_start | strip %}
+{% assign coming_end = coming_end | strip %}
+{% assign pre_start = coming_start | date: '%s' %}
+{% assign pre_end = coming_end | date: '%s' %}
+{% assign hero_image = product.featured_image | default: section.settings.image1 %}
+{% assign overview_main = section.settings.image1 | default: hero_image %}
+{% assign overview_side_top = section.settings.image2 | default: section.settings.image5 %}
+{% assign overview_side_bottom = section.settings.image3 | default: section.settings.image6 %}
+{% assign map_image = section.settings.image4 | default: hero_image %}
+{% assign mid_cta_image = section.settings.image5 | default: hero_image %}
+
+<section class="tour-pdp tour-pdp-section">
+
+  {%- comment -%} ── Overview ── {%- endcomment -%}
+  <div class="tour-pdp-shell page-width">
+    <div class="tour-pdp-overview__grid tour-reveal">
+      <div class="tour-pdp-overview__body">
+        <p class="tour-pdp-kicker">Expedition Overview</p>
+        <h2 class="tour-pdp-heading">Chase possibility. Capture history.</h2>
+
+        <div class="tour-pdp-feature-list">
+          <div class="tour-pdp-feature tour-reveal tour-reveal--stagger" style="--reveal-i:0">Led by a veteran storm forecaster</div>
+          <div class="tour-pdp-feature tour-reveal tour-reveal--stagger" style="--reveal-i:1">Small group expedition pacing</div>
+          <div class="tour-pdp-feature tour-reveal tour-reveal--stagger" style="--reveal-i:2">Field coaching from world-class photographers</div>
+          <div class="tour-pdp-feature tour-reveal tour-reveal--stagger" style="--reveal-i:3">Long-horizon days built around real storm structure</div>
         </div>
-    </div>
-  </div>
+      </div>
 
-
-  <div class="gallery-container">
-    <div class="gallery-item"
-      style="
-          background-image: url('{{ section.settings.image1 | img_url: '2048x' }}');
-          background-size: cover;    
-          background-repeat: no-repeat;
-          background-position: center bottom;
-      "
-    > </div>
-    <div class="gallery-item"
-      style="
-          background-image: url('{{ section.settings.image2 | img_url: '2048x' }}');
-          background-size: cover;    
-          background-repeat: no-repeat;
-          background-position: center bottom;
-      "
-    > </div>
-    <div class="gallery-item"
-      style="
-          background-image: url('{{ section.settings.image3 | img_url: '2048x' }}');
-          background-size: cover;    
-          background-repeat: no-repeat;
-          background-position: center bottom;
-      "
-    > </div>
-    <div class="gallery-item"
-      style="
-          background-image: url('{{ section.settings.image4 | img_url: '2048x' }}');
-          background-size: cover;    
-          background-repeat: no-repeat;
-          background-position: center bottom;
-      "
-    > </div>
-    <div class="gallery-item"
-      style="
-          background-image: url('{{ section.settings.image5 | img_url: '2048x' }}');
-          background-size: cover;    
-          background-repeat: no-repeat;
-          background-position: center bottom;
-      "
-    > </div>
-    <div class="gallery-item"
-      style="
-          background-image: url('{{ section.settings.image6 | img_url: '2048x' }}');
-          background-size: cover;    
-          background-repeat: no-repeat;
-          background-position: center bottom;
-      "
-    > </div>
-  </div>
-
-
-  <div class="info-block-container">
-    <div class="info-block force-column accent">
-        <div class="info-header color-text-accent-1">EXPERTS ON THIS TRIP</div>
-        <div class="info-content">
-          {% if product.metafields.custom.guides2 != blank %}
-            {% for guide_ref in product.metafields.custom.guides2.value %}
-              {% assign guide = guide_ref %}
-              {% render 'guide', guide: guide, abbreviated: true %}
-            {% endfor %}
+      <div class="tour-pdp-collage">
+        <div class="tour-pdp-collage__main">
+          {% if overview_main != blank %}
+            {{ overview_main | image_url: width: 1600 | image_tag: loading: 'lazy', alt: product.title }}
           {% endif %}
-
-
         </div>
-    </div>
-  </div>
-  <div class="info-block-container">
-    <div class="info-block accent">
-        <div class="info-header color-text-accent-1">WHAT TO EXPECT</div>
-        <div class="info-content">
-          We combined experts in two disciplines to fully optimize your experience. Our lead forecaster will track and intercept the storm at the best possible location so that our team of professional photographers can guide you in making the most of the conditions.
+        <div class="tour-pdp-collage__stack">
+          <div class="tour-pdp-collage__stack-item">
+            {% if overview_side_top != blank %}
+              {{ overview_side_top | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+            {% endif %}
+          </div>
+          <div class="tour-pdp-collage__stack-item">
+            {% if overview_side_bottom != blank %}
+              {{ overview_side_bottom | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+            {% endif %}
+          </div>
         </div>
-    </div>
-  </div>
-  <div class="info-block-container">
-    <div class="info-block accent">
-        <div class="info-header color-text-accent-1">ACCOMMODATIONS</div>
-        <div class="info-content">
-          Expect to spend a lot of time in the car driving to the best location to photograph the supercells. After the chase has concluded for the day, we will find a nearby hotel for the evening. Because of the highly variable nature of storms, we are not able to accurately predict the exact route of our chase. We have relationships at dozens of hotels along the plains and will find a single occupancy room for you every night.
-        </div>
-    </div>
-  </div>
-  <div class="info-block-container">
-    <div class="info-block accent">
-        <div class="info-header color-text-accent-1">PEACE OF MIND</div>
-        <div class="info-content">
-          Above all else, we value safety. Our specialty is getting clients to a position where the storm is most photogenic. Most of the time, that approach would keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.
-        </div>
+      </div>
     </div>
   </div>
 
-  <div class="info-block-container">
-    <div class="info-block accent">
-        <div class="info-header color-text-accent-1">WHAT'S INCLUDED</div>
-        <div class="info-content">
-          Transportation, lodging and education are included in the price. We will be coordinating no-host meals as the storms allow and stopping for snacks and beverages several times during the day.
+  {%- comment -%} ── Stats Divider ── {%- endcomment -%}
+  <div class="tour-pdp-divider tour-reveal">
+    <div class="tour-pdp-divider__glow"></div>
+    <div class="tour-pdp-shell page-width">
+      <div class="tour-pdp-stat-strip">
+        <div class="tour-pdp-stat">
+          <span class="tour-pdp-stat__number">{{ product.metafields.custom.max_guests | default: 6 }}</span>
+          <span class="tour-pdp-stat__label">Max Guests</span>
         </div>
+        <div class="tour-pdp-stat">
+          <span class="tour-pdp-stat__number">
+            {%- if coming_start != blank and coming_end != blank -%}
+              {%- assign duration_seconds = pre_end | minus: pre_start -%}
+              {%- assign duration_days = duration_seconds | divided_by: 86400 | plus: 1 -%}
+              {{ duration_days }}
+            {%- else -%}
+              7
+            {%- endif -%}
+          </span>
+          <span class="tour-pdp-stat__label">Days</span>
+        </div>
+        <div class="tour-pdp-stat">
+          <span class="tour-pdp-stat__number">2k+</span>
+          <span class="tour-pdp-stat__label">Miles Covered</span>
+        </div>
+        <div class="tour-pdp-stat">
+          <span class="tour-pdp-stat__number">15+</span>
+          <span class="tour-pdp-stat__label">Years Experience</span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+
+  {%- comment -%} ── Itinerary (reversed: visual left, text right) ── {%- endcomment -%}
+  <div class="tour-pdp-shell page-width">
+    <div class="tour-pdp-itinerary__grid tour-pdp-itinerary--reversed tour-reveal">
+      <div class="tour-pdp-itinerary__visual">
+        {% if map_image != blank %}
+          {{ map_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: 'Storm chase route atmosphere' }}
+        {% endif %}
+      </div>
+
+      <div class="tour-pdp-itinerary__content">
+        <p class="tour-pdp-kicker">Day By Day</p>
+        <h2 class="tour-pdp-heading">Itinerary</h2>
+
+        <div class="tour-pdp-itinerary__timeline">
+          <div class="tour-pdp-itinerary__stop tour-reveal tour-reveal--stagger" style="--reveal-i:0">
+            <span class="tour-pdp-itinerary__date">
+              {% if coming_start != blank %}{{ pre_start | date: '%b %-d' }}{% else %}Day 1{% endif %}
+            </span>
+            <h3 class="tour-pdp-itinerary__title">Arrival & Briefing</h3>
+            <p class="tour-pdp-itinerary__copy">
+              Meet in Denver, review the forecast setup, check gear, and align on the chase approach before we head out across the plains.
+            </p>
+          </div>
+
+          <div class="tour-pdp-itinerary__stop tour-reveal tour-reveal--stagger" style="--reveal-i:1">
+            <span class="tour-pdp-itinerary__date">
+              {% if coming_start != blank and coming_end != blank %}
+                {{ pre_start | date: '%b %-d' }} - {{ pre_end | date: '%b %-d' }}
+              {% else %}
+                Core chase window
+              {% endif %}
+            </span>
+            <h3 class="tour-pdp-itinerary__title">The Chase</h3>
+            <p class="tour-pdp-itinerary__copy">
+              Every day starts with a weather discussion, then we reposition in real time for the best light, structure, and safe storm access we can find.
+            </p>
+          </div>
+
+          <div class="tour-pdp-itinerary__stop tour-reveal tour-reveal--stagger" style="--reveal-i:2">
+            <span class="tour-pdp-itinerary__date">
+              {% if coming_end != blank %}{{ pre_end | date: '%b %-d' }}{% else %}Final day{% endif %}
+            </span>
+            <h3 class="tour-pdp-itinerary__title">Wrap & Depart</h3>
+            <p class="tour-pdp-itinerary__copy">
+              We close out in Denver with a final review, departures, and a memory card full of storm structure, lightning, and atmosphere.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ── Mid CTA (full-bleed, centered) ── {%- endcomment -%}
+  <div class="tour-pdp-mid-cta tour-pdp-mid-cta--cinematic tour-reveal">
+    <div class="tour-pdp-mid-cta__media" style="background-image: url('{{ mid_cta_image | image_url: width: 1800 }}');"></div>
+    <div class="tour-pdp-mid-cta__overlay"></div>
+    <div class="tour-pdp-mid-cta__content tour-pdp-mid-cta__content--centered">
+      <p class="tour-pdp-kicker">
+        {% if coming_start != blank and coming_end != blank %}
+          {{ pre_start | date: '%b %-d' }} - {{ pre_end | date: '%b %-d, %Y' }}
+        {% else %}
+          Storm Season
+        {% endif %}
+      </p>
+      <h2 class="tour-pdp-heading">Ready To Chase?</h2>
+      <p class="tour-pdp-mid-cta__copy">
+        Reserve your place now and let the forecast decide the route. We will handle the strategy, the positioning, and the field coaching once you are in.
+      </p>
+      <a href="#trip-booking" class="tour-pdp-button">Reserve Your Spot</a>
+    </div>
+  </div>
+
+  {%- comment -%} ── Guides ── {%- endcomment -%}
+  <div class="tour-pdp-shell page-width">
+    <div class="tour-pdp-guides tour-reveal">
+      <p class="tour-pdp-kicker">Meet Your Guides</p>
+      <h2 class="tour-pdp-heading">Your Guides</h2>
+
+      {% if product.metafields.custom.guides2 != blank %}
+        <div class="tour-pdp-guides__grid">
+          {% for guide_ref in product.metafields.custom.guides2.value %}
+            {% assign guide = guide_ref %}
+            <div class="tour-reveal tour-reveal--stagger" style="--reveal-i:{{ forloop.index0 }}">
+              {% render 'guide', guide: guide, abbreviated: true %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    {%- comment -%} ── Details ── {%- endcomment -%}
+    <div class="tour-pdp-details tour-reveal">
+      <p class="tour-pdp-kicker">The Details</p>
+
+      <div class="tour-pdp-details__grid">
+        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:0">
+          <h3 class="tour-pdp-detail-card__title">Chase Approach</h3>
+          <p class="tour-pdp-detail-card__copy">
+            Our forecaster tracks the setup and positions the group for structure, light, and a measured, safety-first interception strategy.
+          </p>
+        </article>
+
+        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:1">
+          <h3 class="tour-pdp-detail-card__title">Accommodations</h3>
+          <p class="tour-pdp-detail-card__copy">
+            We move with the weather, then settle into reliable hotels close to the route so you can rest well and be ready for the next day.
+          </p>
+        </article>
+
+        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:2">
+          <h3 class="tour-pdp-detail-card__title">Peace Of Mind</h3>
+          <p class="tour-pdp-detail-card__copy">
+            Safety comes first. We aim for photogenic structure and dramatic atmosphere, not unnecessary proximity to tornado-producing storms.
+          </p>
+        </article>
+
+        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:3">
+          <h3 class="tour-pdp-detail-card__title">What's Included</h3>
+          <p class="tour-pdp-detail-card__copy">
+            Transportation, lodging, daily field education, and in-the-moment photographic guidance are included throughout the tour.
+          </p>
+        </article>
+      </div>
+
+      {% if product.description != blank %}
+        <div class="tour-pdp-details__description tour-reveal">
+          <div class="tour-pdp-rte">
+            {{ product.description }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  /* ── Scroll Reveal ── */
+  var reveals = document.querySelectorAll('.tour-reveal');
+  if (!reveals.length) return;
+
+  var viewH = window.innerHeight;
+  /* Instantly reveal anything already in the viewport on load */
+  reveals.forEach(function(el) {
+    if (el.getBoundingClientRect().top < viewH + 80) {
+      el.classList.add('tour-revealed');
+    }
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tour-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  reveals.forEach(function(el) {
+    if (!el.classList.contains('tour-revealed')) {
+      observer.observe(el);
+    }
+  });
+})();
+</script>
 
 {% schema %}
 {
@@ -155,7 +284,7 @@
       "type": "image_picker",
       "id": "image6",
       "label": "image 6"
-    },
+    }
   ],
   "presets": [
     {
