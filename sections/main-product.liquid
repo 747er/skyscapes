@@ -36,63 +36,54 @@
   {% endif %}
 {% endif %}
 
-<section class="tour-pdp tour-pdp-booking" id="trip-booking">
-  <div class="tour-pdp-shell page-width">
-    <div class="tour-pdp-booking__grid">
+<section class="tour-pdp tour-pdp-booking" id="trip-booking" style="background-image: url('{{ hero_image | image_url: width: 2400 }}');">
+  <div class="tour-pdp-booking__grid">
       <div class="tour-pdp-booking__intro">
-        <p class="tour-pdp-kicker">Reserve Your Place</p>
-        <h2 class="tour-pdp-heading">Ready To Chase?</h2>
-        <p class="tour-pdp-lead">
-          Secure your spot, meet in Denver, and spend the week tracking storm structure with a lead forecaster and an elite photography team.
+        <div class="tour-pdp-section-label">Reserve A Seat</div>
+        <h2 class="tour-pdp-section-title">
+          {{ product.metafields.custom.max_guests | default: 6 }} <em>seats</em>.<br>
+          One storm.<br>
+          No re-runs.
+        </h2>
+        <p>We run a handful of small-group expeditions each season across May and June, when the Great Plains are at their most active. Every seat is limited.
+          {% if show_scarcity %} Only {{ spots_remaining }} remain for this departure.{% endif %}
         </p>
-
-        <div class="tour-pdp-booking__meta">
-          {% if show_scarcity %}
-            <span class="tour-pdp-pill">Only {{ spots_remaining }} spots left</span>
-          {% elsif product.available %}
-            <span class="tour-pdp-pill">Spots available</span>
-          {% else %}
-            <span class="tour-pdp-pill">Currently sold out</span>
-          {% endif %}
-          {% if coming_start != blank and coming_end != blank %}
-            <span class="tour-pdp-pill">{{ pre_start | date: '%b %-d' }} - {{ pre_end | date: '%b %-d, %Y' }}</span>
-          {% endif %}
-          <span class="tour-pdp-pill">Max {{ product.metafields.custom.max_guests | default: 6 }} guests</span>
-        </div>
       </div>
 
       <div class="tour-pdp-booking__card">
-        <div class="tour-pdp-booking__card-status">
-          {% if product.available %}
-            <span class="tour-pdp-status">Booking open</span>
+        <div class="tour-pdp-booking__availability">
+          <span class="tour-pdp-booking__live-dot"></span>
+          {% if show_scarcity %}
+            {{ spots_remaining }} of {{ product.metafields.custom.max_guests | default: 6 }} seats remaining
+          {% elsif product.available %}
+            Booking open
           {% else %}
-            <span class="tour-pdp-status tour-pdp-status--soldout">Sold Out</span>
+            Sold out
           {% endif %}
         </div>
 
-        <h2 class="tour-pdp-booking__card-title">{{ hero_heading | escape }}</h2>
-        <p class="tour-pdp-booking__card-copy">
-          Hold your place with the deposit today. Final trip details, logistics, and prep notes follow after registration.
-        </p>
-
-        <div class="tour-pdp-booking__summary">
-          <div class="tour-pdp-booking__summary-item">
-            <span>Tour dates</span>
-            <strong>
+        <div class="tour-pdp-booking__rows">
+          <div class="tour-pdp-booking__row">
+            <span class="tour-pdp-booking__row-key">Dates</span>
+            <span class="tour-pdp-booking__row-val">
               {% if coming_start != blank and coming_end != blank %}
-                {{ pre_start | date: '%b %-d' }} - {{ pre_end | date: '%b %-d, %Y' }}
+                {{ pre_start | date: '%b %-d' }} — {{ pre_end | date: '%b %-d, %Y' }}
               {% else %}
                 Confirmed after booking
               {% endif %}
-            </strong>
+            </span>
           </div>
-          <div class="tour-pdp-booking__summary-item">
-            <span>Region</span>
-            <strong>Great Plains, USA</strong>
+          <div class="tour-pdp-booking__row">
+            <span class="tour-pdp-booking__row-key">Group Size</span>
+            <span class="tour-pdp-booking__row-val">{{ product.metafields.custom.max_guests | default: 6 }} max</span>
           </div>
-          <div class="tour-pdp-booking__summary-item">
-            <span>Group size</span>
-            <strong>{{ product.metafields.custom.max_guests | default: 6 }} guests max</strong>
+          <div class="tour-pdp-booking__row">
+            <span class="tour-pdp-booking__row-key">Region</span>
+            <span class="tour-pdp-booking__row-val">Great Plains, USA</span>
+          </div>
+          <div class="tour-pdp-booking__row">
+            <span class="tour-pdp-booking__row-key">Includes</span>
+            <span class="tour-pdp-booking__row-val">Lodging, transit, guidance</span>
           </div>
         </div>
 
@@ -342,11 +333,8 @@
           {%- endfor -%}
         </div>
 
-        <p class="tour-pdp-booking__fine">
-          Transportation, lodging, and photography guidance are included. Flights, meals, and personal gear are not included.
-        </p>
+        <div class="tour-pdp-booking__sub">Fully refundable cancellation policy</div>
       </div>
-    </div>
   </div>
 
   <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
