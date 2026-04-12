@@ -2,10 +2,11 @@
 
 {%- comment -%} HERO {%- endcomment -%}
 <div class="tours-hero" id="tours-hero">
-  {%- comment -%} Interactive light layer {%- endcomment -%}
   <div class="tours-hero__light" id="hero-light"></div>
   <div class="tours-hero__light tours-hero__light--secondary" id="hero-light-2"></div>
+  <div class="tours-hero__light tours-hero__light--trail" id="hero-light-trail"></div>
   <div class="tours-hero__grain"></div>
+  <div class="tours-hero__haze"></div>
 
   <div class="tours-hero__inner page-width">
     <span class="tours-hero__eyebrow">{{ section.settings.subheading }}</span>
@@ -58,31 +59,34 @@
   var hero = document.getElementById('tours-hero');
   var light = document.getElementById('hero-light');
   var light2 = document.getElementById('hero-light-2');
+  var trail = document.getElementById('hero-light-trail');
   if (!hero || !light) return;
 
-  /* Positions in pixels relative to hero */
   var w = hero.offsetWidth, h = hero.offsetHeight;
-  var mx = w * 0.5, my = h * 0.5;   /* target */
-  var cx = w * 0.5, cy = h * 0.5;   /* primary current */
-  var c2x = w * 0.3, c2y = h * 0.6; /* secondary current */
+  var mx = w * 0.5, my = h * 0.5;
+  var cx = w * 0.5, cy = h * 0.5;
+  var c2x = w * 0.3, c2y = h * 0.6;
+  var tx = w * 0.5, ty = h * 0.5; /* trail — even slower */
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
   function tick() {
-    /* Primary — follows cursor with smooth drag */
     cx = lerp(cx, mx, 0.05);
     cy = lerp(cy, my, 0.05);
     light.style.transform = 'translate(' + cx + 'px, ' + cy + 'px)';
 
-    /* Secondary — drifts much slower, creates depth */
     c2x = lerp(c2x, mx, 0.012);
     c2y = lerp(c2y, my, 0.015);
     light2.style.transform = 'translate(' + c2x + 'px, ' + c2y + 'px)';
 
+    /* Trail — very slow, leaves a fading wake */
+    tx = lerp(tx, cx, 0.008);
+    ty = lerp(ty, cy, 0.01);
+    trail.style.transform = 'translate(' + tx + 'px, ' + ty + 'px)';
+
     requestAnimationFrame(tick);
   }
 
-  /* Always visible — start the loop immediately */
   hero.classList.add('tours-hero--active');
 
   hero.addEventListener('mousemove', function(e) {
@@ -91,21 +95,17 @@
     my = e.clientY - rect.top;
   });
 
-  /* On leave: drift to where the cursor exited, not center — keeps it natural */
   hero.addEventListener('mouseleave', function(e) {
     var rect = hero.getBoundingClientRect();
-    /* Clamp target to just inside the edges so it stays visible */
     mx = Math.max(w * 0.15, Math.min(w * 0.85, e.clientX - rect.left));
     my = Math.max(h * 0.2, Math.min(h * 0.8, e.clientY - rect.top));
   });
 
-  /* Update dimensions on resize */
   window.addEventListener('resize', function() {
     w = hero.offsetWidth;
     h = hero.offsetHeight;
   });
 
-  /* Mobile: gentle autonomous drift */
   if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
     var t = 0;
     setInterval(function() {
