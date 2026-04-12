@@ -1,0 +1,1110 @@
+.tour-pdp {
+  --tour-pdp-bg: #090807;
+  --tour-pdp-panel: rgba(19, 17, 14, 0.9);
+  --tour-pdp-panel-strong: rgba(12, 11, 9, 0.96);
+  --tour-pdp-border: rgba(219, 188, 143, 0.14);
+  --tour-pdp-border-strong: rgba(219, 188, 143, 0.28);
+  --tour-pdp-copy: rgba(255, 250, 242, 0.76);
+  --tour-pdp-copy-soft: rgba(255, 250, 242, 0.52);
+  --tour-pdp-shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+  background:
+    radial-gradient(circle at top, rgba(219, 188, 143, 0.08), transparent 32%),
+    linear-gradient(180deg, #070707 0%, #0c0b0a 36%, #090807 100%);
+  color: #fff;
+  font-family: "Manrope", "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+.tour-pdp .page-width {
+  max-width: 144rem;
+}
+
+.tour-pdp-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.tour-pdp-kicker {
+  margin: 0 0 1.6rem;
+  color: var(--muted-gold);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-title {
+  margin: 0;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: clamp(5.2rem, 10vw, 9.8rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.tour-pdp-subtitle {
+  margin: 1.8rem 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-lead,
+.tour-pdp-rte,
+.tour-pdp-body {
+  color: var(--tour-pdp-copy);
+  font-size: 1.7rem;
+  line-height: 1.85;
+}
+
+.tour-pdp-rte p:first-child,
+.tour-pdp-rte p:last-child {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.tour-pdp-rte p + p {
+  margin-top: 1.6rem;
+}
+
+.tour-pdp-hero {
+  position: relative;
+  min-height: 82rem;
+  overflow: clip;
+  border-bottom: 1px solid rgba(219, 188, 143, 0.08);
+  background: #0a0908;
+}
+
+.tour-pdp-hero__media,
+.tour-pdp-hero__overlay,
+.tour-pdp-hero__grain {
+  position: absolute;
+  inset: 0;
+}
+
+.tour-pdp-hero__media {
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.02);
+}
+
+.tour-pdp-hero__overlay {
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.84) 0%, rgba(6, 6, 6, 0.42) 46%, rgba(6, 6, 6, 0.82) 100%),
+    linear-gradient(180deg, rgba(6, 6, 6, 0.18) 0%, rgba(7, 7, 7, 0.16) 44%, rgba(7, 7, 7, 0.88) 100%);
+}
+
+.tour-pdp-hero__grain {
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 220px 220px;
+  mix-blend-mode: screen;
+}
+
+.tour-pdp-hero__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-items: center;
+  min-height: 82rem;
+  padding: 14rem 0 17rem;
+}
+
+.tour-pdp-hero__copy {
+  max-width: 74rem;
+}
+
+.tour-pdp-hero__lead {
+  margin: 2.8rem 0 0;
+  max-width: 58rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.75rem;
+  line-height: 1.75;
+}
+
+.tour-pdp-hero__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.4rem;
+  margin-top: 3.4rem;
+}
+
+.tour-pdp-button,
+.tour-pdp .tour-button.button,
+.tour-pdp .tour-button.button--primary,
+.tour-pdp .tour-button.button--secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.6rem;
+  padding: 1.6rem 2.6rem;
+  border: 1px solid rgba(219, 188, 143, 0.9);
+  border-radius: 0;
+  background: linear-gradient(180deg, #e3c089 0%, #cfaa71 100%);
+  color: #15120d;
+  box-shadow: none;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.tour-pdp-button:hover,
+.tour-pdp .tour-button.button:hover,
+.tour-pdp .tour-button.button--primary:hover,
+.tour-pdp .tour-button.button--secondary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+  box-shadow: 0 10px 28px rgba(207, 170, 113, 0.18);
+}
+
+.tour-pdp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid rgba(219, 188, 143, 0.18);
+  background: rgba(10, 10, 10, 0.36);
+  color: rgba(255, 255, 255, 0.88);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-status::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: #9de1b3;
+  box-shadow: 0 0 16px rgba(157, 225, 179, 0.55);
+}
+
+.tour-pdp-status--soldout::before {
+  background: #f19e91;
+  box-shadow: 0 0 16px rgba(241, 158, 145, 0.5);
+}
+
+.tour-pdp-facts {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(9, 8, 7, 0.86);
+  border-top: 1px solid rgba(219, 188, 143, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.tour-pdp-facts__inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tour-pdp-fact {
+  position: relative;
+  padding: 2.4rem 2rem 2.2rem;
+}
+
+.tour-pdp-fact:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  inset: 2rem auto 2rem 0;
+  width: 1px;
+  background: rgba(219, 188, 143, 0.12);
+}
+
+.tour-pdp-fact__label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--muted-gold);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-fact__value {
+  display: block;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.7rem;
+  line-height: 1.5;
+}
+
+.tour-pdp-section {
+  position: relative;
+  padding: 11rem 0 0;
+}
+
+.tour-pdp-overview__grid,
+.tour-pdp-itinerary__grid,
+.tour-pdp-booking__grid {
+  display: grid;
+  gap: 6rem;
+}
+
+.tour-pdp-overview__grid {
+  grid-template-columns: minmax(34rem, 1.03fr) minmax(0, 1.27fr);
+  align-items: start;
+}
+
+.tour-pdp-heading {
+  margin: 0;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: clamp(3.8rem, 5vw, 5.8rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.tour-pdp-overview__body {
+  max-width: 58rem;
+  padding-right: 2rem;
+}
+
+.tour-pdp-feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.8rem 2rem;
+  margin-top: 3.4rem;
+}
+
+.tour-pdp-feature {
+  position: relative;
+  padding-left: 2.4rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.16em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.tour-pdp-feature::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid rgba(219, 188, 143, 0.8);
+  transform: rotate(45deg);
+}
+
+.tour-pdp-collage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(22rem, 0.75fr);
+  gap: 2rem;
+}
+
+.tour-pdp-collage__main,
+.tour-pdp-collage__stack-item,
+.tour-pdp-itinerary__visual,
+.tour-pdp-mid-cta {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--tour-pdp-border);
+  box-shadow: var(--tour-pdp-shadow);
+  background: #111;
+}
+
+.tour-pdp-collage__main::after,
+.tour-pdp-collage__stack-item::after,
+.tour-pdp-itinerary__visual::after,
+.tour-pdp-mid-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.04), rgba(8, 8, 8, 0.28));
+}
+
+.tour-pdp-collage img,
+.tour-pdp-itinerary__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tour-pdp-collage__main {
+  min-height: 52rem;
+}
+
+.tour-pdp-collage__stack {
+  display: grid;
+  gap: 2rem;
+}
+
+.tour-pdp-collage__stack-item {
+  min-height: 25rem;
+}
+
+.tour-pdp-itinerary__grid {
+  grid-template-columns: minmax(30rem, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  margin-top: 11rem;
+}
+
+.tour-pdp-itinerary__timeline {
+  position: relative;
+  padding-left: 2.8rem;
+}
+
+.tour-pdp-itinerary__timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.7rem;
+  width: 1px;
+  background: rgba(219, 188, 143, 0.28);
+}
+
+.tour-pdp-itinerary__stop {
+  position: relative;
+  padding-bottom: 3.4rem;
+}
+
+.tour-pdp-itinerary__stop::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  left: -2.8rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 1px solid rgba(219, 188, 143, 0.8);
+  border-radius: 999px;
+  background: #090807;
+  box-shadow: 0 0 0 0.35rem rgba(219, 188, 143, 0.08);
+}
+
+.tour-pdp-itinerary__date {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--muted-gold);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-itinerary__title {
+  margin: 0;
+  color: #fff;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-itinerary__copy {
+  margin: 1rem 0 0;
+  color: var(--tour-pdp-copy);
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.tour-pdp-itinerary__visual {
+  min-height: 44rem;
+}
+
+.tour-pdp-mid-cta {
+  margin-top: 9rem;
+}
+
+.tour-pdp-mid-cta__media,
+.tour-pdp-mid-cta__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.tour-pdp-mid-cta__media {
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.02);
+}
+
+.tour-pdp-mid-cta__overlay {
+  background:
+    linear-gradient(90deg, rgba(10, 9, 8, 0.88) 0%, rgba(10, 9, 8, 0.6) 48%, rgba(10, 9, 8, 0.88) 100%),
+    linear-gradient(180deg, rgba(12, 10, 9, 0.18), rgba(12, 10, 9, 0.82));
+}
+
+.tour-pdp-mid-cta__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 28rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4.6rem 5rem;
+}
+
+.tour-pdp-mid-cta__copy {
+  margin: 1.5rem 0 2.6rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.65rem;
+  line-height: 1.75;
+}
+
+.tour-pdp-guides {
+  margin-top: 11rem;
+}
+
+.tour-pdp-guides__grid {
+  display: grid;
+  gap: 2.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 4rem;
+}
+
+.tour-guide-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--tour-pdp-border);
+  background:
+    linear-gradient(180deg, rgba(22, 20, 17, 0.9), rgba(12, 11, 9, 0.96)),
+    radial-gradient(circle at top left, rgba(219, 188, 143, 0.08), transparent 36%);
+}
+
+.tour-guide-card__media {
+  width: 100%;
+  min-height: 30rem;
+  background-size: cover;
+  background-position: center 24%;
+  filter: saturate(0) sepia(0.22) contrast(1.04);
+}
+
+.tour-guide-card__content {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  padding: 2.6rem;
+}
+
+.tour-guide-card__eyebrow {
+  display: block;
+  color: var(--muted-gold);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.tour-guide-card__name {
+  margin: 1.1rem 0 1.4rem;
+  color: #fff;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: clamp(2.8rem, 4vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.tour-guide-card__bio {
+  margin: 0;
+  color: var(--tour-pdp-copy);
+  font-size: 1.7rem;
+  line-height: 1.78;
+}
+
+.tour-guide-card__socials {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: auto;
+  padding-top: 2.2rem;
+}
+
+.tour-guide-card__socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid rgba(219, 188, 143, 0.24);
+  color: #fff;
+}
+
+.tour-pdp-details {
+  margin-top: 11rem;
+}
+
+.tour-pdp-details__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6rem;
+  margin-top: 3.2rem;
+}
+
+.tour-pdp-detail-card {
+  min-height: 100%;
+  padding: 2.6rem 2.4rem;
+  border: 1px solid var(--tour-pdp-border);
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0.9), rgba(12, 11, 9, 0.96));
+}
+
+.tour-pdp-detail-card__title {
+  margin: 0 0 1.2rem;
+  color: #fff;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-detail-card__copy {
+  margin: 0;
+  color: var(--tour-pdp-copy);
+  font-size: 1.55rem;
+  line-height: 1.8;
+}
+
+.tour-pdp-booking {
+  padding: 11rem 0 11rem;
+}
+
+.tour-pdp-booking__grid {
+  grid-template-columns: minmax(0, 0.92fr) minmax(37rem, 0.78fr);
+  align-items: start;
+}
+
+.tour-pdp-booking__intro {
+  max-width: 56rem;
+}
+
+.tour-pdp-booking__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2.6rem;
+}
+
+.tour-pdp-pill {
+  padding: 1rem 1.4rem;
+  border: 1px solid rgba(219, 188, 143, 0.2);
+  background: rgba(15, 13, 11, 0.72);
+  color: rgba(255, 255, 255, 0.86);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-booking__card {
+  position: sticky;
+  top: 3rem;
+  padding: 3rem;
+  border: 1px solid var(--tour-pdp-border-strong);
+  background:
+    linear-gradient(180deg, rgba(27, 23, 18, 0.96), rgba(16, 14, 11, 0.98)),
+    radial-gradient(circle at top left, rgba(219, 188, 143, 0.09), transparent 38%);
+  box-shadow: var(--tour-pdp-shadow);
+}
+
+.tour-pdp-booking__card-title {
+  margin: 1.8rem 0 0.8rem;
+  color: #fff;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-booking__card-copy {
+  margin: 0 0 2.4rem;
+  color: var(--tour-pdp-copy);
+  font-size: 1.6rem;
+  line-height: 1.75;
+}
+
+.tour-pdp-booking__summary {
+  display: grid;
+  gap: 1.2rem;
+  margin-bottom: 2.6rem;
+}
+
+.tour-pdp-booking__summary-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(219, 188, 143, 0.12);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.45rem;
+}
+
+.tour-pdp-booking__summary-item span:first-child {
+  color: var(--tour-pdp-copy-soft);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.tour-pdp-booking__form .price-item,
+.tour-pdp-booking__form #price-installment,
+.tour-pdp-booking__form .shopify-payment-terms {
+  display: block;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.tour-pdp-booking__form .price-item {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.tour-pdp-booking__form #price-installment {
+  margin-top: 0.8rem;
+  margin-bottom: 1.8rem;
+  color: var(--tour-pdp-copy);
+  font-size: 1.6rem;
+}
+
+.tour-pdp-booking__form .product-form {
+  margin-top: 2.2rem;
+}
+
+.tour-pdp-booking__form .product-form__buttons {
+  margin-top: 2.2rem;
+}
+
+.tour-pdp-booking__form .product-form__input {
+  max-width: none;
+  margin-bottom: 1.8rem;
+}
+
+.tour-pdp-booking__form .product-form__input .form__label,
+.tour-pdp-booking__form legend.form__label {
+  margin-bottom: 0.9rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.tour-pdp-booking__form .product-form__input input[type="radio"] + label,
+.tour-pdp-booking__form .select__select {
+  border-color: rgba(219, 188, 143, 0.24);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+}
+
+.tour-pdp-booking__form .product-form__input input[type="radio"]:checked + label {
+  background: linear-gradient(180deg, #e0bc85 0%, #cfa56a 100%);
+  border-color: rgba(219, 188, 143, 0.9);
+  color: #18140e;
+}
+
+.tour-pdp-booking__form .select {
+  max-width: none;
+}
+
+.tour-pdp-booking__form .product__description {
+  margin-top: 2.2rem;
+  color: var(--tour-pdp-copy);
+  font-size: 1.55rem;
+  line-height: 1.75;
+}
+
+.tour-pdp-booking__fine {
+  margin-top: 1.8rem;
+  color: var(--tour-pdp-copy-soft);
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.tour-pdp .product__pickup-availabilities,
+.tour-pdp .shopify-payment-button,
+.tour-pdp .shopify-installments {
+  display: none;
+}
+
+/* ── Scroll Reveal ── */
+.tour-reveal {
+  opacity: 0;
+  transform: translateY(2.8rem);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-reveal--stagger {
+  transition-delay: calc(var(--reveal-i, 0) * 0.1s);
+}
+
+.tour-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Stats Divider ── */
+.tour-pdp-divider {
+  position: relative;
+  margin: 9rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--tour-pdp-border);
+  border-bottom: 1px solid var(--tour-pdp-border);
+}
+
+.tour-pdp-divider__glow {
+  position: absolute;
+  inset: -8rem -4rem;
+  background:
+    radial-gradient(ellipse at 25% 50%, rgba(219, 188, 143, 0.05) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 50%, rgba(140, 170, 220, 0.035) 0%, transparent 52%);
+  pointer-events: none;
+}
+
+.tour-pdp-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.tour-pdp-stat {
+  position: relative;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.tour-pdp-stat:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  inset: 2.8rem auto 2.8rem 0;
+  width: 1px;
+  background: var(--tour-pdp-border);
+}
+
+.tour-pdp-stat__number {
+  display: block;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: clamp(3.8rem, 5.5vw, 6rem);
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--muted-gold);
+}
+
+.tour-pdp-stat__label {
+  display: block;
+  margin-top: 1rem;
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--tour-pdp-copy-soft);
+}
+
+/* ── Reversed Itinerary Grid ── */
+.tour-pdp-itinerary--reversed {
+  grid-template-columns: minmax(30rem, 1.1fr) minmax(30rem, 0.9fr);
+}
+
+/* ── Centered Mid-CTA (cinematic) ── */
+.tour-pdp-mid-cta--cinematic {
+  margin: 9rem 0 0;
+  border: none;
+  min-height: 36rem;
+}
+
+.tour-pdp-mid-cta__content--centered {
+  align-items: center;
+  text-align: center;
+  padding: 6rem 5rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.tour-pdp-mid-cta__content--centered .tour-pdp-mid-cta__copy {
+  max-width: 48rem;
+}
+
+/* ── Image Hover Effects ── */
+.tour-pdp-collage__main img,
+.tour-pdp-collage__stack-item img,
+.tour-pdp-itinerary__visual img {
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-pdp-collage__main:hover img,
+.tour-pdp-collage__stack-item:hover img,
+.tour-pdp-itinerary__visual:hover img {
+  transform: scale(1.05);
+}
+
+/* ── Atmospheric Section Glows ── */
+.tour-pdp-section::before {
+  content: "";
+  position: absolute;
+  top: -16rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72rem;
+  height: 36rem;
+  background: radial-gradient(ellipse, rgba(219, 188, 143, 0.035) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tour-pdp-guides::before {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  right: -8rem;
+  width: 48rem;
+  height: 32rem;
+  background: radial-gradient(ellipse, rgba(120, 160, 210, 0.03) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.tour-pdp-guides {
+  position: relative;
+}
+
+/* ── Guide Card Hover ── */
+.tour-guide-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.tour-guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+}
+
+.tour-guide-card__media {
+  transition: filter 0.8s ease;
+}
+
+.tour-guide-card:hover .tour-guide-card__media {
+  filter: saturate(0.35) sepia(0.14) contrast(1.04);
+}
+
+/* ── Detail Card Hover ── */
+.tour-pdp-detail-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.tour-pdp-detail-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--tour-pdp-border-strong);
+}
+
+/* ── Details Description ── */
+.tour-pdp-details__description {
+  margin-top: 4.8rem;
+  padding-top: 4.8rem;
+  border-top: 1px solid var(--tour-pdp-border);
+  max-width: 80rem;
+}
+
+@media screen and (max-width: 989px) {
+  .tour-pdp-hero {
+    min-height: auto;
+  }
+
+  .tour-pdp-hero__content {
+    min-height: auto;
+    padding: 11rem 0 16rem;
+  }
+
+  .tour-pdp-facts__inner,
+  .tour-pdp-overview__grid,
+  .tour-pdp-itinerary__grid,
+  .tour-pdp-itinerary--reversed,
+  .tour-pdp-booking__grid,
+  .tour-pdp-guides__grid,
+  .tour-pdp-details__grid,
+  .tour-pdp-stat-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-pdp-stat-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tour-pdp-stat:not(:first-child)::before {
+    display: none;
+  }
+
+  .tour-pdp-stat {
+    padding: 2.4rem 1.6rem;
+    border-bottom: 1px solid var(--tour-pdp-border);
+  }
+
+  .tour-pdp-divider {
+    margin: 6rem 0;
+  }
+
+  .tour-pdp-collage {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-pdp-collage__stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tour-pdp-feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-pdp-booking__card {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .tour-pdp .page-width {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .tour-pdp-hero__content {
+    padding-top: 10.5rem;
+    padding-bottom: 0;
+  }
+
+  .tour-pdp-hero__copy {
+    padding-bottom: 4rem;
+  }
+
+  .tour-pdp-title {
+    font-size: clamp(4.6rem, 14vw, 6.4rem);
+    letter-spacing: 0.14em;
+  }
+
+  .tour-pdp-overview__body {
+    padding-right: 0;
+  }
+
+  .tour-pdp-hero__lead,
+  .tour-pdp-lead,
+  .tour-pdp-rte,
+  .tour-pdp-body,
+  .tour-guide-card__bio,
+  .tour-pdp-detail-card__copy,
+  .tour-pdp-mid-cta__copy {
+    font-size: 1.55rem;
+    line-height: 1.75;
+  }
+
+  .tour-pdp-subtitle,
+  .tour-pdp-kicker,
+  .tour-pdp-fact__label,
+  .tour-pdp-pill,
+  .tour-pdp-feature,
+  .tour-pdp-booking__form .product-form__input .form__label,
+  .tour-pdp-booking__form legend.form__label {
+    letter-spacing: 0.18em;
+  }
+
+  .tour-pdp-facts {
+    position: relative;
+    margin-top: 3.5rem;
+    background: rgba(9, 8, 7, 0.9);
+  }
+
+  .tour-pdp-fact {
+    padding: 1.7rem 0;
+  }
+
+  .tour-pdp-fact:not(:first-child)::before {
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 1px;
+  }
+
+  .tour-pdp-section,
+  .tour-pdp-booking {
+    padding-top: 7rem;
+  }
+
+  .tour-pdp-itinerary__grid,
+  .tour-pdp-guides,
+  .tour-pdp-details {
+    margin-top: 7rem;
+  }
+
+  .tour-pdp-mid-cta {
+    margin-top: 6rem;
+  }
+
+  .tour-pdp-mid-cta__content {
+    min-height: 24rem;
+    padding: 3rem 2.4rem;
+  }
+
+  .tour-guide-card__media {
+    min-height: 24rem;
+  }
+
+  .tour-guide-card__content {
+    padding: 2.2rem;
+  }
+
+  .tour-pdp-booking__card {
+    padding: 2.4rem;
+  }
+
+  .tour-pdp-booking__summary-item {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .tour-pdp-collage__main {
+    min-height: 31rem;
+  }
+
+  .tour-pdp-collage__stack-item {
+    min-height: 16rem;
+  }
+
+  .tour-pdp-itinerary__visual {
+    min-height: 30rem;
+  }
+
+  .tour-pdp-stat-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tour-pdp-stat {
+    padding: 2rem 1.2rem;
+  }
+
+  .tour-pdp-stat__number {
+    font-size: clamp(3rem, 10vw, 4.4rem);
+  }
+
+  .tour-pdp-mid-cta__content--centered {
+    padding: 3.6rem 2.4rem;
+  }
+
+  .tour-pdp-section::before,
+  .tour-pdp-guides::before {
+    display: none;
+  }
+
+  .tour-pdp-booking {
+    padding-bottom: 7rem;
+  }
+}
