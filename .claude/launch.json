@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "shopify",
+      "runtimeExecutable": "theme",
+      "runtimeArgs": ["open"],
+      "port": 9292
+    }
+  ]
+}
