@@ -10,6 +10,7 @@
 {% assign overview_side_bottom = section.settings.image3 | default: section.settings.image6 %}
 {% assign map_image = section.settings.image4 | default: hero_image %}
 {% assign mid_cta_image = section.settings.image5 | default: hero_image %}
+{% assign fullbleed_image = section.settings.image6 | default: hero_image %}
 
 <section class="tour-pdp tour-pdp-section">
 
@@ -18,7 +19,7 @@
     <div class="tour-pdp-overview__grid tour-reveal">
       <div class="tour-pdp-overview__body">
         <p class="tour-pdp-kicker">Expedition Overview</p>
-        <h2 class="tour-pdp-heading">Chase possibility. Capture history.</h2>
+        <h2 class="tour-pdp-heading">Chase possibility.<br>Capture history.</h2>
 
         <div class="tour-pdp-feature-list">
           <div class="tour-pdp-feature tour-reveal tour-reveal--stagger" style="--reveal-i:0">Led by a veteran storm forecaster</div>
@@ -49,6 +50,37 @@
       </div>
     </div>
   </div>
+
+  {%- comment -%} ── Horizontal Scrolling Gallery ── {%- endcomment -%}
+  {% if product.images.size > 1 %}
+    <div class="tour-pdp-gallery tour-reveal">
+      <div class="tour-pdp-gallery__track">
+        {% for image in product.images %}
+          <div class="tour-pdp-gallery__item">
+            {{ image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+          </div>
+        {% endfor %}
+        {%- comment -%} Fill with section images if product images are sparse {%- endcomment -%}
+        {% if product.images.size < 5 %}
+          {% if section.settings.image1 != blank %}
+            <div class="tour-pdp-gallery__item">
+              {{ section.settings.image1 | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+            </div>
+          {% endif %}
+          {% if section.settings.image2 != blank %}
+            <div class="tour-pdp-gallery__item">
+              {{ section.settings.image2 | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+            </div>
+          {% endif %}
+          {% if section.settings.image3 != blank %}
+            <div class="tour-pdp-gallery__item">
+              {{ section.settings.image3 | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title }}
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
 
   {%- comment -%} ── Stats Divider ── {%- endcomment -%}
   <div class="tour-pdp-divider tour-reveal">
@@ -83,74 +115,99 @@
     </div>
   </div>
 
-  {%- comment -%} ── Itinerary (reversed: visual left, text right) ── {%- endcomment -%}
+  {%- comment -%} ── Itinerary (expandable days) ── {%- endcomment -%}
   <div class="tour-pdp-shell page-width">
-    <div class="tour-pdp-itinerary__grid tour-pdp-itinerary--reversed tour-reveal">
-      <div class="tour-pdp-itinerary__visual">
-        {% if map_image != blank %}
-          {{ map_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: 'Storm chase route atmosphere' }}
-        {% endif %}
-      </div>
-
-      <div class="tour-pdp-itinerary__content">
+    <div class="tour-pdp-itinerary tour-reveal">
+      <div class="tour-pdp-itinerary__header">
         <p class="tour-pdp-kicker">Day By Day</p>
         <h2 class="tour-pdp-heading">Itinerary</h2>
+      </div>
 
-        <div class="tour-pdp-itinerary__timeline">
-          <div class="tour-pdp-itinerary__stop tour-reveal tour-reveal--stagger" style="--reveal-i:0">
-            <span class="tour-pdp-itinerary__date">
-              {% if coming_start != blank %}{{ pre_start | date: '%b %-d' }}{% else %}Day 1{% endif %}
-            </span>
-            <h3 class="tour-pdp-itinerary__title">Arrival & Briefing</h3>
-            <p class="tour-pdp-itinerary__copy">
-              Meet in Denver, review the forecast setup, check gear, and align on the chase approach before we head out across the plains.
-            </p>
+      <div class="tour-pdp-itinerary__days">
+        <details class="tour-pdp-day" open>
+          <summary class="tour-pdp-day__summary">
+            <span class="tour-pdp-day__number">01</span>
+            <div class="tour-pdp-day__meta">
+              <span class="tour-pdp-day__date">
+                {% if coming_start != blank %}{{ pre_start | date: '%b %-d' }}{% else %}Day 1{% endif %}
+              </span>
+              <h3 class="tour-pdp-day__title">Arrival & Briefing</h3>
+            </div>
+            <span class="tour-pdp-day__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="tour-pdp-day__body">
+            <div class="tour-pdp-day__content">
+              <p>Meet in Denver, review the forecast setup, check gear, and align on the chase approach before we head out across the plains.</p>
+            </div>
+            {% if map_image != blank %}
+              <div class="tour-pdp-day__image">
+                {{ map_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: 'Arrival briefing' }}
+              </div>
+            {% endif %}
           </div>
+        </details>
 
-          <div class="tour-pdp-itinerary__stop tour-reveal tour-reveal--stagger" style="--reveal-i:1">
-            <span class="tour-pdp-itinerary__date">
-              {% if coming_start != blank and coming_end != blank %}
-                {{ pre_start | date: '%b %-d' }} - {{ pre_end | date: '%b %-d' }}
-              {% else %}
-                Core chase window
-              {% endif %}
-            </span>
-            <h3 class="tour-pdp-itinerary__title">The Chase</h3>
-            <p class="tour-pdp-itinerary__copy">
-              Every day starts with a weather discussion, then we reposition in real time for the best light, structure, and safe storm access we can find.
-            </p>
+        <details class="tour-pdp-day">
+          <summary class="tour-pdp-day__summary">
+            <span class="tour-pdp-day__number">02</span>
+            <div class="tour-pdp-day__meta">
+              <span class="tour-pdp-day__date">
+                {% if coming_start != blank and coming_end != blank %}
+                  {{ pre_start | date: '%b %-d' }} &ndash; {{ pre_end | date: '%b %-d' }}
+                {% else %}
+                  Core chase window
+                {% endif %}
+              </span>
+              <h3 class="tour-pdp-day__title">The Chase</h3>
+            </div>
+            <span class="tour-pdp-day__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="tour-pdp-day__body">
+            <div class="tour-pdp-day__content">
+              <p>Every day starts with a weather discussion, then we reposition in real time for the best light, structure, and safe storm access we can find.</p>
+            </div>
+            {% if overview_side_top != blank %}
+              <div class="tour-pdp-day__image">
+                {{ overview_side_top | image_url: width: 800 | image_tag: loading: 'lazy', alt: 'Storm chasing' }}
+              </div>
+            {% endif %}
           </div>
+        </details>
 
-          <div class="tour-pdp-itinerary__stop tour-reveal tour-reveal--stagger" style="--reveal-i:2">
-            <span class="tour-pdp-itinerary__date">
-              {% if coming_end != blank %}{{ pre_end | date: '%b %-d' }}{% else %}Final day{% endif %}
-            </span>
-            <h3 class="tour-pdp-itinerary__title">Wrap & Depart</h3>
-            <p class="tour-pdp-itinerary__copy">
-              We close out in Denver with a final review, departures, and a memory card full of storm structure, lightning, and atmosphere.
-            </p>
+        <details class="tour-pdp-day">
+          <summary class="tour-pdp-day__summary">
+            <span class="tour-pdp-day__number">03</span>
+            <div class="tour-pdp-day__meta">
+              <span class="tour-pdp-day__date">
+                {% if coming_end != blank %}{{ pre_end | date: '%b %-d' }}{% else %}Final day{% endif %}
+              </span>
+              <h3 class="tour-pdp-day__title">Wrap & Depart</h3>
+            </div>
+            <span class="tour-pdp-day__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="tour-pdp-day__body">
+            <div class="tour-pdp-day__content">
+              <p>We close out in Denver with a final review, departures, and a memory card full of storm structure, lightning, and atmosphere.</p>
+            </div>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </div>
 
-  {%- comment -%} ── Mid CTA (full-bleed, centered) ── {%- endcomment -%}
-  <div class="tour-pdp-mid-cta tour-pdp-mid-cta--cinematic tour-reveal">
-    <div class="tour-pdp-mid-cta__media" style="background-image: url('{{ mid_cta_image | image_url: width: 1800 }}');"></div>
-    <div class="tour-pdp-mid-cta__overlay"></div>
-    <div class="tour-pdp-mid-cta__content tour-pdp-mid-cta__content--centered">
+  {%- comment -%} ── Full-Bleed Image Break ── {%- endcomment -%}
+  <div class="tour-pdp-fullbleed tour-reveal">
+    <div class="tour-pdp-fullbleed__media" style="background-image: url('{{ fullbleed_image | image_url: width: 2400 }}');"></div>
+    <div class="tour-pdp-fullbleed__vignette"></div>
+    <div class="tour-pdp-fullbleed__caption page-width">
       <p class="tour-pdp-kicker">
         {% if coming_start != blank and coming_end != blank %}
-          {{ pre_start | date: '%b %-d' }} - {{ pre_end | date: '%b %-d, %Y' }}
+          {{ pre_start | date: '%b %-d' }} &ndash; {{ pre_end | date: '%b %-d, %Y' }}
         {% else %}
           Storm Season
         {% endif %}
       </p>
-      <h2 class="tour-pdp-heading">Ready To Chase?</h2>
-      <p class="tour-pdp-mid-cta__copy">
-        Reserve your place now and let the forecast decide the route. We will handle the strategy, the positioning, and the field coaching once you are in.
-      </p>
+      <h2 class="tour-pdp-fullbleed__heading">Ready To Chase?</h2>
       <a href="#trip-booking" class="tour-pdp-button">Reserve Your Spot</a>
     </div>
   </div>
@@ -172,34 +229,38 @@
         </div>
       {% endif %}
     </div>
+  </div>
+</section>
 
-    {%- comment -%} ── Details ── {%- endcomment -%}
-    <div class="tour-pdp-details tour-reveal">
-      <p class="tour-pdp-kicker">The Details</p>
+{%- comment -%} ── Details + Description (Light Section) ── {%- endcomment -%}
+<section class="tour-pdp-light">
+  <div class="tour-pdp-shell page-width">
+    <div class="tour-pdp-light__inner">
+      <p class="tour-pdp-kicker tour-pdp-kicker--dark">The Details</p>
 
-      <div class="tour-pdp-details__grid">
-        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:0">
+      <div class="tour-pdp-details__grid tour-pdp-details__grid--light tour-reveal">
+        <article class="tour-pdp-detail-card tour-pdp-detail-card--light tour-reveal tour-reveal--stagger" style="--reveal-i:0">
           <h3 class="tour-pdp-detail-card__title">Chase Approach</h3>
           <p class="tour-pdp-detail-card__copy">
             Our forecaster tracks the setup and positions the group for structure, light, and a measured, safety-first interception strategy.
           </p>
         </article>
 
-        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:1">
+        <article class="tour-pdp-detail-card tour-pdp-detail-card--light tour-reveal tour-reveal--stagger" style="--reveal-i:1">
           <h3 class="tour-pdp-detail-card__title">Accommodations</h3>
           <p class="tour-pdp-detail-card__copy">
             We move with the weather, then settle into reliable hotels close to the route so you can rest well and be ready for the next day.
           </p>
         </article>
 
-        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:2">
+        <article class="tour-pdp-detail-card tour-pdp-detail-card--light tour-reveal tour-reveal--stagger" style="--reveal-i:2">
           <h3 class="tour-pdp-detail-card__title">Peace Of Mind</h3>
           <p class="tour-pdp-detail-card__copy">
             Safety comes first. We aim for photogenic structure and dramatic atmosphere, not unnecessary proximity to tornado-producing storms.
           </p>
         </article>
 
-        <article class="tour-pdp-detail-card tour-reveal tour-reveal--stagger" style="--reveal-i:3">
+        <article class="tour-pdp-detail-card tour-pdp-detail-card--light tour-reveal tour-reveal--stagger" style="--reveal-i:3">
           <h3 class="tour-pdp-detail-card__title">What's Included</h3>
           <p class="tour-pdp-detail-card__copy">
             Transportation, lodging, daily field education, and in-the-moment photographic guidance are included throughout the tour.
@@ -208,8 +269,8 @@
       </div>
 
       {% if product.description != blank %}
-        <div class="tour-pdp-details__description tour-reveal">
-          <div class="tour-pdp-rte">
+        <div class="tour-pdp-light__description tour-reveal">
+          <div class="tour-pdp-rte tour-pdp-rte--dark">
             {{ product.description }}
           </div>
         </div>
@@ -225,7 +286,6 @@
   if (!reveals.length) return;
 
   var viewH = window.innerHeight;
-  /* Instantly reveal anything already in the viewport on load */
   reveals.forEach(function(el) {
     if (el.getBoundingClientRect().top < viewH + 80) {
       el.classList.add('tour-revealed');
@@ -246,6 +306,32 @@
       observer.observe(el);
     }
   });
+
+  /* ── Gallery Drag Scroll ── */
+  var gallery = document.querySelector('.tour-pdp-gallery__track');
+  if (gallery) {
+    var isDown = false, startX, scrollLeft;
+    gallery.addEventListener('mousedown', function(e) {
+      isDown = true;
+      gallery.classList.add('tour-pdp-gallery--grabbing');
+      startX = e.pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    });
+    gallery.addEventListener('mouseleave', function() {
+      isDown = false;
+      gallery.classList.remove('tour-pdp-gallery--grabbing');
+    });
+    gallery.addEventListener('mouseup', function() {
+      isDown = false;
+      gallery.classList.remove('tour-pdp-gallery--grabbing');
+    });
+    gallery.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - gallery.offsetLeft;
+      gallery.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
+  }
 })();
 </script>
 
