@@ -26,8 +26,7 @@
   {% assign duration_seconds = pre_end | minus: pre_start %}
   {% assign duration_days = duration_seconds | divided_by: 86400 | plus: 1 %}
 {% else %}
-  {% assign duration_days = 7 %}
-{% endif %}
+  {% assign duration_days = 7 %}{% endif %}
 
 {%- comment -%} Count guides {%- endcomment -%}
 {% assign guide_count = 0 %}
@@ -36,7 +35,7 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-   ORIENTATION
+     ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
@@ -44,7 +43,8 @@
     <div class="tour-pdp-orientation__left">
       <div class="tour-pdp-section-label">The Premise</div>
       <p class="tour-pdp-orientation__lede">
-        We don't promise tornadoes. We promise <em>position</em>&nbsp;— putting you in the right square mile of the plains, at the right hour, with the right light, beside people who have done this for years.
+        We don't promise tornadoes. We promise
+        <em>position</em>. We put you in the right square mile of the plains, at the right hour, with the right light, beside people who have done this for years.
       </p>
 
       {% if product.description != blank %}
@@ -84,13 +84,17 @@
         </div>
       {% endif %}
       <div class="tour-pdp-fact-row">
-        <span class="tour-pdp-fact-row__num">{% if guide_count > 0 %}05{% else %}04{% endif %}</span>
+        <span class="tour-pdp-fact-row__num">
+          {% if guide_count > 0 %}05{% else %}04{% endif %}
+        </span>
         <span class="tour-pdp-fact-row__label">Region</span>
         <span class="tour-pdp-fact-row__value">Great Plains, USA</span>
       </div>
       {% if show_scarcity %}
         <div class="tour-pdp-fact-row">
-          <span class="tour-pdp-fact-row__num">{% if guide_count > 0 %}06{% else %}05{% endif %}</span>
+          <span class="tour-pdp-fact-row__num">
+            {% if guide_count > 0 %}06{% else %}05{% endif %}
+          </span>
           <span class="tour-pdp-fact-row__label">Seats Remaining</span>
           <span class="tour-pdp-fact-row__value tour-pdp-fact-row__value--live">{{ spots_remaining }} of {{ max_guests }}</span>
         </div>
@@ -99,15 +103,16 @@
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-     ITINERARY
-     ══════════════════════════════════════ {%- endcomment -%}
+         ITINERARY
+       ══════════════════════════════════════ {%- endcomment -%}
 
   <div class="tour-pdp-itinerary">
     <div class="tour-pdp-itinerary__inner">
       <div class="tour-pdp-itinerary__header tour-reveal">
         <div>
           <div class="tour-pdp-section-label">The {{ duration_days }} Days</div>
-          <h2 class="tour-pdp-section-title">A loose <em>route</em><br>through<br>volatile country.</h2>
+          <h2 class="tour-pdp-section-title">A loose
+            <em>route</em><br>through<br>volatile country.</h2>
         </div>
         <p>There is no fixed itinerary. Each day begins with a weather briefing and a target drawn over coffee. The route follows the storms.</p>
       </div>
@@ -139,11 +144,11 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
   {%- comment -%} ══════════════════════════════════════
-     MID-PAGE CTA
-     ══════════════════════════════════════ {%- endcomment -%}
+         MID-PAGE CTA
+       ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign cta_image = section.settings.image6 | default: hero_image %}
   <div class="tour-pdp-mid-cta" style="background-image: url('{{ cta_image | image_url: width: 2400 }}');">
@@ -162,18 +167,18 @@
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-     CINEMATIC QUOTE BREAK
-     ══════════════════════════════════════ {%- endcomment -%}
+         CINEMATIC QUOTE BREAK
+       ══════════════════════════════════════ {%- endcomment -%}
 
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
       <blockquote>"You don't photograph a storm. You photograph the few seconds the storm allows you to be there."</blockquote>
     </div>
-  </div>
+</div>
 
   {%- comment -%} ══════════════════════════════════════
-     GALLERY — ASYMMETRIC GRID
-     ══════════════════════════════════════ {%- endcomment -%}
+         GALLERY — ASYMMETRIC GRID
+       ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
@@ -181,7 +186,8 @@
       <div class="tour-pdp-gallery__header tour-reveal">
         <div>
           <div class="tour-pdp-section-label">Field Work</div>
-          <h2 class="tour-pdp-section-title">From <em>previous</em><br>seasons.</h2>
+          <h2 class="tour-pdp-section-title">From
+            <em>previous</em><br>seasons.</h2>
         </div>
         <p>Images from past expeditions and our guides across recent storm seasons.</p>
       </div>
@@ -192,7 +198,7 @@
           <div class="tour-pdp-g-item {{ grid_class }}" data-caption="{{ image.alt | default: product.title }}">
             {{ image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: image.alt | default: product.title }}
           </div>
-        {% endfor %}
+      {% endfor %}
 
         {%- comment -%} Fill remaining slots from section settings if product has fewer than 6 images {%- endcomment -%}
         {% assign filled = gallery_images.size %}
@@ -236,8 +242,8 @@
   {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-     GUIDES
-     ══════════════════════════════════════ {%- endcomment -%}
+         GUIDES
+       ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.metafields.custom.guides2 != blank %}
     <div class="tour-pdp-guides">
@@ -246,9 +252,11 @@
           <div class="tour-pdp-section-label">The People</div>
           <h2 class="tour-pdp-section-title">
             {% if guide_count > 0 %}
-              {{ guide_count }} <em>guides</em>.
+              {{ guide_count }}
+              <em>guides</em>.
             {% else %}
-              Your <em>guides</em>.
+              Your
+              <em>guides</em>.
             {% endif %}
           </h2>
           <p>Led by a meteorologist. Supported by professional storm photographers with decades of field experience.</p>
@@ -261,7 +269,10 @@
               <div class="tour-pdp-guide__img">
                 <span class="tour-pdp-guide__num">G/{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
                 {% if guide.photo != blank %}
-                  <img src="{{ guide.photo }}" alt="{{ guide.name }}" loading="lazy">
+                  <img
+                    src="{{ guide.photo }}"
+                    alt="{{ guide.name }}"
+                    loading="lazy">
                 {% endif %}
               </div>
               <h3 class="tour-pdp-guide__name">{{ guide.name }}</h3>
@@ -273,13 +284,38 @@
               {% if guide.instagram_handle or guide.five00px_handle %}
                 <div class="tour-pdp-guide__socials">
                   {% if guide.instagram_handle %}
-                    <a href="https://instagram.com/{{ guide.instagram_handle }}" target="_blank" rel="noopener" aria-label="Instagram">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    <a
+                      href="https://instagram.com/{{ guide.instagram_handle }}"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Instagram">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"><rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5" /><circle
+                          cx="12"
+                          cy="12"
+                          r="5" /><circle
+                          cx="17.5"
+                          cy="6.5"
+                          r="1"
+                          fill="currentColor"
+                          stroke="none" /></svg>
                     </a>
                   {% endif %}
                   {% if guide.five00px_handle %}
-                    <a href="https://500px.com/p/{{ guide.five00px_handle }}" target="_blank" rel="noopener" aria-label="500px">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 3a4.5 4.5 0 0 0 0 9h2.25a.75.75 0 0 0 0-1.5H7.5a3 3 0 1 1 0-6h2.25a.75.75 0 0 0 0-1.5H7.5Zm9 0a.75.75 0 0 0 0 1.5A3 3 0 0 1 16.5 12a.75.75 0 0 0 0 1.5 4.5 4.5 0 0 0 0-9Z"/></svg>
+                    <a
+                      href="https://500px.com/p/{{ guide.five00px_handle }}"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="500px">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 3a4.5 4.5 0 0 0 0 9h2.25a.75.75 0 0 0 0-1.5H7.5a3 3 0 1 1 0-6h2.25a.75.75 0 0 0 0-1.5H7.5Zm9 0a.75.75 0 0 0 0 1.5A3 3 0 0 1 16.5 12a.75.75 0 0 0 0 1.5 4.5 4.5 0 0 0 0-9Z" /></svg>
                     </a>
                   {% endif %}
                 </div>
@@ -293,7 +329,7 @@
 </section>
 
 <script>
-(function() {
+  (function() {
   /* ── Scroll Reveal ── */
   var reveals = document.querySelectorAll('.tour-reveal');
   if (!reveals.length) return;
@@ -319,50 +355,48 @@
       observer.observe(el);
     }
   });
-})();
+  })();
 </script>
 
 {% schema %}
-{
-  "name": "Product Overview",
-  "class": "cal",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "image1",
-      "label": "image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image2",
-      "label": "image 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "image3",
-      "label": "image 3"
-    },
-    {
-      "type": "image_picker",
-      "id": "image4",
-      "label": "image 4"
-    },
-    {
-      "type": "image_picker",
-      "id": "image5",
-      "label": "image 5"
-    },
-    {
-      "type": "image_picker",
-      "id": "image6",
-      "label": "image 6"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Product Overview"
-    }
-  ]
-}
+  {
+    "name": "Product Overview",
+    "class": "cal",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "image 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "image 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "image4",
+        "label": "image 4"
+      }, {
+        "type": "image_picker",
+        "id": "image5",
+        "label": "image 5"
+      }, {
+        "type": "image_picker",
+        "id": "image6",
+        "label": "image 6"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Overview"
+      }
+    ]
+  }
 {% endschema %}
