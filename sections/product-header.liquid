@@ -1,7 +1,10 @@
 {{ 'pdp-tour.css' | asset_url | stylesheet_tag }}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 {% assign split_title = product.title | split: ':' %}
@@ -37,10 +40,7 @@
 <section class="tour-pdp tour-pdp-hero">
   {%- comment -%} ── Image zone ── {%- endcomment -%}
   <div class="tour-pdp-hero__image-zone">
-    <div
-      class="tour-pdp-hero__media"
-      style="background-image: url('{{ hero_image | image_url: width: 2400 }}');"
-    ></div>
+    <div class="tour-pdp-hero__media" style="background-image: url('{{ hero_image | image_url: width: 2400 }}');"></div>
     <div class="tour-pdp-hero__overlay"></div>
     <div class="tour-pdp-hero__grain"></div>
 
@@ -87,13 +87,15 @@
         <div>
           <span class="tour-pdp-hero__stat-label">Departs</span>
           <span class="tour-pdp-hero__stat-value">
-            {% if coming_start != blank %}{{ pre_start | date: '%b %-d' }}{% else %}TBA{% endif %}
+            {% if coming_start != blank %}
+              {{ pre_start | date: '%b %-d' }}{% else %}TBA{% endif %}
           </span>
         </div>
         <div>
           <span class="tour-pdp-hero__stat-label">Returns</span>
           <span class="tour-pdp-hero__stat-value">
-            {% if coming_end != blank %}{{ pre_end | date: '%b %-d' }}{% else %}TBA{% endif %}
+            {% if coming_end != blank %}
+              {{ pre_end | date: '%b %-d' }}{% else %}TBA{% endif %}
           </span>
         </div>
         <div>
@@ -103,7 +105,10 @@
         <div>
           <span class="tour-pdp-hero__stat-label">From</span>
           <span class="tour-pdp-hero__stat-value">
-            {% if money_price != blank %}{{ money_price }}{% else %}{{ product.price | money }}{% endif %}
+            {% if money_price != blank %}
+              {{ money_price }}
+            {% else %}
+              {{ product.price | money }}{% endif %}
           </span>
         </div>
       </div>
@@ -111,31 +116,23 @@
   </div>
 </section>
 
-{%- comment -%} ── Marquee ── {%- endcomment -%}
-<div class="tour-pdp-marquee">
-  <div class="tour-pdp-marquee__track">
-    <span>Supercells <span class="tour-pdp-marquee__star">✦</span> Mesocyclones <span class="tour-pdp-marquee__star">✦</span> Mammatus <span class="tour-pdp-marquee__star">✦</span> Wall Clouds <span class="tour-pdp-marquee__star">✦</span> Shelf Lines <span class="tour-pdp-marquee__star">✦</span> Lightning <span class="tour-pdp-marquee__star">✦</span> Plains Sunsets <span class="tour-pdp-marquee__star">✦</span></span>
-    <span>Supercells <span class="tour-pdp-marquee__star">✦</span> Mesocyclones <span class="tour-pdp-marquee__star">✦</span> Mammatus <span class="tour-pdp-marquee__star">✦</span> Wall Clouds <span class="tour-pdp-marquee__star">✦</span> Shelf Lines <span class="tour-pdp-marquee__star">✦</span> Lightning <span class="tour-pdp-marquee__star">✦</span> Plains Sunsets <span class="tour-pdp-marquee__star">✦</span></span>
-  </div>
-</div>
-
 {% schema %}
-{
-  "name": "Product Header",
-  "class": "cal",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "default": "Product Header",
-      "label": "t:sections.product-header.settings.title.label"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Product Header"
-    }
-  ]
-}
+  {
+    "name": "Product Header",
+    "class": "cal",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Product Header",
+        "label": "t:sections.product-header.settings.title.label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Header"
+      }
+    ]
+  }
 {% endschema %}
