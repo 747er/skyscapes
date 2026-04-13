@@ -35,33 +35,54 @@
 <div class="tour-pdp-grain-global" aria-hidden="true"></div>
 
 <section class="tour-pdp tour-pdp-hero">
-  <div
-    class="tour-pdp-hero__media"
-    style="background-image: url('{{ hero_image | image_url: width: 2400 }}');"
-  ></div>
-  <div class="tour-pdp-hero__overlay"></div>
-  <div class="tour-pdp-hero__grain"></div>
+  {%- comment -%} ── Image zone ── {%- endcomment -%}
+  <div class="tour-pdp-hero__image-zone">
+    <div
+      class="tour-pdp-hero__media"
+      style="background-image: url('{{ hero_image | image_url: width: 2400 }}');"
+    ></div>
+    <div class="tour-pdp-hero__overlay"></div>
+    <div class="tour-pdp-hero__grain"></div>
 
-  <div class="tour-pdp-hero__meta-top">
-    <span>
-      <span class="tour-pdp-hero__meta-dot"></span>
-      {% if season_year != blank %}Season {{ season_year }}{% else %}Storm Season{% endif %}
-      {% if product.available %}— Now Booking{% endif %}
-    </span>
-    <span>Great Plains, USA</span>
+    {%- comment -%} Desktop: headline overlaps the bottom of the image {%- endcomment -%}
+    <div class="tour-pdp-hero__title-overlay">
+      <span class="tour-pdp-hero__headline-small">A Storm Photography Expedition</span>
+      <h1 class="tour-pdp-hero__headline">
+        {% if hero_heading != blank %}
+          {{ hero_heading | escape }}
+        {% else %}
+          {{ product.title | escape }}
+        {% endif %}
+      </h1>
+    </div>
   </div>
 
-  <div class="tour-pdp-hero__content">
-    <h1 class="tour-pdp-hero__headline">
-      <span class="tour-pdp-hero__headline-small">A Storm Photography Expedition</span>
-      {% if hero_heading != blank %}
-        {{ hero_heading | escape }}
-      {% else %}
-        {{ product.title | escape }}
-      {% endif %}
-    </h1>
+  {%- comment -%} ── Info strip below image ── {%- endcomment -%}
+  <div class="tour-pdp-hero__info-strip">
+    <div class="tour-pdp-hero__info-inner">
 
-    <div class="tour-pdp-hero__side">
+      {%- comment -%} Mobile only: headline repeats here (hidden on desktop) {%- endcomment -%}
+      <div class="tour-pdp-hero__mobile-title">
+        <span class="tour-pdp-hero__headline-small">A Storm Photography Expedition</span>
+        <h1 class="tour-pdp-hero__headline">
+          {% if hero_heading != blank %}
+            {{ hero_heading | escape }}
+          {% else %}
+            {{ product.title | escape }}
+          {% endif %}
+        </h1>
+      </div>
+
+      <div class="tour-pdp-hero__meta-row">
+        <div class="tour-pdp-hero__meta-left">
+          <span class="tour-pdp-hero__meta-dot"></span>
+          <span class="tour-pdp-hero__meta-text">
+            {% if season_year != blank %}Season {{ season_year }}{% else %}Storm Season{% endif %}
+            {% if product.available %}— Now Booking{% endif %}
+          </span>
+        </div>
+      </div>
+
       <div class="tour-pdp-hero__quick-stats">
         <div>
           <span class="tour-pdp-hero__stat-label">Departs</span>
@@ -88,8 +109,6 @@
       </div>
     </div>
   </div>
-
-  <div class="tour-pdp-scroll-cue">Scroll</div>
 </section>
 
 {%- comment -%} ── Marquee ── {%- endcomment -%}
