@@ -35,7 +35,7 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-     ORIENTATION
+         ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
@@ -103,8 +103,44 @@
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-         ITINERARY
-       ══════════════════════════════════════ {%- endcomment -%}
+                 ITINERARY
+           ══════════════════════════════════════ {%- endcomment -%}
+
+  {%- comment -%} ── Marquee ── {%- endcomment -%}
+  <div class="tour-pdp-marquee">
+    <div class="tour-pdp-marquee__track">
+      <span>Supercells
+        <span class="tour-pdp-marquee__star">✦</span>
+        Mesocyclones
+        <span class="tour-pdp-marquee__star">✦</span>
+        Mammatus
+        <span class="tour-pdp-marquee__star">✦</span>
+        Wall Clouds
+        <span class="tour-pdp-marquee__star">✦</span>
+        Shelf Lines
+        <span class="tour-pdp-marquee__star">✦</span>
+        Lightning
+        <span class="tour-pdp-marquee__star">✦</span>
+        Plains Sunsets
+        <span class="tour-pdp-marquee__star">✦</span>
+      </span>
+      <span>Supercells
+        <span class="tour-pdp-marquee__star">✦</span>
+        Mesocyclones
+        <span class="tour-pdp-marquee__star">✦</span>
+        Mammatus
+        <span class="tour-pdp-marquee__star">✦</span>
+        Wall Clouds
+        <span class="tour-pdp-marquee__star">✦</span>
+        Shelf Lines
+        <span class="tour-pdp-marquee__star">✦</span>
+        Lightning
+        <span class="tour-pdp-marquee__star">✦</span>
+        Plains Sunsets
+        <span class="tour-pdp-marquee__star">✦</span>
+      </span>
+    </div>
+  </div>
 
   <div class="tour-pdp-itinerary">
     <div class="tour-pdp-itinerary__inner">
@@ -147,8 +183,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-         MID-PAGE CTA
-       ══════════════════════════════════════ {%- endcomment -%}
+                 MID-PAGE CTA
+           ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign cta_image = section.settings.image6 | default: hero_image %}
   <div class="tour-pdp-mid-cta" style="background-image: url('{{ cta_image | image_url: width: 2400 }}');">
@@ -167,8 +203,8 @@
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-         CINEMATIC QUOTE BREAK
-       ══════════════════════════════════════ {%- endcomment -%}
+                 CINEMATIC QUOTE BREAK
+           ══════════════════════════════════════ {%- endcomment -%}
 
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
@@ -177,8 +213,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-         GALLERY — ASYMMETRIC GRID
-       ══════════════════════════════════════ {%- endcomment -%}
+                 GALLERY — ASYMMETRIC GRID
+           ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
@@ -242,8 +278,8 @@
   {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-         GUIDES
-       ══════════════════════════════════════ {%- endcomment -%}
+                 GUIDES
+           ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.metafields.custom.guides2 != blank %}
     <div class="tour-pdp-guides">
