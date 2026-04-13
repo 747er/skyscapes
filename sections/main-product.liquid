@@ -109,9 +109,10 @@
                   assign money_price = product.metafields.my_fields.total_price.value | money_with_currency | remove: '.00'
                 endif
               -%}
-              <span class="price-item price-item--regular">
-                Total Price: {{ money_price }}
-              </span>
+              <div class="price-item price-item--regular">
+                <div>Total:</div> 
+                <div class="price-value">{{ money_price }}</div>
+              </div>
               <div class="no-js-hidden" id="price-installment" {{ block.shopify_attributes }}>
                 Deposit Due Today: {%- render 'simple-price', product: product -%}
               </div>
