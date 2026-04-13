@@ -1048,6 +1048,12 @@
   letter-spacing: -0.025em;
   line-height: 1;
   margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tour-pdp-booking__form .price-item .price-value {
+  color: var(--muted-gold);
 }
 
 .tour-pdp-booking__form #price-installment {
