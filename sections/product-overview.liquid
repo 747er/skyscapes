@@ -35,7 +35,7 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-         ORIENTATION
+           ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
@@ -103,8 +103,8 @@
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-                 ITINERARY
-           ══════════════════════════════════════ {%- endcomment -%}
+                     ITINERARY
+             ══════════════════════════════════════ {%- endcomment -%}
 
   {%- comment -%} ── Marquee ── {%- endcomment -%}
   <div class="tour-pdp-marquee">
@@ -183,8 +183,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-                 MID-PAGE CTA
-           ══════════════════════════════════════ {%- endcomment -%}
+                     MID-PAGE CTA
+             ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign cta_image = section.settings.image6 | default: hero_image %}
   <div class="tour-pdp-mid-cta" style="background-image: url('{{ cta_image | image_url: width: 2400 }}');">
@@ -203,8 +203,8 @@
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-                 CINEMATIC QUOTE BREAK
-           ══════════════════════════════════════ {%- endcomment -%}
+                     CINEMATIC QUOTE BREAK
+             ══════════════════════════════════════ {%- endcomment -%}
 
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
@@ -213,8 +213,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-                 GALLERY — ASYMMETRIC GRID
-           ══════════════════════════════════════ {%- endcomment -%}
+                     GALLERY — ASYMMETRIC GRID
+             ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
@@ -278,8 +278,8 @@
   {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-                 GUIDES
-           ══════════════════════════════════════ {%- endcomment -%}
+                     GUIDES
+             ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.metafields.custom.guides2 != blank %}
     <div class="tour-pdp-guides">
@@ -303,7 +303,6 @@
             {% assign guide = guide_ref %}
             <div class="tour-pdp-guide tour-reveal tour-reveal--stagger" style="--reveal-i:{{ forloop.index0 }}">
               <div class="tour-pdp-guide__img">
-                <span class="tour-pdp-guide__num">G/{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
                 {% if guide.photo != blank %}
                   <img
                     src="{{ guide.photo }}"
