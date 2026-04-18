@@ -43,8 +43,8 @@
     <div class="tour-pdp-orientation__left">
       <div class="tour-pdp-section-label">The Premise</div>
       <p class="tour-pdp-orientation__lede">
-        We don't promise tornadoes. We promise
-        <em>position</em>. We put you in the right square mile of the plains, at the right hour, with the right light, beside people who have done this for years.
+        A supercell will build somewhere between the Rockies and the Mississippi this spring. We will know where, when, and from which angle it photographs best. Your job is to be there. Ours is to put you in
+        <em>position</em>: the right square mile of plains, at the right hour, with the right light, beside people who have spent their careers reading the sky.
       </p>
 
       {% if product.description != blank %}
@@ -60,7 +60,7 @@
         <span class="tour-pdp-fact-row__label">Departure Window</span>
         <span class="tour-pdp-fact-row__value">
           {% if coming_start != blank and coming_end != blank %}
-            {{ pre_start | date: '%b %-d' }} — {{ pre_end | date: '%b %-d' }}
+            {{ pre_start | date: '%b %-d' }} to {{ pre_end | date: '%b %-d' }}
           {% else %}
             TBA
           {% endif %}
@@ -147,36 +147,36 @@
       <div class="tour-pdp-itinerary__header tour-reveal">
         <div>
           <div class="tour-pdp-section-label">The {{ duration_days }} Days</div>
-          <h2 class="tour-pdp-section-title">A loose
-            <em>route</em><br>through<br>volatile country.</h2>
+          <h2 class="tour-pdp-section-title">No two
+            <em>days</em>.<br>No two storms.<br>No two routes.</h2>
         </div>
-        <p>There is no fixed itinerary. Each day begins with a weather briefing and a target drawn over coffee. The route follows the storms.</p>
+        <p>Each morning, the forecaster reads the day's atmosphere and picks a target. Some days it's eighty miles away. Some days six hundred. The tour follows the forecast. The forecast follows the storm.</p>
       </div>
 
       <div class="tour-pdp-details-rows tour-reveal">
         <div class="tour-pdp-detail-row">
           <h3 class="tour-pdp-detail-row__label">Itinerary</h3>
-          <p class="tour-pdp-detail-row__value">Each day of the tour, you'll have the same goal: get to the best possible location to photograph incredible supercells over the Great Plains. We start each day with a weather discussion led by our forecaster, then reposition in real time based on the setup. Some days we drive 80 miles. Some days, 600.</p>
+          <p class="tour-pdp-detail-row__value">One goal every day: put you inside lens range of the most photogenic supercell on the continent. Dawn briefing, daylong repositioning, cameras ready by late afternoon. Some days we drive eighty miles. Some days six hundred. The forecast decides.</p>
         </div>
 
         <div class="tour-pdp-detail-row">
           <h3 class="tour-pdp-detail-row__label">What To Expect</h3>
-          <p class="tour-pdp-detail-row__value">We combine meteorology and photography instruction to fully optimize your experience. Our lead forecaster will track and intercept the storm at the best possible location so that our team of professional photographers can guide you in making the most of the conditions.</p>
+          <p class="tour-pdp-detail-row__value">Meteorology and photography, running in parallel. Our lead forecaster tracks a cell from first cumulus to dissipation. Our photographers read the light, frame the structure, and coach you through the narrow window when the storm is most willing to be photographed.</p>
         </div>
 
         <div class="tour-pdp-detail-row">
           <h3 class="tour-pdp-detail-row__label">Accommodations</h3>
-          <p class="tour-pdp-detail-row__value">Expect to spend a lot of time in the car driving to the best location to photograph the supercells. After the chase has concluded for the day, we will find a nearby hotel for the evening. Because of the highly variable nature of storms, we are not able to accurately predict the exact route of our chase. We have relationships at dozens of hotels along the plains and will find a single occupancy room for you every night.</p>
+          <p class="tour-pdp-detail-row__value">Sometimes at dusk, sometimes well after dark, the storm releases us and we find a hotel close to tomorrow's forecast. We hold standing relationships with dozens of properties along the plains and book you a private single-occupancy room every night.</p>
         </div>
 
         <div class="tour-pdp-detail-row">
           <h3 class="tour-pdp-detail-row__label">Peace Of Mind</h3>
-          <p class="tour-pdp-detail-row__value">Above all else, we value safety. Our specialty is getting clients to a position where the storm is most photogenic. Most of the time, that approach will keep us at a greater distance from the storm compared to other chase companies that may drive much closer to a potential tornado.</p>
+          <p class="tour-pdp-detail-row__value">Our specialty is photogenic distance. Other outfits drive into tornadoes at arm's length. We park you at the angle where a supercell renders as architecture: structured, legible, unmistakable on camera. That position is almost always the safe one, and safety is the standard we plan around.</p>
         </div>
 
         <div class="tour-pdp-detail-row">
           <h3 class="tour-pdp-detail-row__label">What's Included</h3>
-          <p class="tour-pdp-detail-row__value">Transportation, lodging, and education are included in the price. We will be coordinating our own meals as the storms allow and stopping for snacks and beverages several times during the day. All of our tours start and end in Denver, Colorado.</p>
+          <p class="tour-pdp-detail-row__value">Transportation, lodging, and instruction. Every tour begins and ends in Denver, Colorado. Meals happen on the road as the storms allow; snacks and water are stocked in the vehicle throughout the day.</p>
         </div>
       </div>
     </div>
@@ -191,14 +191,14 @@
     <div class="tour-pdp-mid-cta__inner tour-reveal">
       <span class="tour-pdp-mid-cta__date">
         {% if coming_start != blank and coming_end != blank %}
-          {{ pre_start | date: '%b %-d' }} — {{ pre_end | date: '%b %-d, %Y' }}
+          {{ pre_start | date: '%b %-d' }} to {{ pre_end | date: '%b %-d, %Y' }}
         {% else %}
           Storm Season
         {% endif %}
       </span>
-      <h2 class="tour-pdp-mid-cta__heading">Ready To Chase?</h2>
-      <p class="tour-pdp-mid-cta__copy">Reserve your place now and let the forecast decide the route. We handle the strategy, the positioning, and the field coaching once you are in.</p>
-      <a href="#trip-booking" class="tour-pdp-cta-btn">Reserve Your Spot</a>
+      <h2 class="tour-pdp-mid-cta__heading">The season is narrow.<br>The tour list is shorter.</h2>
+      <p class="tour-pdp-mid-cta__copy">We run a handful of tours each storm season, {{ max_guests }} photographers to a tour. Reserve your place and let the forecast draw the week. We handle the strategy, the positioning, and the field coaching once you're in.</p>
+      <a href="#trip-booking" class="tour-pdp-cta-btn">Reserve a Seat</a>
     </div>
   </div>
 
@@ -208,7 +208,7 @@
 
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
-      <blockquote>"You don't photograph a storm. You photograph the few seconds the storm allows you to be there."</blockquote>
+      <blockquote>No supercell forms twice. The one you photograph will be the only one of its kind that ever exists.</blockquote>
     </div>
 </div>
 
@@ -223,9 +223,9 @@
         <div>
           <div class="tour-pdp-section-label">Field Work</div>
           <h2 class="tour-pdp-section-title">From
-            <em>previous</em><br>seasons.</h2>
+            <em>seasons</em><br>past.</h2>
         </div>
-        <p>Images from past expeditions and our guides across recent storm seasons.</p>
+        <p>Photographs from past expeditions and the guides who lead them.</p>
       </div>
 
       <div class="tour-pdp-gallery__grid tour-reveal">
@@ -295,7 +295,7 @@
               <em>guides</em>.
             {% endif %}
           </h2>
-          <p>Led by a meteorologist. Supported by professional storm photographers with decades of field experience.</p>
+          <p>Led by a meteorologist. Joined by working landscape photographers. With you for every storm of the week.</p>
         </div>
 
         <div class="tour-pdp-guides__grid">
