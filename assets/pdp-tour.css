@@ -59,7 +59,7 @@
 
 .tour-pdp-section-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   opacity: 0.55;
@@ -772,24 +772,9 @@
   pointer-events: none;
 }
 
-.tour-pdp-guide__num {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  z-index: 2;
-  background: rgba(10,10,12,0.6);
-  padding: 4px 8px;
-  backdrop-filter: blur(4px);
-  color: var(--paper);
-}
-
 .tour-pdp-guide__name {
   font-family: var(--display);
   font-weight: 400;
-  font-style: italic;
   font-size: 32px;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -1552,7 +1537,7 @@
   /* ── Section labels ── */
   .tour-pdp-section-label,
   .tour-pdp-kicker {
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.16em;
   }
 
