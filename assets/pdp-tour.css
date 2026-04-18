@@ -377,6 +377,61 @@
   margin-bottom: 0;
 }
 
+/* ════════════════════════════════════════
+   THE FORECAST
+   ════════════════════════════════════════ */
+
+.tour-pdp-forecast {
+  padding: 120px 40px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.tour-pdp-forecast__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.tour-pdp-forecast__title {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(34px, 4.4vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 22px 0 18px;
+}
+
+.tour-pdp-forecast__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted-gold);
+}
+
+.tour-pdp-forecast__intro {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-gold);
+  opacity: 0.75;
+  margin-bottom: 36px;
+}
+
+.tour-pdp-forecast__body {
+  color: var(--paper-dim);
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 660px;
+}
+
+.tour-pdp-forecast__body p {
+  margin: 0 0 18px;
+}
+
+.tour-pdp-forecast__body p:last-child {
+  margin-bottom: 0;
+}
+
 .tour-pdp-facts-grid {
   border-top: 1px solid var(--line);
 }
@@ -1293,6 +1348,11 @@
   .tour-pdp-section-title {
     font-size: clamp(36px, 5vw, 64px);
   }
+
+  /* ── The Forecast ── */
+  .tour-pdp-forecast {
+    padding: 90px 24px;
+  }
 }
 
 /* ════════════════════════════════════════
@@ -1558,6 +1618,22 @@
   .tour-pdp-section-label::before,
   .tour-pdp-kicker::before {
     width: 16px;
+  }
+
+  /* ── The Forecast ── */
+  .tour-pdp-forecast {
+    padding: 64px 20px;
+  }
+
+  .tour-pdp-forecast__intro {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    margin-bottom: 28px;
+  }
+
+  .tour-pdp-forecast__body {
+    font-size: 16px;
+    line-height: 1.75;
   }
 }
 
