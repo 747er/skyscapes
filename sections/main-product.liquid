@@ -23,6 +23,15 @@
 {% assign split_title = product.title | split: ":" %}
 {% assign hero_heading = split_title[0] | strip %}
 
+{% assign max_guests = product.metafields.custom.max_guests | default: 6 %}
+
+{% if coming_start != blank and coming_end != blank %}
+  {% assign duration_seconds = pre_end | minus: pre_start %}
+  {% assign duration_days = duration_seconds | divided_by: 86400 | plus: 1 %}
+{% else %}
+  {% assign duration_days = 7 %}
+{% endif %}
+
 {% assign spots_remaining = 0 %}
 {% assign show_scarcity = false %}
 {% if product.available %}
@@ -41,12 +50,12 @@
       <div class="tour-pdp-booking__intro">
         <div class="tour-pdp-section-label">Reserve A Seat</div>
         <h2 class="tour-pdp-section-title">
-          {{ product.metafields.custom.max_guests | default: 6 }} <em>seats</em>.<br>
-          One storm.<br>
+          {{ duration_days }} <em>days</em>.<br>
+          {{ max_guests }} guests.<br>
           No re-runs.
         </h2>
-        <p>We run a handful of small-group expeditions each season across May and June, when the Great Plains are at their most active. Every seat is limited.
-          {% if show_scarcity %} Only {{ spots_remaining }} remain for this departure.{% endif %}
+        <p>We run a handful of tours each spring, when the Plains are at their most active. There is no fixed itinerary. The forecast draws the week. If that's the trip you want, this is the one that exists.
+          {% if show_scarcity %} Only {{ spots_remaining }} seats remain for this departure.{% endif %}
         </p>
       </div>
 
@@ -67,7 +76,7 @@
             <span class="tour-pdp-booking__row-key">Dates</span>
             <span class="tour-pdp-booking__row-val">
               {% if coming_start != blank and coming_end != blank %}
-                {{ pre_start | date: '%b %-d' }} — {{ pre_end | date: '%b %-d, %Y' }}
+                {{ pre_start | date: '%b %-d' }} to {{ pre_end | date: '%b %-d, %Y' }}
               {% else %}
                 Confirmed after booking
               {% endif %}
