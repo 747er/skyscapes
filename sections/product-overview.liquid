@@ -47,11 +47,6 @@
         <em>position</em>: the right square mile of plains, at the right hour, with the right light, beside people who have spent their careers reading the sky.
       </p>
 
-      {% if product.description != blank %}
-        <div class="tour-pdp-orientation__body-text">
-          {{ product.description }}
-        </div>
-      {% endif %}
     </div>
 
     <div class="tour-pdp-facts-grid">
@@ -101,6 +96,27 @@
       {% endif %}
     </div>
   </div>
+
+  {%- comment -%} ══════════════════════════════════════
+                     THE FORECAST
+             ══════════════════════════════════════ {%- endcomment -%}
+
+  {% if product.description != blank %}
+    {% assign pdp_split_title = product.title | split: ':' %}
+    {% assign pdp_tour_name = pdp_split_title[0] | strip %}
+    <div class="tour-pdp-forecast tour-reveal">
+      <div class="tour-pdp-forecast__inner">
+        <div class="tour-pdp-section-label">The Forecast {% if pdp_tour_name != blank %}· {{ pdp_tour_name | escape }}{% endif %}</div>
+        <h2 class="tour-pdp-forecast__title">
+          For <em>{% if coming_start != blank %}{{ pre_start | date: '%b %-d' }}{% else %}opening day{% endif %}</em> to <em>{% if coming_end != blank %}{{ pre_end | date: '%b %-d' }}{% else %}final day{% endif %}</em>.
+        </h2>
+        <div class="tour-pdp-forecast__intro">Notes from the lead forecaster on the atmospheric setup for this departure.</div>
+        <div class="tour-pdp-forecast__body">
+          {{ product.description }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
                      ITINERARY
