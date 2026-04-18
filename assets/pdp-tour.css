@@ -388,23 +388,27 @@
 }
 
 .tour-pdp-forecast__inner {
-  max-width: 760px;
+  max-width: 1480px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.tour-pdp-forecast__head {
+  position: sticky;
+  top: 100px;
 }
 
 .tour-pdp-forecast__title {
   font-family: var(--display);
   font-weight: 300;
-  font-size: clamp(34px, 4.4vw, 60px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin: 22px 0 18px;
-}
-
-.tour-pdp-forecast__title em {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--muted-gold);
+  font-size: clamp(32px, 3.4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 22px 0 22px;
+  max-width: 520px;
 }
 
 .tour-pdp-forecast__intro {
@@ -413,19 +417,22 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted-gold);
-  opacity: 0.75;
-  margin-bottom: 36px;
+  opacity: 0.8;
+  line-height: 1.7;
+  max-width: 380px;
 }
 
 .tour-pdp-forecast__body {
-  color: var(--paper-dim);
-  font-size: 17px;
-  line-height: 1.8;
+  font-family: var(--display);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.75;
   max-width: 660px;
 }
 
 .tour-pdp-forecast__body p {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
 }
 
 .tour-pdp-forecast__body p:last-child {
@@ -1352,6 +1359,16 @@
   /* ── The Forecast ── */
   .tour-pdp-forecast {
     padding: 90px 24px;
+  }
+
+  .tour-pdp-forecast__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .tour-pdp-forecast__head {
+    position: static;
+    top: auto;
   }
 }
 
