@@ -46,7 +46,7 @@
 
     {%- comment -%} Desktop: headline overlaps the bottom of the image {%- endcomment -%}
     <div class="tour-pdp-hero__title-overlay">
-      <span class="tour-pdp-hero__headline-small">A Storm Photography Expedition</span>
+      <span class="tour-pdp-hero__headline-small">A forecaster-led storm expedition</span>
       <h1 class="tour-pdp-hero__headline">
         {% if hero_heading != blank %}
           {{ hero_heading | escape }}
@@ -63,7 +63,7 @@
 
       {%- comment -%} Mobile only: headline repeats here (hidden on desktop) {%- endcomment -%}
       <div class="tour-pdp-hero__mobile-title">
-        <span class="tour-pdp-hero__headline-small">A Storm Photography Expedition</span>
+        <span class="tour-pdp-hero__headline-small">A forecaster-led storm expedition</span>
         <h1 class="tour-pdp-hero__headline">
           {% if hero_heading != blank %}
             {{ hero_heading | escape }}
@@ -78,7 +78,7 @@
           <span class="tour-pdp-hero__meta-dot"></span>
           <span class="tour-pdp-hero__meta-text">
             {% if season_year != blank %}Season {{ season_year }}{% else %}Storm Season{% endif %}
-            {% if product.available %}— Now Booking{% endif %}
+            {% if product.available %}· Now Booking{% endif %}
           </span>
         </div>
       </div>
