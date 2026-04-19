@@ -598,16 +598,16 @@
 .tour-pdp-mid-cta__inner {
   position: relative;
   z-index: 1;
-  max-width: 680px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .tour-pdp-mid-cta__date {
   display: block;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   color: var(--muted-gold);
   margin-bottom: 24px;
 }
