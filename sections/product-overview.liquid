@@ -35,14 +35,14 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-                 ORIENTATION
+                       ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
 
   {%- comment -%} ══════════════════════════════════════
-                                 THE FORECAST
-      ══════════════════════════════════════ {%- endcomment -%}
+                                             THE FORECAST
+            ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.description != blank %}
     {% assign pdp_split_title = product.title | split: ':' %}
@@ -131,8 +131,8 @@
 
 
   {%- comment -%} ══════════════════════════════════════
-                                 ITINERARY
-                   ══════════════════════════════════════ {%- endcomment -%}
+                                             ITINERARY
+                         ══════════════════════════════════════ {%- endcomment -%}
 
   {%- comment -%} ── Marquee ── {%- endcomment -%}
   <div class="tour-pdp-marquee">
@@ -175,8 +175,13 @@
       <div class="tour-pdp-itinerary__header tour-reveal">
         <div>
           <div class="tour-pdp-section-label">The {{ duration_days }} Days</div>
-          <h2 class="tour-pdp-section-title">No two
-            <em>days</em>.<br>No two storms.<br>No two routes.</h2>
+          <h2 class="tour-pdp-section-title">
+            The
+            <em>forecast</em>
+            leads.<br>
+            We adapt.<br>
+            You shoot.
+          </h2>
         </div>
         <p>Each morning, the forecaster reads the day's atmosphere and picks a target. Some days it's eighty miles away. Some days six hundred. The tour follows the forecast. The forecast follows the storm.</p>
       </div>
@@ -211,8 +216,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-                                 MID-PAGE CTA
-                   ══════════════════════════════════════ {%- endcomment -%}
+                                             MID-PAGE CTA
+                         ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign cta_image = section.settings.image6 | default: hero_image %}
   <div class="tour-pdp-mid-cta" style="background-image: url('{{ cta_image | image_url: width: 2400 }}');">
@@ -224,15 +229,15 @@
           Storm Season
         {% endif %}
       </span>
-      <h2 class="tour-pdp-mid-cta__heading">The season is narrow.<br>The tour list is shorter.</h2>
-      <p class="tour-pdp-mid-cta__copy">We run a handful of tours each storm season, {{ max_guests }} photographers to a tour. Reserve your place and let the forecast draw the week. We handle the strategy, the positioning, and the field coaching once you're in.</p>
-      <a href="#trip-booking" class="tour-pdp-cta-btn">Reserve a Seat</a>
+      <h2 class="tour-pdp-mid-cta__heading">Forecast-led tours for photographers who want more than luck.</h2>
+      <p class="tour-pdp-mid-cta__copy">Six photographers. One week. Real strategy in the field. We handle the positioning, timing, and coaching so you can focus on making photographs when the light and weather finally align.</p>
+      <a href="#trip-booking" class="tour-pdp-cta-btn">Reserve Your Seat</a>
     </div>
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-                                 CINEMATIC QUOTE BREAK
-                   ══════════════════════════════════════ {%- endcomment -%}
+                                             CINEMATIC QUOTE BREAK
+                         ══════════════════════════════════════ {%- endcomment -%}
 
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
@@ -241,8 +246,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-                                 GALLERY — ASYMMETRIC GRID
-                   ══════════════════════════════════════ {%- endcomment -%}
+                                             GALLERY — ASYMMETRIC GRID
+                         ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
@@ -306,8 +311,8 @@
   {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-                                 GUIDES
-                   ══════════════════════════════════════ {%- endcomment -%}
+                                             GUIDES
+                         ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.metafields.custom.guides2 != blank %}
     <div class="tour-pdp-guides">
