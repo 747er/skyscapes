@@ -1,0 +1,138 @@
+<style>
+  .home-field-notes {
+    background: #ede4d3;
+    color: #1a1613;
+    padding: clamp(96px, 14vh, 160px) 32px;
+    position: relative;
+  }
+
+  .home-field-notes__inner {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .home-field-notes__eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8a6b3a;
+    font-weight: 500;
+    margin-bottom: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .home-field-notes__eyebrow::before,
+  .home-field-notes__eyebrow::after {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: #8a6b3a;
+    opacity: 0.5;
+  }
+
+  .home-field-notes__body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(22px, 2.4vw, 32px);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: #1a1613;
+    margin: 0 0 40px;
+    font-weight: 400;
+  }
+
+  .home-field-notes__body em {
+    font-style: italic;
+    color: #4a2f12;
+  }
+
+  .home-field-notes__ornament {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    color: #8a6b3a;
+    opacity: 0.7;
+  }
+
+  .home-field-notes__ornament span {
+    display: inline-block;
+    width: 36px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .home-field-notes__attribution {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #4a2f12;
+    font-weight: 500;
+  }
+
+  @media (max-width: 749px) {
+    .home-field-notes {
+      padding: 80px 24px;
+    }
+  }
+</style>
+
+<section class="home-field-notes">
+  <div class="home-field-notes__inner">
+    {% if section.settings.eyebrow != blank %}
+      <div class="home-field-notes__eyebrow">{{ section.settings.eyebrow }}</div>
+    {% endif %}
+
+    {% if section.settings.body != blank %}
+      <p class="home-field-notes__body">{{ section.settings.body }}</p>
+    {% endif %}
+
+    <div class="home-field-notes__ornament" aria-hidden="true">
+      <span></span>
+      <svg width="10" height="10" viewBox="0 0 14 14" fill="currentColor">
+        <path d="M7 0L8 6L14 7L8 8L7 14L6 8L0 7L6 6L7 0Z" />
+      </svg>
+      <span></span>
+    </div>
+
+    {% if section.settings.attribution != blank %}
+      <div class="home-field-notes__attribution">{{ section.settings.attribution }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Field Notes",
+  "tag": "section",
+  "class": "section-home-field-notes",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "From the Lead Forecaster"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "We don\u2019t chase for the hunt. We chase for the minutes before a storm closes \u2014 when the light goes strange, the air goes electric, and a photograph becomes possible. Those minutes are why we built this."
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Attribution",
+      "default": "Skyscape Photo Tours"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Field Notes"
+    }
+  ]
+}
+{% endschema %}
