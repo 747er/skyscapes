@@ -844,8 +844,7 @@
   letter-spacing: -0.005em;
   color: rgba(255,255,255,0.92);
   margin: 0 auto 44px;
-  max-width: 620px;
-  text-shadow: 0 1px 24px rgba(0,0,0,0.45);
+  text-shadow: 0 2px 4px rgba(0,0,0);
 }
 
 .tour-pdp-mid-cta .tour-pdp-cta-btn {
