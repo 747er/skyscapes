@@ -1,0 +1,179 @@
+{{ 'pdp-tour.css' | asset_url | stylesheet_tag }}
+
+{%- assign slide_blocks = section.blocks | where: 'type', 'slide' -%}
+
+{% if slide_blocks.size > 0 %}
+  <section class="tour-pdp home-dispatches">
+    <div class="tour-pdp-slider tour-reveal" data-tour-slider>
+      {% if section.settings.slider_eyebrow != blank or section.settings.slider_title != blank %}
+        <div class="tour-pdp-slider__header">
+          {% if section.settings.slider_eyebrow != blank %}
+            <div class="tour-pdp-section-label">{{ section.settings.slider_eyebrow }}</div>
+          {% endif %}
+          {% if section.settings.slider_title != blank %}
+            <h2 class="tour-pdp-slider__title">{{ section.settings.slider_title }}</h2>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="tour-pdp-slider__viewport">
+        <div class="tour-pdp-slider__track" data-tour-slider-track>
+          {% for block in slide_blocks %}
+            {% if block.settings.image != blank %}
+              <figure
+                class="tour-pdp-slider__slide"
+                data-tour-slider-slide
+                {{ block.shopify_attributes }}>
+                <div class="tour-pdp-slider__image-wrap">
+                  <img
+                    class="tour-pdp-slider__image"
+                    src="{{ block.settings.image | image_url: width: 2000 }}"
+                    srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1200 }} 1200w, {{ block.settings.image | image_url: width: 2000 }} 2000w"
+                    sizes="(max-width: 749px) 92vw, 78vw"
+                    alt="{{ block.settings.caption | default: block.settings.image.alt | escape }}"
+                    loading="lazy"
+                    width="{{ block.settings.image.width }}"
+                    height="{{ block.settings.image.height }}">
+                </div>
+                {% if block.settings.caption != blank %}
+                  <figcaption class="tour-pdp-slider__caption">{{ block.settings.caption }}</figcaption>
+                {% endif %}
+              </figure>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="tour-pdp-slider__controls">
+        <button
+          type="button"
+          class="tour-pdp-slider__btn"
+          data-tour-slider-dir="prev"
+          aria-label="Previous image">
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true">
+            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <span class="tour-pdp-slider__counter">
+          <span data-tour-slider-index>1</span>
+          <span>/</span>
+          <span>{{ slide_blocks.size }}</span>
+        </span>
+        <button
+          type="button"
+          class="tour-pdp-slider__btn"
+          data-tour-slider-dir="next"
+          aria-label="Next image">
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true">
+            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var sliders = document.querySelectorAll('.home-dispatches [data-tour-slider]');
+      sliders.forEach(function (root) {
+        var track = root.querySelector('[data-tour-slider-track]');
+        var slides = root.querySelectorAll('[data-tour-slider-slide]');
+        var indexEl = root.querySelector('[data-tour-slider-index]');
+        var btns = root.querySelectorAll('[data-tour-slider-dir]');
+        if (!track || !slides.length) return;
+
+        function currentIndex() {
+          var scroll = track.scrollLeft;
+          var nearest = 0;
+          var nearestDist = Infinity;
+          slides.forEach(function (s, i) {
+            var dist = Math.abs(s.offsetLeft - scroll);
+            if (dist < nearestDist) {
+              nearestDist = dist;
+              nearest = i;
+            }
+          });
+          return nearest;
+        }
+
+        function updateCounter() {
+          if (indexEl) indexEl.textContent = currentIndex() + 1;
+        }
+
+        function goTo(i) {
+          i = Math.max(0, Math.min(slides.length - 1, i));
+          var target = slides[i];
+          if (!target) return;
+          track.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+        }
+
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var dir = btn.getAttribute('data-tour-slider-dir');
+            var i = currentIndex();
+            goTo(dir === 'next' ? i + 1 : i - 1);
+          });
+        });
+
+        var raf;
+        track.addEventListener('scroll', function () {
+          if (raf) cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(updateCounter);
+        }, { passive: true });
+
+        updateCounter();
+      });
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Home Dispatches Slider",
+  "tag": "section",
+  "class": "section-home-dispatches",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "text",
+      "id": "slider_eyebrow",
+      "label": "Eyebrow",
+      "default": "Dispatches"
+    },
+    {
+      "type": "text",
+      "id": "slider_title",
+      "label": "Title",
+      "default": "From the field."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Gallery slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Dispatches Slider",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}
