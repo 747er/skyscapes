@@ -434,6 +434,164 @@
 }
 
 /* ════════════════════════════════════════
+   FIELD GALLERY SLIDER
+   ════════════════════════════════════════ */
+
+.tour-pdp-slider {
+  padding: 110px 0 120px;
+  border-top: 1px solid var(--line);
+  position: relative;
+  background: var(--ink);
+}
+
+.tour-pdp-slider__header {
+  max-width: 1480px;
+  margin: 0 auto 48px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 24px;
+}
+
+.tour-pdp-slider__title {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(36px, 4.4vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--paper);
+}
+
+.tour-pdp-slider__title em {
+  font-style: italic;
+  color: var(--muted-gold);
+}
+
+.tour-pdp-slider__viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.tour-pdp-slider__track {
+  display: flex;
+  gap: 24px;
+  padding: 0 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tour-pdp-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.tour-pdp-slider__slide {
+  flex: 0 0 auto;
+  width: min(78%, 1180px);
+  margin: 0;
+  scroll-snap-align: center;
+  position: relative;
+}
+
+.tour-pdp-slider__slide:first-child {
+  scroll-snap-align: start;
+}
+
+.tour-pdp-slider__slide:last-child {
+  scroll-snap-align: end;
+}
+
+.tour-pdp-slider__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ink-2);
+}
+
+.tour-pdp-slider__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s ease;
+}
+
+.tour-pdp-slider__slide:hover .tour-pdp-slider__image {
+  transform: scale(1.025);
+}
+
+.tour-pdp-slider__caption {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.55);
+  font-weight: 400;
+}
+
+.tour-pdp-slider__controls {
+  max-width: 1480px;
+  margin: 36px auto 0;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tour-pdp-slider__btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid rgba(219,188,143,0.25);
+  background: transparent;
+  color: var(--muted-gold);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+
+.tour-pdp-slider__btn:hover {
+  background: rgba(219,188,143,0.12);
+  border-color: var(--muted-gold);
+}
+
+.tour-pdp-slider__btn:active {
+  transform: scale(0.96);
+}
+
+.tour-pdp-slider__counter {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.tour-pdp-slider__counter-sep {
+  opacity: 0.35;
+}
+
+.tour-pdp-slider__counter [data-tour-slider-index] {
+  color: var(--paper);
+}
+
+/* ════════════════════════════════════════
    THE FORECAST
    ════════════════════════════════════════ */
 
@@ -1291,6 +1449,31 @@
 
 @media screen and (max-width: 989px) {
 
+  /* ── Field Gallery slider ── */
+  .tour-pdp-slider {
+    padding: 80px 0 88px;
+  }
+
+  .tour-pdp-slider__header {
+    padding: 0 24px;
+    margin-bottom: 36px;
+    grid-template-columns: 1fr;
+  }
+
+  .tour-pdp-slider__track {
+    padding: 0 24px;
+    gap: 18px;
+  }
+
+  .tour-pdp-slider__slide {
+    width: 86%;
+  }
+
+  .tour-pdp-slider__controls {
+    padding: 0 24px;
+    margin-top: 28px;
+  }
+
   /* ── Hero ── */
   .tour-pdp-hero__split {
     grid-template-columns: minmax(360px, 46%) 1fr;
@@ -1433,6 +1616,45 @@
    ════════════════════════════════════════ */
 
 @media screen and (max-width: 749px) {
+
+  /* ── Field Gallery slider ── */
+  .tour-pdp-slider {
+    padding: 64px 0 72px;
+  }
+
+  .tour-pdp-slider__header {
+    padding: 0 20px;
+    margin-bottom: 28px;
+  }
+
+  .tour-pdp-slider__track {
+    padding: 0 20px;
+    gap: 14px;
+  }
+
+  .tour-pdp-slider__slide {
+    width: 92%;
+  }
+
+  .tour-pdp-slider__image-wrap {
+    aspect-ratio: 4 / 3;
+  }
+
+  .tour-pdp-slider__caption {
+    margin-top: 14px;
+    font-size: 10px;
+  }
+
+  .tour-pdp-slider__controls {
+    padding: 0 20px;
+    margin-top: 22px;
+    gap: 14px;
+  }
+
+  .tour-pdp-slider__btn {
+    width: 46px;
+    height: 46px;
+  }
 
   /* ── Hero: stack image above content on mobile ── */
   .tour-pdp-hero__split {
