@@ -805,7 +805,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at center, rgba(10,10,12,0.55) 0%, rgba(10,10,12,0.85) 100%),
+    radial-gradient(ellipse at center, rgba(10,10,12,0.72) 0%, rgba(10,10,12,0.92) 100%),
     linear-gradient(180deg, var(--ink) 0%, transparent 18%, transparent 82%, var(--ink) 100%);
 }
 
@@ -837,11 +837,16 @@
 }
 
 .tour-pdp-mid-cta__copy {
-  font-size: 16px;
-  line-height: 1.65;
-  color: var(--paper-dim);
-  margin: 0 auto 40px;
-  max-width: 540px;
+  font-family: var(--display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(19px, 1.6vw, 23px);
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  color: rgba(255,255,255,0.92);
+  margin: 0 auto 44px;
+  max-width: 620px;
+  text-shadow: 0 1px 24px rgba(0,0,0,0.45);
 }
 
 .tour-pdp-mid-cta .tour-pdp-cta-btn {
