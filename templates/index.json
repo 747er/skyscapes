@@ -39,43 +39,9 @@
       },
       "block_order": ["pillar_1", "pillar_2", "pillar_3"],
       "settings": {
+        "background_image": "shopify:\/\/shop_images\/bolt.jpg",
         "eyebrow": "Our Approach",
         "heading": "We put you in the right place for the moments you can\u2019t predict."
-      }
-    },
-    "16307996127209fa21": {
-      "type": "image-with-text",
-      "blocks": {
-        "1630799612f370d258-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Optimized for Photographers"
-          }
-        },
-        "1630799612f370d258-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our mission is to safely position you in front of and near these gargantuan mesocyclones and weather phenomenon while helping you capture unforgettable memories.<\/p>"
-          }
-        },
-        "1630799612f370d258-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Find a Tour",
-            "button_link": "shopify:\/\/collections\/tours"
-          }
-        }
-      },
-      "block_order": [
-        "1630799612f370d258-0",
-        "1630799612f370d258-1",
-        "1630799612f370d258-2"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/1.jpg",
-        "height": "adapt",
-        "color_scheme": "background-1",
-        "layout": "image_first"
       }
     },
     "home_stats": {
@@ -83,22 +49,18 @@
       "blocks": {
         "stat_1": {
           "type": "stat",
-          "settings": { "value": "<em>6<\/em> Seasons", "label": "In the field" }
+          "settings": { "value": "6", "label": "Seasons in the field" }
         },
         "stat_2": {
           "type": "stat",
-          "settings": { "value": "Forecaster-led", "label": "Every departure" }
+          "settings": { "value": "7", "label": "Days per departure" }
         },
         "stat_3": {
           "type": "stat",
-          "settings": { "value": "<em>6<\/em> Photographers", "label": "Per tour" }
-        },
-        "stat_4": {
-          "type": "stat",
-          "settings": { "value": "Great Plains", "label": "Region" }
+          "settings": { "value": "6", "label": "Photographers per tour" }
         }
       },
-      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4"],
+      "block_order": ["stat_1", "stat_2", "stat_3"],
       "settings": {}
     },
     "home_dispatches": {
@@ -139,34 +101,25 @@
         "slider_title": "From the field."
       }
     },
-    "1633286507e0eb1984": {
-      "type": "collage",
-      "blocks": {
-        "2144c73b-0d53-42d7-afa1-0d4bc09a9a9a": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/unnamed14.jpg",
-            "image_padding": false,
-            "color_scheme": "background-1"
-          }
-        },
-        "cea62c9c-b47c-4fdb-8e32-946ccbacb74c": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/tripod_reverse.jpg",
-            "image_padding": false,
-            "color_scheme": "background-1"
-          }
-        }
-      },
-      "block_order": [
-        "2144c73b-0d53-42d7-afa1-0d4bc09a9a9a",
-        "cea62c9c-b47c-4fdb-8e32-946ccbacb74c"
-      ],
+    "home_field_notes": {
+      "type": "home-field-notes",
       "settings": {
-        "heading": "",
-        "desktop_layout": "left",
-        "mobile_layout": "collage"
+        "eyebrow": "From the Lead Forecaster",
+        "body": "We don\u2019t chase for the hunt. We chase for the minutes before a storm closes \u2014 when the light goes strange, the air goes electric, and a photograph becomes possible. Those minutes are why we built this.",
+        "attribution": "Skyscape Photo Tours"
+      }
+    },
+    "home_field_work": {
+      "type": "home-field-work",
+      "settings": {
+        "eyebrow": "Field Work",
+        "heading": "Six seasons of frames.",
+        "link_label": "View the gallery",
+        "link_url": "\/pages\/gallery",
+        "image_1": "shopify:\/\/shop_images\/unnamed14.jpg",
+        "caption_1": "Nebraska, 2024",
+        "image_2": "shopify:\/\/shop_images\/tripod_reverse.jpg",
+        "caption_2": "Kansas, 2025"
       }
     },
     "home_mid_cta": {
@@ -185,40 +138,41 @@
         "button_link": "shopify:\/\/collections\/tours"
       }
     },
+    "home_booking_heading": {
+      "type": "home-section-heading",
+      "settings": {
+        "eyebrow": "Booking Now",
+        "heading": "2026 & 2027 Departures",
+        "sub": "",
+        "alignment": "left"
+      }
+    },
     "featured_products": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "title": "Booking 2022 Now",
-        "collection": "frontpage",
-        "products_to_show": 4,
+        "title": "",
+        "collection": "tours",
+        "products_to_show": 8,
         "show_view_all": true,
         "swipe_on_mobile": true,
         "image_ratio": "square",
         "show_secondary_image": false,
         "add_image_padding": false,
-        "show_image_outline": true,
+        "show_image_outline": false,
         "show_vendor": false,
         "show_rating": false
-      }
-    },
-    "tours_cta_lightning_WbN9gD": {
-      "type": "tours-cta-lightning",
-      "settings": {
-        "heading": "Feeling Inspired?",
-        "description": "",
-        "alt_text": ""
       }
     }
   },
   "order": [
     "1632611843c4d35cb8",
     "home_approach",
-    "16307996127209fa21",
     "home_stats",
     "home_dispatches",
-    "1633286507e0eb1984",
+    "home_field_notes",
+    "home_field_work",
     "home_mid_cta",
-    "tours_cta_lightning_WbN9gD"
+    "home_booking_heading",
+    "featured_products"
   ]
 }
