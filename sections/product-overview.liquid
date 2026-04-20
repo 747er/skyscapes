@@ -35,14 +35,14 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-                                 ORIENTATION
+                                     ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
 
   {%- comment -%} ══════════════════════════════════════
-                                                                 THE FORECAST
-                      ══════════════════════════════════════ {%- endcomment -%}
+                                                                         THE FORECAST
+                          ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.description != blank %}
     {% assign pdp_split_title = product.title | split: ':' %}
@@ -71,8 +71,8 @@
 {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-                                                      FIELD GALLERY (slider)
-                      ══════════════════════════════════════ {%- endcomment -%}
+                                                              FIELD GALLERY (slider)
+                          ══════════════════════════════════════ {%- endcomment -%}
 
   {%- assign slide_blocks = section.blocks | where: 'type', 'slide' -%}
   {% if slide_blocks.size > 0 %}
@@ -225,8 +225,8 @@
 
 
   {%- comment -%} ══════════════════════════════════════
-                                                                 ITINERARY
-                                   ══════════════════════════════════════ {%- endcomment -%}
+                                                                         ITINERARY
+                                       ══════════════════════════════════════ {%- endcomment -%}
 
   {%- comment -%} ── Marquee ── {%- endcomment -%}
   <div class="tour-pdp-marquee">
@@ -310,8 +310,8 @@
   </div>
 
   {%- comment -%} ══════════════════════════════════════
-                                                                 MID-PAGE CTA
-                                   ══════════════════════════════════════ {%- endcomment -%}
+                                                                         MID-PAGE CTA
+                                       ══════════════════════════════════════ {%- endcomment -%}
   <div class="tour-pdp-mid-cta" style="background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/m4.webp?v=1776654991&width=2048');">
     <div class="tour-pdp-mid-cta__inner tour-reveal">
       <span class="tour-pdp-mid-cta__date">
@@ -330,8 +330,12 @@
 
       <div class="tour-pdp-mid-cta__ornament" aria-hidden="true">
         <span class="tour-pdp-mid-cta__ornament-rule"></span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M7 0L8 6L14 7L8 8L7 14L6 8L0 7L6 6L7 0Z" fill="currentColor"/>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none">
+          <path d="M7 0L8 6L14 7L8 8L7 14L6 8L0 7L6 6L7 0Z" fill="currentColor" />
         </svg>
         <span class="tour-pdp-mid-cta__ornament-rule"></span>
       </div>
@@ -341,14 +345,33 @@
       <ul class="tour-pdp-mid-cta__pillars">
         <li class="tour-pdp-mid-cta__pillar">
           <span class="tour-pdp-mid-cta__pillar-icon" aria-hidden="true">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <circle cx="12" cy="12" r="4.5"/>
-              <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>
-              <path d="M12 1.5v3"/>
-              <path d="M12 19.5v3"/>
-              <path d="M1.5 12h3"/>
-              <path d="M19.5 12h3"/>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.3"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle
+                cx="12"
+                cy="12"
+                r="9" />
+              <circle
+                cx="12"
+                cy="12"
+                r="4.5" />
+              <circle
+                cx="12"
+                cy="12"
+                r="1.2"
+                fill="currentColor"
+                stroke="none" />
+              <path d="M12 1.5v3" />
+              <path d="M12 19.5v3" />
+              <path d="M1.5 12h3" />
+              <path d="M19.5 12h3" />
             </svg>
           </span>
           <div class="tour-pdp-mid-cta__pillar-body">
@@ -359,10 +382,18 @@
 
         <li class="tour-pdp-mid-cta__pillar">
           <span class="tour-pdp-mid-cta__pillar-icon" aria-hidden="true">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17.5 16.5a5 5 0 0 0-1.3-9.83A6.5 6.5 0 0 0 4 9.5"/>
-              <path d="M5 16h9"/>
-              <path d="M12.5 13l-2.5 4.5h3l-1.5 3.5"/>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.3"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17.5 16.5a5 5 0 0 0-1.3-9.83A6.5 6.5 0 0 0 4 9.5" />
+              <path d="M5 16h9" />
+              <path d="M12.5 13l-2.5 4.5h3l-1.5 3.5" />
             </svg>
           </span>
           <div class="tour-pdp-mid-cta__pillar-body">
@@ -373,9 +404,20 @@
 
         <li class="tour-pdp-mid-cta__pillar">
           <span class="tour-pdp-mid-cta__pillar-icon" aria-hidden="true">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="3.8"/>
-              <path d="M4.5 20.5c0-4 3.5-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.3"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle
+                cx="12"
+                cy="8"
+                r="3.8" />
+              <path d="M4.5 20.5c0-4 3.5-6.5 7.5-6.5s7.5 2.5 7.5 6.5" />
             </svg>
           </span>
           <div class="tour-pdp-mid-cta__pillar-body">
@@ -387,36 +429,27 @@
 
       <a href="#trip-booking" class="tour-pdp-cta-btn tour-pdp-mid-cta__btn">
         <span>Reserve Your Seat</span>
-        <svg width="18" height="10" viewBox="0 0 18 10" fill="none" aria-hidden="true">
-          <path d="M1 5H17M17 5L13 1M17 5L13 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg
+          width="18"
+          height="10"
+          viewBox="0 0 18 10"
+          fill="none"
+          aria-hidden="true">
+          <path
+            d="M1 5H17M17 5L13 1M17 5L13 9"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            stroke-linejoin="round" />
         </svg>
       </a>
-
-      <div class="tour-pdp-mid-cta__meta">
-        <span class="tour-pdp-mid-cta__meta-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M16 19v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="3.2"/>
-            <path d="M22 19v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-          {{ max_guests }} photographers per tour
-        </span>
-        <span class="tour-pdp-mid-cta__meta-sep" aria-hidden="true"></span>
-        <span class="tour-pdp-mid-cta__meta-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.8L5.7 21l1.7-7L2 9.5l7.1-.6L12 2z"/>
-          </svg>
-          Led by expert meteorologists
-        </span>
-      </div>
     </div>
   </div>
 
 
   {%- comment -%} ══════════════════════════════════════
-                                                                 GUIDES
-                                   ══════════════════════════════════════ {%- endcomment -%}
+                                                                         GUIDES
+                                       ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.metafields.custom.guides2 != blank %}
     <div class="tour-pdp-guides">
@@ -500,8 +533,8 @@
   {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-                                                                 CINEMATIC QUOTE BREAK
-                                   ══════════════════════════════════════ {%- endcomment -%}
+                                                                         CINEMATIC QUOTE BREAK
+                                       ══════════════════════════════════════ {%- endcomment -%}
 
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
@@ -510,8 +543,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-                                                                 GALLERY — ASYMMETRIC GRID
-                                   ══════════════════════════════════════ {%- endcomment -%}
+                                                                         GALLERY — ASYMMETRIC GRID
+                                       ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
