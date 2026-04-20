@@ -54,7 +54,7 @@
           "type": "button",
           "settings": {
             "button_label": "Find a Tour",
-            "button_link": "shopify:\/\/collections\/2022"
+            "button_link": "shopify:\/\/collections\/tours"
           }
         }
       },
@@ -70,21 +70,65 @@
         "layout": "image_first"
       }
     },
-    "featured_products": {
-      "type": "featured-collection",
-      "disabled": true,
+    "home_stats": {
+      "type": "home-stats",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": { "value": "6", "label": "Seasons Strong" }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": { "value": "Meteorologist", "label": "Led Forecasting" }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": { "value": "6", "label": "Photographers Per Tour" }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": { "value": "Great Plains", "label": "Region" }
+        }
+      },
+      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4"],
+      "settings": {}
+    },
+    "home_dispatches": {
+      "type": "home-dispatches",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1.jpg",
+            "caption": "Shelf cloud at dusk, Nebraska sandhills."
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/unnamed14.jpg",
+            "caption": "Positive strike over open prairie."
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/tripod_reverse.jpg",
+            "caption": "Tripod down, the storm moves left."
+          }
+        },
+        "slide_4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/15.jpg",
+            "caption": "A mesocyclone organizes over wheat country."
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3", "slide_4"],
       "settings": {
-        "title": "Booking 2022 Now",
-        "collection": "frontpage",
-        "products_to_show": 4,
-        "show_view_all": true,
-        "swipe_on_mobile": true,
-        "image_ratio": "square",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_image_outline": true,
-        "show_vendor": false,
-        "show_rating": false
+        "slider_eyebrow": "Dispatches",
+        "slider_title": "From the field."
       }
     },
     "1633286507e0eb1984": {
@@ -117,6 +161,48 @@
         "mobile_layout": "collage"
       }
     },
+    "home_mid_cta": {
+      "type": "home-mid-cta",
+      "settings": {
+        "eyebrow": "2026 & 2027 Storm Seasons",
+        "heading": "Tours for photographers who want more than luck.",
+        "copy": "We handle the positioning, timing, and coaching so you can focus on making photographs when the light and weather finally align.",
+        "pillar_1_title": "Forecast-driven positioning",
+        "pillar_1_sub": "Not guesswork.",
+        "pillar_2_title": "Real-time adjustments",
+        "pillar_2_sub": "Adapt. Pivot. Capture.",
+        "pillar_3_title": "Expert coaching in the field",
+        "pillar_3_sub": "When it matters most.",
+        "button_label": "View All Trips",
+        "button_link": "shopify:\/\/collections\/tours"
+      }
+    },
+    "home_testimonial": {
+      "type": "home-testimonial",
+      "settings": {
+        "background_image": "shopify:\/\/shop_images\/15.jpg",
+        "quote": "I have chased on my own for a decade. A week with Skyscape put me in front of more photographable storms than any two seasons before it.",
+        "attr_name": "Landscape photographer",
+        "attr_meta": "2025 Season"
+      }
+    },
+    "featured_products": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Booking 2022 Now",
+        "collection": "frontpage",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "square",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false,
+        "show_rating": false
+      }
+    },
     "tours_cta_lightning_WbN9gD": {
       "type": "tours-cta-lightning",
       "settings": {
@@ -130,8 +216,11 @@
     "1632611843c4d35cb8",
     "rich_text",
     "16307996127209fa21",
-    "featured_products",
+    "home_stats",
+    "home_dispatches",
     "1633286507e0eb1984",
+    "home_mid_cta",
+    "home_testimonial",
     "tours_cta_lightning_WbN9gD"
   ]
 }
