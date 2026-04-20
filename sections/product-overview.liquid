@@ -35,14 +35,12 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-                                     ORIENTATION
+                                             ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
 
-  {%- comment -%} ══════════════════════════════════════
-                                                                         THE FORECAST
-                          ══════════════════════════════════════ {%- endcomment -%}
+  {%- comment -%} THE FORECAST {%- endcomment -%}
 
   {% if product.description != blank %}
     {% assign pdp_split_title = product.title | split: ':' %}
@@ -71,8 +69,8 @@
 {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-                                                              FIELD GALLERY (slider)
-                          ══════════════════════════════════════ {%- endcomment -%}
+                                                                              FIELD GALLERY (slider)
+                                  ══════════════════════════════════════ {%- endcomment -%}
 
   {%- assign slide_blocks = section.blocks | where: 'type', 'slide' -%}
   {% if slide_blocks.size > 0 %}
@@ -224,9 +222,7 @@
   </div>
 
 
-  {%- comment -%} ══════════════════════════════════════
-                                                                         ITINERARY
-                                       ══════════════════════════════════════ {%- endcomment -%}
+  {%- comment -%} ITINERARY {%- endcomment -%}
 
   {%- comment -%} ── Marquee ── {%- endcomment -%}
   <div class="tour-pdp-marquee">
@@ -309,9 +305,7 @@
     </div>
   </div>
 
-  {%- comment -%} ══════════════════════════════════════
-                                                                         MID-PAGE CTA
-                                       ══════════════════════════════════════ {%- endcomment -%}
+  {%- comment -%} MID-PAGE CTA {%- endcomment -%}
   <div class="tour-pdp-mid-cta" style="background-image: url('https://cdn.shopify.com/s/files/1/0590/7863/9796/files/m4.webp?v=1776654991&width=2048');">
     <div class="tour-pdp-mid-cta__inner tour-reveal">
       <span class="tour-pdp-mid-cta__date">
@@ -447,9 +441,7 @@
   </div>
 
 
-  {%- comment -%} ══════════════════════════════════════
-                                                                         GUIDES
-                                       ══════════════════════════════════════ {%- endcomment -%}
+  {%- comment -%} GUIDES {%- endcomment -%}
 
   {% if product.metafields.custom.guides2 != blank %}
     <div class="tour-pdp-guides">
@@ -532,20 +524,16 @@
     </div>
   {% endif %}
 
-  {%- comment -%} ══════════════════════════════════════
-                                                                         CINEMATIC QUOTE BREAK
-                                       ══════════════════════════════════════ {%- endcomment -%}
-
+  {%- comment -%} CINEMATIC QUOTE BREAK {%- endcomment -%}
+  CINEMATIC QUOTE BREAK
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
       <blockquote>No supercell forms twice. The one you photograph will be the only one of its kind that ever exists.</blockquote>
     </div>
-</div>
+  </div>
 
-  {%- comment -%} ══════════════════════════════════════
-                                                                         GALLERY — ASYMMETRIC GRID
-                                       ══════════════════════════════════════ {%- endcomment -%}
-
+  {%- comment -%} GALLERY — ASYMMETRIC GRID {%- endcomment -%}
+  GALLERY — ASYMMETRIC GRID
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
     <div class="tour-pdp-gallery">
