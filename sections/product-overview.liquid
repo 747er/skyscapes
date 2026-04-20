@@ -279,6 +279,91 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
+                                             GUIDES
+                         ══════════════════════════════════════ {%- endcomment -%}
+
+  {% if product.metafields.custom.guides2 != blank %}
+    <div class="tour-pdp-guides">
+      <div class="tour-pdp-guides__inner">
+        <div class="tour-pdp-guides__header tour-reveal">
+          <div class="tour-pdp-section-label">The People</div>
+          <h2 class="tour-pdp-section-title">
+            {% if guide_count > 0 %}
+              {{ guide_count }}
+              <em>guides</em>.
+            {% else %}
+              Your
+              <em>guides</em>.
+            {% endif %}
+          </h2>
+          <p>Led by a meteorologist. Joined by working landscape photographers. With you for every storm of the week.</p>
+        </div>
+
+        <div class="tour-pdp-guides__grid">
+          {% for guide_ref in product.metafields.custom.guides2.value %}
+            {% assign guide = guide_ref %}
+            <div class="tour-pdp-guide tour-reveal tour-reveal--stagger" style="--reveal-i:{{ forloop.index0 }}">
+              <div class="tour-pdp-guide__img">
+                {% if guide.photo != blank %}
+                  <img
+                    src="{{ guide.photo }}"
+                    alt="{{ guide.name }}"
+                    loading="lazy">
+                {% endif %}
+              </div>
+              <h3 class="tour-pdp-guide__name">{{ guide.name }}</h3>
+              <div class="tour-pdp-guide__role">{{ guide.title }}</div>
+              {% assign bio_text = guide.bio | strip_html | strip %}
+              {% if bio_text != blank %}
+                <p class="tour-pdp-guide__bio">{{ bio_text }}</p>
+              {% endif %}
+              {% if guide.instagram_handle or guide.five00px_handle %}
+                <div class="tour-pdp-guide__socials">
+                  {% if guide.instagram_handle %}
+                    <a
+                      href="https://instagram.com/{{ guide.instagram_handle }}"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Instagram">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"><rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5" /><circle
+                          cx="12"
+                          cy="12"
+                          r="5" /><circle
+                          cx="17.5"
+                          cy="6.5"
+                          r="1"
+                          fill="currentColor"
+                          stroke="none" /></svg>
+                    </a>
+                  {% endif %}
+                  {% if guide.five00px_handle %}
+                    <a
+                      href="https://500px.com/p/{{ guide.five00px_handle }}"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="500px">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 3a4.5 4.5 0 0 0 0 9h2.25a.75.75 0 0 0 0-1.5H7.5a3 3 0 1 1 0-6h2.25a.75.75 0 0 0 0-1.5H7.5Zm9 0a.75.75 0 0 0 0 1.5A3 3 0 0 1 16.5 12a.75.75 0 0 0 0 1.5 4.5 4.5 0 0 0 0-9Z" /></svg>
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {%- comment -%} ══════════════════════════════════════
                                              MID-PAGE CTA
                          ══════════════════════════════════════ {%- endcomment -%}
 
@@ -373,90 +458,6 @@
     </div>
   {% endif %}
 
-  {%- comment -%} ══════════════════════════════════════
-                                             GUIDES
-                         ══════════════════════════════════════ {%- endcomment -%}
-
-  {% if product.metafields.custom.guides2 != blank %}
-    <div class="tour-pdp-guides">
-      <div class="tour-pdp-guides__inner">
-        <div class="tour-pdp-guides__header tour-reveal">
-          <div class="tour-pdp-section-label">The People</div>
-          <h2 class="tour-pdp-section-title">
-            {% if guide_count > 0 %}
-              {{ guide_count }}
-              <em>guides</em>.
-            {% else %}
-              Your
-              <em>guides</em>.
-            {% endif %}
-          </h2>
-          <p>Led by a meteorologist. Joined by working landscape photographers. With you for every storm of the week.</p>
-        </div>
-
-        <div class="tour-pdp-guides__grid">
-          {% for guide_ref in product.metafields.custom.guides2.value %}
-            {% assign guide = guide_ref %}
-            <div class="tour-pdp-guide tour-reveal tour-reveal--stagger" style="--reveal-i:{{ forloop.index0 }}">
-              <div class="tour-pdp-guide__img">
-                {% if guide.photo != blank %}
-                  <img
-                    src="{{ guide.photo }}"
-                    alt="{{ guide.name }}"
-                    loading="lazy">
-                {% endif %}
-              </div>
-              <h3 class="tour-pdp-guide__name">{{ guide.name }}</h3>
-              <div class="tour-pdp-guide__role">{{ guide.title }}</div>
-              {% assign bio_text = guide.bio | strip_html | strip %}
-              {% if bio_text != blank %}
-                <p class="tour-pdp-guide__bio">{{ bio_text }}</p>
-              {% endif %}
-              {% if guide.instagram_handle or guide.five00px_handle %}
-                <div class="tour-pdp-guide__socials">
-                  {% if guide.instagram_handle %}
-                    <a
-                      href="https://instagram.com/{{ guide.instagram_handle }}"
-                      target="_blank"
-                      rel="noopener"
-                      aria-label="Instagram">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"><rect
-                          x="2"
-                          y="2"
-                          width="20"
-                          height="20"
-                          rx="5" /><circle
-                          cx="12"
-                          cy="12"
-                          r="5" /><circle
-                          cx="17.5"
-                          cy="6.5"
-                          r="1"
-                          fill="currentColor"
-                          stroke="none" /></svg>
-                    </a>
-                  {% endif %}
-                  {% if guide.five00px_handle %}
-                    <a
-                      href="https://500px.com/p/{{ guide.five00px_handle }}"
-                      target="_blank"
-                      rel="noopener"
-                      aria-label="500px">
-                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 3a4.5 4.5 0 0 0 0 9h2.25a.75.75 0 0 0 0-1.5H7.5a3 3 0 1 1 0-6h2.25a.75.75 0 0 0 0-1.5H7.5Zm9 0a.75.75 0 0 0 0 1.5A3 3 0 0 1 16.5 12a.75.75 0 0 0 0 1.5 4.5 4.5 0 0 0 0-9Z" /></svg>
-                    </a>
-                  {% endif %}
-                </div>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  {% endif %}
 </section>
 
 <script>
