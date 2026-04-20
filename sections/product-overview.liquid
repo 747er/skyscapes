@@ -421,7 +421,7 @@
         </li>
       </ul>
 
-      <a href="#trip-booking" class="tour-pdp-cta-btn tour-pdp-mid-cta__btn">
+      <a href="#trip-booking" class="tour-pdp-cta-btn tour-pdp-mid-cta__btn" data-tour-reserve>
         <span>Reserve Your Seat</span>
         <svg
           width="18"
@@ -624,6 +624,26 @@
       observer.observe(el);
     }
   });
+  })();
+
+  /* ── Reserve CTAs → submit the product form (add to cart) ── */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-tour-reserve]');
+      if (!btn) return;
+
+      var form = document.querySelector('product-form form')
+        || document.querySelector('form[action$="/cart/add"]');
+      if (!form) return; /* let the anchor fall through to #trip-booking */
+
+      e.preventDefault();
+
+      if (typeof form.requestSubmit === 'function') {
+        form.requestSubmit();
+      } else {
+        form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      }
+    });
   })();
 
   /* ── Field Gallery slider ── */
