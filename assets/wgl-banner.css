@@ -1,0 +1,191 @@
+/*!********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/sections/wgl-banner/styles.css ***!
+  \********************************************************************************************************************************/
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+.frame {
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+  height: 100vh;
+}
+
+.frame > * {
+  position: relative;
+}
+
+.frame__content {
+  top: 0;
+  padding-top: 25vh;
+  color: #fff;
+  line-height: 0;
+  position: sticky;
+  font-size: 150px;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 30vh;
+  display: inline-block;
+}
+
+.frame__sub-content {
+  font-size: 75px;
+  color: #eab97f;
+  padding-left: 2vw;
+  position: relative;
+  font-weight: normal;
+  letter-spacing: 20px;
+  line-height: 1;
+  margin: 10px 0px;
+  padding-bottom: 10px;
+}
+
+/* .frame__sub-content::before {
+  content: "";
+  position: absolute;
+  top: 135px;
+  left: 24px;
+  height: 2px;
+  background: linear-gradient(270deg, #e5b67d 60%, transparent);
+  width: 40%;
+}
+
+.frame__sub-content::after {
+  content: "";
+  position: absolute;
+  top: 135px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, #e5b67d 60%, transparent);
+  width: 40%;
+} */
+
+.brand-title {
+  line-height: 0.75;
+}
+
+.primary-cta {
+  line-height: 1;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.primary-cta-text {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 auto;
+  padding: 18px 44px;
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  border-radius: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.primary-cta-text:hover {
+  background-color: #eab97f;
+  border-color: #eab97f;
+  color: #141516;
+}
+
+#gl {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.frame {
+  position: relative;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+#main-scroll-indicator {
+  position: absolute;
+  color: white;
+  left: 30px;
+  bottom: 30px;
+  margin-bottom: 30px;
+  will-change: opacity;
+  pointer-events: none;
+  z-index: 5;
+}
+
+#main-scroll-indicator-text {
+  position: absolute;
+  left: -4px;
+  bottom: 50px;
+  white-space: nowrap;
+  transform-origin: 0 0;
+  transform: rotate(-90deg);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#main-scroll-indicator-arrow-container {
+  width: 5px;
+  height: 40px;
+  overflow: hidden;
+}
+#main-scroll-indicator-arrow-container svg {
+  animation-name: main-scroll-indicator-arrow;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes main-scroll-indicator-arrow {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  15% {
+    transform: translate3d(0, 0, 0);
+  }
+  85% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@media (max-width: 750px) {
+  .frame__content {
+    font-size: 16vw;
+    line-height: 0.7;
+  }
+  .frame__sub-content {
+    font-size: 10vw;
+    letter-spacing: 2px;
+  }
+
+  .primary-cta-text {
+    padding: 14px 32px;
+    letter-spacing: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+  .primary-cta {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+}
+
+
+/*# sourceMappingURL=wgl-banner.css.map*/
