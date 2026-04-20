@@ -67,25 +67,30 @@ body {
 
 .primary-cta {
   line-height: 1;
-  font-size: 30px;
+  font-size: 16px;
   display: inline-block;
+  margin-top: 20px;
 }
 
 .primary-cta-text {
-  text-transform: capitalize;
-  color: #141516;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 500;
+  color: #fff;
   margin: 0 auto;
-  padding: 10px 20px;
-  transition: all 0.3s ease-in-out;
-  border: 3px solid #eab97f;
-  background: #fff;
-  border-radius: 40px;
+  padding: 18px 44px;
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  border-radius: 0;
   position: relative;
+  display: inline-block;
 }
 
 .primary-cta-text:hover {
-  background-color: #e4b57c;
-  color: #fff;
+  background-color: #eab97f;
+  border-color: #eab97f;
+  color: #141516;
 }
 
 #gl {
@@ -169,11 +174,12 @@ canvas {
   }
 
   .primary-cta-text {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 2px solid #eab97f;
+    padding: 14px 32px;
+    letter-spacing: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
   }
   .primary-cta {
-    margin-top: 0;
+    font-size: 13px;
+    margin-top: 10px;
   }
 }
