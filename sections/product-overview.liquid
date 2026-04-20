@@ -35,7 +35,7 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-                                             ORIENTATION
+                                                   ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
@@ -68,10 +68,7 @@
     </div>
 {% endif %}
 
-  {%- comment -%} ══════════════════════════════════════
-                                                                              FIELD GALLERY (slider)
-                                  ══════════════════════════════════════ {%- endcomment -%}
-
+  {%- comment -%} FIELD GALLERY (slider) {%- endcomment -%}
   {%- assign slide_blocks = section.blocks | where: 'type', 'slide' -%}
   {% if slide_blocks.size > 0 %}
     <div class="tour-pdp-slider tour-reveal" data-tour-slider>
@@ -320,7 +317,7 @@
         <span class="tour-pdp-mid-cta__date-rule" aria-hidden="true"></span>
       </span>
 
-      <h2 class="tour-pdp-mid-cta__heading">Forecast-led tours for photographers who want more than luck.</h2>
+      <h2 class="tour-pdp-mid-cta__heading">Tours for photographers who want more than luck.</h2>
 
       <div class="tour-pdp-mid-cta__ornament" aria-hidden="true">
         <span class="tour-pdp-mid-cta__ornament-rule"></span>
@@ -421,7 +418,10 @@
         </li>
       </ul>
 
-      <a href="#trip-booking" class="tour-pdp-cta-btn tour-pdp-mid-cta__btn" data-tour-reserve>
+      <a
+        href="#trip-booking"
+        class="tour-pdp-cta-btn tour-pdp-mid-cta__btn"
+        data-tour-reserve>
         <span>Reserve Your Seat</span>
         <svg
           width="18"
@@ -525,15 +525,13 @@
   {% endif %}
 
   {%- comment -%} CINEMATIC QUOTE BREAK {%- endcomment -%}
-  CINEMATIC QUOTE BREAK
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
       <blockquote>No supercell forms twice. The one you photograph will be the only one of its kind that ever exists.</blockquote>
     </div>
-  </div>
+</div>
 
   {%- comment -%} GALLERY — ASYMMETRIC GRID {%- endcomment -%}
-  GALLERY — ASYMMETRIC GRID
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
     <div class="tour-pdp-gallery">
