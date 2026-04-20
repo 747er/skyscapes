@@ -35,14 +35,14 @@
 {% endif %}
 
 {%- comment -%} ══════════════════════════════════════
-                       ORIENTATION
+                         ORIENTATION
    ══════════════════════════════════════ {%- endcomment -%}
 
 <section class="tour-pdp">
 
   {%- comment -%} ══════════════════════════════════════
-                                             THE FORECAST
-            ══════════════════════════════════════ {%- endcomment -%}
+                                                 THE FORECAST
+              ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.description != blank %}
     {% assign pdp_split_title = product.title | split: ':' %}
@@ -68,11 +68,11 @@
         </div>
       </div>
     </div>
-  {% endif %}
+{% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-                                  FIELD GALLERY (slider)
-            ══════════════════════════════════════ {%- endcomment -%}
+                                      FIELD GALLERY (slider)
+              ══════════════════════════════════════ {%- endcomment -%}
 
   {%- assign slide_blocks = section.blocks | where: 'type', 'slide' -%}
   {% if slide_blocks.size > 0 %}
@@ -92,7 +92,10 @@
         <div class="tour-pdp-slider__track" data-tour-slider-track>
           {% for block in slide_blocks %}
             {% if block.settings.image != blank %}
-              <figure class="tour-pdp-slider__slide" data-tour-slider-slide {{ block.shopify_attributes }}>
+              <figure
+                class="tour-pdp-slider__slide"
+                data-tour-slider-slide
+                {{ block.shopify_attributes }}>
                 <div class="tour-pdp-slider__image-wrap">
                   <img
                     class="tour-pdp-slider__image"
@@ -114,19 +117,47 @@
       </div>
 
       <div class="tour-pdp-slider__controls">
-        <button type="button" class="tour-pdp-slider__btn" data-tour-slider-dir="prev" aria-label="Previous image">
-          <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true">
-            <path d="M19 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <button
+          type="button"
+          class="tour-pdp-slider__btn"
+          data-tour-slider-dir="prev"
+          aria-label="Previous image">
+          <svg
+            width="20"
+            height="12"
+            viewBox="0 0 20 12"
+            fill="none"
+            aria-hidden="true">
+            <path
+              d="M19 6H1M1 6L6 1M1 6L6 11"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
         <span class="tour-pdp-slider__counter">
           <span data-tour-slider-index>1</span>
-          <span class="tour-pdp-slider__counter-sep">/</span>
+          <span>/</span>
           <span>{{ slide_blocks.size }}</span>
         </span>
-        <button type="button" class="tour-pdp-slider__btn" data-tour-slider-dir="next" aria-label="Next image">
-          <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true">
-            <path d="M1 6H19M19 6L14 1M19 6L14 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <button
+          type="button"
+          class="tour-pdp-slider__btn"
+          data-tour-slider-dir="next"
+          aria-label="Next image">
+          <svg
+            width="20"
+            height="12"
+            viewBox="0 0 20 12"
+            fill="none"
+            aria-hidden="true">
+            <path
+              d="M1 6H19M19 6L14 1M19 6L14 11"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
       </div>
@@ -194,8 +225,8 @@
 
 
   {%- comment -%} ══════════════════════════════════════
-                                             ITINERARY
-                         ══════════════════════════════════════ {%- endcomment -%}
+                                                 ITINERARY
+                           ══════════════════════════════════════ {%- endcomment -%}
 
   {%- comment -%} ── Marquee ── {%- endcomment -%}
   <div class="tour-pdp-marquee">
@@ -279,8 +310,29 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-                                             GUIDES
-                         ══════════════════════════════════════ {%- endcomment -%}
+                                                 MID-PAGE CTA
+                           ══════════════════════════════════════ {%- endcomment -%}
+
+  {% assign cta_image = section.settings.image6 | default: hero_image %}
+  <div class="tour-pdp-mid-cta" style="background-image: url('{{ cta_image | image_url: width: 2400 }}');">
+    <div class="tour-pdp-mid-cta__inner tour-reveal">
+      <span class="tour-pdp-mid-cta__date">
+        {% if coming_start != blank and coming_end != blank %}
+          {{ pre_start | date: '%b %-d' }} to {{ pre_end | date: '%b %-d, %Y' }}
+        {% else %}
+          Storm Season
+        {% endif %}
+      </span>
+      <h2 class="tour-pdp-mid-cta__heading">Forecast-led tours for photographers who want more than luck.</h2>
+      <p class="tour-pdp-mid-cta__copy">Six photographers. One week. Real strategy in the field. We handle the positioning, timing, and coaching so you can focus on making photographs when the light and weather finally align.</p>
+      <a href="#trip-booking" class="tour-pdp-cta-btn">Reserve Your Seat</a>
+    </div>
+  </div>
+
+
+  {%- comment -%} ══════════════════════════════════════
+                                                 GUIDES
+                           ══════════════════════════════════════ {%- endcomment -%}
 
   {% if product.metafields.custom.guides2 != blank %}
     <div class="tour-pdp-guides">
@@ -364,28 +416,8 @@
   {% endif %}
 
   {%- comment -%} ══════════════════════════════════════
-                                             MID-PAGE CTA
-                         ══════════════════════════════════════ {%- endcomment -%}
-
-  {% assign cta_image = section.settings.image6 | default: hero_image %}
-  <div class="tour-pdp-mid-cta" style="background-image: url('{{ cta_image | image_url: width: 2400 }}');">
-    <div class="tour-pdp-mid-cta__inner tour-reveal">
-      <span class="tour-pdp-mid-cta__date">
-        {% if coming_start != blank and coming_end != blank %}
-          {{ pre_start | date: '%b %-d' }} to {{ pre_end | date: '%b %-d, %Y' }}
-        {% else %}
-          Storm Season
-        {% endif %}
-      </span>
-      <h2 class="tour-pdp-mid-cta__heading">Forecast-led tours for photographers who want more than luck.</h2>
-      <p class="tour-pdp-mid-cta__copy">Six photographers. One week. Real strategy in the field. We handle the positioning, timing, and coaching so you can focus on making photographs when the light and weather finally align.</p>
-      <a href="#trip-booking" class="tour-pdp-cta-btn">Reserve Your Seat</a>
-    </div>
-  </div>
-
-  {%- comment -%} ══════════════════════════════════════
-                                             CINEMATIC QUOTE BREAK
-                         ══════════════════════════════════════ {%- endcomment -%}
+                                                 CINEMATIC QUOTE BREAK
+                           ══════════════════════════════════════ {%- endcomment -%}
 
   <div class="tour-pdp-cinematic" style="background-image: url('{{ cinematic_image | image_url: width: 2400 }}');">
     <div class="tour-pdp-cinematic__quote tour-reveal">
@@ -394,8 +426,8 @@
 </div>
 
   {%- comment -%} ══════════════════════════════════════
-                                             GALLERY — ASYMMETRIC GRID
-                         ══════════════════════════════════════ {%- endcomment -%}
+                                                 GALLERY — ASYMMETRIC GRID
+                           ══════════════════════════════════════ {%- endcomment -%}
 
   {% assign gallery_images = product.images %}
   {% if gallery_images.size > 0 %}
@@ -577,18 +609,15 @@
         "type": "image_picker",
         "id": "image6",
         "label": "image 6"
-      },
-      {
+      }, {
         "type": "header",
         "content": "Field Gallery (slider)"
-      },
-      {
+      }, {
         "type": "text",
         "id": "slider_eyebrow",
         "label": "Slider eyebrow",
         "default": "Dispatches"
-      },
-      {
+      }, {
         "type": "text",
         "id": "slider_title",
         "label": "Slider title",
@@ -604,8 +633,7 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          },
-          {
+          }, {
             "type": "text",
             "id": "caption",
             "label": "Caption (optional)"
