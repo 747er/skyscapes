@@ -1,0 +1,129 @@
+<style>
+  .home-stats {
+    background: #0c0d0f;
+    color: #fff;
+    padding: 80px 24px;
+  }
+
+  .home-stats__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .home-stats__item {
+    padding: 16px 32px;
+    text-align: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .home-stats__item:first-child {
+    border-left: none;
+  }
+
+  .home-stats__value {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1;
+    color: #eab97f;
+    letter-spacing: -0.02em;
+  }
+
+  .home-stats__label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+
+  @media (max-width: 749px) {
+    .home-stats {
+      padding: 56px 16px;
+    }
+    .home-stats__inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .home-stats__item {
+      padding: 24px 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .home-stats__item:nth-child(-n+2) {
+      border-top: none;
+    }
+    .home-stats__item:nth-child(odd) {
+      border-left: none;
+    }
+  }
+</style>
+
+<section class="home-stats">
+  <div class="home-stats__inner">
+    {% for block in section.blocks %}
+      <div class="home-stats__item" {{ block.shopify_attributes }}>
+        <div class="home-stats__value">{{ block.settings.value }}</div>
+        <div class="home-stats__label">{{ block.settings.label }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Stats Band",
+  "tag": "section",
+  "class": "section-home-stats",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "6"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Seasons Strong"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Stats Band",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": { "value": "6", "label": "Seasons Strong" }
+        },
+        {
+          "type": "stat",
+          "settings": { "value": "Meteorologist", "label": "Led Forecasting" }
+        },
+        {
+          "type": "stat",
+          "settings": { "value": "6", "label": "Photographers Per Tour" }
+        },
+        {
+          "type": "stat",
+          "settings": { "value": "Great Plains", "label": "Region" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
