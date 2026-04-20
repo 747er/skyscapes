@@ -1,0 +1,244 @@
+<style>
+  .home-approach {
+    background: #0c0d0f;
+    color: #fff;
+    padding: 120px 40px;
+  }
+
+  .home-approach__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .home-approach__lead-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #eab97f;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .home-approach__lead-heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(34px, 3.6vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #fff;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .home-approach__pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .home-approach__pillar {
+    position: relative;
+    padding: 0 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .home-approach__pillar + .home-approach__pillar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 20px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .home-approach__icon {
+    color: #eab97f;
+    margin-bottom: 4px;
+  }
+
+  .home-approach__title {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .home-approach__body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 22ch;
+    margin: 0;
+  }
+
+  @media (max-width: 899px) {
+    .home-approach {
+      padding: 72px 24px;
+    }
+    .home-approach__inner {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+    .home-approach__pillars {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .home-approach__pillar {
+      padding: 0;
+    }
+    .home-approach__pillar + .home-approach__pillar::before {
+      display: none;
+    }
+  }
+</style>
+
+<section class="home-approach">
+  <div class="home-approach__inner">
+    <div class="home-approach__lead">
+      {% if section.settings.eyebrow != blank %}
+        <div class="home-approach__lead-eyebrow">{{ section.settings.eyebrow }}</div>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="home-approach__lead-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+
+    <div class="home-approach__pillars">
+      {% for block in section.blocks %}
+        <div class="home-approach__pillar" {{ block.shopify_attributes }}>
+          <div class="home-approach__icon" aria-hidden="true">
+            {% case block.settings.icon %}
+              {% when 'cloud' %}
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.5 18H7a5 5 0 0 1-.5-9.97A7 7 0 0 1 19.8 11a4.5 4.5 0 0 1-2.3 7z" />
+                </svg>
+              {% when 'pin' %}
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s-7-7.5-7-12a7 7 0 0 1 14 0c0 4.5-7 12-7 12z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              {% when 'camera' %}
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 7h3.5l1.5-2h8l1.5 2H21v12H3z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+              {% when 'lightning' %}
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+                </svg>
+              {% when 'compass' %}
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" />
+                </svg>
+              {% when 'eye' %}
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+            {% endcase %}
+          </div>
+          <div class="home-approach__title">{{ block.settings.title }}</div>
+          <p class="home-approach__body">{{ block.settings.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Approach",
+  "tag": "section",
+  "class": "section-home-approach",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Approach"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We put you in the right place for the moments you can\u2019t predict."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "cloud", "label": "Cloud" },
+            { "value": "pin", "label": "Pin" },
+            { "value": "camera", "label": "Camera" },
+            { "value": "lightning", "label": "Lightning" },
+            { "value": "compass", "label": "Compass" },
+            { "value": "eye", "label": "Eye" }
+          ],
+          "default": "cloud"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "We track"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body",
+          "default": "We monitor patterns and systems days in advance."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Approach",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "cloud",
+            "title": "We track",
+            "body": "We monitor patterns and systems days in advance."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "pin",
+            "title": "We position",
+            "body": "We read the landscape and put you where it matters."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "icon": "camera",
+            "title": "You shoot",
+            "body": "When the moment happens, you\u2019re ready to capture it."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
