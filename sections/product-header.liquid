@@ -7,112 +7,201 @@
   crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-{% assign split_title = product.title | split: ':' %}
-{% assign hero_heading = split_title[0] | strip %}
-{% assign hero_subtitle = split_title[1] | strip %}
 {% capture coming_start %}{{ product.metafields.tour_info.start_date }}{% endcapture %}
 {% capture coming_end %}{{ product.metafields.tour_info.end_date }}{% endcapture %}
 {% assign coming_start = coming_start | strip %}
 {% assign coming_end = coming_end | strip %}
 {% assign pre_start = coming_start | date: '%s' %}
 {% assign pre_end = coming_end | date: '%s' %}
-{% assign season_year = coming_start | date: '%Y' %}
+{% assign season_year = coming_start | date: '%Y' | default: 'now' %}
 {% assign hero_image = product.featured_image | default: product.images[0] %}
 {% assign max_guests = product.metafields.custom.max_guests | default: 6 %}
 
 {%- assign money_price = product.metafields.my_fields.total_price.value | money | remove: '.00' -%}
 
-{% assign spots_remaining = 0 %}
-{% assign show_scarcity = false %}
-{% if product.available %}
-  {% for variant in product.variants %}
-    {% if variant.inventory_management != blank and variant.inventory_quantity > 0 %}
-      {% assign spots_remaining = spots_remaining | plus: variant.inventory_quantity %}
-    {% endif %}
-  {% endfor %}
-  {% if spots_remaining > 0 and spots_remaining <= 6 %}
-    {% assign show_scarcity = true %}
+{%- assign departure_city = product.metafields.tour_info.departure_city | default: 'Denver, CO' -%}
+
+{%- capture hero_description -%}
+  {{ product.metafields.tour_info.hero_blurb | default: 'Experience the raw power and beauty of severe weather across the Great Plains.' }}
+{%- endcapture -%}
+{% assign hero_description = hero_description | strip %}
+
+{%- comment -%} Build date range string like "May 10 – May 16, 2026" {%- endcomment -%}
+{% if coming_start != blank and coming_end != blank %}
+  {%- assign start_month = pre_start | date: '%b' -%}
+  {%- assign end_month = pre_end | date: '%b' -%}
+  {%- assign start_day = pre_start | date: '%-d' -%}
+  {%- assign end_day = pre_end | date: '%-d' -%}
+  {%- assign end_year = pre_end | date: '%Y' -%}
+  {% if start_month == end_month %}
+    {% capture date_range %}{{ start_month }} {{ start_day }} – {{ end_day }}, {{ end_year }}{% endcapture %}
+  {% else %}
+    {% capture date_range %}{{ start_month }} {{ start_day }} – {{ end_month }} {{ end_day }}, {{ end_year }}{% endcapture %}
   {% endif %}
+{% else %}
+  {% assign date_range = 'Dates TBA' %}
 {% endif %}
 
 <div class="tour-pdp-grain-global" aria-hidden="true"></div>
 
 <section class="tour-pdp tour-pdp-hero">
-  {%- comment -%} ── Image zone ── {%- endcomment -%}
-  <div class="tour-pdp-hero__image-zone">
-    <div class="tour-pdp-hero__media" style="background-image: url('{{ hero_image | image_url: width: 2400 }}');"></div>
-    <div class="tour-pdp-hero__overlay"></div>
-    <div class="tour-pdp-hero__grain"></div>
+  <div class="tour-pdp-hero__split">
 
-    {%- comment -%} Desktop: headline overlaps the bottom of the image {%- endcomment -%}
-    <div class="tour-pdp-hero__title-overlay">
-      <span class="tour-pdp-hero__headline-small">A forecaster-led storm expedition</span>
-      <h1 class="tour-pdp-hero__headline">
-        {% if hero_heading != blank %}
-          {{ hero_heading | escape }}
-        {% else %}
-          {{ product.title | escape }}
-        {% endif %}
-      </h1>
+    {%- comment -%} ── Left: content column ── {%- endcomment -%}
+    <div class="tour-pdp-hero__content">
+      <div class="tour-pdp-hero__content-inner">
+        <span class="tour-pdp-hero__eyebrow">
+          {% if season_year != blank and season_year != 'now' %}
+            {{ season_year }} Storm Season
+          {% else %}
+            Storm Season
+          {% endif %}
+        </span>
+        <h1 class="tour-pdp-hero__headline">{{ product.title | escape }}</h1>
+        <div class="tour-pdp-hero__subtitle">Chase the Light</div>
+        <p class="tour-pdp-hero__blurb">{{ hero_description }}</p>
+        <a href="#trip-booking" class="tour-pdp-hero__cta">
+          <span>Reserve Your Spot</span>
+          <svg
+            class="tour-pdp-hero__cta-arrow"
+            width="18"
+            height="10"
+            viewBox="0 0 18 10"
+            fill="none"
+            aria-hidden="true">
+            <path
+              d="M1 5H17M17 5L13 1M17 5L13 9"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
     </div>
+
+    {%- comment -%} ── Right: image column ── {%- endcomment -%}
+    <div class="tour-pdp-hero__image-zone">
+      <div class="tour-pdp-hero__media" style="background-image: url('{{ hero_image | image_url: width: 2400 }}');"></div>
+      <div class="tour-pdp-hero__overlay" aria-hidden="true"></div>
+      <div class="tour-pdp-hero__grain" aria-hidden="true"></div>
+    </div>
+
   </div>
 
-  {%- comment -%} ── Info strip below image ── {%- endcomment -%}
+  {%- comment -%} ── Info strip: 4 info boxes ── {%- endcomment -%}
   <div class="tour-pdp-hero__info-strip">
-    <div class="tour-pdp-hero__info-inner">
+    <ul class="tour-pdp-hero__facts">
 
-      {%- comment -%} Mobile only: headline repeats here (hidden on desktop) {%- endcomment -%}
-      <div class="tour-pdp-hero__mobile-title">
-        <span class="tour-pdp-hero__headline-small">A forecaster-led storm expedition</span>
-        <h1 class="tour-pdp-hero__headline">
-          {% if hero_heading != blank %}
-            {{ hero_heading | escape }}
-          {% else %}
-            {{ product.title | escape }}
-          {% endif %}
-        </h1>
-      </div>
+      <li class="tour-pdp-hero__fact">
+        <span class="tour-pdp-hero__fact-icon" aria-hidden="true">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect
+              x="3"
+              y="5"
+              width="18"
+              height="16"
+              rx="2" />
+            <path d="M3 9h18" />
+            <path d="M8 3v4" />
+            <path d="M16 3v4" />
+          </svg>
+        </span>
+        <span class="tour-pdp-hero__fact-body">
+          <span class="tour-pdp-hero__fact-label">Dates</span>
+          <span class="tour-pdp-hero__fact-value">{{ date_range }}</span>
+        </span>
+      </li>
 
-      <div class="tour-pdp-hero__meta-row">
-        <div class="tour-pdp-hero__meta-left">
-          <span class="tour-pdp-hero__meta-dot"></span>
-          <span class="tour-pdp-hero__meta-text">
-            {% if season_year != blank %}Season {{ season_year }}{% else %}Storm Season{% endif %}
-            {% if product.available %}· Now Booking{% endif %}
-          </span>
-        </div>
-      </div>
+      <li class="tour-pdp-hero__fact">
+        <span class="tour-pdp-hero__fact-icon" aria-hidden="true">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M16 19v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle
+              cx="9"
+              cy="7"
+              r="3.2" />
+            <path d="M22 19v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </span>
+        <span class="tour-pdp-hero__fact-body">
+          <span class="tour-pdp-hero__fact-label">Group Size</span>
+          <span class="tour-pdp-hero__fact-value">{{ max_guests }} max</span>
+        </span>
+      </li>
 
-      <div class="tour-pdp-hero__quick-stats">
-        <div>
-          <span class="tour-pdp-hero__stat-label">Departs</span>
-          <span class="tour-pdp-hero__stat-value">
-            {% if coming_start != blank %}
-              {{ pre_start | date: '%b %-d' }}{% else %}TBA{% endif %}
-          </span>
-        </div>
-        <div>
-          <span class="tour-pdp-hero__stat-label">Returns</span>
-          <span class="tour-pdp-hero__stat-value">
-            {% if coming_end != blank %}
-              {{ pre_end | date: '%b %-d' }}{% else %}TBA{% endif %}
-          </span>
-        </div>
-        <div>
-          <span class="tour-pdp-hero__stat-label">Group</span>
-          <span class="tour-pdp-hero__stat-value">{{ max_guests }} max</span>
-        </div>
-        <div>
-          <span class="tour-pdp-hero__stat-label">From</span>
-          <span class="tour-pdp-hero__stat-value">
+      <li class="tour-pdp-hero__fact">
+        <span class="tour-pdp-hero__fact-icon" aria-hidden="true">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle
+              cx="12"
+              cy="12"
+              r="9" />
+            <path d="M12 6v12" />
+            <path d="M15.5 9.2c-.6-1-1.9-1.7-3.5-1.7-2 0-3.5 1-3.5 2.5s1.5 2.3 3.5 2.5c2 .2 3.5 1 3.5 2.5S14 16.5 12 16.5c-1.7 0-3-.7-3.6-1.8" />
+          </svg>
+        </span>
+        <span class="tour-pdp-hero__fact-body">
+          <span class="tour-pdp-hero__fact-label">Tuition</span>
+          <span class="tour-pdp-hero__fact-value">
             {% if money_price != blank %}
               {{ money_price }}
             {% else %}
               {{ product.price | money }}{% endif %}
           </span>
-        </div>
-      </div>
-    </div>
+        </span>
+      </li>
+
+      <li class="tour-pdp-hero__fact">
+        <span class="tour-pdp-hero__fact-icon" aria-hidden="true">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 22s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z" />
+            <circle
+              cx="12"
+              cy="10"
+              r="2.5" />
+          </svg>
+        </span>
+        <span class="tour-pdp-hero__fact-body">
+          <span class="tour-pdp-hero__fact-label">Departs From</span>
+          <span class="tour-pdp-hero__fact-value">{{ departure_city }}</span>
+        </span>
+      </li>
+
+    </ul>
   </div>
 </section>
 
