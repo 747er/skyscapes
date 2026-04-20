@@ -9,30 +9,38 @@
         "button_link": "shopify:\/\/collections\/tours"
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "home_approach": {
+      "type": "home-approach",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "pillar_1": {
+          "type": "pillar",
           "settings": {
-            "heading": "THE GREATEST SHOW ON EARTH",
-            "heading_size": "h1"
+            "icon": "cloud",
+            "title": "We track",
+            "body": "We monitor patterns and systems days in advance."
           }
         },
-        "text": {
-          "type": "text",
+        "pillar_2": {
+          "type": "pillar",
           "settings": {
-            "text": "<p>Our team consists of accomplished storm chasers and world renowned photographers. Working together, we are able to put you in position to experience and photograph the incredible meteorological phenomena that occur across the Great Plains. Join us as we intercept and document some of the most powerful and photogenic thunderstorms on earth!<\/p>"
+            "icon": "pin",
+            "title": "We position",
+            "body": "We read the landscape and put you where it matters."
+          }
+        },
+        "pillar_3": {
+          "type": "pillar",
+          "settings": {
+            "icon": "camera",
+            "title": "You shoot",
+            "body": "When the moment happens, you\u2019re ready to capture it."
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+      "block_order": ["pillar_1", "pillar_2", "pillar_3"],
       "settings": {
-        "color_scheme": "background-1",
-        "full_width": true
+        "eyebrow": "Our Approach",
+        "heading": "We put you in the right place for the moments you can\u2019t predict."
       }
     },
     "16307996127209fa21": {
@@ -75,15 +83,15 @@
       "blocks": {
         "stat_1": {
           "type": "stat",
-          "settings": { "value": "6", "label": "Seasons Strong" }
+          "settings": { "value": "<em>6<\/em> Seasons", "label": "In the field" }
         },
         "stat_2": {
           "type": "stat",
-          "settings": { "value": "Meteorologist", "label": "Led Forecasting" }
+          "settings": { "value": "Forecaster-led", "label": "Every departure" }
         },
         "stat_3": {
           "type": "stat",
-          "settings": { "value": "6", "label": "Photographers Per Tour" }
+          "settings": { "value": "<em>6<\/em> Photographers", "label": "Per tour" }
         },
         "stat_4": {
           "type": "stat",
@@ -177,15 +185,6 @@
         "button_link": "shopify:\/\/collections\/tours"
       }
     },
-    "home_testimonial": {
-      "type": "home-testimonial",
-      "settings": {
-        "background_image": "shopify:\/\/shop_images\/15.jpg",
-        "quote": "I have chased on my own for a decade. A week with Skyscape put me in front of more photographable storms than any two seasons before it.",
-        "attr_name": "Landscape photographer",
-        "attr_meta": "2025 Season"
-      }
-    },
     "featured_products": {
       "type": "featured-collection",
       "disabled": true,
@@ -214,13 +213,12 @@
   },
   "order": [
     "1632611843c4d35cb8",
-    "rich_text",
+    "home_approach",
     "16307996127209fa21",
     "home_stats",
     "home_dispatches",
     "1633286507e0eb1984",
     "home_mid_cta",
-    "home_testimonial",
     "tours_cta_lightning_WbN9gD"
   ]
 }
