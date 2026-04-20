@@ -2,27 +2,28 @@
   .home-stats {
     background: #0c0d0f;
     color: #fff;
-    padding: 96px 24px;
+    padding: 96px 32px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .home-stats__inner {
-    max-width: 1200px;
+    max-width: 1080px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     align-items: stretch;
   }
 
   .home-stats__item {
     position: relative;
-    padding: 8px 40px;
+    padding: 8px 32px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    text-align: left;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
   }
 
   .home-stats__item + .home-stats__item::before {
@@ -32,65 +33,52 @@
     top: 50%;
     transform: translateY(-50%);
     width: 1px;
-    height: 64px;
-    background: rgba(255, 255, 255, 0.14);
-  }
-
-  .home-stats__index {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(234, 185, 127, 0.8);
-    font-weight: 500;
+    height: 104px;
+    background: rgba(255, 255, 255, 0.18);
   }
 
   .home-stats__value {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(28px, 2.6vw, 38px);
-    line-height: 1.05;
-    color: #fff;
+    font-size: clamp(56px, 6vw, 88px);
+    line-height: 1;
+    color: #eab97f;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
-  .home-stats__value em {
-    color: #eab97f;
-    font-style: normal;
+  .home-stats__rule {
+    width: 24px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.35);
   }
 
   .home-stats__label {
-    font-size: 11px;
-    letter-spacing: 2.5px;
+    font-size: 12px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.5;
+    max-width: 20ch;
   }
 
-  @media (max-width: 899px) {
+  @media (max-width: 749px) {
     .home-stats {
       padding: 64px 20px;
     }
     .home-stats__inner {
-      grid-template-columns: repeat(2, 1fr);
-      row-gap: 48px;
+      grid-template-columns: 1fr;
+      row-gap: 56px;
     }
     .home-stats__item {
       padding: 0 20px;
     }
     .home-stats__item + .home-stats__item::before {
-      display: none;
-    }
-    .home-stats__item:nth-child(2n)::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 64px;
-      background: rgba(255, 255, 255, 0.14);
-      display: block;
+      left: 50%;
+      top: -28px;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 1px;
     }
   }
 </style>
@@ -99,8 +87,8 @@
   <div class="home-stats__inner">
     {% for block in section.blocks %}
       <div class="home-stats__item" {{ block.shopify_attributes }}>
-        <div class="home-stats__index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
         <div class="home-stats__value">{{ block.settings.value }}</div>
+        <div class="home-stats__rule" aria-hidden="true"></div>
         <div class="home-stats__label">{{ block.settings.label }}</div>
       </div>
     {% endfor %}
@@ -112,7 +100,7 @@
   "name": "Home Stats Band",
   "tag": "section",
   "class": "section-home-stats",
-  "max_blocks": 4,
+  "max_blocks": 3,
   "settings": [],
   "blocks": [
     {
@@ -123,14 +111,14 @@
           "type": "text",
           "id": "value",
           "label": "Value",
-          "info": "Wrap a word or number in <em></em> to color it gold.",
-          "default": "<em>6</em> Seasons"
+          "info": "Keep to a single number or short figure for best results.",
+          "default": "6"
         },
         {
           "type": "text",
           "id": "label",
           "label": "Label",
-          "default": "In the field"
+          "default": "Seasons in the field"
         }
       ]
     }
@@ -141,19 +129,15 @@
       "blocks": [
         {
           "type": "stat",
-          "settings": { "value": "<em>6</em> Seasons", "label": "In the field" }
+          "settings": { "value": "6", "label": "Seasons in the field" }
         },
         {
           "type": "stat",
-          "settings": { "value": "Forecaster-led", "label": "Every departure" }
+          "settings": { "value": "7", "label": "Days per departure" }
         },
         {
           "type": "stat",
-          "settings": { "value": "<em>6</em> Photographers", "label": "Per tour" }
-        },
-        {
-          "type": "stat",
-          "settings": { "value": "Great Plains", "label": "Region" }
+          "settings": { "value": "6", "label": "Photographers per tour" }
         }
       ]
     }
