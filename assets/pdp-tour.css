@@ -805,8 +805,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at center, rgba(10,10,12,0.72) 0%, rgba(10,10,12,0.92) 100%),
-    linear-gradient(180deg, var(--ink) 0%, transparent 18%, transparent 82%, var(--ink) 100%);
+  radial-gradient(ellipse at center, #0a0a0c5e, #0a0a0ceb), linear-gradient(180deg, var(--ink) 0%, transparent 18%, transparent 95%, var(--ink) 100%)
 }
 
 .tour-pdp-mid-cta__inner {
