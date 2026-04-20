@@ -1,0 +1,148 @@
+<style>
+  .home-testimonial {
+    position: relative;
+    padding: 140px 24px;
+    color: #fff;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .home-testimonial__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-color: #0c0d0f;
+  }
+
+  .home-testimonial__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(12,13,15,0.55) 0%, rgba(12,13,15,0.78) 100%);
+  }
+
+  .home-testimonial__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .home-testimonial__mark {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 140px;
+    line-height: 0.5;
+    color: #eab97f;
+    opacity: 0.9;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  .home-testimonial__quote {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    margin: 0 0 40px;
+  }
+
+  .home-testimonial__rule {
+    display: inline-block;
+    width: 48px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+  }
+
+  .home-testimonial__attr {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+  }
+
+  .home-testimonial__attr-name {
+    color: #fff;
+  }
+
+  .home-testimonial__attr-meta {
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 8px;
+  }
+
+  @media (max-width: 749px) {
+    .home-testimonial {
+      padding: 96px 16px;
+    }
+    .home-testimonial__mark {
+      font-size: 96px;
+    }
+  }
+</style>
+
+<section class="home-testimonial">
+  <div
+    class="home-testimonial__bg"
+    {% if section.settings.background_image != blank %}
+      style="background-image: url('{{ section.settings.background_image | image_url: width: 2400 }}');"
+    {% endif %}
+  ></div>
+  <div class="home-testimonial__scrim"></div>
+
+  <div class="home-testimonial__inner">
+    <span class="home-testimonial__mark" aria-hidden="true">&ldquo;</span>
+    {% if section.settings.quote != blank %}
+      <blockquote class="home-testimonial__quote">{{ section.settings.quote }}</blockquote>
+    {% endif %}
+    <div class="home-testimonial__rule" aria-hidden="true"></div>
+    <div class="home-testimonial__attr">
+      {% if section.settings.attr_name != blank %}
+        <span class="home-testimonial__attr-name">{{ section.settings.attr_name }}</span>
+      {% endif %}
+      {% if section.settings.attr_meta != blank %}
+        <span class="home-testimonial__attr-meta">· {{ section.settings.attr_meta }}</span>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Testimonial",
+  "tag": "section",
+  "class": "section-home-testimonial",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote",
+      "default": "I have chased on my own for a decade. A week with Skyscape put me in front of more photographable storms than any two seasons before it."
+    },
+    {
+      "type": "text",
+      "id": "attr_name",
+      "label": "Attribution name",
+      "default": "Landscape photographer, 2025 Season"
+    },
+    {
+      "type": "text",
+      "id": "attr_meta",
+      "label": "Attribution meta",
+      "default": "Published in National Geographic"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Testimonial"
+    }
+  ]
+}
+{% endschema %}
