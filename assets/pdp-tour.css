@@ -870,7 +870,6 @@
 .tour-pdp-mid-cta__copy {
   font-family: var(--display);
   font-weight: 300;
-  font-style: italic;
   font-size: clamp(19px, 1.6vw, 23px);
   line-height: 1.55;
   letter-spacing: -0.005em;
@@ -1092,20 +1091,6 @@
   transform: scale(1.04);
 }
 
-.tour-pdp-g-item::after {
-  content: attr(data-caption);
-  position: absolute;
-  bottom: 14px;
-  left: 16px;
-  font-family: var(--mono);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--paper);
-  opacity: 0;
-  transition: opacity 0.3s;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
-}
 
 .tour-pdp-g-item:hover::after {
   opacity: 1;
@@ -1801,7 +1786,7 @@
 
   .tour-pdp-mid-cta .tour-pdp-cta-btn,
   .tour-pdp-mid-cta__btn {
-    width: 100%;
+    width: unset;
     padding: 20px 24px;
   }
 
@@ -2066,11 +2051,6 @@
     grid-column: span 1 !important;
     grid-row: span 1 !important;
     aspect-ratio: 16/10;
-  }
-
-  /* Show captions always on mobile (no hover) */
-  .tour-pdp-g-item::after {
-    opacity: 0.8;
   }
 
   /* ── Guides ── */
