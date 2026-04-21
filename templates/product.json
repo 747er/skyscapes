@@ -8,13 +8,107 @@
     },
     "product_overview_Fx8LWz": {
       "type": "product-overview",
+      "blocks": {
+        "slide_kehEt4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b1.jpg",
+            "caption": ""
+          }
+        },
+        "slide_bNdhpd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b3.jpg",
+            "caption": ""
+          }
+        },
+        "slide_BQfF3n": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b10.jpg",
+            "caption": ""
+          }
+        },
+        "slide_7djxXB": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/skyscapes_1_2.jpg",
+            "caption": ""
+          }
+        },
+        "slide_kJxXix": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/skyscapes_6_2.jpg",
+            "caption": ""
+          }
+        },
+        "slide_wpNTPN": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b11.jpg",
+            "caption": ""
+          }
+        },
+        "slide_qFNPnw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/m1.webp",
+            "caption": ""
+          }
+        },
+        "slide_MhfKin": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/skyscapes_7.jpg",
+            "caption": ""
+          }
+        },
+        "slide_9pDiP7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b10.jpg",
+            "caption": ""
+          }
+        },
+        "slide_gcNwXC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b4.jpg",
+            "caption": ""
+          }
+        },
+        "slide_gWMqUJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/skyscapes_5_2.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_kehEt4",
+        "slide_bNdhpd",
+        "slide_BQfF3n",
+        "slide_7djxXB",
+        "slide_kJxXix",
+        "slide_wpNTPN",
+        "slide_qFNPnw",
+        "slide_MhfKin",
+        "slide_9pDiP7",
+        "slide_gcNwXC",
+        "slide_gWMqUJ"
+      ],
       "settings": {
         "image1": "shopify:\/\/shop_images\/1.jpg",
         "image2": "shopify:\/\/shop_images\/3_8c386128-b0a0-4d43-b53f-5d236b205227.jpg",
         "image3": "shopify:\/\/shop_images\/5.jpg",
         "image4": "shopify:\/\/shop_images\/DSC_7557.jpg",
         "image5": "shopify:\/\/shop_images\/15.jpg",
-        "image6": "shopify:\/\/shop_images\/2.jpg"
+        "image6": "shopify:\/\/shop_images\/2.jpg",
+        "slider_eyebrow": "Dispatches",
+        "slider_title": "From the field."
       }
     },
     "main": {
@@ -114,6 +208,7 @@
         "column_KHB9WW",
         "column_EHpeBq"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "image_width": "full",
