@@ -771,7 +771,7 @@
 
 .tour-pdp-detail-row__label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -2002,7 +2002,7 @@
   }
 
   .tour-pdp-detail-row__label {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .tour-pdp-detail-row__value {
