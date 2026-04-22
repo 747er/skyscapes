@@ -12034,7 +12034,7 @@ function initializeGallery(grid) {
     // Initialize PhotoSwipe
     var lightbox = new photoswipe_lightbox__WEBPACK_IMPORTED_MODULE_0__["default"]({
       gallery: GRID_SELECTOR,
-      children: 'a',
+      children: ITEM_SELECTOR,
       pswpModule: photoswipe__WEBPACK_IMPORTED_MODULE_1__["default"]
     });
     lightbox.init();
