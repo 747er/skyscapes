@@ -9,6 +9,22 @@
         "button_link": "shopify:\/\/collections\/tours"
       }
     },
+    "home_dual_guide": {
+      "type": "home-dual-guide",
+      "settings": {
+        "eyebrow": "Two Guides, One Mission",
+        "heading": "Why every Skyscape tour runs with two leads.",
+        "sub": "A meteorologist for safe positioning. A photographer for the frame. They work in tandem so all you have to think about is the shot.",
+        "forecaster_role": "Meteorologist",
+        "forecaster_title": "Lead Forecaster",
+        "forecaster_body": "A degreed meteorologist focused entirely on positioning and safety. They read the radar, analyze the shear, and put us on the dryline before the storm fires.",
+        "forecaster_bullets": "Real-time radar analysis\nSafe routing & escape planning\nPositioning for the best light",
+        "creative_role": "Photographer",
+        "creative_title": "Creative Director",
+        "creative_body": "A working landscape photographer who helps you dial in settings, compose dramatic foregrounds, and capture the structural majesty of the supercell.",
+        "creative_bullets": "In-field composition coaching\nExposure settings for lightning\nPost-processing workshops"
+      }
+    },
     "home_approach": {
       "type": "home-approach",
       "blocks": {
@@ -47,38 +63,6 @@
         "eyebrow": "Our Approach",
         "heading": "We put you in the right place for the moments you can’t predict."
       }
-    },
-    "home_stats": {
-      "type": "home-stats",
-      "blocks": {
-        "stat_1": {
-          "type": "stat",
-          "settings": {
-            "value": "6",
-            "label": "Seasons in the field"
-          }
-        },
-        "stat_2": {
-          "type": "stat",
-          "settings": {
-            "value": "7",
-            "label": "Days per departure"
-          }
-        },
-        "stat_3": {
-          "type": "stat",
-          "settings": {
-            "value": "6",
-            "label": "Photographers per tour"
-          }
-        }
-      },
-      "block_order": [
-        "stat_1",
-        "stat_2",
-        "stat_3"
-      ],
-      "settings": {}
     },
     "home_dispatches": {
       "type": "home-dispatches",
@@ -184,7 +168,9 @@
       ],
       "settings": {
         "slider_eyebrow": "Dispatches",
-        "slider_title": "From the field."
+        "slider_title": "From the field.",
+        "link_label": "View the gallery",
+        "link_url": "\/pages\/gallery"
       }
     },
     "home_field_notes": {
@@ -193,19 +179,6 @@
         "eyebrow": "From the Lead Forecaster",
         "body": "We don’t chase for the hunt. We chase for the minutes before a storm closes — when the light goes strange, the air goes electric, and a photograph becomes possible. Those minutes are why we built this.",
         "attribution": "Skyscape Photo Tours"
-      }
-    },
-    "home_field_work": {
-      "type": "home-field-work",
-      "settings": {
-        "eyebrow": "Field Work",
-        "heading": "Six seasons of frames.",
-        "link_label": "View the gallery",
-        "link_url": "\/pages\/gallery",
-        "image_1": "shopify:\/\/shop_images\/unnamed14.jpg",
-        "caption_1": "Nebraska, 2024",
-        "image_2": "shopify:\/\/shop_images\/tripod_reverse.jpg",
-        "caption_2": "Kansas, 2025"
       }
     },
     "home_mid_cta": {
@@ -253,11 +226,10 @@
   },
   "order": [
     "1632611843c4d35cb8",
+    "home_dual_guide",
     "home_approach",
-    "home_stats",
     "home_dispatches",
     "home_field_notes",
-    "home_field_work",
     "home_mid_cta",
     "home_booking_heading",
     "featured_products"
