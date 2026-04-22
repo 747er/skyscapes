@@ -57,7 +57,7 @@ function initializeGallery(grid) {
     // Initialize PhotoSwipe
     const lightbox = new PhotoSwipeLightbox({
       gallery: GRID_SELECTOR,
-      children: 'a',
+      children: ITEM_SELECTOR,
       pswpModule: PhotoSwipe
     });
     lightbox.init();
