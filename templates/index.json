@@ -168,14 +168,6 @@
         "link_url": "\/pages\/gallery"
       }
     },
-    "home_field_notes": {
-      "type": "home-field-notes",
-      "settings": {
-        "eyebrow": "From the Lead Forecaster",
-        "body": "We don’t chase for the hunt. We chase for the minutes before a storm closes — when the light goes strange, the air goes electric, and a photograph becomes possible. Those minutes are why we built this.",
-        "attribution": "Skyscape Photo Tours"
-      }
-    },
     "home_mid_cta": {
       "type": "home-mid-cta",
       "settings": {
@@ -218,7 +210,6 @@
     "home_heritage",
     "home_approach",
     "home_dispatches",
-    "home_field_notes",
     "home_mid_cta",
     "home_booking_heading",
     "featured_tours"
