@@ -1,0 +1,387 @@
+<style>
+  .home-dual-guide {
+    position: relative;
+    background: #0c0d0f;
+    color: #fff;
+    padding: clamp(80px, 12vh, 140px) 32px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .home-dual-guide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(120% 70% at 50% 0%, rgba(234, 185, 127, 0.08) 0%, rgba(12, 13, 15, 0) 55%),
+      radial-gradient(80% 60% at 50% 100%, rgba(74, 47, 18, 0.18) 0%, rgba(12, 13, 15, 0) 60%);
+  }
+
+  .home-dual-guide::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(234, 185, 127, 0.35) 50%, rgba(255,255,255,0) 100%);
+  }
+
+  .home-dual-guide__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .home-dual-guide__header {
+    text-align: center;
+    margin-bottom: clamp(48px, 6vh, 72px);
+  }
+
+  .home-dual-guide__eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #eab97f;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .home-dual-guide__eyebrow::before,
+  .home-dual-guide__eyebrow::after {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: #eab97f;
+    opacity: 0.55;
+  }
+
+  .home-dual-guide__heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(32px, 3.4vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    color: #fff;
+    font-weight: 400;
+    margin: 0 auto 18px;
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+
+  .home-dual-guide__sub {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 auto;
+    max-width: 56ch;
+  }
+
+  .home-dual-guide__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .home-dual-guide__card {
+    position: relative;
+    padding: 36px 36px 40px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    transition: border-color 0.5s ease, background 0.5s ease, transform 0.5s ease;
+    overflow: hidden;
+  }
+
+  .home-dual-guide__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent, #eab97f) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .home-dual-guide__card:hover {
+    border-color: rgba(234, 185, 127, 0.35);
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-2px);
+  }
+
+  .home-dual-guide__card:hover::before {
+    opacity: 1;
+  }
+
+  .home-dual-guide__card--photo {
+    --accent: #d6a878;
+  }
+
+  .home-dual-guide__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(234, 185, 127, 0.12);
+    color: #eab97f;
+    border: 1px solid rgba(234, 185, 127, 0.25);
+  }
+
+  .home-dual-guide__card--photo .home-dual-guide__icon {
+    background: rgba(214, 168, 120, 0.14);
+    color: #d6a878;
+    border-color: rgba(214, 168, 120, 0.3);
+  }
+
+  .home-dual-guide__role {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(234, 185, 127, 0.85);
+    font-weight: 500;
+  }
+
+  .home-dual-guide__card--photo .home-dual-guide__role {
+    color: rgba(214, 168, 120, 0.9);
+  }
+
+  .home-dual-guide__title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(24px, 2.2vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #fff;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .home-dual-guide__body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+  }
+
+  .home-dual-guide__list {
+    list-style: none;
+    margin: auto 0 0;
+    padding: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .home-dual-guide__list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .home-dual-guide__list svg {
+    flex: 0 0 14px;
+    color: var(--accent, #eab97f);
+  }
+
+  @media (max-width: 899px) {
+    .home-dual-guide {
+      padding: 72px 20px;
+    }
+    .home-dual-guide__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .home-dual-guide__card {
+      padding: 28px 24px 32px;
+    }
+  }
+</style>
+
+{%- liquid
+  assign forecaster_items = section.settings.forecaster_bullets | newline_to_br | split: '<br />'
+  assign creative_items = section.settings.creative_bullets | newline_to_br | split: '<br />'
+-%}
+
+<section class="home-dual-guide">
+  <div class="home-dual-guide__inner">
+    <header class="home-dual-guide__header">
+      {% if section.settings.eyebrow != blank %}
+        <div class="home-dual-guide__eyebrow">{{ section.settings.eyebrow }}</div>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="home-dual-guide__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.sub != blank %}
+        <p class="home-dual-guide__sub">{{ section.settings.sub }}</p>
+      {% endif %}
+    </header>
+
+    <div class="home-dual-guide__grid">
+      <article class="home-dual-guide__card home-dual-guide__card--forecaster">
+        <div class="home-dual-guide__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v2" />
+            <path d="M12 19v2" />
+            <path d="M3 12h2" />
+            <path d="M19 12h2" />
+            <path d="M5.6 5.6l1.4 1.4" />
+            <path d="M17 17l1.4 1.4" />
+            <path d="M5.6 18.4l1.4-1.4" />
+            <path d="M17 7l1.4-1.4" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </div>
+        <div class="home-dual-guide__role">{{ section.settings.forecaster_role }}</div>
+        <h3 class="home-dual-guide__title">{{ section.settings.forecaster_title }}</h3>
+        <p class="home-dual-guide__body">{{ section.settings.forecaster_body }}</p>
+        {% if section.settings.forecaster_bullets != blank %}
+          <ul class="home-dual-guide__list">
+            {% for item in forecaster_items %}
+              {% assign trimmed = item | strip %}
+              {% if trimmed != blank %}
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>{{ trimmed }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+
+      <article class="home-dual-guide__card home-dual-guide__card--photo">
+        <div class="home-dual-guide__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7h3.5l1.5-2h8l1.5 2H21v12H3z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+        </div>
+        <div class="home-dual-guide__role">{{ section.settings.creative_role }}</div>
+        <h3 class="home-dual-guide__title">{{ section.settings.creative_title }}</h3>
+        <p class="home-dual-guide__body">{{ section.settings.creative_body }}</p>
+        {% if section.settings.creative_bullets != blank %}
+          <ul class="home-dual-guide__list">
+            {% for item in creative_items %}
+              {% assign trimmed = item | strip %}
+              {% if trimmed != blank %}
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M2 7.5L5.5 11L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>{{ trimmed }}</span>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Dual Guide",
+  "tag": "section",
+  "class": "section-home-dual-guide",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Two Guides, One Mission"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why every Skyscape tour runs with two leads."
+    },
+    {
+      "type": "textarea",
+      "id": "sub",
+      "label": "Sub copy",
+      "default": "A meteorologist for safe positioning. A photographer for the frame. They work in tandem so all you have to think about is the shot."
+    },
+    {
+      "type": "header",
+      "content": "Lead Forecaster"
+    },
+    {
+      "type": "text",
+      "id": "forecaster_role",
+      "label": "Role label",
+      "default": "Meteorologist"
+    },
+    {
+      "type": "text",
+      "id": "forecaster_title",
+      "label": "Title",
+      "default": "Lead Forecaster"
+    },
+    {
+      "type": "textarea",
+      "id": "forecaster_body",
+      "label": "Body",
+      "default": "A degreed meteorologist focused entirely on positioning and safety. They read the radar, analyze the shear, and put us on the dryline before the storm fires."
+    },
+    {
+      "type": "textarea",
+      "id": "forecaster_bullets",
+      "label": "Bullet list",
+      "info": "One bullet per line.",
+      "default": "Real-time radar analysis\nSafe routing & escape planning\nPositioning for the best light"
+    },
+    {
+      "type": "header",
+      "content": "Creative Director"
+    },
+    {
+      "type": "text",
+      "id": "creative_role",
+      "label": "Role label",
+      "default": "Photographer"
+    },
+    {
+      "type": "text",
+      "id": "creative_title",
+      "label": "Title",
+      "default": "Creative Director"
+    },
+    {
+      "type": "textarea",
+      "id": "creative_body",
+      "label": "Body",
+      "default": "A working landscape photographer who helps you dial in settings, compose dramatic foregrounds, and capture the structural majesty of the supercell."
+    },
+    {
+      "type": "textarea",
+      "id": "creative_bullets",
+      "label": "Bullet list",
+      "info": "One bullet per line.",
+      "default": "In-field composition coaching\nExposure settings for lightning\nPost-processing workshops"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Dual Guide"
+    }
+  ]
+}
+{% endschema %}
