@@ -273,14 +273,13 @@
 {%- liquid
   assign source = section.settings.collection
   assign product_count = section.settings.product_count | default: 4
-  assign products = source.products | slice: 0, product_count
 -%}
 
 <section class="home-featured-tours">
   <div class="home-featured-tours__inner">
-    {% if products.size > 0 %}
+    {% if source != blank and source.all_products_count > 0 %}
       <div class="home-featured-tours__stack">
-        {% for product in products %}
+        {% for product in source.products limit: product_count %}
           {%- liquid
             assign start_raw = product.metafields.tour_info.start_date | strip
             assign end_raw = product.metafields.tour_info.end_date | strip
