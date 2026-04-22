@@ -1,0 +1,215 @@
+<style>
+  .home-heritage {
+    position: relative;
+    background: #0c0d0f;
+    color: #fff;
+    padding: clamp(96px, 14vh, 160px) 32px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .home-heritage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(80% 60% at 50% 0%, rgba(234, 185, 127, 0.07) 0%, rgba(12, 13, 15, 0) 60%),
+      radial-gradient(100% 80% at 50% 100%, rgba(74, 47, 18, 0.16) 0%, rgba(12, 13, 15, 0) 65%);
+  }
+
+  .home-heritage::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(234, 185, 127, 0.3) 50%, transparent 100%);
+  }
+
+  .home-heritage__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(48px, 6vw, 96px);
+    align-items: center;
+  }
+
+  .home-heritage__mark {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+  }
+
+  .home-heritage__est {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #eab97f;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .home-heritage__est::after {
+    content: "";
+    display: inline-block;
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: rgba(234, 185, 127, 0.5);
+  }
+
+  .home-heritage__year {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(96px, 13vw, 180px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: #fff;
+    font-weight: 400;
+    margin: 0;
+    background: linear-gradient(180deg, #fff 0%, rgba(234, 185, 127, 0.85) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .home-heritage__caption {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  .home-heritage__content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .home-heritage__heading {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(32px, 3.6vw, 52px);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: #fff;
+    font-weight: 400;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .home-heritage__heading em {
+    font-style: italic;
+    color: #eab97f;
+  }
+
+  .home-heritage__body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  .home-heritage__body + .home-heritage__body {
+    margin-top: -8px;
+  }
+
+  @media (max-width: 899px) {
+    .home-heritage {
+      padding: 80px 24px;
+    }
+    .home-heritage__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .home-heritage__year {
+      font-size: 120px;
+    }
+  }
+</style>
+
+<section class="home-heritage">
+  <div class="home-heritage__inner">
+    <div class="home-heritage__mark">
+      {% if section.settings.eyebrow != blank %}
+        <div class="home-heritage__est">{{ section.settings.eyebrow }}</div>
+      {% endif %}
+      {% if section.settings.year != blank %}
+        <div class="home-heritage__year">{{ section.settings.year }}</div>
+      {% endif %}
+      {% if section.settings.caption != blank %}
+        <div class="home-heritage__caption">{{ section.settings.caption }}</div>
+      {% endif %}
+    </div>
+
+    <div class="home-heritage__content">
+      {% if section.settings.heading != blank %}
+        <h2 class="home-heritage__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.body != blank %}
+        <p class="home-heritage__body">{{ section.settings.body }}</p>
+      {% endif %}
+      {% if section.settings.body_2 != blank %}
+        <p class="home-heritage__body">{{ section.settings.body_2 }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Heritage",
+  "tag": "section",
+  "class": "section-home-heritage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Established"
+    },
+    {
+      "type": "text",
+      "id": "year",
+      "label": "Year",
+      "default": "2020"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Caption (under year)",
+      "default": "Owner-led, every season"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Six springs in the field. Same crew. Same plains."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body paragraph 1",
+      "default": "Skyscape has been running small, forecaster-led storm tours since the spring of 2020. Every season we’re back on the dryline — reading setups days ahead, positioning groups for the structural moments, and getting out before the hail."
+    },
+    {
+      "type": "textarea",
+      "id": "body_2",
+      "label": "Body paragraph 2",
+      "default": "Same operation. Same forecaster. Same standing offer to put you in front of the storm and let you make the photograph."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Heritage"
+    }
+  ]
+}
+{% endschema %}
