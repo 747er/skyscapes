@@ -1,13 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
- {
+{
   "sections": {
     "1632611843c4d35cb8": {
       "type": "wgl-banner",
@@ -42,15 +33,19 @@
           "settings": {
             "icon": "camera",
             "title": "You shoot",
-            "body": "When the moment happens, you\u2019re ready to capture it."
+            "body": "When the moment happens, you’re ready to capture it."
           }
         }
       },
-      "block_order": ["pillar_1", "pillar_2", "pillar_3"],
+      "block_order": [
+        "pillar_1",
+        "pillar_2",
+        "pillar_3"
+      ],
       "settings": {
         "background_image": "shopify:\/\/shop_images\/bolt.jpg",
         "eyebrow": "Our Approach",
-        "heading": "We put you in the right place for the moments you can\u2019t predict."
+        "heading": "We put you in the right place for the moments you can’t predict."
       }
     },
     "home_stats": {
@@ -58,23 +53,92 @@
       "blocks": {
         "stat_1": {
           "type": "stat",
-          "settings": { "value": "6", "label": "Seasons in the field" }
+          "settings": {
+            "value": "6",
+            "label": "Seasons in the field"
+          }
         },
         "stat_2": {
           "type": "stat",
-          "settings": { "value": "7", "label": "Days per departure" }
+          "settings": {
+            "value": "7",
+            "label": "Days per departure"
+          }
         },
         "stat_3": {
           "type": "stat",
-          "settings": { "value": "6", "label": "Photographers per tour" }
+          "settings": {
+            "value": "6",
+            "label": "Photographers per tour"
+          }
         }
       },
-      "block_order": ["stat_1", "stat_2", "stat_3"],
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
       "settings": {}
     },
     "home_dispatches": {
       "type": "home-dispatches",
       "blocks": {
+        "slide_zPCKqt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b1.jpg",
+            "caption": "Touch down in Clovis, NM"
+          }
+        },
+        "slide_VE7tPx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/skyscapes_1_2.jpg",
+            "caption": "June 19, 2025 | Burwell, Nebraska | 6:30 PM"
+          }
+        },
+        "slide_ihbHUP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/skyscapes_6_2.jpg",
+            "caption": "A perfect foreground near Limon, Colorado"
+          }
+        },
+        "slide_cUbbHA": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b11.jpg",
+            "caption": "Scott’s Bluff, Nebraska before the hail!"
+          }
+        },
+        "slide_FnH8ip": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/b10.jpg",
+            "caption": "Lightning from a safe distance in the plains"
+          }
+        },
+        "slide_Rr9VQg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12.jpg",
+            "caption": "A day of chasing into the golden hour"
+          }
+        },
+        "slide_tFRhyq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/m3.webp",
+            "caption": "A beautiful thunderstorm base wraps the last light of sunset in Oklahoma"
+          }
+        },
+        "slide_VyH7NQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/m5.webp",
+            "caption": "Mammatus clouds catch the waning light across the great plains."
+          }
+        },
         "slide_1": {
           "type": "slide",
           "settings": {
@@ -99,12 +163,25 @@
         "slide_4": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/15.jpg",
-            "caption": "A mesocyclone organizes over wheat country."
+            "image": "shopify:\/\/shop_images\/b7.jpg",
+            "caption": "Leilani the Hula Girl joins the chase"
           }
         }
       },
-      "block_order": ["slide_1", "slide_2", "slide_3", "slide_4"],
+      "block_order": [
+        "slide_zPCKqt",
+        "slide_VE7tPx",
+        "slide_ihbHUP",
+        "slide_cUbbHA",
+        "slide_FnH8ip",
+        "slide_Rr9VQg",
+        "slide_tFRhyq",
+        "slide_VyH7NQ",
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4"
+      ],
       "settings": {
         "slider_eyebrow": "Dispatches",
         "slider_title": "From the field."
@@ -114,7 +191,7 @@
       "type": "home-field-notes",
       "settings": {
         "eyebrow": "From the Lead Forecaster",
-        "body": "We don\u2019t chase for the hunt. We chase for the minutes before a storm closes \u2014 when the light goes strange, the air goes electric, and a photograph becomes possible. Those minutes are why we built this.",
+        "body": "We don’t chase for the hunt. We chase for the minutes before a storm closes — when the light goes strange, the air goes electric, and a photograph becomes possible. Those minutes are why we built this.",
         "attribution": "Skyscape Photo Tours"
       }
     },
@@ -134,6 +211,7 @@
     "home_mid_cta": {
       "type": "home-mid-cta",
       "settings": {
+        "background_image": "shopify:\/\/shop_images\/m4.webp",
         "eyebrow": "2026 & 2027 Storm Seasons",
         "heading": "Tours for photographers who want more than luck.",
         "copy": "We handle the positioning, timing, and coaching so you can focus on making photographs when the light and weather finally align.",
@@ -161,7 +239,7 @@
       "settings": {
         "title": "",
         "collection": "tours",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "show_view_all": true,
         "swipe_on_mobile": true,
         "image_ratio": "square",
