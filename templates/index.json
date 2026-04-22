@@ -9,20 +9,15 @@
         "button_link": "shopify:\/\/collections\/tours"
       }
     },
-    "home_dual_guide": {
-      "type": "home-dual-guide",
+    "home_heritage": {
+      "type": "home-heritage",
       "settings": {
-        "eyebrow": "Two Guides, One Mission",
-        "heading": "Why every Skyscape tour runs with two leads.",
-        "sub": "A meteorologist for safe positioning. A photographer for the frame. They work in tandem so all you have to think about is the shot.",
-        "forecaster_role": "Meteorologist",
-        "forecaster_title": "Lead Forecaster",
-        "forecaster_body": "A degreed meteorologist focused entirely on positioning and safety. They read the radar, analyze the shear, and put us on the dryline before the storm fires.",
-        "forecaster_bullets": "Real-time radar analysis\nSafe routing & escape planning\nPositioning for the best light",
-        "creative_role": "Photographer",
-        "creative_title": "Creative Director",
-        "creative_body": "A working landscape photographer who helps you dial in settings, compose dramatic foregrounds, and capture the structural majesty of the supercell.",
-        "creative_bullets": "In-field composition coaching\nExposure settings for lightning\nPost-processing workshops"
+        "eyebrow": "Established",
+        "year": "2020",
+        "caption": "Owner-led, every season",
+        "heading": "Six springs in the field. Same crew. Same plains.",
+        "body": "Skyscape has been running small, forecaster-led storm tours since the spring of 2020. Every season we\u2019re back on the dryline \u2014 reading setups days ahead, positioning groups for the structural moments, and getting out before the hail.",
+        "body_2": "Same operation. Same forecaster. Same standing offer to put you in front of the storm and let you make the photograph."
       }
     },
     "home_approach": {
@@ -207,31 +202,25 @@
         "alignment": "left"
       }
     },
-    "featured_products": {
-      "type": "featured-collection",
+    "featured_tours": {
+      "type": "home-featured-tours",
       "settings": {
-        "title": "",
         "collection": "tours",
-        "products_to_show": 4,
-        "show_view_all": true,
-        "swipe_on_mobile": true,
-        "image_ratio": "square",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_image_outline": false,
-        "show_vendor": false,
-        "show_rating": false
+        "product_count": 4,
+        "card_cta_label": "View tour",
+        "link_label": "View all trips",
+        "link_url": "shopify:\/\/collections\/tours"
       }
     }
   },
   "order": [
     "1632611843c4d35cb8",
-    "home_dual_guide",
+    "home_heritage",
     "home_approach",
     "home_dispatches",
     "home_field_notes",
     "home_mid_cta",
     "home_booking_heading",
-    "featured_products"
+    "featured_tours"
   ]
 }
