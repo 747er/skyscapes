@@ -9,7 +9,6 @@ module.exports = {
     ),
     gallery: path.resolve(__dirname, "../src/sections/gallery/gallery.js"),
     'lightningThree': path.resolve(__dirname, "../src/sections/lightningThree/lightningThree.js"),
-
   },
   output: {
     path: path.resolve(__dirname, "../assets/"),
