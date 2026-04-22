@@ -1,24 +1,56 @@
 <style>
   .home-field-notes {
-    background: #ede4d3;
-    color: #1a1613;
-    padding: clamp(96px, 14vh, 160px) 32px;
     position: relative;
+    background: #08090b;
+    color: #fff;
+    padding: clamp(120px, 18vh, 200px) 32px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .home-field-notes::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(60% 50% at 50% 40%, rgba(234, 185, 127, 0.08) 0%, rgba(8, 9, 11, 0) 70%),
+      radial-gradient(120% 80% at 50% 100%, rgba(74, 47, 18, 0.18) 0%, rgba(8, 9, 11, 0) 70%);
+  }
+
+  .home-field-notes::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(234, 185, 127, 0) 0%, rgba(234, 185, 127, 0.25) 50%, rgba(234, 185, 127, 0) 100%);
   }
 
   .home-field-notes__inner {
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+  }
+
+  .home-field-notes__quotemark {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(120px, 14vw, 200px);
+    line-height: 0.8;
+    color: rgba(234, 185, 127, 0.15);
+    margin-bottom: -0.4em;
+    user-select: none;
   }
 
   .home-field-notes__eyebrow {
     font-size: 11px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #8a6b3a;
+    color: #eab97f;
     font-weight: 500;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
     display: inline-flex;
     align-items: center;
     gap: 14px;
@@ -30,31 +62,33 @@
     display: inline-block;
     width: 28px;
     height: 1px;
-    background: #8a6b3a;
+    background: #eab97f;
     opacity: 0.5;
   }
 
   .home-field-notes__body {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(22px, 2.4vw, 32px);
+    font-style: italic;
+    font-size: clamp(24px, 2.6vw, 36px);
     line-height: 1.4;
     letter-spacing: -0.005em;
-    color: #1a1613;
-    margin: 0 0 40px;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 48px;
     font-weight: 400;
+    text-wrap: balance;
   }
 
   .home-field-notes__body em {
     font-style: italic;
-    color: #4a2f12;
+    color: #eab97f;
   }
 
   .home-field-notes__ornament {
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 20px;
-    color: #8a6b3a;
+    margin-bottom: 22px;
+    color: #eab97f;
     opacity: 0.7;
   }
 
@@ -69,19 +103,24 @@
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #4a2f12;
+    color: rgba(234, 185, 127, 0.85);
     font-weight: 500;
   }
 
   @media (max-width: 749px) {
     .home-field-notes {
-      padding: 80px 24px;
+      padding: 96px 24px;
+    }
+    .home-field-notes__quotemark {
+      font-size: 96px;
     }
   }
 </style>
 
 <section class="home-field-notes">
   <div class="home-field-notes__inner">
+    <div class="home-field-notes__quotemark" aria-hidden="true">&ldquo;</div>
+
     {% if section.settings.eyebrow != blank %}
       <div class="home-field-notes__eyebrow">{{ section.settings.eyebrow }}</div>
     {% endif %}
